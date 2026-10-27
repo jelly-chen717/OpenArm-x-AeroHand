@@ -1,0 +1,28 @@
+{
+  "port": "COM7",
+  "baudrate": 921600,
+  "position_mode": "joint_degrees_7",
+  "rest_pose": {
+    "thumb_abduction": 0,
+    "thumb_flexion": 0,
+    "thumb_tendon": 0,
+    "index": 6.39,
+    "middle": 3.15,
+    "ring": 11.25,
+    "pinky": 0
+  },
+  "press": {
+    "index": 20.88,
+    "middle": 18.18,
+    "ring": 31.5
+  },
+  "timing": {
+    "down_seconds": 0.12,
+    "hold_seconds": 0.18,
+    "up_seconds": 0.15,
+    "gap_seconds": 0.05,
+    "startup_seconds": 2.0,
+    "stop_seconds": 0.5,
+    "update_hz": 100
+  }
+}

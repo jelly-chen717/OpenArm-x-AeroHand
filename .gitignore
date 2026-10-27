@@ -1,0 +1,11 @@
+# Local Python environments and generated files
+.venv-aero/
+**/.venv/
+**/__pycache__/
+*.py[cod]
+.install-temp/
+**/.tmp/
+**/output/
+# Upstream repository is managed independently
+/aero-hand-open/
+/aero-hand-open.zip
