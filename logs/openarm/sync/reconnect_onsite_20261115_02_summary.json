@@ -1,0 +1,36 @@
+{
+  "source": "logs\\openarm\\sync\\reconnect_onsite_20261115_02.jsonl",
+  "user_confirmation": "USB disconnected and reconnected, window recovered",
+  "sides": {
+    "left": {
+      "lost_t": 34.96900000000096,
+      "recovered_t": 47.4380000000001,
+      "invalid_interval_s": 12.468999999999141,
+      "latest_valid": true,
+      "latest_states": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "right": {
+      "lost_t": 34.96900000000096,
+      "recovered_t": 47.03100000000086,
+      "invalid_interval_s": 12.061999999999898,
+      "latest_valid": true,
+      "latest_states": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  }
+}

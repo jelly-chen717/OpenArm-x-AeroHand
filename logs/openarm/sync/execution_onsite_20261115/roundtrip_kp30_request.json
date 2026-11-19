@@ -1,0 +1,51 @@
+{
+  "request_id": "onsite-roundtrip-kp30-1794742643579613900",
+  "mapping_version": "hardware-user-confirmed-v1-20261115",
+  "expires_at": 1794742823.579614,
+  "joints": [
+    {
+      "side": "right",
+      "motor_id": 7
+    }
+  ],
+  "initial_model_position": [
+    -0.052071412222476354
+  ],
+  "limits": {
+    "velocity_rad_s": 0.1,
+    "acceleration_rad_s2": 0.3,
+    "start_error_rad": 0.01
+  },
+  "points": [
+    {
+      "t": 0,
+      "q": [
+        -0.052071412222476354
+      ]
+    },
+    {
+      "t": 2,
+      "q": [
+        -0.03207141222247635
+      ]
+    },
+    {
+      "t": 3,
+      "q": [
+        -0.03207141222247635
+      ]
+    },
+    {
+      "t": 5,
+      "q": [
+        -0.052071412222476354
+      ]
+    },
+    {
+      "t": 6,
+      "q": [
+        -0.052071412222476354
+      ]
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "validation": "virtual_only",
+  "samples": 576,
+  "duration_s": 23.00137040000027,
+  "max_tracking_error_rad": 0.0,
+  "peak_target_velocity_deg_s": [
+    12.05287891639846,
+    11.7187485891417,
+    11.71874917953728
+  ],
+  "hardware_motion_executed": false,
+  "hardware_preflight": "passed; current pose, mode, protocol, limits, velocity, acceleration",
+  "approval": "pending"
+}

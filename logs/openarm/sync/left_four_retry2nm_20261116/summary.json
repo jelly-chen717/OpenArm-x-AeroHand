@@ -1,0 +1,37 @@
+{
+  "outcome": "FAULT",
+  "reason": "Feedback speed or torque exceeded for ('left', 4): velocity=0.002442 rad/s (limit 0.5), torque=2.003419 Nm (limit 2.0)",
+  "duration_to_last_complete_sample_s": 26.20107850000022,
+  "samples": 656,
+  "joint_order": [
+    "left_J4",
+    "left_J5",
+    "left_J6",
+    "left_J7"
+  ],
+  "requested_delta_deg": [
+    15,
+    45,
+    25,
+    25
+  ],
+  "actual_delta_before_disable_deg": [
+    12.261742697352204,
+    44.41329975226345,
+    23.408781513126936,
+    24.30491600616001
+  ],
+  "error_to_final_target_deg": [
+    -2.7382573026477943,
+    -0.5867002477365528,
+    -1.5912184868730643,
+    -0.6950839938399902
+  ],
+  "completed_checkpoints_s": [
+    6.0,
+    13.0,
+    23.0
+  ],
+  "holding_target_reached": false,
+  "all_14_disabled": true
+}

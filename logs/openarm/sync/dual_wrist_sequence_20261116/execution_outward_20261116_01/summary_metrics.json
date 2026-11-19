@@ -1,0 +1,26 @@
+{
+  "complete_samples": 2147,
+  "holding_samples": 1552,
+  "whole_run_max_tracking_error_deg": 1.1007967650003831,
+  "temperature_max_c": 34,
+  "pair_dispatch_median_ms": 0.029000002541579306,
+  "pair_dispatch_p95_ms": 0.12109999806853011,
+  "pair_dispatch_max_ms": 0.3972999984398484,
+  "j5_peak_feedback_and_position_difference": [
+    {
+      "stage": "01_J5",
+      "t": 1.8623813999947743,
+      "decoded_velocity_deg_s": -90.24609959936052,
+      "position_central_difference_deg_s": -44.394817479013504,
+      "command_velocity_deg_s": -44.59217547526097
+    },
+    {
+      "stage": "01_J5",
+      "t": 2.024352499996894,
+      "decoded_velocity_deg_s": -90.24609959936052,
+      "position_central_difference_deg_s": -43.570716785055765,
+      "command_velocity_deg_s": -44.00677839846791
+    }
+  ],
+  "hardware_accessed": false
+}

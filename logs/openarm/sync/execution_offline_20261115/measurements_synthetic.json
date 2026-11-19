@@ -1,0 +1,32 @@
+{
+  "units": "rad",
+  "side": "right",
+  "motor_id": 7,
+  "measurement_method": "synthetic arithmetic fixture",
+  "min_span_rad": 0.1,
+  "max_error_rad": 0.001,
+  "fit_pairs": [
+    [
+      0,
+      0.2
+    ],
+    [
+      0.2,
+      -0.2
+    ],
+    [
+      0.4,
+      -0.6
+    ]
+  ],
+  "validation_pairs": [
+    [
+      0.1,
+      0
+    ],
+    [
+      0.3,
+      -0.4
+    ]
+  ]
+}

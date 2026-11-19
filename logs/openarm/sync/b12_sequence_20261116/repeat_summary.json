@@ -1,0 +1,20 @@
+{
+  "duration_s": 29.000668600000154,
+  "samples": 726,
+  "joint_order": [
+    "right_J6",
+    "right_J7"
+  ],
+  "delta_from_original_deg": [
+    -23.255782941145817,
+    14.228867194253628
+  ],
+  "endpoint_error_deg": [
+    1.7442170588541843,
+    -0.7711328057463712
+  ],
+  "all_14_disabled": true,
+  "faults": [
+    "Waypoint tolerance exceeded"
+  ]
+}

@@ -1,0 +1,36 @@
+{
+  "result": "motion_sequence_executed_endpoint_tolerance_failed",
+  "duration_s": 29.000458399999843,
+  "samples": 726,
+  "joint_order": [
+    "right_J6",
+    "right_J7"
+  ],
+  "requested_delta_deg": [
+    -25,
+    15
+  ],
+  "measured_delta_before_disable_deg": [
+    -23.255782941145817,
+    14.228867194253628
+  ],
+  "endpoint_error_deg": [
+    1.7442170588541843,
+    -0.7711328057463712
+  ],
+  "max_torque_nm": [
+    0.705738705738705,
+    0.4615384615384617
+  ],
+  "max_speed_rad_s": [
+    0.1098901098901095,
+    0.0952380952380949
+  ],
+  "max_temperature_c": 30,
+  "all_14_disabled": true,
+  "period_median_s": 0.040003300000080344,
+  "period_max_s": 0.04184320000013031,
+  "faults": [
+    "Waypoint tolerance exceeded"
+  ]
+}

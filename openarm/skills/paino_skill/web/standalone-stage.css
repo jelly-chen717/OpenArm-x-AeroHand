@@ -1,0 +1,392 @@
+/* The piano occupies the viewport. Controls sit outside its musical space. */
+.key { width: calc(100% / 52); }
+.key.black { width: calc(60% / 52); }
+.hand { width: calc(400% / 52); }
+:root {
+  --bg: #080809;
+  --surface: #111112;
+  --text: #f1ebe0;
+  --muted: #b7ad9b;
+  --blue: #efc47c;
+  --amber: #eea66c;
+}
+body { background: var(--bg); }
+body::before { display: none; }
+header { border-color: #292620; height: 60px; }
+header strong { font-size: 18px; font-weight: 500; letter-spacing: .08em; }
+header > small { color: #b7ad9b; }
+main { height: calc(100dvh - 60px); padding: 18px; gap: 18px; grid-template-columns: 280px minmax(0,1fr); }
+button { background: #24211d; border-color: #51483a; border-radius: 8px; }
+button:hover:not(:disabled) { background: #363026; }
+button.primary { background: #efc47c; color: #20180d; border-color: #efc47c; }
+button.primary:hover:not(:disabled) { background: #ffdc9b; }
+.library {
+  background: linear-gradient(155deg, #19150fd9, #0d0c0be8 45%, #100e0be8);
+  border: 0;
+  border-right: 1px solid #c5a26426;
+  border-radius: 0;
+}
+.library-head { padding: 22px 18px 12px; }
+.library-head h2 { justify-content: flex-start; gap: 12px; margin-bottom: 22px; font-size: 22px; font-weight: 400; }
+#libraryCount { color: #bba98d; font-size: 11px; font-weight: 400; margin-left: auto; font-variant-numeric: tabular-nums; }
+#drawerClose { font-size: 12px; min-height: 32px; padding: 6px 10px; }
+.library-search { position: relative; }
+.library-search > svg { position: absolute; left: 0; top: 12px; width: 17px; height: 17px; color: #bba98d; pointer-events: none; }
+.search { background: transparent; border: 0; border-bottom: 1px solid #c5a26440; border-radius: 0; padding-left: 28px; padding-right: 6px; font-size: 13px; }
+.search::placeholder { color: #bba98d; }
+.search:focus { border-bottom-color: #efc47c; }
+.library-foot { padding: 16px 18px 18px; border-color: #c5a26426; }
+.library-foot button { background: #d5ae6510; border-color: #b48e494f; color: #efc47c; font-size: 13px; min-height: 40px; }
+.library-foot small { font-size: 11px; color: #bba98d; }
+#songList { padding: 0 10px 12px; scrollbar-color: #a2854d66 transparent; scrollbar-width: thin; }
+.song {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  height: 70px;
+  min-height: 70px;
+  margin: 0;
+  padding: 12px 10px;
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid #b49c7220;
+  border-radius: 0;
+  color: #e8e0d2;
+  transition: transform 180ms ease-out, background 180ms ease-out, color 180ms ease-out;
+}
+.song:hover:not(:disabled),.song:focus-visible { transform: translateX(4px); background: #d1ac6c0d; border-color: #b49c7238; }
+.song[aria-pressed=true] { border: 0; border-bottom: 1px solid #d1ac6c50; background: linear-gradient(90deg,#e6b65d1c,#e6b65d03); color: #ffe1a9; }
+.song[aria-pressed=true]:hover:not(:disabled) { background: linear-gradient(90deg,#e6b65d26,#e6b65d08); }
+.song-index { width: 22px; flex: none; font-size: 11px; color: #b3a084; font-variant-numeric: tabular-nums; }
+.song-copy { min-width: 0; flex: 1; display: flex; flex-direction: column; gap: 5px; }
+.song .name { flex: none; display: block; font-size: 14px; line-height: 20px; }
+.song-duration { color: #bba98d; font-size: 11px; line-height: 14px; font-variant-numeric: tabular-nums; }
+.song[aria-pressed=true] .song-index,.song.is-current .song-index { color: #efc47c; }
+.mark { color: #efc47c; width: 20px; display: grid; place-items: center; }
+.song.is-current .name { color: #ffe1a9; }
+.song.is-playing .mark svg { animation: library-pulse 1.1s ease-in-out infinite alternate; }
+#focusTitle { padding: 8px 18px; font-size: 11px; color: #c9b58f; min-height: 28px; }
+@keyframes library-pulse { from { transform: scaleY(.55); opacity: .65; } to { transform: scaleY(1); opacity: 1; } }
+.stage-panel { position: relative; padding: 20px; gap: 12px; background: #0e0e10; border-color: #302a23; border-radius: 12px; overflow: hidden; }
+#stageHeading { padding-right: 168px; flex: none; }
+.heading { justify-content: flex-start; gap: 14px; }
+.heading small { color: #b7ad9b; font-size: 11px; }
+h1 { font-size: clamp(20px,2.1vw,30px); font-weight: 500; margin: 6px 0; }
+#selectionInfo { font-size: 12px; margin: 5px 0 0; }
+#pending { margin-top: 12px; background: #282118; font-size: 13px; }
+#viewActions { position: absolute; top: 20px; right: 20px; display: flex; gap: 8px; z-index: 5; }
+#viewActions button { font-size: 12px; min-height: 36px; padding: 6px 12px; }
+#scroll { position: relative; flex: 1; min-height: 250px; border-color: #30291e; border-radius: 8px; background: #060607; overflow: hidden; }
+#scroll:not(.has-webgl) { overflow-x: auto; }
+#sceneHost { position: absolute; inset: 0; }
+#sceneHost canvas { width: 100%; height: 100%; min-height: 0; display: block; touch-action: pan-y; }
+@media (orientation: portrait) { #sceneHost canvas { touch-action: none; } }
+.has-webgl #stage { position: absolute; width: 1px; height: 1px; min-width: 0; overflow: hidden; clip-path: inset(50%); }
+#stageHint { position: absolute; left: 16px; right: 16px; top: 24%; text-align: center; color: #b6a382; font-size: 13px; letter-spacing: .08em; pointer-events: none; }
+#noteReadout { position: absolute; top: 12%; left: 0; right: 0; text-align: center; font-size: 17px; font-weight: 400; color: #efc47c; letter-spacing: .10em; pointer-events: none; }
+.stage-caption { font-size: 11px; color: #b7ad9b; }
+.legend-left { color: #efc47c; }
+.legend-right { color: #eea66c; }
+.controls { border-color: #30291e; padding-top: 12px; }
+.control-row button { font-size: 13px; min-height: 40px; padding: 8px 13px; }
+.control-row label { color: #c6b79f; }
+select { background: #201c17; border-color: #51483a; height: 40px; }
+progress { height: 3px; margin: 10px 0 12px; }
+dialog { background: #151310; border-color: #68573d; }
+textarea { background: #0b0b0c; }
+#overlay { top: 60px; }
+#notice { color: #f0c88b; font-size: 12px; }
+
+/* Immersion keeps the scene edge-to-edge, with quiet floating transport. */
+body.immersive { overflow: hidden; }
+.immersive > header { display: none; }
+.immersive main { height: 100dvh; padding: 0; display: block; }
+.immersive .library { display: none; }
+.immersive .stage-panel { width: 100%; height: 100dvh; border: 0; border-radius: 0; padding: 0; display: block; background: #060607; }
+.immersive #scroll { position: absolute; inset: 0; min-height: 0; border: 0; border-radius: 0; }
+.immersive #stageHeading { position: absolute; top: 24px; left: 28px; right: 205px; padding: 0; z-index: 4; pointer-events: none; }
+.immersive #stageHeading h1 { font-size: 20px; margin-top: 8px; }
+.immersive #selectionInfo,.immersive .heading small { display: none; }
+.immersive #pending { pointer-events: auto; width: fit-content; }
+.immersive #viewActions { top: 24px; right: 28px; }
+.immersive #viewActions button { background: #171511d9; }
+.immersive .controls { position: absolute; left: 50%; bottom: 20px; transform: translateX(-50%); z-index: 5; width: max-content; max-width: calc(100% - 48px); border: 1px solid #51412c; border-radius: 12px; padding: 12px 18px; background: #13110ee8; backdrop-filter: blur(14px); }
+.immersive .time-row { font-size: 11px; }
+.immersive .control-row { justify-content: center; }
+.immersive .stage-caption { position: absolute; left: 28px; right: 28px; bottom: 145px; z-index: 3; pointer-events: none; }
+.immersive #notice:not(:empty) { position: absolute; left: 28px; bottom: 160px; max-width: calc(100% - 56px); z-index: 6; background: #18130fec; padding: 12px; border-radius: 8px; }
+@media (orientation: portrait) {
+  .immersive #noteReadout { top: 20%; }
+  .immersive .stage-caption { background: #0c0b09e6; padding: 5px 8px; border-radius: 6px; }
+}
+.immersive #stageHeading,.immersive #viewActions,.immersive .controls,.immersive .stage-caption { transition: opacity 250ms ease; }
+.immersive.chrome-hidden #stageHeading,.immersive.chrome-hidden #viewActions,.immersive.chrome-hidden .controls,.immersive.chrome-hidden .stage-caption { opacity: 0; pointer-events: none; }
+.immersive.chrome-hidden #scroll { cursor: none; }
+
+@media (max-width: 1100px) {
+  main { grid-template-columns: 250px minmax(0,1fr); }
+  .control-row { gap: 7px; }
+  #stageHeading { padding-right: 0; padding-top: 40px; }
+  .immersive #stageHeading { padding-top: 0; }
+}
+@media (max-width: 1023px) {
+  main { display: block; padding: 12px; }
+  .stage-panel { height: 100%; padding: 16px; }
+  .library { top: 60px; bottom: 0; background: linear-gradient(155deg,#19150ffc,#0b0a09fc); backdrop-filter: blur(18px); }
+  .library.open { display: flex; }
+  #viewActions { top: 16px; right: 16px; }
+  #stageHeading { padding-top: 0; padding-right: 170px; }
+  .heading small { display: none; }
+}
+@media (max-width: 600px) {
+  header { height: 54px; }
+  header strong { font-size: 16px; }
+  main { height: calc(100dvh - 54px); padding: 8px; }
+  .stage-panel { padding: 12px; gap: 10px; }
+  #stageHeading { padding-right: 0; padding-top: 42px; }
+  #viewActions { left: 12px; right: auto; top: 12px; }
+  h1 { font-size: 20px; }
+  #scroll { min-height: 180px; }
+  #stageHint { top: 22%; font-size: 11px; }
+  .stage-caption { flex-wrap: wrap; gap: 4px; }
+  .control-row { gap: 6px; }
+  .control-row button { font-size: 12px; padding: 7px 10px; }
+  .control-row input[type=range] { width: 70px; }
+  #overlay { top: 54px; }
+  .library { top: 54px; }
+  .immersive #stageHeading { top: 70px; left: 18px; right: 18px; padding: 0; }
+  .immersive #stageHeading h1 { font-size: 17px; }
+  .immersive #viewActions { top: 18px; left: 18px; right: auto; }
+  .immersive .controls { bottom: 12px; max-width: calc(100% - 24px); width: calc(100% - 24px); padding: 10px 12px; }
+  .immersive .stage-caption { left: 18px; right: 18px; bottom: 175px; font-size: 10px; }
+}
+@media (max-height: 699px) {
+  main { height: auto; min-height: calc(100dvh - 60px); }
+  .stage-panel { min-height: 600px; }
+  .immersive main,.immersive .stage-panel { height: 100dvh; min-height: 0; }
+  .immersive .stage-caption { display: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .immersive #stageHeading,.immersive #viewActions,.immersive .controls,.immersive .stage-caption { transition: none; }
+  .song.is-playing .mark svg { animation: none; }
+}
+
+/* The library overlays the stage without changing its size or camera. */
+:root { --library-top: 60px; }
+main { grid-template-columns: minmax(0, 1fr); }
+#drawerOpen, #drawerClose { display: inline-flex; }
+.library, .immersive .library {
+  display: flex;
+  position: fixed;
+  left: 0;
+  top: var(--library-top);
+  bottom: 0;
+  width: min(280px, 88vw);
+  max-height: none;
+  z-index: 20;
+  background: linear-gradient(155deg, #19150ffc, #0b0a09fc);
+  transform: translateX(-100%);
+  visibility: hidden;
+  pointer-events: none;
+  transition: transform 200ms cubic-bezier(.16, 1, .3, 1), visibility 0s 200ms;
+}
+.library.open, .immersive .library.open {
+  transform: translateX(0);
+  visibility: visible;
+  pointer-events: auto;
+  box-shadow: 12px 0 32px #0006;
+  transition: transform 240ms cubic-bezier(.16, 1, .3, 1), visibility 0s;
+}
+#libraryEdge {
+  position: fixed;
+  left: 0;
+  top: var(--library-top);
+  bottom: 0;
+  width: 50px;
+  padding: 0;
+  min-height: 44px;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  z-index: 19;
+}
+#libraryEdge::after {
+  content: '';
+  position: absolute;
+  left: 3px;
+  top: 45%;
+  height: 52px;
+  width: 2px;
+  border-radius: 2px;
+  background: #bba98d66;
+}
+#libraryEdge:hover::after, #libraryEdge:focus-visible::after { background: #efc47c; }
+.library-open #libraryEdge { pointer-events: none; }
+.immersive { --library-top: 0px; }
+.immersive.library-open #scroll { cursor: auto; }
+#overlay { z-index: 18; }
+@media (max-width: 600px) {
+  :root { --library-top: 54px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .library, .library.open, .immersive .library, .immersive .library.open { transition: none; }
+}
+/* Reserve real layout space for transport instead of overlapping the piano. */
+:root { --mist: #aecbdc; --mist-border: #9abbd17a; }
+body { height: 100dvh; display: grid; grid-template-rows: 60px minmax(0, 1fr) auto; overflow: hidden; }
+header { padding-right: 300px; }
+header > small { display: none; }
+main { height: auto; min-height: 0; padding: 12px 18px; }
+.stage-panel { height: 100%; min-height: 0; padding: 12px; gap: 8px; }
+#scroll { min-height: 0; }
+#viewActions, .immersive #viewActions { position: fixed; top: 8px; right: 18px; left: auto; z-index: 22; display: flex; gap: 8px; opacity: 1; pointer-events: auto; }
+#viewActions button { min-height: 44px; padding: 8px 12px; }
+#transport { position: relative; z-index: 17; display: grid; grid-template-columns: minmax(180px, 480px) auto auto; justify-content: center; align-items: center; gap: 16px; padding: 8px 16px max(8px, env(safe-area-inset-bottom)); background: #10151b; border-top: 1px solid var(--mist-border); }
+#playbackStatus { min-width: 0; }
+.playback-heading { display: flex; align-items: center; gap: 10px; }
+#playingName { flex: 1; min-width: 0; margin: 0; font-size: 14px; line-height: 22px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+#state { flex: none; color: var(--mist); font-size: 11px; }
+#playbackStatus progress { accent-color: var(--mist); height: 3px; margin: 8px 0; }
+#playbackStatus .time-row { color: #c1d0da; font-size: 11px; gap: 6px; }
+#transportButtons { display: flex; gap: 6px; }
+#transportButtons button { min-height: 32px; padding: 5px 10px; border-radius: 6px; font-size: 12px; }
+#transportButtons .primary { background: var(--mist); color: #11212b; border-color: var(--mist); }
+#mixControls { display: flex; gap: 16px; }
+.vertical-parameter { display: grid; grid-template-columns: auto 84px 38px; align-items: center; gap: 8px; font-size: 11px; color: #d6e7f0; }
+.vertical-parameter input[type=range] { writing-mode: horizontal-tb; direction: ltr; width: 84px; height: 32px; margin: 0; accent-color: var(--mist); cursor: pointer; }
+.vertical-parameter output { text-align: right; font-size: 12px; font-variant-numeric: tabular-nums; }
+#libraryEdge { top: 42%; bottom: auto; width: 20px; height: 72px; min-height: 44px; }
+#libraryEdge::after { top: 10px; }
+#libraryEdge:focus-visible { outline: 2px solid var(--blue); outline-offset: -2px; }
+.immersive { display: block; }
+.immersive main { height: 100dvh; }
+.immersive #transport { position: fixed; bottom: 0; left: 0; right: 0; }
+.immersive .stage-caption { left: 24px; right: 24px; bottom: 104px; max-width: none; }
+.immersive #notice:not(:empty) { bottom: 132px; }
+@media (max-width: 1100px) {
+  #transport { grid-template-columns: minmax(0, 480px) auto; gap: 8px 16px; padding: 8px 16px; }
+  #mixControls { grid-column: 1 / -1; justify-content: flex-end; }
+  .immersive .stage-caption { bottom: 144px; }
+}
+@media (max-width: 600px) {
+  body { grid-template-rows: 104px minmax(0, 1fr) auto; }
+  header { height: 54px; align-self: start; padding: 0 12px; }
+  header strong { font-size: 16px; }
+  #viewActions, .immersive #viewActions { top: 54px; left: 12px; right: 12px; justify-content: flex-end; gap: 6px; }
+  #viewActions button { padding: 8px 12px; font-size: 12px; }
+  :root { --library-top: 104px; }
+  main { height: auto; padding: 8px; }
+  .stage-panel { padding: 8px; }
+  #overlay { top: var(--library-top); }
+  #transport { grid-template-columns: minmax(0, 1fr); gap: 8px; padding: 10px 12px max(10px, env(safe-area-inset-bottom)); }
+  #transportButtons { justify-content: center; }
+  #transportButtons button { flex: none; }
+  #mixControls { grid-column: auto; justify-content: space-between; gap: 8px; }
+  .vertical-parameter { grid-template-columns: auto minmax(40px, 1fr) 34px; flex: 1; gap: 4px; }
+  .vertical-parameter input[type=range] { width: 100%; }
+  .stage-caption { font-size: 10px; gap: 4px; }
+  .immersive #viewActions { top: 8px; }
+  .immersive .stage-caption { display: none; }
+}
+@media (max-height: 500px) {
+  .stage-caption { display: none; }
+  #mixControls { grid-column: auto; }
+  #transport { grid-template-columns: minmax(120px, 480px) auto auto; gap: 10px; padding: 6px 12px; }
+  #mixControls { flex-direction: column; gap: 0; }
+}
+
+.library-foot #selectionInfo { margin: 0 0 12px; }
+.library-foot #pending { flex-direction: column; align-items: stretch; margin: 0 0 12px; }
+.library-foot #pending button { margin: 0; }
+
+/* Frosted surfaces share a warm tint with the piano's amber lighting. */
+:root {
+  --glass-fill: linear-gradient(145deg, #f7e5c318, #20252c94 55%, #191a20b8);
+  --glass-edge: #f4e8ce38;
+  --glass-highlight: inset 0 1px 0 #fff5df24;
+}
+body {
+  background: radial-gradient(ellipse at 12% 0%, #59462c55, transparent 50%),
+              radial-gradient(ellipse at 95% 100%, #36566c55, transparent 55%), #080a0e;
+}
+header, #transport, .library, .immersive .library, dialog {
+  background: var(--glass-fill);
+  -webkit-backdrop-filter: blur(24px) saturate(135%);
+  backdrop-filter: blur(24px) saturate(135%);
+  border-color: var(--glass-edge);
+  box-shadow: var(--glass-highlight), 0 12px 36px #00000030;
+}
+header { background-color: #16171b80; }
+.stage-panel {
+  background: linear-gradient(145deg, #f5dfba0d, #a8cde607);
+  border-color: #f4e8ce26;
+  box-shadow: var(--glass-highlight);
+}
+#transport { background-color: #14192080; }
+button, .library-foot button, #viewActions button, .immersive #viewActions button {
+  background: linear-gradient(155deg, #fff0d51c, #e5d8bd08), #20252b80;
+  border: 1px solid var(--glass-edge);
+  border-radius: 10px;
+  box-shadow: var(--glass-highlight), 0 4px 12px #00000020;
+  -webkit-backdrop-filter: blur(14px) saturate(125%);
+  backdrop-filter: blur(14px) saturate(125%);
+  transition: background-color 180ms ease-out, border-color 180ms ease-out, box-shadow 180ms ease-out;
+}
+button:hover:not(:disabled), .library-foot button:hover:not(:disabled),
+#viewActions button:hover:not(:disabled) {
+  background-color: #76694d70;
+  border-color: #fff0d575;
+  box-shadow: inset 0 1px 0 #fff5df40, 0 6px 16px #00000030;
+}
+button:active:not(:disabled) { box-shadow: inset 0 2px 5px #00000045; }
+button.primary, #transportButtons .primary {
+  background: linear-gradient(145deg, #fff1cbcc, #dfb66fbc);
+  color: #231b10;
+  border-color: #fff1c9a8;
+}
+button.primary:hover:not(:disabled), #transportButtons .primary:hover:not(:disabled) {
+  background: linear-gradient(145deg, #fff4dbe8, #edca8cdb);
+}
+button[aria-pressed=true]:not(.song) { border-color: #efc47ca6; background-color: #9a743e70; }
+button:disabled { opacity: .45; box-shadow: var(--glass-highlight); }
+.library, .immersive .library { background-color: #141417a6; }
+.library.open, .immersive .library.open { box-shadow: var(--glass-highlight), 16px 0 48px #00000055; }
+.song {
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid #b49c7220;
+  border-radius: 0;
+  box-shadow: none;
+  -webkit-backdrop-filter: none;
+  backdrop-filter: none;
+}
+.song:hover:not(:disabled), .song:focus-visible { background: #fff0d512; box-shadow: none; }
+.song[aria-pressed=true] { background: linear-gradient(90deg, #efc47c28, #efc47c08); }
+.search, textarea, dialog input {
+  background: #090c125c;
+  border: 1px solid #e2d4b638;
+  border-radius: 8px;
+  box-shadow: inset 0 2px 8px #00000026;
+  caret-color: #efc47c;
+}
+.search { padding-left: 32px; }
+.library-search > svg { left: 9px; }
+#pending { background: #efc47c12; border-color: var(--glass-edge); }
+dialog { background-color: #17191ddd; border-radius: 16px; }
+dialog::backdrop { background: #03060980; -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px); }
+#overlay { background: #03060950; }
+#libraryEdge, #libraryEdge:hover:not(:disabled) {
+  background: transparent;
+  border: 0;
+  box-shadow: none;
+  -webkit-backdrop-filter: none;
+  backdrop-filter: none;
+}
+::selection { color: #fff4df; background: #97723f99; }
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  header, #transport, .library, .immersive .library, dialog { background: #1a1c22f5; }
+  button, .library-foot button, #viewActions button { background-color: #303239; }
+}
+@media (prefers-reduced-motion: reduce) {
+  button, .library-foot button, #viewActions button, .immersive #viewActions button { transition: none; }
+}

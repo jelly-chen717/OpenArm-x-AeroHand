@@ -1,0 +1,499 @@
+{
+  "status": "SIX_STAGES_PASSED_HOLD_INTERRUPTED_STOP_UNCONFIRMED",
+  "analyzed_at_unix": 1794837302.4441535,
+  "request_id": "authorized-outward-29b3dfc5-26d5-47c2-9162-6eba682acc9b",
+  "baseline_source": "updated_zero.jsonl",
+  "zero_update_authorization": "以当前姿态更新零点，沿用已授权表执行",
+  "baseline_local_time": "2026-11-16T21:49:33.747329+08:00",
+  "completion_s": 23.78395669999736,
+  "stages": [
+    {
+      "stage": "01_J5",
+      "completed_s": 4.744443199997477,
+      "dwell_s": 1.0002542000001995,
+      "actual_move_s": 3.7441889999972773,
+      "arrival_wait_s": 0.0,
+      "joint": 5,
+      "actual_relative_deg": {
+        "left": -87.90860807263947,
+        "right": 87.75560950065824
+      },
+      "error_deg": {
+        "left": 0.09139192736053534,
+        "right": -0.24439049934175713
+      }
+    },
+    {
+      "stage": "02_J7",
+      "completed_s": 9.50437769999553,
+      "dwell_s": 1.0003264999977546,
+      "actual_move_s": 3.7596080000002985,
+      "arrival_wait_s": 0.0,
+      "joint": 7,
+      "actual_relative_deg": {
+        "left": 87.29661378471458,
+        "right": 87.25289990700566
+      },
+      "error_deg": {
+        "left": -0.7033862152854226,
+        "right": -0.7471000929943431
+      }
+    },
+    {
+      "stage": "03_J5",
+      "completed_s": 14.263640999997733,
+      "dwell_s": 1.000565900001675,
+      "actual_move_s": 3.7586974000005284,
+      "arrival_wait_s": 0.0,
+      "joint": 5,
+      "actual_relative_deg": {
+        "left": -0.17485551083568207,
+        "right": 0.13114163312676155
+      },
+      "error_deg": {
+        "left": -0.17485551083568207,
+        "right": 0.13114163312676155
+      }
+    },
+    {
+      "stage": "04_J4",
+      "completed_s": 17.465073599996686,
+      "dwell_s": 1.041327300001285,
+      "actual_move_s": 2.1601052999976673,
+      "arrival_wait_s": 0.0,
+      "joint": 4,
+      "actual_relative_deg": {
+        "left": 29.047871737577886,
+        "right": 28.938587043305585
+      },
+      "error_deg": {
+        "left": -0.9521282624221118,
+        "right": -1.061412956694413
+      }
+    },
+    {
+      "stage": "05_J1",
+      "completed_s": 20.6246026000008,
+      "dwell_s": 1.0006074000048102,
+      "actual_move_s": 2.158921599999303,
+      "arrival_wait_s": 0.0,
+      "joint": 1,
+      "actual_relative_deg": {
+        "left": -14.775290665615135,
+        "right": -14.797147604469696
+      },
+      "error_deg": {
+        "left": 0.22470933438486473,
+        "right": 0.20285239553030268
+      }
+    },
+    {
+      "stage": "06_J2",
+      "completed_s": 23.78395669999736,
+      "dwell_s": 1.0012511000022641,
+      "actual_move_s": 2.1581029999942984,
+      "arrival_wait_s": 0.0,
+      "joint": 2,
+      "actual_relative_deg": {
+        "left": -14.469293521652792,
+        "right": -14.49115046050715
+      },
+      "error_deg": {
+        "left": 0.5307064783472065,
+        "right": 0.5088495394928481
+      }
+    }
+  ],
+  "all_six_stages_passed": true,
+  "last_confirmed_hold_duration_s": 62.16064280000137,
+  "last_confirmed_sample_s": 85.94459949999873,
+  "last_confirmed_all14_enabled": true,
+  "last_confirmed_max_error_deg": 0.6898449961685887,
+  "holding_max_error_deg": 0.711701935023049,
+  "peak_by_joint": {
+    "1": {
+      "max_torque_nm": 1.9120879120879124,
+      "max_speed_deg_s": 18.25909457010289
+    },
+    "2": {
+      "max_torque_nm": 3.389010989010991,
+      "max_speed_deg_s": 18.25909457010289
+    },
+    "3": {
+      "max_torque_nm": 0.28034188034187935,
+      "max_speed_deg_s": 2.6584122362602205
+    },
+    "4": {
+      "max_torque_nm": 3.6444444444444457,
+      "max_speed_deg_s": 29.242534598862527
+    },
+    "5": {
+      "max_torque_nm": 0.2564102564102573,
+      "max_speed_deg_s": 90.24609959936052
+    },
+    "6": {
+      "max_torque_nm": 0.04639804639804623,
+      "max_speed_deg_s": 7.9752367087806615
+    },
+    "7": {
+      "max_torque_nm": 0.9304029304029307,
+      "max_speed_deg_s": 56.666155562389314
+    }
+  },
+  "final_actual_relative_deg": {
+    "left:1": -14.797147604469595,
+    "right:1": -14.797147604469696,
+    "left:2": -14.469293521652792,
+    "right:2": -14.469293521652691,
+    "left:3": 0.1529985719812218,
+    "right:3": -0.02185693885446026,
+    "left:4": 29.310155003831408,
+    "right:4": 29.310155003831408,
+    "left:5": 0.06557081656338078,
+    "right:5": -0.06557081656338078,
+    "left:6": 0.02185693885446026,
+    "right:6": -0.02185693885446026,
+    "left:7": 87.47146929555025,
+    "right:7": 87.42775541784134
+  },
+  "faults": [
+    {
+      "type": "fault",
+      "error": "PCAN 0x51 read FD: 0x40008 ",
+      "feedback_kind": "hardware",
+      "request_id": "authorized-outward-29b3dfc5-26d5-47c2-9162-6eba682acc9b"
+    }
+  ],
+  "stop_states": [
+    {
+      "type": "state",
+      "state": "STOP_REQUESTED",
+      "outcome": "FAULT",
+      "feedback_kind": "hardware",
+      "request_id": "authorized-outward-29b3dfc5-26d5-47c2-9162-6eba682acc9b"
+    },
+    {
+      "type": "state",
+      "state": "STOP_UNCONFIRMED",
+      "outcome": "FAULT",
+      "feedback_kind": "hardware",
+      "request_id": "authorized-outward-29b3dfc5-26d5-47c2-9162-6eba682acc9b"
+    }
+  ],
+  "disable_evidence": [
+    {
+      "side": "right",
+      "motor_id": 7,
+      "confirmed": false,
+      "attempt": 1,
+      "error": "PCAN 0x52 before transmit: 0x40008 "
+    },
+    {
+      "side": "right",
+      "motor_id": 7,
+      "confirmed": false,
+      "attempt": 2,
+      "error": "PCAN 0x52 before transmit: 0x40008 "
+    },
+    {
+      "side": "right",
+      "motor_id": 7,
+      "confirmed": false,
+      "attempt": 3,
+      "error": "PCAN 0x52 before transmit: 0x40008 "
+    },
+    {
+      "side": "left",
+      "motor_id": 1,
+      "confirmed": false,
+      "attempt": 1,
+      "error": "PCAN 0x51 before transmit: 0x40008 "
+    },
+    {
+      "side": "left",
+      "motor_id": 1,
+      "confirmed": false,
+      "attempt": 2,
+      "error": "PCAN 0x51 before transmit: 0x40008 "
+    },
+    {
+      "side": "left",
+      "motor_id": 1,
+      "confirmed": false,
+      "attempt": 3,
+      "error": "PCAN 0x51 before transmit: 0x40008 "
+    },
+    {
+      "side": "left",
+      "motor_id": 7,
+      "confirmed": false,
+      "attempt": 1,
+      "error": "PCAN 0x51 before transmit: 0x40008 "
+    },
+    {
+      "side": "left",
+      "motor_id": 7,
+      "confirmed": false,
+      "attempt": 2,
+      "error": "PCAN 0x51 before transmit: 0x40008 "
+    },
+    {
+      "side": "left",
+      "motor_id": 7,
+      "confirmed": false,
+      "attempt": 3,
+      "error": "PCAN 0x51 before transmit: 0x40008 "
+    },
+    {
+      "side": "left",
+      "motor_id": 4,
+      "confirmed": false,
+      "attempt": 1,
+      "error": "PCAN 0x51 before transmit: 0x40008 "
+    },
+    {
+      "side": "left",
+      "motor_id": 4,
+      "confirmed": false,
+      "attempt": 2,
+      "error": "PCAN 0x51 before transmit: 0x40008 "
+    },
+    {
+      "side": "left",
+      "motor_id": 4,
+      "confirmed": false,
+      "attempt": 3,
+      "error": "PCAN 0x51 before transmit: 0x40008 "
+    },
+    {
+      "side": "right",
+      "motor_id": 6,
+      "confirmed": false,
+      "attempt": 1,
+      "error": "PCAN 0x52 before transmit: 0x40008 "
+    },
+    {
+      "side": "right",
+      "motor_id": 6,
+      "confirmed": false,
+      "attempt": 2,
+      "error": "PCAN 0x52 before transmit: 0x40008 "
+    },
+    {
+      "side": "right",
+      "motor_id": 6,
+      "confirmed": false,
+      "attempt": 3,
+      "error": "PCAN 0x52 before transmit: 0x40008 "
+    },
+    {
+      "side": "right",
+      "motor_id": 3,
+      "confirmed": false,
+      "attempt": 1,
+      "error": "PCAN 0x52 before transmit: 0x40008 "
+    },
+    {
+      "side": "right",
+      "motor_id": 3,
+      "confirmed": false,
+      "attempt": 2,
+      "error": "PCAN 0x52 before transmit: 0x40008 "
+    },
+    {
+      "side": "right",
+      "motor_id": 3,
+      "confirmed": false,
+      "attempt": 3,
+      "error": "PCAN 0x52 before transmit: 0x40008 "
+    },
+    {
+      "side": "left",
+      "motor_id": 3,
+      "confirmed": false,
+      "attempt": 1,
+      "error": "PCAN 0x51 before transmit: 0x40008 "
+    },
+    {
+      "side": "left",
+      "motor_id": 3,
+      "confirmed": false,
+      "attempt": 2,
+      "error": "PCAN 0x51 before transmit: 0x40008 "
+    },
+    {
+      "side": "left",
+      "motor_id": 3,
+      "confirmed": false,
+      "attempt": 3,
+      "error": "PCAN 0x51 before transmit: 0x40008 "
+    },
+    {
+      "side": "right",
+      "motor_id": 2,
+      "confirmed": false,
+      "attempt": 1,
+      "error": "PCAN 0x52 before transmit: 0x40008 "
+    },
+    {
+      "side": "right",
+      "motor_id": 2,
+      "confirmed": false,
+      "attempt": 2,
+      "error": "PCAN 0x52 before transmit: 0x40008 "
+    },
+    {
+      "side": "right",
+      "motor_id": 2,
+      "confirmed": false,
+      "attempt": 3,
+      "error": "PCAN 0x52 before transmit: 0x40008 "
+    },
+    {
+      "side": "left",
+      "motor_id": 6,
+      "confirmed": false,
+      "attempt": 1,
+      "error": "PCAN 0x51 before transmit: 0x40008 "
+    },
+    {
+      "side": "left",
+      "motor_id": 6,
+      "confirmed": false,
+      "attempt": 2,
+      "error": "PCAN 0x51 before transmit: 0x40008 "
+    },
+    {
+      "side": "left",
+      "motor_id": 6,
+      "confirmed": false,
+      "attempt": 3,
+      "error": "PCAN 0x51 before transmit: 0x40008 "
+    },
+    {
+      "side": "left",
+      "motor_id": 2,
+      "confirmed": false,
+      "attempt": 1,
+      "error": "PCAN 0x51 before transmit: 0x40008 "
+    },
+    {
+      "side": "left",
+      "motor_id": 2,
+      "confirmed": false,
+      "attempt": 2,
+      "error": "PCAN 0x51 before transmit: 0x40008 "
+    },
+    {
+      "side": "left",
+      "motor_id": 2,
+      "confirmed": false,
+      "attempt": 3,
+      "error": "PCAN 0x51 before transmit: 0x40008 "
+    },
+    {
+      "side": "right",
+      "motor_id": 5,
+      "confirmed": false,
+      "attempt": 1,
+      "error": "PCAN 0x52 before transmit: 0x40008 "
+    },
+    {
+      "side": "right",
+      "motor_id": 5,
+      "confirmed": false,
+      "attempt": 2,
+      "error": "PCAN 0x52 before transmit: 0x40008 "
+    },
+    {
+      "side": "right",
+      "motor_id": 5,
+      "confirmed": false,
+      "attempt": 3,
+      "error": "PCAN 0x52 before transmit: 0x40008 "
+    },
+    {
+      "side": "right",
+      "motor_id": 1,
+      "confirmed": false,
+      "attempt": 1,
+      "error": "PCAN 0x52 before transmit: 0x40008 "
+    },
+    {
+      "side": "right",
+      "motor_id": 1,
+      "confirmed": false,
+      "attempt": 2,
+      "error": "PCAN 0x52 before transmit: 0x40008 "
+    },
+    {
+      "side": "right",
+      "motor_id": 1,
+      "confirmed": false,
+      "attempt": 3,
+      "error": "PCAN 0x52 before transmit: 0x40008 "
+    },
+    {
+      "side": "left",
+      "motor_id": 5,
+      "confirmed": false,
+      "attempt": 1,
+      "error": "PCAN 0x51 before transmit: 0x40008 "
+    },
+    {
+      "side": "left",
+      "motor_id": 5,
+      "confirmed": false,
+      "attempt": 2,
+      "error": "PCAN 0x51 before transmit: 0x40008 "
+    },
+    {
+      "side": "left",
+      "motor_id": 5,
+      "confirmed": false,
+      "attempt": 3,
+      "error": "PCAN 0x51 before transmit: 0x40008 "
+    },
+    {
+      "side": "right",
+      "motor_id": 4,
+      "confirmed": false,
+      "attempt": 1,
+      "error": "PCAN 0x52 before transmit: 0x40008 "
+    },
+    {
+      "side": "right",
+      "motor_id": 4,
+      "confirmed": false,
+      "attempt": 2,
+      "error": "PCAN 0x52 before transmit: 0x40008 "
+    },
+    {
+      "side": "right",
+      "motor_id": 4,
+      "confirmed": false,
+      "attempt": 3,
+      "error": "PCAN 0x52 before transmit: 0x40008 "
+    }
+  ],
+  "fault_cleanup": {
+    "time_unix": 1794837268.2013206,
+    "action": "fault_cleanup_disable_only_no_enable_no_motion",
+    "records": [
+      {
+        "side": "left",
+        "confirmed": false,
+        "connection_error": "PCAN 0x51 initialize FD: 0x1400 The value of a handle (PCAN-Channel, PCAN-Hardware, PCAN-Net, PCAN-Client) is invalid"
+      },
+      {
+        "side": "right",
+        "confirmed": false,
+        "connection_error": "PCAN 0x52 initialize FD: 0x1400 The value of a handle (PCAN-Channel, PCAN-Hardware, PCAN-Net, PCAN-Client) is invalid"
+      }
+    ],
+    "all_14_disabled_confirmed": false
+  },
+  "current_motor_state": "unconfirmed_no_adapter_access",
+  "controller_running": false,
+  "auto_restart": false
+}

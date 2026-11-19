@@ -1,0 +1,18 @@
+{
+  "side": "right",
+  "channel": "0x52",
+  "motor_id": 2,
+  "candidate_direction": 1,
+  "user_confirmation": "candidate outward whole arm direction and pose match physical pose",
+  "evidence": [
+    "j2_baseline.jsonl",
+    "j2_outward.jsonl",
+    "j2_candidate_before_after.png"
+  ],
+  "delta_motor_deg": 23.2339,
+  "associated_j6_delta_deg": 22.4252,
+  "isolated_direction_verified": false,
+  "zero_verified": false,
+  "scale_verified": false,
+  "hardware_verified": false
+}

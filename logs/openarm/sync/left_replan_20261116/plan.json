@@ -1,0 +1,51 @@
+{
+  "status": "EXECUTED_FAULT_DISABLED_CONFIRMED",
+  "relative_reference": "fresh measured pose immediately before execution; new increments, not remaining distance to previous target",
+  "channels": {
+    "left": "0x51",
+    "right": "0x52"
+  },
+  "sequence": [
+    {
+      "joint": "left_J7",
+      "delta_deg": 25,
+      "move_s": 4,
+      "hold_s": 2
+    },
+    {
+      "joint": "left_J6",
+      "delta_deg": -25,
+      "move_s": 4,
+      "hold_s": 3
+    },
+    {
+      "joint": "left_J5",
+      "delta_deg": 45,
+      "move_s": 7,
+      "hold_s": 3
+    }
+  ],
+  "total_s": 23,
+  "interpolation": "quintic rest-to-rest",
+  "peak_speed_deg_s": [
+    11.71875,
+    11.71875,
+    12.053571428571429
+  ],
+  "peak_acceleration_deg_s2": [
+    9.021097956087903,
+    9.021097956087903,
+    5.302196349700645
+  ],
+  "period_s": 0.04,
+  "endpoint_tolerance_rad": 0.015,
+  "max_tracking_error_rad": 0.05,
+  "feedback_speed_limit_rad_s": 0.3,
+  "torque_limit_nm": 1,
+  "temperature_limit_c": 50,
+  "feedback_age_limit_s": 0.15,
+  "on_success": "disable participating axes and verify all 14 disabled",
+  "on_fault": "abort and disable; no automatic retry",
+  "confirmation": "用户回复：执行",
+  "confirmation_time": "2026-11-16 10:56"
+}

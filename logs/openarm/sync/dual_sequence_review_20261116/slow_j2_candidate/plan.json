@@ -1,0 +1,21 @@
+{
+  "created_unix": 1794833594.7661297,
+  "user_instruction": "J2运动速度太大了",
+  "status": "PREPARED_NOT_EXECUTED",
+  "change": {
+    "joint": "J2",
+    "both_arms": true,
+    "delta_deg": -45,
+    "move_before_s": 1.8,
+    "move_after_s": 4.0,
+    "peak_speed_before_deg_s": 46.875,
+    "peak_speed_after_deg_s": 21.09375,
+    "peak_acceleration_before_rad_s2": 1.39953654647702,
+    "peak_acceleration_after_rad_s2": 0.2834061506615966
+  },
+  "nominal_total_s": 21.9,
+  "settle_speed_rad_s": 0.05,
+  "unchanged": "other movement durations/deltas, 1.5s dwell, position tolerances, MIT gains, torque and rated velocity limits",
+  "important": "Reduced acceleration is not proof that right J6 static holding drift is resolved. Last run J2 was interrupted and J1 not started.",
+  "requires": "new user-ready reset and measured baseline before execution"
+}

@@ -1,0 +1,42 @@
+{
+  "outcome": "FAULT",
+  "completed": false,
+  "reason": "Feedback speed or torque exceeded for ('left', 6): velocity=-0.344322 rad/s (limit 0.3), torque=-0.290598 Nm (limit 1.0)",
+  "last_complete_sample_t_s": 7.8807855000004565,
+  "samples": 198,
+  "joint_order": [
+    "left_J5",
+    "left_J6",
+    "left_J7"
+  ],
+  "relative_reference": "fresh measured pose after user reset",
+  "start_deg": [
+    1.956196027474193,
+    -6.4368684926385455,
+    0.6666366350610379
+  ],
+  "target_deg": [
+    46.95619602747419,
+    -31.436868492638542,
+    25.66663663506104
+  ],
+  "last_complete_sample_delta_deg": [
+    0.0,
+    -10.03233493419736,
+    24.08634661761541
+  ],
+  "checkpoint_errors_deg": [
+    [
+      0.0,
+      0.0,
+      -0.9355103212390531
+    ]
+  ],
+  "endpoint_tolerance_deg": 3,
+  "max_tracking_error_deg": 3,
+  "rejected_J6_speed_deg_s": 19.728217121720583,
+  "feedback_speed_limit_deg_s": 17.188733853924695,
+  "all_14_disabled": true,
+  "automatic_retry": false,
+  "software_validation": "32 passed; apps/test_openarm_execution.py apps/test_openarm_execution_hardware.py"
+}

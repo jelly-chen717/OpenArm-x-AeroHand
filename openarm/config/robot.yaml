@@ -1,0 +1,13 @@
+# Documentation of fixed V1 adapter settings; limits are read from MJCF at runtime.
+model: vendor/openarm_mujoco/v1/scene.xml
+mode: both
+default_command_arm: right
+keyframe: home
+frame_right: right_ee_control_point
+frame_type_right: site
+frame_left: left_ee_control_point
+frame_type_left: site
+origin_frame: arm_origin
+origin_frame_type: site
+quaternion_order: wxyz
+joint_units: rad

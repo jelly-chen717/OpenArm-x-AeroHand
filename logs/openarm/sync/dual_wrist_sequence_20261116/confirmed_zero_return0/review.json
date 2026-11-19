@@ -1,0 +1,313 @@
+{
+  "status": "BLOCKED_MODEL_REVIEW",
+  "hardware_accessed": false,
+  "hardware_execution_allowed": false,
+  "baseline": {
+    "kind": "saved_feedback_not_live",
+    "source": "D:\\桌面\\open CyMon\\弹钢琴\\logs\\openarm\\sync\\dual_wrist_sequence_20261116\\status_reset_zero.jsonl",
+    "sha256": "630160eb6d079695872f72a69c41423cbf103d7ff25f4a8260bd4b5376e19871",
+    "snapshot_time_unix": 1794835476.420119,
+    "zero_policy": "Test-relative reference only; persistent calibration is unchanged"
+  },
+  "target_mode": "absolute_from_test_zero",
+  "rows": [
+    {
+      "stage": "01_J5",
+      "joint": 5,
+      "start_test_deg": 0.0,
+      "target_test_deg": -88.0,
+      "displacement_deg": -88.0,
+      "move_s": 3.7,
+      "dwell_s": 1.0,
+      "peak_velocity_deg_s": 44.59459459459459,
+      "peak_acceleration_rad_s2": 0.64773291150317,
+      "raw_motor_displacement_deg": {
+        "left": -88.0,
+        "right": -88.0
+      }
+    },
+    {
+      "stage": "02_J7",
+      "joint": 7,
+      "start_test_deg": 0.0,
+      "target_test_deg": 88.0,
+      "displacement_deg": 88.0,
+      "move_s": 3.7,
+      "dwell_s": 1.0,
+      "peak_velocity_deg_s": 44.59459459459459,
+      "peak_acceleration_rad_s2": 0.64773291150317,
+      "raw_motor_displacement_deg": {
+        "left": -88.0,
+        "right": 88.0
+      }
+    },
+    {
+      "stage": "03_J5",
+      "joint": 5,
+      "start_test_deg": -88.0,
+      "target_test_deg": 0.0,
+      "displacement_deg": 88.0,
+      "move_s": 3.7,
+      "dwell_s": 1.0,
+      "peak_velocity_deg_s": 44.59459459459459,
+      "peak_acceleration_rad_s2": 0.64773291150317,
+      "raw_motor_displacement_deg": {
+        "left": 88.0,
+        "right": 88.0
+      }
+    },
+    {
+      "stage": "04_J4",
+      "joint": 4,
+      "start_test_deg": 0.0,
+      "target_test_deg": 30.0,
+      "displacement_deg": 30.0,
+      "move_s": 2.1,
+      "dwell_s": 1.0,
+      "peak_velocity_deg_s": 26.785714285714285,
+      "peak_acceleration_rad_s2": 0.6854872880703772,
+      "raw_motor_displacement_deg": {
+        "left": 29.999999999999996,
+        "right": 29.999999999999996
+      }
+    },
+    {
+      "stage": "05_J1",
+      "joint": 1,
+      "start_test_deg": 0.0,
+      "target_test_deg": -15.0,
+      "displacement_deg": -15.0,
+      "move_s": 2.1,
+      "dwell_s": 1.0,
+      "peak_velocity_deg_s": 13.392857142857142,
+      "peak_acceleration_rad_s2": 0.3427436440351886,
+      "raw_motor_displacement_deg": {
+        "left": 14.999999999999998,
+        "right": -14.999999999999998
+      }
+    },
+    {
+      "stage": "06_J2",
+      "joint": 2,
+      "start_test_deg": 0.0,
+      "target_test_deg": -15.0,
+      "displacement_deg": -15.0,
+      "move_s": 2.1,
+      "dwell_s": 1.0,
+      "peak_velocity_deg_s": 13.392857142857142,
+      "peak_acceleration_rad_s2": 0.3427436440351886,
+      "raw_motor_displacement_deg": {
+        "left": -14.999999999999998,
+        "right": 14.999999999999998
+      }
+    }
+  ],
+  "move_total_s": 17.4,
+  "dwell_total_s": 6.0,
+  "nominal_total_s": 23.4,
+  "extra_time": "Measured settling and control-period alignment",
+  "validation_errors": [
+    "Model limits, torque or contacts require review"
+  ],
+  "limit_violations": [],
+  "joint_limit_margins": [
+    {
+      "side": "left",
+      "motor_id": 1,
+      "min_margin_deg": 66.2130370966974,
+      "lower_deg": -79.99997699027485,
+      "upper_deg": 200.00002841935643
+    },
+    {
+      "side": "right",
+      "motor_id": 1,
+      "min_margin_deg": 63.262350351345276,
+      "lower_deg": -79.99997699027486,
+      "upper_deg": 200.00002841935643
+    },
+    {
+      "side": "left",
+      "motor_id": 2,
+      "min_margin_deg": 11.4316150567556,
+      "lower_deg": -189.99998556178846,
+      "upper_deg": 9.999985561788453
+    },
+    {
+      "side": "right",
+      "motor_id": 2,
+      "min_margin_deg": 9.814201581525541,
+      "lower_deg": -189.99998556178846,
+      "upper_deg": 9.999985561788453
+    },
+    {
+      "side": "left",
+      "motor_id": 3,
+      "min_margin_deg": 88.54649484221005,
+      "lower_deg": -89.99998127603166,
+      "upper_deg": 89.99998127603166
+    },
+    {
+      "side": "right",
+      "motor_id": 3,
+      "min_margin_deg": 88.54649484221005,
+      "lower_deg": -89.99998127603166,
+      "upper_deg": 89.99998127603166
+    },
+    {
+      "side": "left",
+      "motor_id": 4,
+      "min_margin_deg": 0.4917811242253558,
+      "lower_deg": 0.0,
+      "upper_deg": 140.00000270481564
+    },
+    {
+      "side": "right",
+      "motor_id": 4,
+      "min_margin_deg": 4.447887056882663,
+      "lower_deg": 0.0,
+      "upper_deg": 140.00000270481564
+    },
+    {
+      "side": "left",
+      "motor_id": 5,
+      "min_margin_deg": 6.0763003723885065,
+      "lower_deg": -89.99998127603166,
+      "upper_deg": 89.99998127603166
+    },
+    {
+      "side": "right",
+      "motor_id": 5,
+      "min_margin_deg": 0.13121300397531624,
+      "lower_deg": -89.99998127603166,
+      "upper_deg": 89.99998127603166
+    },
+    {
+      "side": "left",
+      "motor_id": 6,
+      "min_margin_deg": 37.011279486710606,
+      "lower_deg": -44.99999063801583,
+      "upper_deg": 44.99999063801583
+    },
+    {
+      "side": "right",
+      "motor_id": 6,
+      "min_margin_deg": 41.950947667818625,
+      "lower_deg": -44.99999063801583,
+      "upper_deg": 44.99999063801583
+    },
+    {
+      "side": "left",
+      "motor_id": 7,
+      "min_margin_deg": 2.666617911092706,
+      "lower_deg": -89.99998127603166,
+      "upper_deg": 89.99998127603166
+    },
+    {
+      "side": "right",
+      "motor_id": 7,
+      "min_margin_deg": 5.857730983843903,
+      "lower_deg": -89.99998127603166,
+      "upper_deg": 89.99998127603166
+    }
+  ],
+  "allowed_logical_baseline_intervals": [
+    {
+      "side": "left",
+      "motor_id": 1,
+      "minimum_deg": -64.99997699027486,
+      "maximum_deg": 200.00002841935643
+    },
+    {
+      "side": "right",
+      "motor_id": 1,
+      "minimum_deg": -64.99997699027487,
+      "maximum_deg": 200.00002841935643
+    },
+    {
+      "side": "left",
+      "motor_id": 2,
+      "minimum_deg": -174.99998556178844,
+      "maximum_deg": 9.999985561788453
+    },
+    {
+      "side": "right",
+      "motor_id": 2,
+      "minimum_deg": -174.99998556178844,
+      "maximum_deg": 9.999985561788453
+    },
+    {
+      "side": "left",
+      "motor_id": 3,
+      "minimum_deg": -89.99998127603166,
+      "maximum_deg": 89.99998127603166
+    },
+    {
+      "side": "right",
+      "motor_id": 3,
+      "minimum_deg": -89.99998127603166,
+      "maximum_deg": 89.99998127603166
+    },
+    {
+      "side": "left",
+      "motor_id": 4,
+      "minimum_deg": 0.0,
+      "maximum_deg": 110.00000270481566
+    },
+    {
+      "side": "right",
+      "motor_id": 4,
+      "minimum_deg": 0.0,
+      "maximum_deg": 110.00000270481566
+    },
+    {
+      "side": "left",
+      "motor_id": 5,
+      "minimum_deg": -1.9999812760316682,
+      "maximum_deg": 89.99998127603166
+    },
+    {
+      "side": "right",
+      "motor_id": 5,
+      "minimum_deg": -1.9999812760316682,
+      "maximum_deg": 89.99998127603166
+    },
+    {
+      "side": "left",
+      "motor_id": 6,
+      "minimum_deg": -44.99999063801583,
+      "maximum_deg": 44.99999063801583
+    },
+    {
+      "side": "right",
+      "motor_id": 6,
+      "minimum_deg": -44.99999063801583,
+      "maximum_deg": 44.99999063801583
+    },
+    {
+      "side": "left",
+      "motor_id": 7,
+      "minimum_deg": -89.99998127603166,
+      "maximum_deg": 1.9999812760316682
+    },
+    {
+      "side": "right",
+      "motor_id": 7,
+      "minimum_deg": -89.99998127603166,
+      "maximum_deg": 1.9999812760316682
+    }
+  ],
+  "settings": {
+    "period_s": 0.04,
+    "max_lateness_s": 0.08,
+    "max_tracking_error_rad": 0.08726646259971647,
+    "hold_after": true,
+    "batch_mit": true,
+    "all_14_axes_commanded": true
+  },
+  "pending": [
+    "Wiring completion and current disabled 14-axis snapshot",
+    "Recompute using frozen measured baseline and review model torque/contact results",
+    "User approval of the final ordered target, timing and load table",
+    "Dedicated hardware preflight with unchanged approved targets and baseline"
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "feedback_kind": "hardware",
+  "samples": 151,
+  "duration_s": 6.000534899998456,
+  "max_error_rad": 0.017372143591400713,
+  "final_error_rad": 0.0003814755474174092,
+  "measured_range_rad": 0.003814755474174092,
+  "outbound_dwell_error_rad": 0.016185244525825912,
+  "period_median_s": 0.04004495000026509,
+  "period_p95_s": 0.040825099998983205,
+  "period_max_s": 0.04167130000132602,
+  "max_torque_nm": 0.16361416361416303,
+  "max_temperature_c": 30,
+  "final_disabled": true,
+  "completed": true
+}

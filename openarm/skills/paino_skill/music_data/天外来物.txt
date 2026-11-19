@@ -1,0 +1,864 @@
+# finger_count = 4
+# midi_start_seconds = 6
+# 准备阶段：两臂异步同时移动，index 为覆盖范围最左白键
+left_arm_move(20, 5)
+right_arm_move(30, 5)
+sleep(5)
+sleep(1)
+# 正式 MIDI 时间轴：t = 0 秒；以下 hand 参数为手指编号序列
+# t = 0 s
+hand(D,4)
+sleep(0.1)
+# t = 0.1 s
+hand(U,4)
+sleep(2.4)
+# t = 2.5 s
+hand(D,4)
+sleep(0.1)
+# t = 2.6 s
+hand(U,4)
+left_arm_move(16, 2.4)
+sleep(2.4)
+# t = 5 s
+hand(D,1)
+sleep(0.1)
+# t = 5.1 s
+hand(U,1)
+sleep(4.9)
+# t = 10 s
+hand(D,1)
+sleep(0.1)
+# t = 10.1 s
+hand(U,1)
+left_arm_move(20, 0.525)
+sleep(0.2125)
+# t = 10.3125 s
+hand(D,7)
+sleep(0.1)
+# t = 10.4125 s
+hand(U,7)
+sleep(0.05625)
+# t = 10.46875 s
+hand(D,7)
+sleep(0.1)
+# t = 10.56875 s
+hand(U,7)
+sleep(0.05625)
+# t = 10.625 s
+hand(D,4)
+sleep(0.1)
+# t = 10.725 s
+hand(U,4)
+sleep(1.4625)
+# t = 12.1875 s
+hand(D,7)
+sleep(0.1)
+# t = 12.2875 s
+hand(U,7)
+sleep(1.4625)
+# t = 13.75 s
+hand(D,4)
+sleep(0.1)
+# t = 13.85 s
+hand(U,4)
+left_arm_move(16, 1.15)
+sleep(1.15)
+# t = 15 s
+hand(D,1)
+sleep(0.1)
+# t = 15.1 s
+hand(U,1)
+left_arm_move(20, 0.525)
+sleep(0.2125)
+# t = 15.3125 s
+hand(D,7)
+sleep(0.1)
+# t = 15.4125 s
+hand(U,7)
+sleep(0.05625)
+# t = 15.46875 s
+hand(D,7)
+sleep(0.1)
+# t = 15.56875 s
+hand(U,7)
+sleep(0.05625)
+# t = 15.625 s
+hand(D,4)
+sleep(0.1)
+# t = 15.725 s
+hand(U,4)
+left_arm_move(12, 4.275)
+sleep(1.4625)
+# t = 17.1875 s
+hand(D,7)
+sleep(0.1)
+# t = 17.2875 s
+hand(U,7)
+sleep(2.7125)
+# t = 20 s
+hand(D,1)
+sleep(0.1)
+# t = 20.1 s
+hand(U,1)
+left_arm_move(16, 0.2125)
+sleep(0.2125)
+# t = 20.3125 s
+hand(D,1)
+sleep(0.1)
+# t = 20.4125 s
+hand(U,1)
+sleep(0.05625)
+# t = 20.46875 s
+hand(D,7)
+sleep(0.1)
+# t = 20.56875 s
+hand(U,7)
+sleep(0.05625)
+# t = 20.625 s
+hand(D,4)
+sleep(0.1)
+# t = 20.725 s
+hand(U,4)
+sleep(2.24375)
+# t = 22.96875 s
+hand(D,7)
+sleep(0.1)
+# t = 23.06875 s
+hand(U,7)
+sleep(0.525)
+# t = 23.59375 s
+hand(D,8)
+sleep(0.1)
+# t = 23.69375 s
+hand(U,8)
+sleep(1.775)
+# t = 25.46875 s
+hand(D,7)
+sleep(0.1)
+# t = 25.56875 s
+hand(U,7)
+sleep(0.68125)
+# t = 26.25 s
+hand(D,47)
+sleep(0.1)
+# t = 26.35 s
+hand(U,47)
+sleep(3.65)
+# t = 30 s
+hand(D,1)
+sleep(0.1)
+# t = 30.1 s
+hand(U,1)
+left_arm_move(20, 0.525)
+sleep(0.2125)
+# t = 30.3125 s
+hand(D,7)
+sleep(0.1)
+# t = 30.4125 s
+hand(U,7)
+sleep(0.05625)
+# t = 30.46875 s
+hand(D,7)
+sleep(0.1)
+# t = 30.56875 s
+hand(U,7)
+sleep(0.05625)
+# t = 30.625 s
+hand(D,4)
+sleep(0.1)
+# t = 30.725 s
+hand(U,4)
+sleep(1.4625)
+# t = 32.1875 s
+hand(D,7)
+sleep(0.1)
+# t = 32.2875 s
+hand(U,7)
+sleep(1.4625)
+# t = 33.75 s
+hand(D,4)
+sleep(0.1)
+# t = 33.85 s
+hand(U,4)
+left_arm_move(16, 1.15)
+sleep(1.15)
+# t = 35 s
+hand(D,1)
+sleep(0.1)
+# t = 35.1 s
+hand(U,1)
+left_arm_move(20, 0.525)
+sleep(0.2125)
+# t = 35.3125 s
+hand(D,7)
+sleep(0.1)
+# t = 35.4125 s
+hand(U,7)
+sleep(0.05625)
+# t = 35.46875 s
+hand(D,7)
+sleep(0.1)
+# t = 35.56875 s
+hand(U,7)
+sleep(0.05625)
+# t = 35.625 s
+hand(D,4)
+sleep(0.1)
+# t = 35.725 s
+hand(U,4)
+left_arm_move(12, 4.275)
+sleep(1.4625)
+# t = 37.1875 s
+hand(D,7)
+sleep(0.1)
+# t = 37.2875 s
+hand(U,7)
+sleep(2.7125)
+# t = 40 s
+hand(D,1)
+sleep(0.1)
+# t = 40.1 s
+hand(U,1)
+left_arm_move(16, 0.2125)
+sleep(0.2125)
+# t = 40.3125 s
+hand(D,1)
+sleep(0.1)
+# t = 40.4125 s
+hand(U,1)
+sleep(0.05625)
+# t = 40.46875 s
+hand(D,7)
+sleep(0.1)
+# t = 40.56875 s
+hand(U,7)
+sleep(0.05625)
+# t = 40.625 s
+hand(D,4)
+sleep(0.1)
+# t = 40.725 s
+hand(U,4)
+sleep(2.24375)
+# t = 42.96875 s
+hand(D,7)
+sleep(0.1)
+# t = 43.06875 s
+hand(U,7)
+sleep(0.525)
+# t = 43.59375 s
+hand(D,8)
+sleep(0.1)
+# t = 43.69375 s
+hand(U,8)
+sleep(1.775)
+# t = 45.46875 s
+hand(D,7)
+sleep(0.1)
+# t = 45.56875 s
+hand(U,7)
+sleep(0.68125)
+# t = 46.25 s
+hand(D,47)
+sleep(0.1)
+# t = 46.35 s
+hand(U,47)
+left_arm_move(20, 2.0875)
+sleep(2.0875)
+# t = 48.4375 s
+hand(D,4)
+sleep(0.1)
+# t = 48.5375 s
+hand(U,4)
+left_arm_move(12, 1.4625)
+sleep(1.4625)
+# t = 50 s
+hand(D,1)
+sleep(0.1)
+# t = 50.1 s
+hand(U,1)
+left_arm_move(16, 0.525)
+sleep(0.2125)
+# t = 50.3125 s
+hand(D,7)
+sleep(0.1)
+# t = 50.4125 s
+hand(U,7)
+sleep(0.2125)
+# t = 50.625 s
+hand(D,147)
+sleep(0.1)
+# t = 50.725 s
+hand(U,147)
+left_arm_move(9, 1.775)
+sleep(0.36875)
+# t = 51.09375 s
+hand(D,7)
+sleep(0.1)
+# t = 51.19375 s
+hand(U,7)
+sleep(0.68125)
+# t = 51.875 s
+hand(D,7)
+sleep(0.1)
+# t = 51.975 s
+hand(U,7)
+sleep(0.05625)
+# t = 52.03125 s
+hand(D,7)
+sleep(0.1)
+# t = 52.13125 s
+hand(U,7)
+right_arm_move(34, 0.68125)
+sleep(0.36875)
+# t = 52.5 s
+hand(D,1)
+sleep(0.1)
+# t = 52.6 s
+hand(U,1)
+left_arm_move(13, 0.2125)
+sleep(0.2125)
+# t = 52.8125 s
+hand(D,4x)
+sleep(0.1)
+# t = 52.9125 s
+hand(U,4x)
+left_arm_move(20, 0.2125)
+right_arm_move(30, 0.99375)
+sleep(0.2125)
+# t = 53.125 s
+hand(D,4)
+sleep(0.1)
+# t = 53.225 s
+hand(U,4)
+left_arm_move(16, 0.2125)
+sleep(0.2125)
+# t = 53.4375 s
+hand(D,1)
+sleep(0.1)
+# t = 53.5375 s
+hand(U,1)
+left_arm_move(20, 0.2125)
+sleep(0.2125)
+# t = 53.75 s
+hand(D,4)
+sleep(0.1)
+# t = 53.85 s
+hand(U,4)
+left_arm_move(16, 0.2125)
+sleep(0.05625)
+# t = 53.90625 s
+hand(D,7)
+sleep(0.1)
+# t = 54.00625 s
+hand(U,7)
+sleep(0.05625)
+# t = 54.0625 s
+hand(D,1)
+sleep(0.1)
+# t = 54.1625 s
+hand(U,1)
+left_arm_move(20, 0.2125)
+sleep(0.2125)
+# t = 54.375 s
+hand(D,4)
+sleep(0.1)
+# t = 54.475 s
+hand(U,4)
+left_arm_move(13, 0.2125)
+sleep(0.2125)
+# t = 54.6875 s
+hand(D,4)
+sleep(0.1)
+# t = 54.7875 s
+hand(U,4)
+left_arm_move(12, 2.7125)
+sleep(0.05625)
+# t = 54.84375 s
+hand(D,x)
+sleep(0.1)
+# t = 54.94375 s
+hand(U,x)
+sleep(1.93125)
+# t = 56.875 s
+hand(D,7)
+sleep(0.1)
+# t = 56.975 s
+hand(U,7)
+sleep(0.05625)
+# t = 57.03125 s
+hand(D,7)
+sleep(0.1)
+# t = 57.13125 s
+hand(U,7)
+sleep(0.2125)
+# t = 57.34375 s
+hand(D,7)
+sleep(0.1)
+# t = 57.44375 s
+hand(U,7)
+sleep(0.05625)
+# t = 57.5 s
+hand(D,1)
+sleep(0.1)
+# t = 57.6 s
+hand(U,1)
+left_arm_move(16, 0.2125)
+sleep(0.2125)
+# t = 57.8125 s
+hand(D,47)
+sleep(0.1)
+# t = 57.9125 s
+hand(U,47)
+left_arm_move(20, 0.2125)
+sleep(0.2125)
+# t = 58.125 s
+hand(D,47)
+sleep(0.1)
+# t = 58.225 s
+hand(U,47)
+left_arm_move(19, 0.2125)
+sleep(0.2125)
+# t = 58.4375 s
+hand(D,1)
+sleep(0.1)
+# t = 58.5375 s
+hand(U,1)
+left_arm_move(20, 0.2125)
+sleep(0.2125)
+# t = 58.75 s
+hand(D,4)
+sleep(0.1)
+# t = 58.85 s
+hand(U,4)
+left_arm_move(19, 0.2125)
+sleep(0.05625)
+# t = 58.90625 s
+hand(D,7)
+sleep(0.1)
+# t = 59.00625 s
+hand(U,7)
+sleep(0.05625)
+# t = 59.0625 s
+hand(D,1)
+sleep(0.1)
+# t = 59.1625 s
+hand(U,1)
+left_arm_move(20, 0.2125)
+sleep(0.2125)
+# t = 59.375 s
+hand(D,47)
+sleep(0.1)
+# t = 59.475 s
+hand(U,47)
+left_arm_move(16, 0.2125)
+sleep(0.2125)
+# t = 59.6875 s
+hand(D,4)
+sleep(0.1)
+# t = 59.7875 s
+hand(U,4)
+left_arm_move(12, 0.2125)
+sleep(0.05625)
+# t = 59.84375 s
+hand(D,7)
+sleep(0.1)
+# t = 59.94375 s
+hand(U,7)
+sleep(0.05625)
+# t = 60 s
+hand(D,1)
+sleep(0.1)
+# t = 60.1 s
+hand(U,1)
+left_arm_move(16, 0.2125)
+sleep(0.2125)
+# t = 60.3125 s
+hand(D,4)
+sleep(0.1)
+# t = 60.4125 s
+hand(U,4)
+left_arm_move(20, 0.2125)
+sleep(0.2125)
+# t = 60.625 s
+hand(D,24)
+sleep(0.1)
+# t = 60.725 s
+hand(U,24)
+left_arm_move(19, 0.2125)
+sleep(0.2125)
+# t = 60.9375 s
+hand(D,1)
+sleep(0.1)
+# t = 61.0375 s
+hand(U,1)
+left_arm_move(20, 0.2125)
+sleep(0.2125)
+# t = 61.25 s
+hand(D,24)
+sleep(0.1)
+# t = 61.35 s
+hand(U,24)
+left_arm_move(19, 0.2125)
+sleep(0.2125)
+# t = 61.5625 s
+hand(D,1)
+sleep(0.1)
+# t = 61.6625 s
+hand(U,1)
+left_arm_move(20, 0.2125)
+sleep(0.2125)
+# t = 61.875 s
+hand(D,247)
+sleep(0.1)
+# t = 61.975 s
+hand(U,247)
+left_arm_move(16, 0.2125)
+sleep(0.05625)
+# t = 62.03125 s
+hand(D,7)
+sleep(0.1)
+# t = 62.13125 s
+hand(U,7)
+right_arm_move(34, 0.68125)
+sleep(0.05625)
+# t = 62.1875 s
+hand(D,4)
+sleep(0.1)
+# t = 62.2875 s
+hand(U,4)
+left_arm_move(9, 0.2125)
+sleep(0.2125)
+# t = 62.5 s
+hand(D,1)
+sleep(0.1)
+# t = 62.6 s
+hand(U,1)
+left_arm_move(13, 0.2125)
+sleep(0.2125)
+# t = 62.8125 s
+hand(D,4x)
+sleep(0.1)
+# t = 62.9125 s
+hand(U,4x)
+left_arm_move(20, 0.2125)
+right_arm_move(30, 0.99375)
+sleep(0.2125)
+# t = 63.125 s
+hand(D,4)
+sleep(0.1)
+# t = 63.225 s
+hand(U,4)
+left_arm_move(16, 0.2125)
+sleep(0.2125)
+# t = 63.4375 s
+hand(D,1)
+sleep(0.1)
+# t = 63.5375 s
+hand(U,1)
+left_arm_move(20, 0.2125)
+sleep(0.2125)
+# t = 63.75 s
+hand(D,4)
+sleep(0.1)
+# t = 63.85 s
+hand(U,4)
+left_arm_move(16, 0.2125)
+sleep(0.05625)
+# t = 63.90625 s
+hand(D,7)
+sleep(0.1)
+# t = 64.00625 s
+hand(U,7)
+sleep(0.05625)
+# t = 64.0625 s
+hand(D,1)
+sleep(0.1)
+# t = 64.1625 s
+hand(U,1)
+left_arm_move(20, 0.2125)
+sleep(0.2125)
+# t = 64.375 s
+hand(D,4)
+sleep(0.1)
+# t = 64.475 s
+hand(U,4)
+left_arm_move(13, 0.2125)
+sleep(0.2125)
+# t = 64.6875 s
+hand(D,4)
+sleep(0.1)
+# t = 64.7875 s
+hand(U,4)
+left_arm_move(12, 2.7125)
+sleep(0.05625)
+# t = 64.84375 s
+hand(D,x)
+sleep(0.1)
+# t = 64.94375 s
+hand(U,x)
+sleep(1.93125)
+# t = 66.875 s
+hand(D,7)
+sleep(0.1)
+# t = 66.975 s
+hand(U,7)
+sleep(0.05625)
+# t = 67.03125 s
+hand(D,7)
+sleep(0.1)
+# t = 67.13125 s
+hand(U,7)
+sleep(0.2125)
+# t = 67.34375 s
+hand(D,7)
+sleep(0.1)
+# t = 67.44375 s
+hand(U,7)
+sleep(0.05625)
+# t = 67.5 s
+hand(D,1)
+sleep(0.1)
+# t = 67.6 s
+hand(U,1)
+left_arm_move(16, 0.2125)
+sleep(0.2125)
+# t = 67.8125 s
+hand(D,47)
+sleep(0.1)
+# t = 67.9125 s
+hand(U,47)
+left_arm_move(20, 0.2125)
+sleep(0.2125)
+# t = 68.125 s
+hand(D,47)
+sleep(0.1)
+# t = 68.225 s
+hand(U,47)
+left_arm_move(19, 0.2125)
+sleep(0.2125)
+# t = 68.4375 s
+hand(D,17)
+sleep(0.1)
+# t = 68.5375 s
+hand(U,17)
+left_arm_move(20, 0.2125)
+sleep(0.05625)
+# t = 68.59375 s
+hand(D,7)
+sleep(0.1)
+# t = 68.69375 s
+hand(U,7)
+sleep(0.05625)
+# t = 68.75 s
+hand(D,4)
+sleep(0.1)
+# t = 68.85 s
+hand(U,4)
+left_arm_move(19, 0.2125)
+sleep(0.05625)
+# t = 68.90625 s
+hand(D,7)
+sleep(0.1)
+# t = 69.00625 s
+hand(U,7)
+sleep(0.05625)
+# t = 69.0625 s
+hand(D,1)
+sleep(0.1)
+# t = 69.1625 s
+hand(U,1)
+left_arm_move(20, 0.2125)
+sleep(0.2125)
+# t = 69.375 s
+hand(D,47)
+sleep(0.1)
+# t = 69.475 s
+hand(U,47)
+left_arm_move(16, 0.2125)
+sleep(0.2125)
+# t = 69.6875 s
+hand(D,4)
+sleep(0.1)
+# t = 69.7875 s
+hand(U,4)
+left_arm_move(12, 0.2125)
+sleep(0.05625)
+# t = 69.84375 s
+hand(D,7)
+sleep(0.1)
+# t = 69.94375 s
+hand(U,7)
+sleep(0.05625)
+# t = 70 s
+hand(D,1)
+sleep(0.1)
+# t = 70.1 s
+hand(U,1)
+left_arm_move(16, 0.2125)
+sleep(0.2125)
+# t = 70.3125 s
+hand(D,4)
+sleep(0.1)
+# t = 70.4125 s
+hand(U,4)
+left_arm_move(20, 0.2125)
+sleep(0.2125)
+# t = 70.625 s
+hand(D,24)
+sleep(0.1)
+# t = 70.725 s
+hand(U,24)
+left_arm_move(19, 0.2125)
+sleep(0.2125)
+# t = 70.9375 s
+hand(D,1)
+sleep(0.1)
+# t = 71.0375 s
+hand(U,1)
+left_arm_move(20, 0.2125)
+sleep(0.2125)
+# t = 71.25 s
+hand(D,24)
+sleep(0.1)
+# t = 71.35 s
+hand(U,24)
+left_arm_move(19, 0.2125)
+sleep(0.2125)
+# t = 71.5625 s
+hand(D,1)
+sleep(0.1)
+# t = 71.6625 s
+hand(U,1)
+left_arm_move(20, 0.2125)
+sleep(0.2125)
+# t = 71.875 s
+hand(D,24)
+sleep(0.1)
+# t = 71.975 s
+hand(U,24)
+left_arm_move(16, 0.2125)
+sleep(0.05625)
+# t = 72.03125 s
+hand(D,7)
+sleep(0.1)
+# t = 72.13125 s
+hand(U,7)
+sleep(0.05625)
+# t = 72.1875 s
+hand(D,4)
+sleep(0.1)
+# t = 72.2875 s
+hand(U,4)
+left_arm_move(12, 0.2125)
+sleep(0.2125)
+# t = 72.5 s
+hand(D,1)
+sleep(0.1)
+# t = 72.6 s
+hand(U,1)
+left_arm_move(16, 0.2125)
+sleep(0.2125)
+# t = 72.8125 s
+hand(D,47)
+sleep(0.1)
+# t = 72.9125 s
+hand(U,47)
+left_arm_move(20, 0.2125)
+sleep(0.2125)
+# t = 73.125 s
+hand(D,47)
+sleep(0.1)
+# t = 73.225 s
+hand(U,47)
+left_arm_move(19, 0.2125)
+sleep(0.2125)
+# t = 73.4375 s
+hand(D,1)
+sleep(0.1)
+# t = 73.5375 s
+hand(U,1)
+left_arm_move(20, 0.2125)
+sleep(0.05625)
+# t = 73.59375 s
+hand(D,7)
+sleep(0.1)
+# t = 73.69375 s
+hand(U,7)
+sleep(0.05625)
+# t = 73.75 s
+hand(D,4)
+sleep(0.1)
+# t = 73.85 s
+hand(U,4)
+left_arm_move(19, 0.2125)
+sleep(0.2125)
+# t = 74.0625 s
+hand(D,1)
+sleep(0.1)
+# t = 74.1625 s
+hand(U,1)
+left_arm_move(20, 0.2125)
+sleep(0.2125)
+# t = 74.375 s
+hand(D,4)
+sleep(0.1)
+# t = 74.475 s
+hand(U,4)
+left_arm_move(19, 0.2125)
+sleep(0.2125)
+# t = 74.6875 s
+hand(D,1)
+sleep(0.1)
+# t = 74.7875 s
+hand(U,1)
+sleep(0.2125)
+# t = 75 s
+hand(D,1)
+sleep(0.1)
+# t = 75.1 s
+hand(U,1)
+left_arm_move(20, 2.4)
+sleep(0.2125)
+# t = 75.3125 s
+hand(D,7)
+sleep(0.1)
+# t = 75.4125 s
+hand(U,7)
+sleep(0.05625)
+# t = 75.46875 s
+hand(D,7)
+sleep(0.1)
+# t = 75.56875 s
+hand(U,7)
+sleep(0.05625)
+# t = 75.625 s
+hand(D,7)
+sleep(0.1)
+# t = 75.725 s
+hand(U,7)
+sleep(1.4625)
+# t = 77.1875 s
+hand(D,7)
+sleep(0.1)
+# t = 77.2875 s
+hand(U,7)
+sleep(0.2125)
+# t = 77.5 s
+hand(D,4)
+sleep(0.1)
+# t = 77.6 s
+hand(U,4)
+sleep(2.4)
+# t = 80 s
+hand(D,4)
+sleep(0.1)
+# t = 80.1 s
+hand(U,4)
+sleep(2.4)
+# t = 82.5 s
+hand(D,4)
+sleep(0.1)
+# t = 82.6 s
+hand(U,4)
+sleep(4.780371)
+# 演奏结束：t = 87.380371 s，全部手指已抬起

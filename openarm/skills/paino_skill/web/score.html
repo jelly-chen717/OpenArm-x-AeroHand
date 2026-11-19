@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>OpenArm · 钢琴时光</title><link rel="stylesheet" href="/score.css"><script type="module" src="/score.js"></script></head>
+<body>
+<div class="music-background" aria-hidden="true">
+ <svg viewBox="0 0 1440 1000" preserveAspectRatio="xMidYMid slice" focusable="false">
+  <defs>
+   <g id="background-staff"><path d="M-100 0 C280 -85 650 105 1050 0 S1460 -45 1540 0"/><path d="M-100 12 C280 -73 650 117 1050 12 S1460 -33 1540 12"/><path d="M-100 24 C280 -61 650 129 1050 24 S1460 -21 1540 24"/><path d="M-100 36 C280 -49 650 141 1050 36 S1460 -9 1540 36"/><path d="M-100 48 C280 -37 650 153 1050 48 S1460 3 1540 48"/></g>
+   <g id="background-note"><ellipse cx="0" cy="0" rx="9" ry="6" transform="rotate(-20)"/><path d="M8 -3 V-40 C9 -28 26 -27 18 -12" fill="none" stroke="currentColor" stroke-width="2.5"/></g>
+   <g id="background-pair"><ellipse cx="0" cy="0" rx="8" ry="5" transform="rotate(-20)"/><ellipse cx="27" cy="-6" rx="8" ry="5" transform="rotate(-20 27 -6)"/><path d="M7 -2 V-37 L34 -43 V-8 M7 -31 L34 -37" fill="none" stroke="currentColor" stroke-width="3"/></g>
+  </defs>
+  <g transform="translate(0 235)"><use href="#background-staff" class="staff-waves"/></g>
+  <g transform="translate(0 755)"><use href="#background-staff" class="staff-waves staff-lower"/></g>
+  <g transform="translate(115 255)"><use href="#background-note" class="floating-note note-a"/></g>
+  <g transform="translate(1250 222)"><use href="#background-pair" class="floating-note note-b"/></g>
+  <g transform="translate(1320 495)"><use href="#background-note" class="floating-note note-c"/></g>
+  <g transform="translate(80 640)"><use href="#background-pair" class="floating-note note-b"/></g>
+  <g transform="translate(300 830)"><use href="#background-note" class="floating-note note-c"/></g>
+  <g transform="translate(1060 792)"><use href="#background-note" class="floating-note note-a"/></g>
+  <g transform="translate(760 900)"><use href="#background-pair" class="floating-note note-d"/></g>
+ </svg>
+</div>
+<header class="site-header"><div class="brand"><span class="brand-keys" aria-hidden="true">▥</span><span>钢琴时光<small>OPENARM PIANO</small></span></div><span id="connection">正在连接…</span></header>
+<main>
+ <section id="selectScreen" class="screen">
+  <div class="intro"><p class="eyebrow">MUSIC, AT YOUR FINGERTIPS</p><h1>选一首歌，<span>让音乐响起。</span></h1><p>把旋律交给双手，享受这一刻。</p></div>
+  <div class="library"><div class="library-heading"><h2>我的歌单 <span id="songCount">—</span></h2><button id="refreshSongs" class="text-button" aria-label="刷新歌单">↻ 刷新</button></div><select id="songSelect" aria-label="选择歌曲" disabled><option value="">正在读取歌单…</option></select></div>
+  <div class="selection-footer"><p id="selectionLabel">选择一首喜欢的歌</p><button id="scoreStart" class="primary large" disabled>开始演奏 <span aria-hidden="true">→</span></button></div>
+ </section>
+ <section id="playScreen" class="screen" hidden>
+  <section class="piano" aria-label="钢琴与双手可视化"><div class="piano-top"><span class="piano-wordmark">OpenArm <i>Piano</i></span><div class="legend"><span class="left-label">● 左手</span><span class="right-label">● 右手</span></div></div>
+   <div class="piano-scroll"><div id="stage"><canvas id="roll" aria-label="即将奏响的音符"></canvas><div class="rails"><div id="leftHand" class="hand left" hidden><span>1</span><span>2</span><span>3</span><span>4</span></div><div id="rightHand" class="hand right" hidden><span>7</span><span>8</span><span>9</span><span>x</span></div></div><div id="keys" aria-label="88 键钢琴"></div></div></div>
+   <div class="piano-bottom"><div class="hand-status"><span id="leftState">左手：未定位</span><span id="rightState">右手：未定位</span></div><label class="volume">音量 <input id="volume" type="range" min="0" max="1" step=".01" value=".5"></label></div>
+  </section>
+  <div class="end-controls"><button id="scoreStop" class="end-button" disabled>结束演奏</button></div>
+ </section>
+ <section id="completeScreen" class="screen completion" hidden><div class="completion-mark" aria-hidden="true">♪</div><p class="eyebrow">A MOMENT OF MUSIC</p><h1 id="completeTitle">演奏完成</h1><p id="completeMessage">让旋律停留片刻。</p><div id="completeSong"></div><button id="finishButton" class="primary large">完成演奏 <span aria-hidden="true">→</span></button></section>
+ <p id="scoreStatus" role="status" aria-live="polite"></p>
+ <footer>OPENARM PIANO <span>·</span> 音乐，让此刻不同</footer>
+</main>
+<dialog id="settings" aria-labelledby="settingsTitle"><div class="dialog-heading"><div><p class="eyebrow">CONFIG</p><h2 id="settingsTitle">文本与参数</h2></div><button id="closeSettings" class="text-button" aria-label="关闭设置">✕</button></div><p class="config-note">仅本机 MuJoCo 仿真 · 四指：左 1234 / 右 789x。参数保持歌曲原时间，不代表真机能力。</p><label><input id="automaticMotion" type="checkbox" checked> 按原速自动匹配仿真运动参数</label><div class="parameters"><label>速度上限 <input id="scoreVelocity" type="number" min="0" step="any" value="2.5"> rad/s</label><label>加速度上限 <input id="scoreAcceleration" type="number" min="0" step="any" value="50"> rad/s²</label></div><div class="file-row"><label class="file-button">导入 TXT<input id="scoreFile" type="file" accept=".txt,text/plain"></label><span id="filename">尚未选择歌曲</span></div><textarea id="scoreText" rows="11" spellcheck="false" aria-label="动作文本" placeholder="选择歌曲或粘贴动作文本"></textarea><div class="config-actions"><button id="scoreParse">解析文本</button><button id="scorePrepare">预检</button></div><p id="summary"></p><p id="configStatus" role="status"></p></dialog>
+</body></html>

@@ -1,0 +1,39 @@
+{
+  "request_id": "offline-1794741506007242400",
+  "mapping_version": "model-candidate-v1-20261115",
+  "expires_at": 1794741626.0072424,
+  "joints": [
+    {
+      "side": "right",
+      "motor_id": 7
+    }
+  ],
+  "initial_model_position": [
+    0
+  ],
+  "limits": {
+    "velocity_rad_s": 0.2,
+    "acceleration_rad_s2": 2,
+    "start_error_rad": 0.01
+  },
+  "points": [
+    {
+      "t": 0,
+      "q": [
+        0
+      ]
+    },
+    {
+      "t": 0.5,
+      "q": [
+        0.02
+      ]
+    },
+    {
+      "t": 1,
+      "q": [
+        0
+      ]
+    }
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "status": "USER_AUTHORIZED_PREPARING",
+  "sequence": [
+    {
+      "joint": 7,
+      "delta_deg": 25,
+      "move_s": 4,
+      "hold_s": 2
+    },
+    {
+      "joint": 6,
+      "delta_deg": 25,
+      "move_s": 4,
+      "hold_s": 3
+    },
+    {
+      "joint": 5,
+      "delta_deg": 45,
+      "move_s": 7,
+      "hold_s": 3
+    },
+    {
+      "joint": 4,
+      "delta_deg": 15,
+      "move_s": 4,
+      "hold_s": 3
+    }
+  ],
+  "total_before_hold_s": 30,
+  "hold_after": true,
+  "on_cancel_or_fault": "disable participating four joints and verify all 14 disabled",
+  "software_tests": "65 passed in 4.88s"
+}

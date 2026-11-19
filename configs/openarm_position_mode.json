@@ -1,0 +1,16 @@
+{
+  "schema_version": 1,
+  "mapping_version": "hardware-unified-forward-inward-v2-20261116",
+  "target_control_mode": "POS_VEL",
+  "ctrl_mode": 2,
+  "arms": {
+    "left": {
+      "channel": 81,
+      "motor_ids": [1, 2, 3, 4, 5, 6, 7]
+    },
+    "right": {
+      "channel": 82,
+      "motor_ids": [1, 2, 3, 4, 5, 6, 7]
+    }
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "test_result": "43 passed in 3.00s",
+  "feedback_kind": "synthetic_virtual",
+  "samples": 104,
+  "max_error_rad": 0.0,
+  "mujoco_updated": true,
+  "final_state": {
+    "type": "state",
+    "state": "STOPPED",
+    "outcome": "COMPLETED",
+    "feedback_kind": "synthetic_virtual",
+    "request_id": "offline-1794741506007242400"
+  },
+  "hardware_checked": false
+}

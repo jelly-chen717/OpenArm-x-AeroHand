@@ -1,0 +1,46 @@
+[
+  {
+    "side": "left",
+    "motor_id": 4,
+    "kp": 60.0,
+    "kd": 2.0,
+    "max_travel": 0.35,
+    "max_speed": 0.5,
+    "max_torque": 1.0,
+    "max_temperature": 50.0,
+    "max_age": 0.15
+  },
+  {
+    "side": "left",
+    "motor_id": 5,
+    "kp": 20.0,
+    "kd": 2.0,
+    "max_travel": 0.83,
+    "max_speed": 0.5,
+    "max_torque": 1.0,
+    "max_temperature": 50.0,
+    "max_age": 0.15
+  },
+  {
+    "side": "left",
+    "motor_id": 6,
+    "kp": 20.0,
+    "kd": 2.0,
+    "max_travel": 0.48,
+    "max_speed": 0.5,
+    "max_torque": 1.0,
+    "max_temperature": 50.0,
+    "max_age": 0.15
+  },
+  {
+    "side": "left",
+    "motor_id": 7,
+    "kp": 30.0,
+    "kd": 2.0,
+    "max_travel": 0.48,
+    "max_speed": 0.5,
+    "max_torque": 1.0,
+    "max_temperature": 50.0,
+    "max_age": 0.15
+  }
+]

@@ -1,0 +1,1591 @@
+{
+  "source": "D:\\桌面\\open CyMon\\弹钢琴\\logs\\openarm\\sync\\dual_sequence_review_20261116\\execution_20261116_retry1\\execution.jsonl",
+  "source_sha256": "3ffbcdd7027edc49eaf6289d8a84289a028c15115d24c2da24d7c0cf4268f3d9",
+  "analysis_kind": "offline_log_only_no_control_or_CAN_changes",
+  "result": "Holding error exceeded: right J6 at 2.088689 degrees during J2",
+  "sample_count": 364,
+  "last_enabled_sample_t_s": 14.54407429999992,
+  "stages_started": [
+    "J7",
+    "J6",
+    "J5",
+    "J4",
+    "J3",
+    "J2"
+  ],
+  "stages_completed": [
+    {
+      "stage": "J7",
+      "completed_at_s": 2.343989299995883,
+      "actual_move_s": 0.8223166999960085,
+      "planned_move_s": 0.8,
+      "arrival_wait_s": 0.0,
+      "continuous_dwell_s": 1.5216725999998744,
+      "all_axes_max_settled_speed_rad_s": 0.0219780219780219,
+      "accepted_axes": [
+        {
+          "side": "left",
+          "motor_id": 7,
+          "delta_deg": -14.840861482178514,
+          "error_deg": 0.15913851782148394,
+          "speed_rad_s": 0.0073260073260073,
+          "torque_nm": 0.13431013431013383
+        },
+        {
+          "side": "right",
+          "motor_id": 7,
+          "delta_deg": -14.687862910197396,
+          "error_deg": 0.31213708980260396,
+          "speed_rad_s": -0.0073260073260073,
+          "torque_nm": -0.3540903540903546
+        }
+      ]
+    },
+    {
+      "stage": "J6",
+      "completed_at_s": 5.104282799999055,
+      "actual_move_s": 1.2393783000006806,
+      "planned_move_s": 1.2,
+      "arrival_wait_s": 0.0,
+      "continuous_dwell_s": 1.5209152000024915,
+      "all_axes_max_settled_speed_rad_s": 0.0219780219780219,
+      "accepted_axes": [
+        {
+          "side": "left",
+          "motor_id": 6,
+          "delta_deg": -29.41943969810371,
+          "error_deg": 0.5805603018962875,
+          "speed_rad_s": 0.0219780219780219,
+          "torque_nm": 0.5641025641025639
+        },
+        {
+          "side": "right",
+          "motor_id": 6,
+          "delta_deg": -29.41943969810361,
+          "error_deg": 0.5805603018963892,
+          "speed_rad_s": -0.0219780219780219,
+          "torque_nm": -0.6471306471306466
+        }
+      ]
+    },
+    {
+      "stage": "J5",
+      "completed_at_s": 8.184835099993506,
+      "actual_move_s": 1.5597154999995837,
+      "planned_move_s": 1.5,
+      "arrival_wait_s": 0.0,
+      "continuous_dwell_s": 1.5208367999948678,
+      "all_axes_max_settled_speed_rad_s": 0.0366300366300365,
+      "accepted_axes": [
+        {
+          "side": "left",
+          "motor_id": 5,
+          "delta_deg": 44.85043852935265,
+          "error_deg": -0.14956147064734762,
+          "speed_rad_s": -0.0073260073260073,
+          "torque_nm": 0.10012210012209977
+        },
+        {
+          "side": "right",
+          "motor_id": 5,
+          "delta_deg": 44.82858159049819,
+          "error_deg": -0.1714184095018079,
+          "speed_rad_s": -0.0073260073260073,
+          "torque_nm": 0.11965811965811923
+        }
+      ]
+    },
+    {
+      "stage": "J4",
+      "completed_at_s": 10.344090899998264,
+      "actual_move_s": 0.6403791000047931,
+      "planned_move_s": 0.5999999999999996,
+      "arrival_wait_s": 0.0,
+      "continuous_dwell_s": 1.5188766999999643,
+      "all_axes_max_settled_speed_rad_s": 0.010989010989007397,
+      "accepted_axes": [
+        {
+          "side": "left",
+          "motor_id": 4,
+          "delta_deg": 2.6665465402441515,
+          "error_deg": -0.33345345975584884,
+          "speed_rad_s": -0.0073260073260073,
+          "torque_nm": 1.100854700854704
+        },
+        {
+          "side": "right",
+          "motor_id": 4,
+          "delta_deg": 2.950686745352135,
+          "error_deg": -0.04931325464786548,
+          "speed_rad_s": 0.0024420024420024333,
+          "torque_nm": 0.12991452991452945
+        }
+      ]
+    },
+    {
+      "stage": "J3",
+      "completed_at_s": 13.424009499998647,
+      "actual_move_s": 1.5596680999951786,
+      "planned_move_s": 1.5,
+      "arrival_wait_s": 0.0,
+      "continuous_dwell_s": 1.5202505000052042,
+      "all_axes_max_settled_speed_rad_s": 0.0329670329670364,
+      "accepted_axes": [
+        {
+          "side": "left",
+          "motor_id": 3,
+          "delta_deg": -44.69743995737143,
+          "error_deg": 0.30256004262856945,
+          "speed_rad_s": -0.0024420024420024333,
+          "torque_nm": -0.4444444444444464
+        },
+        {
+          "side": "right",
+          "motor_id": 3,
+          "delta_deg": -44.69743995737143,
+          "error_deg": 0.30256004262856945,
+          "speed_rad_s": -0.0024420024420024333,
+          "torque_nm": -0.45811965811966004
+        }
+      ]
+    }
+  ],
+  "holding_target_entered": false,
+  "failure_events": [
+    {
+      "type": "hold_tolerance_exceeded",
+      "t": 14.54407429999992,
+      "stage": "J2",
+      "joints": [
+        {
+          "side": "right",
+          "motor_id": 6,
+          "error_rad": 0.036454501546265505,
+          "tolerance_rad": 0.03490658503988659
+        }
+      ],
+      "feedback_kind": "hardware",
+      "request_id": "dual-sequence-retry1-1794833387547474000"
+    },
+    {
+      "type": "fault",
+      "error": "Holding error exceeded",
+      "feedback_kind": "hardware",
+      "request_id": "dual-sequence-retry1-1794833387547474000"
+    }
+  ],
+  "right_j6": {
+    "trend_during_j2": [
+      {
+        "t": 13.464359499994316,
+        "error_deg": 0.3619909133517866,
+        "velocity_rad_s": -0.0073260073260073,
+        "torque_nm": -0.4175824175824179,
+        "right_j2_delta_deg": 0.02185693885446026
+      },
+      {
+        "t": 13.505126599993673,
+        "error_deg": 0.3619909133517866,
+        "velocity_rad_s": 0.0073260073260073,
+        "torque_nm": -0.42246642246642274,
+        "right_j2_delta_deg": 0.02185693885446026
+      },
+      {
+        "t": 13.544823799995356,
+        "error_deg": 0.3619909133517866,
+        "velocity_rad_s": -0.0073260073260073,
+        "torque_nm": -0.42246642246642274,
+        "right_j2_delta_deg": 0.0
+      },
+      {
+        "t": 13.583643899997696,
+        "error_deg": 0.3619909133517866,
+        "velocity_rad_s": -0.0073260073260073,
+        "torque_nm": -0.4175824175824179,
+        "right_j2_delta_deg": 0.0
+      },
+      {
+        "t": 13.623948399996152,
+        "error_deg": 0.3619909133517866,
+        "velocity_rad_s": -0.0073260073260073,
+        "torque_nm": -0.42246642246642274,
+        "right_j2_delta_deg": -0.13114163312676155
+      },
+      {
+        "t": 13.665672799994354,
+        "error_deg": 0.3619909133517866,
+        "velocity_rad_s": -0.0073260073260073,
+        "torque_nm": -0.42246642246642274,
+        "right_j2_delta_deg": -0.3059971439624436
+      },
+      {
+        "t": 13.702979199995752,
+        "error_deg": 0.3619909133517866,
+        "velocity_rad_s": -0.0219780219780219,
+        "torque_nm": -0.4322344322344325,
+        "right_j2_delta_deg": -0.6557081656338077
+      },
+      {
+        "t": 13.744758399996499,
+        "error_deg": 0.3619909133517866,
+        "velocity_rad_s": -0.0073260073260073,
+        "torque_nm": -0.4322344322344325,
+        "right_j2_delta_deg": -1.1802746981408538
+      },
+      {
+        "t": 13.782128799997736,
+        "error_deg": 0.3838478522062469,
+        "velocity_rad_s": -0.0073260073260073,
+        "torque_nm": -0.43711843711843734,
+        "right_j2_delta_deg": -1.8359828637746616
+      },
+      {
+        "t": 13.82409319999715,
+        "error_deg": 0.3838478522062469,
+        "velocity_rad_s": 0.0073260073260073,
+        "torque_nm": -0.45177045177045194,
+        "right_j2_delta_deg": -2.5791187848263104
+      },
+      {
+        "t": 13.86448649999511,
+        "error_deg": 0.3838478522062469,
+        "velocity_rad_s": 0.0073260073260073,
+        "torque_nm": -0.46642246642246654,
+        "right_j2_delta_deg": -3.453396339004721
+      },
+      {
+        "t": 13.90532009999879,
+        "error_deg": 0.3838478522062469,
+        "velocity_rad_s": 0.0073260073260073,
+        "torque_nm": -0.4566544566544568,
+        "right_j2_delta_deg": -4.3932447097465115
+      },
+      {
+        "t": 13.945035199998529,
+        "error_deg": 0.40570479106070717,
+        "velocity_rad_s": 0.0073260073260073,
+        "torque_nm": -0.49572649572649574,
+        "right_j2_delta_deg": -5.398663897051684
+      },
+      {
+        "t": 13.984194499993464,
+        "error_deg": 0.42756172991516744,
+        "velocity_rad_s": 0.0366300366300365,
+        "torque_nm": -0.5103785103785103,
+        "right_j2_delta_deg": -6.622652472901458
+      },
+      {
+        "t": 14.024068399994576,
+        "error_deg": 0.44941866876962766,
+        "velocity_rad_s": 0.0219780219780219,
+        "torque_nm": -0.5299145299145298,
+        "right_j2_delta_deg": -7.9340688041690735
+      },
+      {
+        "t": 14.064696899993578,
+        "error_deg": 0.47127560762408793,
+        "velocity_rad_s": 0.0366300366300365,
+        "torque_nm": -0.5934065934065931,
+        "right_j2_delta_deg": -9.398483707417912
+      },
+      {
+        "t": 14.10373729999992,
+        "error_deg": 0.5149894853330085,
+        "velocity_rad_s": 0.0366300366300365,
+        "torque_nm": -0.6227106227106223,
+        "right_j2_delta_deg": -10.841041671812288
+      },
+      {
+        "t": 14.14431379999587,
+        "error_deg": 0.5368464241874688,
+        "velocity_rad_s": 0.0073260073260073,
+        "torque_nm": -0.6568986568986563,
+        "right_j2_delta_deg": -12.458455147042347
+      },
+      {
+        "t": 14.184440899996844,
+        "error_deg": 0.5805603018963892,
+        "velocity_rad_s": 0.0512820512820511,
+        "torque_nm": -0.7008547008547001,
+        "right_j2_delta_deg": -14.097725561126866
+      },
+      {
+        "t": 14.225969699997222,
+        "error_deg": 0.64613111845977,
+        "velocity_rad_s": 0.0366300366300365,
+        "torque_nm": -0.7887667887667895,
+        "right_j2_delta_deg": -15.715139036356925
+      },
+      {
+        "t": 14.264646599993284,
+        "error_deg": 0.7991296904409918,
+        "velocity_rad_s": 0.1538461538461533,
+        "torque_nm": -1.0183150183150182,
+        "right_j2_delta_deg": -17.354409450441445
+      },
+      {
+        "t": 14.30516119999811,
+        "error_deg": 0.8647005070043726,
+        "velocity_rad_s": 0.0805860805860803,
+        "torque_nm": -1.0378510378510377,
+        "right_j2_delta_deg": -19.015536803380424
+      },
+      {
+        "t": 14.345420599995123,
+        "error_deg": 1.0176990789855944,
+        "velocity_rad_s": 0.0805860805860803,
+        "torque_nm": -1.2527472527472518,
+        "right_j2_delta_deg": -20.632950278610483
+      },
+      {
+        "t": 14.384339099997305,
+        "error_deg": 1.2144115286757367,
+        "velocity_rad_s": 0.1391941391941387,
+        "torque_nm": -1.4529914529914532,
+        "right_j2_delta_deg": -22.228506814986286
+      },
+      {
+        "t": 14.425030599995807,
+        "error_deg": 1.3892670395114188,
+        "velocity_rad_s": 0.1245421245421241,
+        "torque_nm": -1.6923076923076916,
+        "right_j2_delta_deg": -23.933348045634187
+      },
+      {
+        "t": 14.466211099999782,
+        "error_deg": 1.6734072446194022,
+        "velocity_rad_s": 0.1245421245421241,
+        "torque_nm": -2.0488400488400496,
+        "right_j2_delta_deg": -25.485190704300862
+      },
+      {
+        "t": 14.504404899998917,
+        "error_deg": 1.913833572018465,
+        "velocity_rad_s": 0.1245421245421241,
+        "torque_nm": -2.21978021978022,
+        "right_j2_delta_deg": -26.88403479098632
+      },
+      {
+        "t": 14.54407429999992,
+        "error_deg": 2.088689082854147,
+        "velocity_rad_s": 0.0659340659340657,
+        "torque_nm": -2.395604395604396,
+        "right_j2_delta_deg": -28.217308061108398
+      }
+    ],
+    "first_j2_error_deg": 0.3619909133517866,
+    "last_error_deg": 2.088689082854147,
+    "first_j2_torque_nm": -0.4175824175824179,
+    "last_torque_nm": -2.395604395604396,
+    "over_2deg_samples_before_shutdown": 1,
+    "over_2deg_sample_duration_s": 0.0,
+    "first_over_1deg_t_s": 14.345420599995123,
+    "nondecreasing_error_transitions": 27,
+    "total_j2_transitions": 27,
+    "note": "Only one >2-degree sample exists because the first violation stopped execution; post-threshold persistence is unobserved. The preceding rising error and torque are not an isolated random spike."
+  },
+  "joints": [
+    {
+      "side": "left",
+      "motor_id": 7,
+      "last_enabled_delta_deg": -14.950146176450817,
+      "last_command_delta_deg": -14.999999999999998,
+      "last_enabled_tracking_error_deg": 0.04985382354918267,
+      "last_enabled_velocity_rad_s": 0.1391941391941387,
+      "last_enabled_torque_nm": -0.0512820512820511,
+      "max_abs_tracking_error_deg": 0.9423133255301281,
+      "max_abs_velocity_rad_s": 0.6080586080586059,
+      "rated_speed_rad_s": 12.56637061435917,
+      "max_abs_torque_nm": 0.21733821733821657,
+      "rated_torque_nm": 3.0,
+      "rated_speed_exceed_count": 0,
+      "rated_torque_exceed_count": 0,
+      "max_temperature_c": 29,
+      "states_during_samples": [
+        1
+      ]
+    },
+    {
+      "side": "right",
+      "motor_id": 7,
+      "last_enabled_delta_deg": -14.972003115305379,
+      "last_command_delta_deg": -14.999999999999998,
+      "last_enabled_tracking_error_deg": 0.02799688469462063,
+      "last_enabled_velocity_rad_s": -0.0073260073260073,
+      "last_enabled_torque_nm": -0.1245421245421241,
+      "max_abs_tracking_error_deg": 0.8330286312578269,
+      "max_abs_velocity_rad_s": 0.5054945054945073,
+      "rated_speed_rad_s": 12.56637061435917,
+      "max_abs_torque_nm": 0.36385836385836434,
+      "rated_torque_nm": 3.0,
+      "rated_speed_exceed_count": 0,
+      "rated_torque_exceed_count": 0,
+      "max_temperature_c": 30,
+      "states_during_samples": [
+        1
+      ]
+    },
+    {
+      "side": "left",
+      "motor_id": 6,
+      "last_enabled_delta_deg": -29.310155003831408,
+      "last_command_delta_deg": -29.999999999999996,
+      "last_enabled_tracking_error_deg": 0.6898449961685887,
+      "last_enabled_velocity_rad_s": 0.0805860805860803,
+      "last_enabled_torque_nm": 0.7301587301587293,
+      "max_abs_tracking_error_deg": 1.1763663482643707,
+      "max_abs_velocity_rad_s": 1.3260073260073284,
+      "rated_speed_rad_s": 12.56637061435917,
+      "max_abs_torque_nm": 0.7301587301587293,
+      "rated_torque_nm": 3.0,
+      "rated_speed_exceed_count": 0,
+      "rated_torque_exceed_count": 0,
+      "max_temperature_c": 31,
+      "states_during_samples": [
+        1
+      ]
+    },
+    {
+      "side": "right",
+      "motor_id": 6,
+      "last_enabled_delta_deg": -27.91131091714585,
+      "last_command_delta_deg": -29.999999999999996,
+      "last_enabled_tracking_error_deg": 2.088689082854147,
+      "last_enabled_velocity_rad_s": 0.0659340659340657,
+      "last_enabled_torque_nm": -2.395604395604396,
+      "max_abs_tracking_error_deg": 2.088689082854147,
+      "max_abs_velocity_rad_s": 1.3113553113553102,
+      "rated_speed_rad_s": 12.56637061435917,
+      "max_abs_torque_nm": 2.395604395604396,
+      "rated_torque_nm": 3.0,
+      "rated_speed_exceed_count": 0,
+      "rated_torque_exceed_count": 0,
+      "max_temperature_c": 31,
+      "states_during_samples": [
+        1
+      ]
+    },
+    {
+      "side": "left",
+      "motor_id": 5,
+      "last_enabled_delta_deg": 44.85043852935265,
+      "last_command_delta_deg": 45.0,
+      "last_enabled_tracking_error_deg": -0.14956147064734762,
+      "last_enabled_velocity_rad_s": -0.0073260073260073,
+      "last_enabled_torque_nm": 0.0952380952380949,
+      "max_abs_tracking_error_deg": 1.0858335036315223,
+      "max_abs_velocity_rad_s": 1.5457875457875474,
+      "rated_speed_rad_s": 12.56637061435917,
+      "max_abs_torque_nm": 0.6910866910866904,
+      "rated_torque_nm": 3.0,
+      "rated_speed_exceed_count": 0,
+      "rated_torque_exceed_count": 0,
+      "max_temperature_c": 31,
+      "states_during_samples": [
+        1
+      ]
+    },
+    {
+      "side": "right",
+      "motor_id": 5,
+      "last_enabled_delta_deg": 44.63186914080805,
+      "last_command_delta_deg": 45.0,
+      "last_enabled_tracking_error_deg": -0.3681308591919502,
+      "last_enabled_velocity_rad_s": 0.0073260073260073,
+      "last_enabled_torque_nm": 0.3589743589743595,
+      "max_abs_tracking_error_deg": 0.8672641150869197,
+      "max_abs_velocity_rad_s": 1.780219780219781,
+      "rated_speed_rad_s": 12.56637061435917,
+      "max_abs_torque_nm": 0.6422466422466417,
+      "rated_torque_nm": 3.0,
+      "rated_speed_exceed_count": 0,
+      "rated_torque_exceed_count": 0,
+      "max_temperature_c": 31,
+      "states_during_samples": [
+        1
+      ]
+    },
+    {
+      "side": "left",
+      "motor_id": 4,
+      "last_enabled_delta_deg": 2.4261202128450887,
+      "last_command_delta_deg": 3.0000000000000004,
+      "last_enabled_tracking_error_deg": -0.5738797871549116,
+      "last_enabled_velocity_rad_s": -0.0024420024420024333,
+      "last_enabled_torque_nm": 1.9760683760683762,
+      "max_abs_tracking_error_deg": 0.5738797871549116,
+      "max_abs_velocity_rad_s": 0.19291819291819223,
+      "rated_speed_rad_s": 3.7699111843077517,
+      "max_abs_torque_nm": 1.9760683760683762,
+      "rated_torque_nm": 9.0,
+      "rated_speed_exceed_count": 0,
+      "rated_torque_exceed_count": 0,
+      "max_temperature_c": 28,
+      "states_during_samples": [
+        1
+      ]
+    },
+    {
+      "side": "right",
+      "motor_id": 4,
+      "last_enabled_delta_deg": 3.9342489938028464,
+      "last_command_delta_deg": 3.0000000000000004,
+      "last_enabled_tracking_error_deg": 0.9342489938028461,
+      "last_enabled_velocity_rad_s": 0.0219780219780219,
+      "last_enabled_torque_nm": -3.4256410256410277,
+      "max_abs_tracking_error_deg": 0.9342489938028461,
+      "max_abs_velocity_rad_s": 0.2124542124542117,
+      "rated_speed_rad_s": 3.7699111843077517,
+      "max_abs_torque_nm": 3.4256410256410277,
+      "rated_torque_nm": 9.0,
+      "rated_speed_exceed_count": 0,
+      "rated_torque_exceed_count": 0,
+      "max_temperature_c": 28,
+      "states_during_samples": [
+        1
+      ]
+    },
+    {
+      "side": "left",
+      "motor_id": 3,
+      "last_enabled_delta_deg": -44.69743995737143,
+      "last_command_delta_deg": -45.0,
+      "last_enabled_tracking_error_deg": 0.30256004262856945,
+      "last_enabled_velocity_rad_s": 0.0073260073260073,
+      "last_enabled_torque_nm": -0.4854700854700873,
+      "max_abs_tracking_error_deg": 0.8140392213727582,
+      "max_abs_velocity_rad_s": 0.9792429792429793,
+      "rated_speed_rad_s": 3.7699111843077517,
+      "max_abs_torque_nm": 1.0871794871794869,
+      "rated_torque_nm": 9.0,
+      "rated_speed_exceed_count": 0,
+      "rated_torque_exceed_count": 0,
+      "max_temperature_c": 30,
+      "states_during_samples": [
+        1
+      ]
+    },
+    {
+      "side": "right",
+      "motor_id": 3,
+      "last_enabled_delta_deg": -45.222006489878474,
+      "last_command_delta_deg": -45.0,
+      "last_enabled_tracking_error_deg": -0.22200648987847676,
+      "last_enabled_velocity_rad_s": -0.09035409035409003,
+      "last_enabled_torque_nm": 0.48547008547008375,
+      "max_abs_tracking_error_deg": 0.8140392213727582,
+      "max_abs_velocity_rad_s": 1.0231990231990231,
+      "rated_speed_rad_s": 3.7699111843077517,
+      "max_abs_torque_nm": 1.0871794871794869,
+      "rated_torque_nm": 9.0,
+      "rated_speed_exceed_count": 0,
+      "rated_torque_exceed_count": 0,
+      "max_temperature_c": 30,
+      "states_during_samples": [
+        1
+      ]
+    },
+    {
+      "side": "left",
+      "motor_id": 2,
+      "last_enabled_delta_deg": -29.878435414047274,
+      "last_command_delta_deg": -31.437297181960457,
+      "last_enabled_tracking_error_deg": 1.5588617679131844,
+      "last_enabled_velocity_rad_s": -0.6703296703296644,
+      "last_enabled_torque_nm": -9.24395604395604,
+      "max_abs_tracking_error_deg": 1.5588617679131844,
+      "max_abs_velocity_rad_s": 0.780219780219781,
+      "rated_speed_rad_s": 10.471975511965978,
+      "max_abs_torque_nm": 9.24395604395604,
+      "rated_torque_nm": 20.0,
+      "rated_speed_exceed_count": 0,
+      "rated_torque_exceed_count": 0,
+      "max_temperature_c": 28,
+      "states_during_samples": [
+        1
+      ]
+    },
+    {
+      "side": "right",
+      "motor_id": 2,
+      "last_enabled_delta_deg": -28.217308061108398,
+      "last_command_delta_deg": -31.437297181960457,
+      "last_enabled_tracking_error_deg": 3.219989120852062,
+      "last_enabled_velocity_rad_s": -0.4285714285714306,
+      "last_enabled_torque_nm": 18.21098901098901,
+      "max_abs_tracking_error_deg": 3.219989120852062,
+      "max_abs_velocity_rad_s": 0.6703296703296644,
+      "rated_speed_rad_s": 10.471975511965978,
+      "max_abs_torque_nm": 18.21098901098901,
+      "rated_torque_nm": 20.0,
+      "rated_speed_exceed_count": 0,
+      "rated_torque_exceed_count": 0,
+      "max_temperature_c": 29,
+      "states_during_samples": [
+        1
+      ]
+    },
+    {
+      "side": "left",
+      "motor_id": 1,
+      "last_enabled_delta_deg": 0.0,
+      "last_command_delta_deg": 0.0,
+      "last_enabled_tracking_error_deg": 0.0,
+      "last_enabled_velocity_rad_s": 0.010989010989007397,
+      "last_enabled_torque_nm": -0.09230769230769198,
+      "max_abs_tracking_error_deg": 0.02185693885446026,
+      "max_abs_velocity_rad_s": 0.0329670329670364,
+      "rated_speed_rad_s": 10.471975511965978,
+      "max_abs_torque_nm": 0.1978021978021971,
+      "rated_torque_nm": 20.0,
+      "rated_speed_exceed_count": 0,
+      "rated_torque_exceed_count": 0,
+      "max_temperature_c": 28,
+      "states_during_samples": [
+        1
+      ]
+    },
+    {
+      "side": "right",
+      "motor_id": 1,
+      "last_enabled_delta_deg": -0.48085265479812567,
+      "last_command_delta_deg": 0.0,
+      "last_enabled_tracking_error_deg": -0.48085265479812567,
+      "last_enabled_velocity_rad_s": -0.0329670329670364,
+      "last_enabled_torque_nm": 2.4659340659340714,
+      "max_abs_tracking_error_deg": 0.48085265479812567,
+      "max_abs_velocity_rad_s": 0.120879120879124,
+      "rated_speed_rad_s": 10.471975511965978,
+      "max_abs_torque_nm": 2.4659340659340714,
+      "rated_torque_nm": 20.0,
+      "rated_speed_exceed_count": 0,
+      "rated_torque_exceed_count": 0,
+      "max_temperature_c": 28,
+      "states_during_samples": [
+        1
+      ]
+    }
+  ],
+  "j2": [
+    {
+      "side": "left",
+      "peak_measured_speed_deg_s": 44.70330049921812,
+      "peak_measured_speed_rad_s": 0.780219780219781,
+      "last": {
+        "t": 14.54407429999992,
+        "command_delta_deg": -31.437297181960457,
+        "measured_delta_deg": -29.878435414047274,
+        "tracking_error_deg": 1.5588617679131844,
+        "command_speed_deg_s": -42.49731646748772,
+        "measured_speed_deg_s": -38.407060992285615,
+        "torque_nm": -9.24395604395604
+      },
+      "peak_abs_torque_nm": 9.24395604395604,
+      "rated_torque_nm": 20.0,
+      "peak_torque_ratio": 0.462197802197802,
+      "last_6_abs_torques_nm": [
+        7.054945054945051,
+        7.318681318681314,
+        7.978021978021978,
+        8.10989010989011,
+        8.584615384615383,
+        9.24395604395604
+      ],
+      "last_6_torques_strictly_increasing": true,
+      "series": [
+        {
+          "t": 13.464359499994316,
+          "command_delta_deg": -0.0003430988073915385,
+          "measured_delta_deg": 0.0,
+          "tracking_error_deg": 0.0003430988073915385,
+          "command_speed_deg_s": -0.062018692589594165,
+          "measured_speed_deg_s": -0.6296239506930066,
+          "torque_nm": -0.25054945054944966
+        },
+        {
+          "t": 13.505126599993673,
+          "command_delta_deg": -0.013876995257199863,
+          "measured_delta_deg": 0.0,
+          "tracking_error_deg": 0.013876995257199863,
+          "command_speed_deg_s": -0.7139187974106006,
+          "measured_speed_deg_s": -0.6296239506930066,
+          "torque_nm": -0.3560439560439548
+        },
+        {
+          "t": 13.544823799995356,
+          "command_delta_deg": -0.06398040369544229,
+          "measured_delta_deg": 0.0,
+          "tracking_error_deg": 0.06398040369544229,
+          "command_speed_deg_s": -1.9325935280718418,
+          "measured_speed_deg_s": -0.6296239506930066,
+          "torque_nm": -0.6197802197802176
+        },
+        {
+          "t": 13.583643899997696,
+          "command_delta_deg": -0.1740641097486978,
+          "measured_delta_deg": -0.02185693885446026,
+          "tracking_error_deg": 0.15220717089423752,
+          "command_speed_deg_s": -3.6765109700657623,
+          "measured_speed_deg_s": -0.6296239506930066,
+          "torque_nm": -1.1736263736263766
+        },
+        {
+          "t": 13.623948399996152,
+          "command_delta_deg": -0.3619091013449521,
+          "measured_delta_deg": -0.1092846942723013,
+          "tracking_error_deg": 0.25262440707265077,
+          "command_speed_deg_s": -5.842099373960238,
+          "measured_speed_deg_s": -3.148119753465847,
+          "torque_nm": -1.8065934065934073
+        },
+        {
+          "t": 13.665672799994354,
+          "command_delta_deg": -0.6484171591382727,
+          "measured_delta_deg": -0.2841402051079833,
+          "tracking_error_deg": 0.36427695403028937,
+          "command_speed_deg_s": -8.39599681688065,
+          "measured_speed_deg_s": -5.666615556238687,
+          "torque_nm": -2.4923076923076906
+        },
+        {
+          "t": 13.702979199995752,
+          "command_delta_deg": -1.0357874246455863,
+          "measured_delta_deg": -0.6338512267793475,
+          "tracking_error_deg": 0.4019361978662388,
+          "command_speed_deg_s": -11.173213229652603,
+          "measured_speed_deg_s": -13.222102964557209,
+          "torque_nm": -2.5450549450549502
+        },
+        {
+          "t": 13.744758399996499,
+          "command_delta_deg": -1.548676771189804,
+          "measured_delta_deg": -1.1365608204319333,
+          "tracking_error_deg": 0.41211595075787055,
+          "command_speed_deg_s": -14.20677614864135,
+          "measured_speed_deg_s": -13.222102964557209,
+          "torque_nm": -2.597802197802203
+        },
+        {
+          "t": 13.782128799997736,
+          "command_delta_deg": -2.172098874511337,
+          "measured_delta_deg": -1.792268986065741,
+          "tracking_error_deg": 0.37982988844559595,
+          "command_speed_deg_s": -17.303601919803594,
+          "measured_speed_deg_s": -23.296086175648572,
+          "torque_nm": -2.4659340659340643
+        },
+        {
+          "t": 13.82409319999715,
+          "command_delta_deg": -2.9357573953792975,
+          "measured_delta_deg": -2.53540490711739,
+          "tracking_error_deg": 0.4003524882619078,
+          "command_speed_deg_s": -20.52830350083196,
+          "measured_speed_deg_s": -19.518342471489717,
+          "torque_nm": -2.6505494505494553
+        },
+        {
+          "t": 13.86448649999511,
+          "command_delta_deg": -3.82273256584677,
+          "measured_delta_deg": -3.4096824612958003,
+          "tracking_error_deg": 0.41305010455096985,
+          "command_speed_deg_s": -23.73476909898001,
+          "measured_speed_deg_s": -22.036838274262557,
+          "torque_nm": -2.808791208791213
+        },
+        {
+          "t": 13.90532009999879,
+          "command_delta_deg": -4.847749963917282,
+          "measured_delta_deg": -4.349530832037591,
+          "tracking_error_deg": 0.4982191318796909,
+          "command_speed_deg_s": -26.92145048218147,
+          "measured_speed_deg_s": -22.036838274262557,
+          "torque_nm": -3.389010989010991
+        },
+        {
+          "t": 13.945035199998529,
+          "command_delta_deg": -5.979458387664664,
+          "measured_delta_deg": -5.398663897051684,
+          "tracking_error_deg": 0.5807944906129805,
+          "command_speed_deg_s": -29.954332285056804,
+          "measured_speed_deg_s": -27.073829879808237,
+          "torque_nm": -3.863736263736264
+        },
+        {
+          "t": 13.984194499993464,
+          "command_delta_deg": -7.225745916468889,
+          "measured_delta_deg": -6.6007955340469975,
+          "tracking_error_deg": 0.6249503824218914,
+          "command_speed_deg_s": -32.834583337406876,
+          "measured_speed_deg_s": -29.592325682581077,
+          "torque_nm": -4.153846153846153
+        },
+        {
+          "t": 14.024068399994576,
+          "command_delta_deg": -8.596302028328068,
+          "measured_delta_deg": -7.912211865314613,
+          "tracking_error_deg": 0.6840901630134552,
+          "command_speed_deg_s": -35.553848555453065,
+          "measured_speed_deg_s": -33.370069386739935,
+          "torque_nm": -4.470329670329676
+        },
+        {
+          "t": 14.064696899993578,
+          "command_delta_deg": -10.068755731814159,
+          "measured_delta_deg": -9.376626768563451,
+          "tracking_error_deg": 0.6921289632507078,
+          "command_speed_deg_s": -38.04180486812955,
+          "measured_speed_deg_s": -33.370069386739935,
+          "torque_nm": -4.4439560439560495
+        },
+        {
+          "t": 14.10373729999992,
+          "command_delta_deg": -11.617120086682256,
+          "measured_delta_deg": -10.86289861066685,
+          "tracking_error_deg": 0.7542214760154067,
+          "command_speed_deg_s": -40.24598902102369,
+          "measured_speed_deg_s": -39.66630889367244,
+          "torque_nm": -4.892307692307696
+        },
+        {
+          "t": 14.14431379999587,
+          "command_delta_deg": -13.267789401891411,
+          "measured_delta_deg": -12.480312085896909,
+          "tracking_error_deg": 0.7874773159945021,
+          "command_speed_deg_s": -42.19035206627627,
+          "measured_speed_deg_s": -35.888565189512775,
+          "torque_nm": -5.314285714285717
+        },
+        {
+          "t": 14.184440899996844,
+          "command_delta_deg": -15.013929622283198,
+          "measured_delta_deg": -14.163296377690349,
+          "tracking_error_deg": 0.8506332445928491,
+          "command_speed_deg_s": -43.84125385613036,
+          "measured_speed_deg_s": -44.70330049921812,
+          "torque_nm": -5.551648351648353
+        },
+        {
+          "t": 14.225969699997222,
+          "command_delta_deg": -16.80041198556961,
+          "measured_delta_deg": -15.846280669483788,
+          "tracking_error_deg": 0.9541313160858206,
+          "command_speed_deg_s": -45.13699584587092,
+          "measured_speed_deg_s": -35.888565189512775,
+          "torque_nm": -6.131868131868131
+        },
+        {
+          "t": 14.264646599993284,
+          "command_delta_deg": -18.605129121400555,
+          "measured_delta_deg": -17.57297883898615,
+          "tracking_error_deg": 1.0321502824144069,
+          "command_speed_deg_s": -46.07016355725709,
+          "measured_speed_deg_s": -39.66630889367244,
+          "torque_nm": -6.580219780219778
+        },
+        {
+          "t": 14.30516119999811,
+          "command_delta_deg": -20.459907238513075,
+          "measured_delta_deg": -19.365247825051892,
+          "tracking_error_deg": 1.0946594134611856,
+          "command_speed_deg_s": -46.655339329180926,
+          "measured_speed_deg_s": -39.66630889367244,
+          "torque_nm": -6.92307692307692
+        },
+        {
+          "t": 14.345420599995123,
+          "command_delta_deg": -22.35000126395753,
+          "measured_delta_deg": -21.22308762768101,
+          "tracking_error_deg": 1.1269136362765166,
+          "command_speed_deg_s": -46.873814822302606,
+          "measured_speed_deg_s": -37.1478130908996,
+          "torque_nm": -7.054945054945051
+        },
+        {
+          "t": 14.384339099997305,
+          "command_delta_deg": -24.191321835701046,
+          "measured_delta_deg": -23.015356613746754,
+          "tracking_error_deg": 1.1759652219542918,
+          "command_speed_deg_s": -46.724117437041144,
+          "measured_speed_deg_s": -44.70330049921812,
+          "torque_nm": -7.318681318681314
+        },
+        {
+          "t": 14.425030599995807,
+          "command_delta_deg": -26.084077091342348,
+          "measured_delta_deg": -24.807625599812493,
+          "tracking_error_deg": 1.276451491529854,
+          "command_speed_deg_s": -46.1942398600075,
+          "measured_speed_deg_s": -38.407060992285615,
+          "torque_nm": -7.978021978021978
+        },
+        {
+          "t": 14.466211099999782,
+          "command_delta_deg": -27.900305767609844,
+          "measured_delta_deg": -26.599894585878236,
+          "tracking_error_deg": 1.3004111817316102,
+          "command_speed_deg_s": -45.317261186635825,
+          "measured_speed_deg_s": -39.66630889367244,
+          "torque_nm": -8.10989010989011
+        },
+        {
+          "t": 14.504404899998917,
+          "command_delta_deg": -29.6977878053239,
+          "measured_delta_deg": -28.261021938817215,
+          "tracking_error_deg": 1.4367658665066858,
+          "command_speed_deg_s": -44.076417192447416,
+          "measured_speed_deg_s": -40.92555679505886,
+          "torque_nm": -8.584615384615383
+        },
+        {
+          "t": 14.54407429999992,
+          "command_delta_deg": -31.437297181960457,
+          "measured_delta_deg": -29.878435414047274,
+          "tracking_error_deg": 1.5588617679131844,
+          "command_speed_deg_s": -42.49731646748772,
+          "measured_speed_deg_s": -38.407060992285615,
+          "torque_nm": -9.24395604395604
+        }
+      ]
+    },
+    {
+      "side": "right",
+      "peak_measured_speed_deg_s": 38.407060992285615,
+      "peak_measured_speed_rad_s": 0.6703296703296644,
+      "last": {
+        "t": 14.54407429999992,
+        "command_delta_deg": -31.437297181960457,
+        "measured_delta_deg": -28.217308061108398,
+        "tracking_error_deg": 3.219989120852062,
+        "command_speed_deg_s": -42.49731646748772,
+        "measured_speed_deg_s": -24.555334077035397,
+        "torque_nm": 18.21098901098901
+      },
+      "peak_abs_torque_nm": 18.21098901098901,
+      "rated_torque_nm": 20.0,
+      "peak_torque_ratio": 0.9105494505494505,
+      "last_6_abs_torques_nm": [
+        10.193406593406593,
+        11.459340659340654,
+        12.408791208791214,
+        14.123076923076923,
+        15.995604395604403,
+        18.21098901098901
+      ],
+      "last_6_torques_strictly_increasing": true,
+      "series": [
+        {
+          "t": 13.464359499994316,
+          "command_delta_deg": -0.0003430988073915385,
+          "measured_delta_deg": 0.02185693885446026,
+          "tracking_error_deg": 0.022200037661851794,
+          "command_speed_deg_s": -0.062018692589594165,
+          "measured_speed_deg_s": 1.8888718520798338,
+          "torque_nm": -0.0659340659340657
+        },
+        {
+          "t": 13.505126599993673,
+          "command_delta_deg": -0.013876995257199863,
+          "measured_delta_deg": 0.02185693885446026,
+          "tracking_error_deg": 0.03573393411166012,
+          "command_speed_deg_s": -0.7139187974106006,
+          "measured_speed_deg_s": 0.6296239506930066,
+          "torque_nm": 0.01318681318681314
+        },
+        {
+          "t": 13.544823799995356,
+          "command_delta_deg": -0.06398040369544229,
+          "measured_delta_deg": 0.0,
+          "tracking_error_deg": 0.06398040369544229,
+          "command_speed_deg_s": -1.9325935280718418,
+          "measured_speed_deg_s": 0.6296239506930066,
+          "torque_nm": 0.27692307692307594
+        },
+        {
+          "t": 13.583643899997696,
+          "command_delta_deg": -0.1740641097486978,
+          "measured_delta_deg": 0.0,
+          "tracking_error_deg": 0.1740641097486978,
+          "command_speed_deg_s": -3.6765109700657623,
+          "measured_speed_deg_s": -0.6296239506930066,
+          "torque_nm": 0.8043956043956015
+        },
+        {
+          "t": 13.623948399996152,
+          "command_delta_deg": -0.3619091013449521,
+          "measured_delta_deg": -0.13114163312676155,
+          "tracking_error_deg": 0.23076746821819052,
+          "command_speed_deg_s": -5.842099373960238,
+          "measured_speed_deg_s": -3.148119753465847,
+          "torque_nm": 1.3054945054945009
+        },
+        {
+          "t": 13.665672799994354,
+          "command_delta_deg": -0.6484171591382727,
+          "measured_delta_deg": -0.3059971439624436,
+          "tracking_error_deg": 0.3424200151758291,
+          "command_speed_deg_s": -8.39599681688065,
+          "measured_speed_deg_s": -3.148119753465847,
+          "torque_nm": 1.9384615384615458
+        },
+        {
+          "t": 13.702979199995752,
+          "command_delta_deg": -1.035787424645586,
+          "measured_delta_deg": -0.6557081656338077,
+          "tracking_error_deg": 0.38007925901177836,
+          "command_speed_deg_s": -11.173213229652603,
+          "measured_speed_deg_s": -9.444359260398356,
+          "torque_nm": 2.1758241758241823
+        },
+        {
+          "t": 13.744758399996499,
+          "command_delta_deg": -1.548676771189804,
+          "measured_delta_deg": -1.1802746981408538,
+          "tracking_error_deg": 0.36840207304895006,
+          "command_speed_deg_s": -14.20677614864135,
+          "measured_speed_deg_s": -13.222102964557209,
+          "torque_nm": 2.1230769230769297
+        },
+        {
+          "t": 13.782128799997736,
+          "command_delta_deg": -2.172098874511337,
+          "measured_delta_deg": -1.8359828637746616,
+          "tracking_error_deg": 0.33611601073667546,
+          "command_speed_deg_s": -17.303601919803594,
+          "measured_speed_deg_s": -20.77759037287573,
+          "torque_nm": 2.0175824175824246
+        },
+        {
+          "t": 13.82409319999715,
+          "command_delta_deg": -2.935757395379298,
+          "measured_delta_deg": -2.5791187848263104,
+          "tracking_error_deg": 0.3566386105529877,
+          "command_speed_deg_s": -20.52830350083196,
+          "measured_speed_deg_s": -19.518342471489717,
+          "torque_nm": 2.2021978021978086
+        },
+        {
+          "t": 13.86448649999511,
+          "command_delta_deg": -3.82273256584677,
+          "measured_delta_deg": -3.453396339004721,
+          "tracking_error_deg": 0.3693362268420493,
+          "command_speed_deg_s": -23.73476909898001,
+          "measured_speed_deg_s": -20.77759037287573,
+          "torque_nm": 2.413186813186819
+        },
+        {
+          "t": 13.90532009999879,
+          "command_delta_deg": -4.847749963917282,
+          "measured_delta_deg": -4.3932447097465115,
+          "tracking_error_deg": 0.4545052541707704,
+          "command_speed_deg_s": -26.92145048218147,
+          "measured_speed_deg_s": -23.296086175648572,
+          "torque_nm": 2.993406593406597
+        },
+        {
+          "t": 13.945035199998529,
+          "command_delta_deg": -5.979458387664664,
+          "measured_delta_deg": -5.398663897051684,
+          "tracking_error_deg": 0.5807944906129805,
+          "command_speed_deg_s": -29.954332285056804,
+          "measured_speed_deg_s": -19.518342471489717,
+          "torque_nm": 3.573626373626375
+        },
+        {
+          "t": 13.984194499993464,
+          "command_delta_deg": -7.225745916468889,
+          "measured_delta_deg": -6.622652472901458,
+          "tracking_error_deg": 0.6030934435674311,
+          "command_speed_deg_s": -32.834583337406876,
+          "measured_speed_deg_s": -27.073829879808237,
+          "torque_nm": 3.7846153846153854
+        },
+        {
+          "t": 14.024068399994576,
+          "command_delta_deg": -8.596302028328068,
+          "measured_delta_deg": -7.9340688041690735,
+          "tracking_error_deg": 0.6622332241589949,
+          "command_speed_deg_s": -35.553848555453065,
+          "measured_speed_deg_s": -27.073829879808237,
+          "torque_nm": 4.127472527472527
+        },
+        {
+          "t": 14.064696899993578,
+          "command_delta_deg": -10.068755731814159,
+          "measured_delta_deg": -9.398483707417912,
+          "tracking_error_deg": 0.6702720243962477,
+          "command_speed_deg_s": -38.04180486812955,
+          "measured_speed_deg_s": -33.370069386739935,
+          "torque_nm": 4.39120879120879
+        },
+        {
+          "t": 14.10373729999992,
+          "command_delta_deg": -11.617120086682256,
+          "measured_delta_deg": -10.841041671812288,
+          "tracking_error_deg": 0.7760784148699688,
+          "command_speed_deg_s": -40.24598902102369,
+          "measured_speed_deg_s": -29.592325682581077,
+          "torque_nm": 4.81318681318681
+        },
+        {
+          "t": 14.14431379999587,
+          "command_delta_deg": -13.267789401891411,
+          "measured_delta_deg": -12.458455147042347,
+          "tracking_error_deg": 0.8093342548490642,
+          "command_speed_deg_s": -42.19035206627627,
+          "measured_speed_deg_s": -30.85157358396709,
+          "torque_nm": 5.235164835164838
+        },
+        {
+          "t": 14.184440899996844,
+          "command_delta_deg": -15.013929622283198,
+          "measured_delta_deg": -14.097725561126866,
+          "tracking_error_deg": 0.9162040611563317,
+          "command_speed_deg_s": -43.84125385613036,
+          "measured_speed_deg_s": -38.407060992285615,
+          "torque_nm": 5.78901098901099
+        },
+        {
+          "t": 14.225969699997222,
+          "command_delta_deg": -16.80041198556961,
+          "measured_delta_deg": -15.715139036356925,
+          "tracking_error_deg": 1.085272949212684,
+          "command_speed_deg_s": -45.13699584587092,
+          "measured_speed_deg_s": -30.85157358396709,
+          "torque_nm": 6.843956043956041
+        },
+        {
+          "t": 14.264646599993284,
+          "command_delta_deg": -18.605129121400555,
+          "measured_delta_deg": -17.354409450441445,
+          "tracking_error_deg": 1.250719670959111,
+          "command_speed_deg_s": -46.07016355725709,
+          "measured_speed_deg_s": -32.11082148535392,
+          "torque_nm": 7.84615384615384
+        },
+        {
+          "t": 14.30516119999811,
+          "command_delta_deg": -20.459907238513075,
+          "measured_delta_deg": -19.015536803380424,
+          "tracking_error_deg": 1.4443704351326514,
+          "command_speed_deg_s": -46.655339329180926,
+          "measured_speed_deg_s": -32.11082148535392,
+          "torque_nm": 8.848351648351652
+        },
+        {
+          "t": 14.345420599995123,
+          "command_delta_deg": -22.35000126395753,
+          "measured_delta_deg": -20.632950278610483,
+          "tracking_error_deg": 1.7170509853470453,
+          "command_speed_deg_s": -46.873814822302606,
+          "measured_speed_deg_s": -32.11082148535392,
+          "torque_nm": 10.193406593406593
+        },
+        {
+          "t": 14.384339099997305,
+          "command_delta_deg": -24.191321835701046,
+          "measured_delta_deg": -22.228506814986286,
+          "tracking_error_deg": 1.9628150207147594,
+          "command_speed_deg_s": -46.724117437041144,
+          "measured_speed_deg_s": -30.85157358396709,
+          "torque_nm": 11.459340659340654
+        },
+        {
+          "t": 14.425030599995807,
+          "command_delta_deg": -26.084077091342348,
+          "measured_delta_deg": -23.933348045634187,
+          "tracking_error_deg": 2.1507290457081623,
+          "command_speed_deg_s": -46.1942398600075,
+          "measured_speed_deg_s": -28.333077781194252,
+          "torque_nm": 12.408791208791214
+        },
+        {
+          "t": 14.466211099999782,
+          "command_delta_deg": -27.900305767609844,
+          "measured_delta_deg": -25.485190704300862,
+          "tracking_error_deg": 2.415115063308978,
+          "command_speed_deg_s": -45.317261186635825,
+          "measured_speed_deg_s": -24.555334077035397,
+          "torque_nm": 14.123076923076923
+        },
+        {
+          "t": 14.504404899998917,
+          "command_delta_deg": -29.6977878053239,
+          "measured_delta_deg": -26.88403479098632,
+          "tracking_error_deg": 2.81375301433758,
+          "command_speed_deg_s": -44.076417192447416,
+          "measured_speed_deg_s": -25.814581978421412,
+          "torque_nm": 15.995604395604403
+        },
+        {
+          "t": 14.54407429999992,
+          "command_delta_deg": -31.437297181960457,
+          "measured_delta_deg": -28.217308061108398,
+          "tracking_error_deg": 3.219989120852062,
+          "command_speed_deg_s": -42.49731646748772,
+          "measured_speed_deg_s": -24.555334077035397,
+          "torque_nm": 18.21098901098901
+        }
+      ]
+    }
+  ],
+  "j2_slower_candidate": {
+    "status": "proposed_only_no_execution",
+    "old_move_s": 1.8,
+    "new_move_s": 4.0,
+    "delta_deg": -45.0,
+    "old_peak_speed_deg_s": 46.875,
+    "new_peak_speed_deg_s": 21.09375,
+    "old_peak_acceleration_rad_s2": 1.39953654647702,
+    "new_peak_acceleration_rad_s2": 0.2834061506615966,
+    "other_motion_parameters": "unchanged candidate",
+    "limitation": "Lower dynamic speed/acceleration does not establish that right-J6 static holding torque or error will be acceptable."
+  },
+  "no_rated_speed_or_torque_exceeded_in_recorded_samples": true,
+  "timing": {
+    "sample_interval_s": {
+      "n": 363,
+      "min": 0.03584860000410117,
+      "p50": 0.04002720000426052,
+      "p95": 0.04196467000147095,
+      "max": 0.04473809999763034
+    },
+    "cycle_s": {
+      "n": 364,
+      "min": 0.01995850000093924,
+      "p50": 0.023237800000060815,
+      "p95": 0.024536025003180837,
+      "max": 0.025430999994568992
+    },
+    "send_span_s": {
+      "n": 364,
+      "min": 0.00029319999885046855,
+      "p50": 0.000558449999516597,
+      "p95": 0.0009654299989051648,
+      "max": 0.001364099996862933
+    },
+    "pair_send_skew_s": {
+      "J1": {
+        "n": 364,
+        "min": 1.2600001355167478e-05,
+        "p50": 2.359999780310318e-05,
+        "p95": 6.473500143329136e-05,
+        "max": 0.00014579999697161838
+      },
+      "J2": {
+        "n": 364,
+        "min": 1.340000017080456e-05,
+        "p50": 2.5600002118153498e-05,
+        "p95": 7.164500420913088e-05,
+        "max": 0.00022300000273389742
+      },
+      "J3": {
+        "n": 364,
+        "min": 1.2500000593718141e-05,
+        "p50": 2.6749999960884452e-05,
+        "p95": 8.339500418514935e-05,
+        "max": 0.00018509999790694565
+      },
+      "J4": {
+        "n": 364,
+        "min": 1.2600001355167478e-05,
+        "p50": 2.7000001864507794e-05,
+        "p95": 8.711999944352992e-05,
+        "max": 0.00017559999832883477
+      },
+      "J5": {
+        "n": 364,
+        "min": 1.2399999832268804e-05,
+        "p50": 2.8549995477078483e-05,
+        "p95": 0.00010932500117633011,
+        "max": 0.00022449999960372224
+      },
+      "J6": {
+        "n": 364,
+        "min": 1.359999441774562e-05,
+        "p50": 3.900000228895806e-05,
+        "p95": 0.00012663499874179248,
+        "max": 0.00024199999461416155
+      },
+      "J7": {
+        "n": 364,
+        "min": 4.9200003559235483e-05,
+        "p50": 0.0001078000022971537,
+        "p95": 0.00017719499810482374,
+        "max": 0.000326899993524421
+      }
+    }
+  },
+  "shutdown": {
+    "stopped_event": {
+      "type": "state",
+      "state": "STOPPED",
+      "outcome": "FAULT",
+      "feedback_kind": "hardware",
+      "request_id": "dual-sequence-retry1-1794833387547474000"
+    },
+    "confirmed_disable_count": 14,
+    "all_14_after_disabled": true,
+    "buses": [
+      {
+        "side": "left",
+        "online": 7,
+        "bus_status": "0x0"
+      },
+      {
+        "side": "right",
+        "online": 7,
+        "bus_status": "0x0"
+      }
+    ],
+    "after_motors": [
+      {
+        "side": "left",
+        "motor_id": 1,
+        "motor_type": "DM8009",
+        "state": 0,
+        "position_rad": -0.0024795910582131597,
+        "velocity_rad_s": -0.010989010989007397,
+        "torque_nm": -0.01318681318681314,
+        "mos_c": 28,
+        "rotor_c": 26,
+        "received_at": 39894.421,
+        "raw": "017ff97ff7ff1c1a",
+        "online": true,
+        "state_name": "DISABLED",
+        "age_s": 0.0,
+        "error": null
+      },
+      {
+        "side": "left",
+        "motor_id": 2,
+        "motor_type": "DM8009",
+        "state": 0,
+        "position_rad": -0.5388342107270923,
+        "velocity_rad_s": -0.3626373626373578,
+        "torque_nm": 0.6461538461538439,
+        "mos_c": 28,
+        "rotor_c": 26,
+        "received_at": 39894.421,
+        "raw": "027a7b7ef8181c1a",
+        "online": true,
+        "state_name": "DISABLED",
+        "age_s": 0.0,
+        "error": null
+      },
+      {
+        "side": "left",
+        "motor_id": 3,
+        "motor_type": "DM4340",
+        "state": 0,
+        "position_rad": -0.7829785610742359,
+        "velocity_rad_s": 0.017094017094017033,
+        "torque_nm": -0.22564102564102484,
+        "mos_c": 30,
+        "rotor_c": 27,
+        "received_at": 39894.421,
+        "raw": "0377fb8037ef1e1b",
+        "online": true,
+        "state_name": "DISABLED",
+        "age_s": 0.0,
+        "error": null
+      },
+      {
+        "side": "left",
+        "motor_id": 4,
+        "motor_type": "DM4340",
+        "state": 0,
+        "position_rad": 0.07152666514076422,
+        "velocity_rad_s": 0.0219780219780219,
+        "torque_nm": -0.06153846153846132,
+        "mos_c": 28,
+        "rotor_c": 27,
+        "received_at": 39894.421,
+        "raw": "0480bb8047fb1c1b",
+        "online": true,
+        "state_name": "DISABLED",
+        "age_s": 0.0,
+        "error": null
+      },
+      {
+        "side": "left",
+        "motor_id": 5,
+        "motor_type": "DM4310",
+        "state": 0,
+        "position_rad": 0.8051041428244456,
+        "velocity_rad_s": -0.0659340659340657,
+        "torque_nm": 0.012210012210012167,
+        "mos_c": 31,
+        "rotor_c": 27,
+        "received_at": 39894.437,
+        "raw": "05883e7fb8021f1b",
+        "online": true,
+        "state_name": "DISABLED",
+        "age_s": 0.0,
+        "error": null
+      },
+      {
+        "side": "left",
+        "motor_id": 6,
+        "motor_type": "DM4310",
+        "state": 0,
+        "position_rad": 0.3892957961394661,
+        "velocity_rad_s": -0.0659340659340657,
+        "torque_nm": 0.04151404151404137,
+        "mos_c": 31,
+        "rotor_c": 28,
+        "received_at": 39894.437,
+        "raw": "0683fc7fb8081f1c",
+        "online": true,
+        "state_name": "DISABLED",
+        "age_s": 0.0,
+        "error": null
+      },
+      {
+        "side": "left",
+        "motor_id": 7,
+        "motor_type": "DM4310",
+        "state": 0,
+        "position_rad": 0.24738689250018986,
+        "velocity_rad_s": -0.0366300366300365,
+        "torque_nm": -0.017094017094017033,
+        "mos_c": 29,
+        "rotor_c": 28,
+        "received_at": 39894.437,
+        "raw": "0782887fd7fc1d1c",
+        "online": true,
+        "state_name": "DISABLED",
+        "age_s": 0.0,
+        "error": null
+      },
+      {
+        "side": "right",
+        "motor_id": 1,
+        "motor_type": "DM8009",
+        "state": 0,
+        "position_rad": -0.01163500419623098,
+        "velocity_rad_s": -0.010989010989007397,
+        "torque_nm": 0.03956043956043942,
+        "mos_c": 28,
+        "rotor_c": 25,
+        "received_at": 39894.437,
+        "raw": "017fe17ff8011c19",
+        "online": true,
+        "state_name": "DISABLED",
+        "age_s": 0.0,
+        "error": null
+      },
+      {
+        "side": "right",
+        "motor_id": 2,
+        "motor_type": "DM8009",
+        "state": 0,
+        "position_rad": 0.5060273136491968,
+        "velocity_rad_s": 0.0549450549450512,
+        "torque_nm": 0.01318681318681314,
+        "mos_c": 29,
+        "rotor_c": 27,
+        "received_at": 39894.437,
+        "raw": "02852e8028001d1b",
+        "online": true,
+        "state_name": "DISABLED",
+        "age_s": 0.0,
+        "error": null
+      },
+      {
+        "side": "right",
+        "motor_id": 3,
+        "motor_type": "DM4340",
+        "state": 0,
+        "position_rad": -0.7406347753109035,
+        "velocity_rad_s": -0.03174603174603163,
+        "torque_nm": 0.1025641025641022,
+        "mos_c": 30,
+        "rotor_c": 27,
+        "received_at": 39894.437,
+        "raw": "03786a7f98071e1b",
+        "online": true,
+        "state_name": "DISABLED",
+        "age_s": 0.0,
+        "error": null
+      },
+      {
+        "side": "right",
+        "motor_id": 4,
+        "motor_type": "DM4340",
+        "state": 0,
+        "position_rad": 0.11768520637827073,
+        "velocity_rad_s": 0.017094017094017033,
+        "torque_nm": -0.14358974358974308,
+        "mos_c": 28,
+        "rotor_c": 27,
+        "received_at": 39894.437,
+        "raw": "0481348037f51c1b",
+        "online": true,
+        "state_name": "DISABLED",
+        "age_s": 0.0,
+        "error": null
+      },
+      {
+        "side": "right",
+        "motor_id": 5,
+        "motor_type": "DM4310",
+        "state": 0,
+        "position_rad": 0.7810711833371489,
+        "velocity_rad_s": -1.0476190476190474,
+        "torque_nm": 0.485958485958486,
+        "mos_c": 31,
+        "rotor_c": 28,
+        "received_at": 39894.437,
+        "raw": "0587ff7b88631f1c",
+        "online": true,
+        "state_name": "DISABLED",
+        "age_s": 0.0,
+        "error": null
+      },
+      {
+        "side": "right",
+        "motor_id": 6,
+        "motor_type": "DM4310",
+        "state": 0,
+        "position_rad": -0.3747997253376063,
+        "velocity_rad_s": 1.1062271062271094,
+        "torque_nm": -0.559218559218559,
+        "mos_c": 31,
+        "rotor_c": 28,
+        "received_at": 39894.437,
+        "raw": "067c2984b78d1f1c",
+        "online": true,
+        "state_name": "DISABLED",
+        "age_s": 0.0,
+        "error": null
+      },
+      {
+        "side": "right",
+        "motor_id": 7,
+        "motor_type": "DM4310",
+        "state": 0,
+        "position_rad": -0.29278248264286333,
+        "velocity_rad_s": 0.5054945054945037,
+        "torque_nm": -0.12942612942612897,
+        "mos_c": 30,
+        "rotor_c": 27,
+        "received_at": 39894.437,
+        "raw": "077d008227e51e1b",
+        "online": true,
+        "state_name": "DISABLED",
+        "age_s": 0.0,
+        "error": null
+      }
+    ]
+  },
+  "recommendations": [
+    "Treat the completed first five stages as passed at their recorded acceptance times; J2 and J1 remain unaccepted.",
+    "The revised 0.05 rad/s settling criterion allowed the first five stages to complete with the required continuous dwell.",
+    "Do not classify the right-J6 error as mere noise: error grew from about 0.36 to 2.09 degrees while its absolute torque rose from about 0.42 to 2.40 Nm as J2 moved.",
+    "A short persistence window/hysteresis is appropriate for isolated small excursions, but this monotone load-correlated trend needs separate evaluation; no data proves it would settle after the next sample.",
+    "Right J6 already uses about 80% of its 3 Nm rating. Further J2 motion may increase static load; a blanket wider position threshold or larger Kp is not justified by this stopped trace alone.",
+    "If planning another authorized attempt, first evaluate slower J2 motion to reduce inertial disturbance and examine right-J6 cable/payload/gravity effects. Slowing motion does not remove static holding torque.",
+    "The user identified J2 speed as excessive. The proposed 4.0-second movement reduces planned peak speed from 46.875 to 21.09375 deg/s and peak acceleration from 1.39954 to 0.28341 rad/s^2; it has not been executed.",
+    "Right J2 reached 18.210989 Nm, 91.05% of its 20 Nm rating. Its final six torque magnitudes strictly increased while commanded velocity was already falling; this trace shows no torque recovery before shutdown."
+  ]
+}

@@ -1,0 +1,8 @@
+{
+  "status": "PENDING_USER_CONFIRMATION",
+  "motion": "J4 to original target 17.3933348045634 degrees absolute, four second movement and three second settling",
+  "other_joints": "J5/J6/J7 hold measured pose at retry start, no new increments",
+  "after": "four joints remain enabled and hold",
+  "J4_max_torque_nm": 2,
+  "cause": "Software torque threshold caused stop; load/friction versus obstruction not established"
+}

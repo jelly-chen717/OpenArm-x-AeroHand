@@ -1,0 +1,64 @@
+{
+  "request_id": "left-replan-a18c34b1b88a4ccdaa31009f09886aaf",
+  "mapping_version": "hardware-user-confirmed-v1-20261115",
+  "expires_at": 1794799954.8615885,
+  "joints": [
+    {
+      "side": "left",
+      "motor_id": 4
+    },
+    {
+      "side": "left",
+      "motor_id": 5
+    },
+    {
+      "side": "left",
+      "motor_id": 6
+    },
+    {
+      "side": "left",
+      "motor_id": 7
+    }
+  ],
+  "initial_model_position": [
+    0.04444190127412817,
+    0.9084840161745635,
+    0.16689555199511652,
+    0.3931105516136437
+  ],
+  "limits": {
+    "velocity_rad_s": 0.22,
+    "acceleration_rad_s2": 0.17,
+    "start_error_rad": 0.005
+  },
+  "points": [
+    {
+      "t": 0,
+      "q": [
+        0.04444190127412817,
+        0.9084840161745635,
+        0.16689555199511652,
+        0.3931105516136437
+      ]
+    },
+    {
+      "t": 4,
+      "q": [
+        0.3035709602413557,
+        0.9084840161745635,
+        0.16689555199511652,
+        0.3931105516136437
+      ]
+    },
+    {
+      "t": 7,
+      "q": [
+        0.3035709602413557,
+        0.9084840161745635,
+        0.16689555199511652,
+        0.3931105516136437
+      ]
+    }
+  ],
+  "source": "candidate-J4-original-target-2Nm-pending-approval-hold-other-three-current"
+}

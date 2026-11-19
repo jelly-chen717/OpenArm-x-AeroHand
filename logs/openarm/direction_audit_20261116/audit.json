@@ -1,0 +1,600 @@
+{
+  "date": "2026-11-16",
+  "basis": "All 14 arm angles zero; one joint at a time",
+  "frame": "+X robot forward, +Y robot left, +Z up",
+  "clockwise_view": "For J3/J5: above the zero-pose arm looking down toward the hand",
+  "hardware_access": false,
+  "joints_checked": 14,
+  "rows": [
+    {
+      "side": "left",
+      "motor_id": 1,
+      "name": "openarm_left_joint1",
+      "local_axis": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "zero_world_axis": [
+        0.0,
+        0.9999999999932537,
+        -3.6732051031940216e-06
+      ],
+      "hardware_mapping": {
+        "direction": 1,
+        "scale": 1.0,
+        "p_ref": 0.0,
+        "q_ref": 0.0
+      },
+      "zero_motion": "整臂向后",
+      "positive_probe_deg": 1,
+      "hand_origin_delta_mm": [
+        -9.35623509102769,
+        2.99919533652826e-07,
+        0.08165062665804745
+      ],
+      "body_rotation_vector_rad": [
+        5.772483784414891e-17,
+        0.01745329251982555,
+        -6.410952315313667e-08
+      ],
+      "analytic_velocity_m_per_rad": [
+        -0.5360999999999998,
+        0.0,
+        0.0
+      ],
+      "finite_difference_error": 2.679800826456736e-07,
+      "rotation_axis_error_rad": 5.774045663437648e-17
+    },
+    {
+      "side": "left",
+      "motor_id": 2,
+      "name": "openarm_left_joint2",
+      "local_axis": [
+        -1.0,
+        0.0,
+        0.0
+      ],
+      "zero_world_axis": [
+        -1.0,
+        0.0,
+        0.0
+      ],
+      "hardware_mapping": {
+        "direction": 1,
+        "scale": 1.0,
+        "p_ref": 0.0,
+        "q_ref": 0.0
+      },
+      "zero_motion": "整臂向里（向机器人右侧）",
+      "positive_probe_deg": 1,
+      "hand_origin_delta_mm": [
+        0.0,
+        -9.35623479104547,
+        0.08168499398275575
+      ],
+      "body_rotation_vector_rad": [
+        -0.01745329251994329,
+        0.0,
+        0.0
+      ],
+      "analytic_velocity_m_per_rad": [
+        0.0,
+        -0.5360999999963831,
+        1.9692026307638333e-06
+      ],
+      "finite_difference_error": 2.679522823735938e-07,
+      "rotation_axis_error_rad": 6.938893903907228e-18
+    },
+    {
+      "side": "left",
+      "motor_id": 3,
+      "name": "openarm_left_joint3",
+      "local_axis": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "zero_world_axis": [
+        0.0,
+        -3.6732002066601986e-06,
+        -0.9999999999932534
+      ],
+      "hardware_mapping": {
+        "direction": 1,
+        "scale": 1.0,
+        "p_ref": 0.0,
+        "q_ref": 0.0
+      },
+      "zero_motion": "上臂轴转：俯视顺时针",
+      "positive_probe_deg": 1,
+      "hand_origin_delta_mm": [
+        -6.938893241500994e-15,
+        -2.7755575615628914e-14,
+        -1.6653345369377348e-13
+      ],
+      "body_rotation_vector_rad": [
+        -7.858614791670506e-24,
+        -6.41094376911566e-08,
+        -0.017453292519825546
+      ],
+      "analytic_velocity_m_per_rad": [
+        1.4342173621146627e-17,
+        -3.4694469519302072e-18,
+        1.2743973260912612e-23
+      ],
+      "finite_difference_error": 2.8609792603397892e-11,
+      "rotation_axis_error_rad": 1.5392210188418834e-23
+    },
+    {
+      "side": "left",
+      "motor_id": 4,
+      "name": "openarm_left_joint4",
+      "local_axis": [
+        0.0,
+        1.0,
+        0.0
+      ],
+      "zero_world_axis": [
+        0.0,
+        -0.9999999999932534,
+        3.6732002066601986e-06
+      ],
+      "hardware_mapping": {
+        "direction": 1,
+        "scale": 1.0,
+        "p_ref": 0.0,
+        "q_ref": 0.0
+      },
+      "zero_motion": "前臂向前屈肘",
+      "positive_probe_deg": 1,
+      "hand_origin_delta_mm": [
+        5.516705674825314,
+        1.7684093078784713e-07,
+        0.04814356106430662
+      ],
+      "body_rotation_vector_rad": [
+        -5.082248908034282e-23,
+        -0.017453292519825546,
+        6.410943769115662e-08
+      ],
+      "analytic_velocity_m_per_rad": [
+        0.3160999999999997,
+        1.2743973260912612e-23,
+        3.4694469519302072e-18
+      ],
+      "finite_difference_error": 1.580124919991515e-07,
+      "rotation_axis_error_rad": 5.082248908034282e-23
+    },
+    {
+      "side": "left",
+      "motor_id": 5,
+      "name": "openarm_left_joint5",
+      "local_axis": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "zero_world_axis": [
+        0.0,
+        -3.6732002066601986e-06,
+        -0.9999999999932534
+      ],
+      "hardware_mapping": {
+        "direction": 1,
+        "scale": 1.0,
+        "p_ref": 0.0,
+        "q_ref": 0.0
+      },
+      "zero_motion": "前臂轴转：俯视顺时针",
+      "positive_probe_deg": 1,
+      "hand_origin_delta_mm": [
+        -6.938893241500994e-15,
+        0.0,
+        -5.551115123125783e-14
+      ],
+      "body_rotation_vector_rad": [
+        -7.858614791670506e-24,
+        -6.41094376911566e-08,
+        -0.017453292519825546
+      ],
+      "analytic_velocity_m_per_rad": [
+        1.7863924857593194e-18,
+        -3.4694469519302072e-18,
+        1.2743973260912612e-23
+      ],
+      "finite_difference_error": 6.938895690300582e-12,
+      "rotation_axis_error_rad": 1.5392210188418834e-23
+    },
+    {
+      "side": "left",
+      "motor_id": 6,
+      "name": "openarm_left_joint6",
+      "local_axis": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "zero_world_axis": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "hardware_mapping": {
+        "direction": 1,
+        "scale": 1.0,
+        "p_ref": 0.0,
+        "q_ref": 0.0
+      },
+      "zero_motion": "末端向外（向机器人左侧）",
+      "positive_probe_deg": 1,
+      "hand_origin_delta_mm": [
+        -6.938893903907228e-15,
+        1.7469859403608512,
+        0.015239297816188602
+      ],
+      "body_rotation_vector_rad": [
+        0.017453292519943285,
+        0.0,
+        0.0
+      ],
+      "analytic_velocity_m_per_rad": [
+        0.0,
+        0.10009999999932467,
+        -3.6768734068548525e-07
+      ],
+      "finite_difference_error": 5.005253521802715e-08,
+      "rotation_axis_error_rad": 1.0408340855860843e-17
+    },
+    {
+      "side": "left",
+      "motor_id": 7,
+      "name": "openarm_left_joint7",
+      "local_axis": [
+        0.0,
+        -1.0,
+        0.0
+      ],
+      "zero_world_axis": [
+        0.0,
+        0.9999999999932534,
+        -3.6732002066601986e-06
+      ],
+      "hardware_mapping": {
+        "direction": 1,
+        "scale": 1.0,
+        "p_ref": 0.0,
+        "q_ref": 0.0
+      },
+      "zero_motion": "末端向后",
+      "positive_probe_deg": 1,
+      "hand_origin_delta_mm": [
+        -1.746985884372079,
+        5.600056529608821e-08,
+        0.015245714845124603
+      ],
+      "body_rotation_vector_rad": [
+        -5.082248908034282e-23,
+        0.017453292519825546,
+        -6.410943769115662e-08
+      ],
+      "analytic_velocity_m_per_rad": [
+        -0.10009999999999993,
+        0.0,
+        -0.0
+      ],
+      "finite_difference_error": 5.00433028349817e-08,
+      "rotation_axis_error_rad": 5.082248908034282e-23
+    },
+    {
+      "side": "right",
+      "motor_id": 1,
+      "name": "openarm_right_joint1",
+      "local_axis": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "zero_world_axis": [
+        0.0,
+        -0.9999999999932537,
+        -3.6732051031940216e-06
+      ],
+      "hardware_mapping": {
+        "direction": 1,
+        "scale": 1.0,
+        "p_ref": 0.0,
+        "q_ref": 0.0
+      },
+      "zero_motion": "整臂向前",
+      "positive_probe_deg": 1,
+      "hand_origin_delta_mm": [
+        9.356235091027694,
+        -2.99919533652826e-07,
+        0.08165062665821399
+      ],
+      "body_rotation_vector_rad": [
+        -5.772483784414891e-17,
+        -0.01745329251982555,
+        -6.410952315313667e-08
+      ],
+      "analytic_velocity_m_per_rad": [
+        0.5361,
+        0.0,
+        0.0
+      ],
+      "finite_difference_error": 2.680355938240328e-07,
+      "rotation_axis_error_rad": 5.774045663437648e-17
+    },
+    {
+      "side": "right",
+      "motor_id": 2,
+      "name": "openarm_right_joint2",
+      "local_axis": [
+        -1.0,
+        0.0,
+        0.0
+      ],
+      "zero_world_axis": [
+        -1.0,
+        0.0,
+        0.0
+      ],
+      "hardware_mapping": {
+        "direction": 1,
+        "scale": 1.0,
+        "p_ref": 0.0,
+        "q_ref": 0.0
+      },
+      "zero_motion": "整臂向外（向机器人右侧）",
+      "positive_probe_deg": 1,
+      "hand_origin_delta_mm": [
+        6.938893903907228e-15,
+        -9.356235390883622,
+        0.0816162593333114
+      ],
+      "body_rotation_vector_rad": [
+        -0.017453292519943285,
+        0.0,
+        0.0
+      ],
+      "analytic_velocity_m_per_rad": [
+        -0.0,
+        -0.5360999999963834,
+        -1.9692026307638333e-06
+      ],
+      "finite_difference_error": 2.6800789032048815e-07,
+      "rotation_axis_error_rad": 1.0408340855860843e-17
+    },
+    {
+      "side": "right",
+      "motor_id": 3,
+      "name": "openarm_right_joint3",
+      "local_axis": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "zero_world_axis": [
+        0.0,
+        3.6732002066601986e-06,
+        -0.9999999999932534
+      ],
+      "hardware_mapping": {
+        "direction": 1,
+        "scale": 1.0,
+        "p_ref": 0.0,
+        "q_ref": 0.0
+      },
+      "zero_motion": "上臂轴转：俯视顺时针",
+      "positive_probe_deg": 1,
+      "hand_origin_delta_mm": [
+        -6.938894566313462e-15,
+        2.7755575615628914e-14,
+        0.0
+      ],
+      "body_rotation_vector_rad": [
+        7.858614791670506e-24,
+        6.41094376911566e-08,
+        -0.017453292519825546
+      ],
+      "analytic_velocity_m_per_rad": [
+        -1.4342597137620254e-17,
+        -3.4694469519302072e-18,
+        -1.2743973260912612e-23
+      ],
+      "finite_difference_error": 2.860979237803497e-11,
+      "rotation_axis_error_rad": 1.5392210188418834e-23
+    },
+    {
+      "side": "right",
+      "motor_id": 4,
+      "name": "openarm_right_joint4",
+      "local_axis": [
+        0.0,
+        1.0,
+        0.0
+      ],
+      "zero_world_axis": [
+        0.0,
+        -0.9999999999932534,
+        -3.6732002066601986e-06
+      ],
+      "hardware_mapping": {
+        "direction": 1,
+        "scale": 1.0,
+        "p_ref": 0.0,
+        "q_ref": 0.0
+      },
+      "zero_motion": "前臂向前屈肘",
+      "positive_probe_deg": 1,
+      "hand_origin_delta_mm": [
+        5.516705674825314,
+        -1.7684093078784713e-07,
+        0.04814356106441764
+      ],
+      "body_rotation_vector_rad": [
+        5.082248908034282e-23,
+        -0.017453292519825546,
+        -6.410943769115662e-08
+      ],
+      "analytic_velocity_m_per_rad": [
+        0.3160999999999998,
+        -1.2743973260912612e-23,
+        3.4694469519302072e-18
+      ],
+      "finite_difference_error": 1.580680031503766e-07,
+      "rotation_axis_error_rad": 5.082248908034282e-23
+    },
+    {
+      "side": "right",
+      "motor_id": 5,
+      "name": "openarm_right_joint5",
+      "local_axis": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "zero_world_axis": [
+        0.0,
+        3.6732002066601986e-06,
+        -0.9999999999932534
+      ],
+      "hardware_mapping": {
+        "direction": 1,
+        "scale": 1.0,
+        "p_ref": 0.0,
+        "q_ref": 0.0
+      },
+      "zero_motion": "前臂轴转：俯视顺时针",
+      "positive_probe_deg": 1,
+      "hand_origin_delta_mm": [
+        -6.938894566313462e-15,
+        0.0,
+        0.0
+      ],
+      "body_rotation_vector_rad": [
+        7.858614791670506e-24,
+        6.41094376911566e-08,
+        -0.017453292519825546
+      ],
+      "analytic_velocity_m_per_rad": [
+        -1.786604243996133e-18,
+        -3.4694469519302072e-18,
+        -1.2743973260912612e-23
+      ],
+      "finite_difference_error": 6.938892117303852e-12,
+      "rotation_axis_error_rad": 1.5392210188418834e-23
+    },
+    {
+      "side": "right",
+      "motor_id": 6,
+      "name": "openarm_right_joint6",
+      "local_axis": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "zero_world_axis": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "hardware_mapping": {
+        "direction": 1,
+        "scale": 1.0,
+        "p_ref": 0.0,
+        "q_ref": 0.0
+      },
+      "zero_motion": "末端向里（向机器人左侧）",
+      "positive_probe_deg": 1,
+      "hand_origin_delta_mm": [
+        0.0,
+        1.7469858283597206,
+        0.015252131874032848
+      ],
+      "body_rotation_vector_rad": [
+        0.01745329251994329,
+        0.0,
+        0.0
+      ],
+      "analytic_velocity_m_per_rad": [
+        -0.0,
+        0.10009999999932467,
+        3.6768734068548525e-07
+      ],
+      "finite_difference_error": 5.0034073727067343e-08,
+      "rotation_axis_error_rad": 6.938893903907228e-18
+    },
+    {
+      "side": "right",
+      "motor_id": 7,
+      "name": "openarm_right_joint7",
+      "local_axis": [
+        0.0,
+        1.0,
+        0.0
+      ],
+      "zero_world_axis": [
+        0.0,
+        -0.9999999999932534,
+        -3.6732002066601986e-06
+      ],
+      "hardware_mapping": {
+        "direction": 1,
+        "scale": 1.0,
+        "p_ref": 0.0,
+        "q_ref": 0.0
+      },
+      "zero_motion": "末端向前",
+      "positive_probe_deg": 1,
+      "hand_origin_delta_mm": [
+        1.746985884372079,
+        -5.600056529608821e-08,
+        0.015245714845124603
+      ],
+      "body_rotation_vector_rad": [
+        5.082248908034282e-23,
+        -0.017453292519825546,
+        -6.410943769115662e-08
+      ],
+      "analytic_velocity_m_per_rad": [
+        0.10009999999999993,
+        0.0,
+        0.0
+      ],
+      "finite_difference_error": 5.00433028349817e-08,
+      "rotation_axis_error_rad": 5.082248908034282e-23
+    }
+  ],
+  "sources": [
+    {
+      "path": "openarm\\vendor\\openarm_mujoco\\v1\\scene.xml",
+      "sha256": "5d37dc3b9099fd69405c8687ee5bf8b0cf94a86521b6173225916782bd944691"
+    },
+    {
+      "path": "openarm\\vendor\\openarm_mujoco\\v1\\openarm_bimanual.xml",
+      "sha256": "829ba39131420182c3a058804fd456eca4b0437f125cf113db55ef096d1e28b1"
+    },
+    {
+      "path": "configs\\openarm_joint_mapping.json",
+      "sha256": "f302c78fb0ed1ec58a1652815bccaee6ed84e291feb65a73d041f97f4dc437d4"
+    },
+    {
+      "path": "apps\\openarm_joint_mapping.py",
+      "sha256": "0fa02be1f1001721ac7bb97d0f2348a646fa0c7613cf342c5328d9ca2ffb1cfc"
+    },
+    {
+      "path": "apps\\drive_openarm_from_sim.py",
+      "sha256": "f584c1281a038923939d8381122786ba85ab07cadf23d9c5f6c302469a397bc2"
+    },
+    {
+      "path": "apps\\openarm_execution.py",
+      "sha256": "d7ba13e27ab89d260c4a4950a6a568b58b0c15cdbb9f6ab656b6b3fe657cd787"
+    },
+    {
+      "path": "apps\\openarm_driver.py",
+      "sha256": "b81aa7467d56ba992a264be42481b78a4813b6681df22bb4e6076d382bbdce32"
+    }
+  ]
+}

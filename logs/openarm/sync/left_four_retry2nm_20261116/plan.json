@@ -1,0 +1,34 @@
+{
+  "status": "USER_RESET_CONFIRMED_RETRY",
+  "sequence": [
+    {
+      "joint": 7,
+      "delta_deg": 25,
+      "move_s": 4,
+      "hold_s": 2
+    },
+    {
+      "joint": 6,
+      "delta_deg": 25,
+      "move_s": 4,
+      "hold_s": 3
+    },
+    {
+      "joint": 5,
+      "delta_deg": 45,
+      "move_s": 7,
+      "hold_s": 3
+    },
+    {
+      "joint": 4,
+      "delta_deg": 15,
+      "move_s": 4,
+      "hold_s": 3
+    }
+  ],
+  "total_before_hold_s": 30,
+  "hold_after": true,
+  "on_cancel_or_fault": "disable participating four joints and verify all 14 disabled",
+  "software_tests": "65 passed in 4.88s",
+  "J4_max_torque_nm": 2.0
+}

@@ -1,0 +1,367 @@
+{
+  "date": "2026-11-16",
+  "convention": "unified-forward-inward-v1-20261116",
+  "mapping_version": "hardware-unified-forward-inward-v2-20261116",
+  "hardware_accessed": false,
+  "hardware_motion_tested": false,
+  "joints": [
+    {
+      "joint": "openarm_left_joint1",
+      "official_to_logical_sign": -1,
+      "positive_direction": "forward",
+      "limits_deg": [
+        -79.99997699027485,
+        200.00002841935643
+      ],
+      "world_axis_at_zero": [
+        0.0,
+        -0.9999999999932537,
+        3.6732051031940216e-06
+      ],
+      "hand_delta_m_for_plus_1deg": [
+        0.009356235091027693,
+        2.99919533652826e-10,
+        8.165062665804745e-05
+      ],
+      "body_rotation_vector_rad": [
+        5.772483784414891e-17,
+        -0.01745329251982555,
+        6.410952315313667e-08
+      ],
+      "passed": true
+    },
+    {
+      "joint": "openarm_left_joint2",
+      "official_to_logical_sign": 1,
+      "positive_direction": "inward",
+      "limits_deg": [
+        -189.99998556178846,
+        9.999985561788453
+      ],
+      "world_axis_at_zero": [
+        -1.0,
+        0.0,
+        0.0
+      ],
+      "hand_delta_m_for_plus_1deg": [
+        0.0,
+        -0.00935623479104547,
+        8.168499398275575e-05
+      ],
+      "body_rotation_vector_rad": [
+        -0.01745329251994329,
+        0.0,
+        0.0
+      ],
+      "passed": true
+    },
+    {
+      "joint": "openarm_left_joint3",
+      "official_to_logical_sign": 1,
+      "positive_direction": "clockwise viewed from above",
+      "limits_deg": [
+        -89.99998127603166,
+        89.99998127603166
+      ],
+      "world_axis_at_zero": [
+        0.0,
+        -3.6732002066601986e-06,
+        -0.9999999999932534
+      ],
+      "hand_delta_m_for_plus_1deg": [
+        -6.9388932415009936e-18,
+        -2.7755575615628914e-17,
+        -1.6653345369377348e-16
+      ],
+      "body_rotation_vector_rad": [
+        -7.858614791670506e-24,
+        -6.41094376911566e-08,
+        -0.017453292519825546
+      ],
+      "passed": true
+    },
+    {
+      "joint": "openarm_left_joint4",
+      "official_to_logical_sign": 1,
+      "positive_direction": "forward",
+      "limits_deg": [
+        0.0,
+        140.00000270481564
+      ],
+      "world_axis_at_zero": [
+        0.0,
+        -0.9999999999932534,
+        3.6732002066601986e-06
+      ],
+      "hand_delta_m_for_plus_1deg": [
+        0.005516705674825314,
+        1.7684093078784713e-10,
+        4.814356106430662e-05
+      ],
+      "body_rotation_vector_rad": [
+        -5.082248908034282e-23,
+        -0.017453292519825546,
+        6.410943769115662e-08
+      ],
+      "passed": true
+    },
+    {
+      "joint": "openarm_left_joint5",
+      "official_to_logical_sign": 1,
+      "positive_direction": "clockwise viewed from above",
+      "limits_deg": [
+        -89.99998127603166,
+        89.99998127603166
+      ],
+      "world_axis_at_zero": [
+        0.0,
+        -3.6732002066601986e-06,
+        -0.9999999999932534
+      ],
+      "hand_delta_m_for_plus_1deg": [
+        -6.9388932415009936e-18,
+        0.0,
+        -5.551115123125783e-17
+      ],
+      "body_rotation_vector_rad": [
+        -7.858614791670506e-24,
+        -6.41094376911566e-08,
+        -0.017453292519825546
+      ],
+      "passed": true
+    },
+    {
+      "joint": "openarm_left_joint6",
+      "official_to_logical_sign": -1,
+      "positive_direction": "inward",
+      "limits_deg": [
+        -44.99999063801583,
+        44.99999063801583
+      ],
+      "world_axis_at_zero": [
+        -1.0,
+        0.0,
+        -0.0
+      ],
+      "hand_delta_m_for_plus_1deg": [
+        0.0,
+        -0.0017469858283597206,
+        1.5252131874032848e-05
+      ],
+      "body_rotation_vector_rad": [
+        -0.01745329251994329,
+        0.0,
+        0.0
+      ],
+      "passed": true
+    },
+    {
+      "joint": "openarm_left_joint7",
+      "official_to_logical_sign": -1,
+      "positive_direction": "forward",
+      "limits_deg": [
+        -89.99998127603166,
+        89.99998127603166
+      ],
+      "world_axis_at_zero": [
+        0.0,
+        -0.9999999999932534,
+        3.6732002066601986e-06
+      ],
+      "hand_delta_m_for_plus_1deg": [
+        0.001746985884372079,
+        5.600056529608821e-11,
+        1.5245714845124603e-05
+      ],
+      "body_rotation_vector_rad": [
+        -5.082248908034282e-23,
+        -0.017453292519825546,
+        6.410943769115662e-08
+      ],
+      "passed": true
+    },
+    {
+      "joint": "openarm_right_joint1",
+      "official_to_logical_sign": 1,
+      "positive_direction": "forward",
+      "limits_deg": [
+        -79.99997699027486,
+        200.00002841935643
+      ],
+      "world_axis_at_zero": [
+        0.0,
+        -0.9999999999932537,
+        -3.6732051031940216e-06
+      ],
+      "hand_delta_m_for_plus_1deg": [
+        0.009356235091027693,
+        -2.99919533652826e-10,
+        8.165062665821399e-05
+      ],
+      "body_rotation_vector_rad": [
+        -5.772483784414891e-17,
+        -0.01745329251982555,
+        -6.410952315313667e-08
+      ],
+      "passed": true
+    },
+    {
+      "joint": "openarm_right_joint2",
+      "official_to_logical_sign": -1,
+      "positive_direction": "inward",
+      "limits_deg": [
+        -189.99998556178846,
+        9.999985561788453
+      ],
+      "world_axis_at_zero": [
+        1.0,
+        -0.0,
+        0.0
+      ],
+      "hand_delta_m_for_plus_1deg": [
+        0.0,
+        0.00935623479104547,
+        8.168499398286677e-05
+      ],
+      "body_rotation_vector_rad": [
+        0.01745329251994329,
+        0.0,
+        0.0
+      ],
+      "passed": true
+    },
+    {
+      "joint": "openarm_right_joint3",
+      "official_to_logical_sign": 1,
+      "positive_direction": "clockwise viewed from above",
+      "limits_deg": [
+        -89.99998127603166,
+        89.99998127603166
+      ],
+      "world_axis_at_zero": [
+        0.0,
+        3.6732002066601986e-06,
+        -0.9999999999932534
+      ],
+      "hand_delta_m_for_plus_1deg": [
+        -6.938894566313462e-18,
+        2.7755575615628914e-17,
+        0.0
+      ],
+      "body_rotation_vector_rad": [
+        7.858614791670506e-24,
+        6.41094376911566e-08,
+        -0.017453292519825546
+      ],
+      "passed": true
+    },
+    {
+      "joint": "openarm_right_joint4",
+      "official_to_logical_sign": 1,
+      "positive_direction": "forward",
+      "limits_deg": [
+        0.0,
+        140.00000270481564
+      ],
+      "world_axis_at_zero": [
+        0.0,
+        -0.9999999999932534,
+        -3.6732002066601986e-06
+      ],
+      "hand_delta_m_for_plus_1deg": [
+        0.005516705674825314,
+        -1.7684093078784713e-10,
+        4.814356106441764e-05
+      ],
+      "body_rotation_vector_rad": [
+        5.082248908034282e-23,
+        -0.017453292519825546,
+        -6.410943769115662e-08
+      ],
+      "passed": true
+    },
+    {
+      "joint": "openarm_right_joint5",
+      "official_to_logical_sign": 1,
+      "positive_direction": "clockwise viewed from above",
+      "limits_deg": [
+        -89.99998127603166,
+        89.99998127603166
+      ],
+      "world_axis_at_zero": [
+        0.0,
+        3.6732002066601986e-06,
+        -0.9999999999932534
+      ],
+      "hand_delta_m_for_plus_1deg": [
+        -6.938894566313462e-18,
+        0.0,
+        0.0
+      ],
+      "body_rotation_vector_rad": [
+        7.858614791670506e-24,
+        6.41094376911566e-08,
+        -0.017453292519825546
+      ],
+      "passed": true
+    },
+    {
+      "joint": "openarm_right_joint6",
+      "official_to_logical_sign": 1,
+      "positive_direction": "inward",
+      "limits_deg": [
+        -44.99999063801583,
+        44.99999063801583
+      ],
+      "world_axis_at_zero": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "hand_delta_m_for_plus_1deg": [
+        0.0,
+        0.0017469858283597206,
+        1.5252131874032848e-05
+      ],
+      "body_rotation_vector_rad": [
+        0.01745329251994329,
+        0.0,
+        0.0
+      ],
+      "passed": true
+    },
+    {
+      "joint": "openarm_right_joint7",
+      "official_to_logical_sign": 1,
+      "positive_direction": "forward",
+      "limits_deg": [
+        -89.99998127603166,
+        89.99998127603166
+      ],
+      "world_axis_at_zero": [
+        0.0,
+        -0.9999999999932534,
+        -3.6732002066601986e-06
+      ],
+      "hand_delta_m_for_plus_1deg": [
+        0.001746985884372079,
+        -5.600056529608821e-11,
+        1.5245714845124603e-05
+      ],
+      "body_rotation_vector_rad": [
+        5.082248908034282e-23,
+        -0.017453292519825546,
+        -6.410943769115662e-08
+      ],
+      "passed": true
+    }
+  ],
+  "random_full_pose_samples": 12,
+  "max_link_position_error_m": 0.0,
+  "max_link_rotation_matrix_error": 0.0,
+  "migrated_files_and_backups_sha256_verified": 6,
+  "vendor_sha256": "829ba39131420182c3a058804fd456eca4b0437f125cf113db55ef096d1e28b1",
+  "downloaded_official_sha256": "dad843e830e166048b478e7110ae4370e7d048487a1b725637c3695bde0e8c2a",
+  "vendor_matches_downloaded_official": false,
+  "vendor_text_matches_after_newline_normalization": true
+}

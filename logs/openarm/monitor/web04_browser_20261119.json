@@ -1,0 +1,57 @@
+{
+  "instance": "0160becf865243bd8ff6c04f0a4a7621",
+  "transport": "virtual",
+  "browser": "149.0.7827.55",
+  "results": [
+    {
+      "mode": "POS_VEL",
+      "request_id": "ca4f955ab2194f33aa20fb9447536d50",
+      "target_deg": 2,
+      "measured_deg": [
+        1.9999999845072665,
+        1.9999999845072665
+      ],
+      "held": 14,
+      "stopped": 0
+    },
+    {
+      "mode": "VEL",
+      "request_id": "6af1fd46a1d24f229465113c781cda66",
+      "target_deg": 1,
+      "measured_deg": [
+        0.9996415087980222,
+        0.9996415087980222
+      ],
+      "held": 14,
+      "stopped": 0
+    },
+    {
+      "mode": "POS_FORCE",
+      "request_id": "2e5854cba63648c2a55bf9a2105ee0ed",
+      "target_deg": 2,
+      "measured_deg": [
+        1.9999999845072665,
+        1.9999999845072665
+      ],
+      "held": 14,
+      "stopped": 0
+    },
+    {
+      "mode": "MIT",
+      "request_id": "50fed6f2fa8c421a981b6d6d7f65ca26",
+      "target_deg": 1,
+      "measured_deg": [
+        1,
+        1
+      ],
+      "held": 14,
+      "stopped": 0
+    }
+  ],
+  "ik_preview_invalidated": true,
+  "ik_hold_request_id": "39e7cf0f30d64c0bac6dfb66d030e96d",
+  "owner_disconnect": "操控页面连接超时",
+  "final_enabled": 0,
+  "mobile_width": 390,
+  "page_errors": []
+}

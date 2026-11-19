@@ -1,0 +1,1973 @@
+{
+  "source": "D:\\桌面\\open CyMon\\弹钢琴\\logs\\openarm\\sync\\dual_sequence_review_20261116\\execution_20261116_204117\\execution.jsonl",
+  "source_sha256": "6c5f3c7d2b7bf3f8896249c05465e56e322a22e6f7f1dfd60c1f6b67bc3a99cd",
+  "analysis_kind": "offline_completed_run_no_hardware_access",
+  "result": "FAULT: Sequence settling timeout: J7",
+  "sample_count": 221,
+  "settling_sample_count": 201,
+  "last_enabled_sample_t_s": 8.8248265000002,
+  "stages_started": [
+    "J7"
+  ],
+  "stages_completed": [],
+  "holding_target_entered": false,
+  "events": [
+    {
+      "type": "state",
+      "state": "HOLDING",
+      "feedback_kind": "hardware",
+      "request_id": "dual-sequence-authorized-20261116-204117"
+    },
+    {
+      "type": "state",
+      "state": "EXECUTING_SEQUENCE",
+      "feedback_kind": "hardware",
+      "request_id": "dual-sequence-authorized-20261116-204117"
+    },
+    {
+      "type": "stage_motion_complete",
+      "stage": "J7",
+      "t": 0.8239366000052541,
+      "planned_move_s": 0.8,
+      "actual_move_s": 0.8239366000052541,
+      "feedback_kind": "hardware",
+      "request_id": "dual-sequence-authorized-20261116-204117"
+    },
+    {
+      "type": "stage_timeout",
+      "stage": "J7",
+      "t": 8.8248265000002,
+      "wait_after_motion_s": 8.000889899994945,
+      "dwell_s": 0.08097080000152346,
+      "error": [
+        0.006210771029485251,
+        0.0050663443872312475,
+        0.0,
+        0.0,
+        -0.0003814755474174092,
+        0.0,
+        0.0003814755474174092,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0003814755474174092,
+        0.0
+      ],
+      "measured_velocity": [
+        0.0073260073260073,
+        -0.0073260073260073,
+        0.0073260073260073,
+        -0.0219780219780219,
+        -0.0073260073260073,
+        -0.0073260073260073,
+        -0.0024420024420024333,
+        0.0024420024420024333,
+        -0.0073260073260073,
+        -0.0024420024420024333,
+        -0.010989010989007397,
+        0.010989010989007397,
+        -0.010989010989007397,
+        0.010989010989007397
+      ],
+      "feedback_kind": "hardware",
+      "request_id": "dual-sequence-authorized-20261116-204117"
+    },
+    {
+      "type": "fault",
+      "error": "Sequence settling timeout: J7",
+      "feedback_kind": "hardware",
+      "request_id": "dual-sequence-authorized-20261116-204117"
+    },
+    {
+      "type": "state",
+      "state": "STOP_REQUESTED",
+      "outcome": "FAULT",
+      "feedback_kind": "hardware",
+      "request_id": "dual-sequence-authorized-20261116-204117"
+    },
+    {
+      "type": "state",
+      "state": "STOPPED",
+      "outcome": "FAULT",
+      "feedback_kind": "hardware",
+      "request_id": "dual-sequence-authorized-20261116-204117"
+    }
+  ],
+  "gate": {
+    "speed_threshold_rad_s": 0.03,
+    "position_threshold_deg": 2.0,
+    "required_continuous_dwell_s": 1.5,
+    "good_samples": 139,
+    "blocked_samples": 62,
+    "all_position_checks_passed": true,
+    "arrival_events": 47,
+    "dwell_reset_events": 46,
+    "longest_confirmed_good_episode": {
+      "start_s": 1.143611100000271,
+      "last_good_s": 1.5037550999986706,
+      "good_samples": 10,
+      "reset_at_s": 1.54207260000112,
+      "timer_when_reset_s": 0.3984615000008489,
+      "confirmed_good_sample_span_s": 0.3601439999983995
+    },
+    "max_timer_at_disqualifying_sample_s": 0.3984615000008489,
+    "episodes": [
+      {
+        "start_s": 0.8239366000052541,
+        "last_good_s": 0.8634219000014127,
+        "good_samples": 2,
+        "reset_at_s": 0.9038758000024245,
+        "timer_when_reset_s": 0.07993919999717036,
+        "confirmed_good_sample_span_s": 0.039485299996158574
+      },
+      {
+        "start_s": 0.9432581000000937,
+        "last_good_s": 1.0648555000007036,
+        "good_samples": 4,
+        "reset_at_s": 1.1025741000048583,
+        "timer_when_reset_s": 0.15931600000476465,
+        "confirmed_good_sample_span_s": 0.12159740000060992
+      },
+      {
+        "start_s": 1.143611100000271,
+        "last_good_s": 1.5037550999986706,
+        "good_samples": 10,
+        "reset_at_s": 1.54207260000112,
+        "timer_when_reset_s": 0.3984615000008489,
+        "confirmed_good_sample_span_s": 0.3601439999983995
+      },
+      {
+        "start_s": 1.5852296000011847,
+        "last_good_s": 1.7449994000053266,
+        "good_samples": 5,
+        "reset_at_s": 1.7843272000027355,
+        "timer_when_reset_s": 0.19909760000155075,
+        "confirmed_good_sample_span_s": 0.15976980000414187
+      },
+      {
+        "start_s": 1.863793299999088,
+        "last_good_s": 1.863793299999088,
+        "good_samples": 1,
+        "reset_at_s": 1.9044462000019848,
+        "timer_when_reset_s": 0.040652900002896786,
+        "confirmed_good_sample_span_s": 0.0
+      },
+      {
+        "start_s": 1.9459763000049861,
+        "last_good_s": 2.0236627999984194,
+        "good_samples": 3,
+        "reset_at_s": 2.063537499998347,
+        "timer_when_reset_s": 0.11756119999336079,
+        "confirmed_good_sample_span_s": 0.07768649999343324
+      },
+      {
+        "start_s": 2.10384730000078,
+        "last_good_s": 2.10384730000078,
+        "good_samples": 1,
+        "reset_at_s": 2.143953099999635,
+        "timer_when_reset_s": 0.04010579999885522,
+        "confirmed_good_sample_span_s": 0.0
+      },
+      {
+        "start_s": 2.223995799999102,
+        "last_good_s": 2.223995799999102,
+        "good_samples": 1,
+        "reset_at_s": 2.263570399998571,
+        "timer_when_reset_s": 0.039574599999468774,
+        "confirmed_good_sample_span_s": 0.0
+      },
+      {
+        "start_s": 2.3041149000055157,
+        "last_good_s": 2.3041149000055157,
+        "good_samples": 1,
+        "reset_at_s": 2.3433069000020623,
+        "timer_when_reset_s": 0.039191999996546656,
+        "confirmed_good_sample_span_s": 0.0
+      },
+      {
+        "start_s": 2.383212699998694,
+        "last_good_s": 2.4231747000012547,
+        "good_samples": 2,
+        "reset_at_s": 2.465397899999516,
+        "timer_when_reset_s": 0.08218520000082208,
+        "confirmed_good_sample_span_s": 0.03996200000256067
+      },
+      {
+        "start_s": 2.543444900002214,
+        "last_good_s": 2.7047689000028186,
+        "good_samples": 5,
+        "reset_at_s": 2.743725699998322,
+        "timer_when_reset_s": 0.20028079999610782,
+        "confirmed_good_sample_span_s": 0.16132400000060443
+      },
+      {
+        "start_s": 2.785286199999973,
+        "last_good_s": 2.785286199999973,
+        "good_samples": 1,
+        "reset_at_s": 2.8246475999985705,
+        "timer_when_reset_s": 0.039361399998597335,
+        "confirmed_good_sample_span_s": 0.0
+      },
+      {
+        "start_s": 2.902854500003741,
+        "last_good_s": 3.06332349999866,
+        "good_samples": 5,
+        "reset_at_s": 3.1042735000009998,
+        "timer_when_reset_s": 0.20141899999725865,
+        "confirmed_good_sample_span_s": 0.1604689999949187
+      },
+      {
+        "start_s": 3.1430414999995264,
+        "last_good_s": 3.2626514000003226,
+        "good_samples": 4,
+        "reset_at_s": 3.303683300000557,
+        "timer_when_reset_s": 0.1606418000010308,
+        "confirmed_good_sample_span_s": 0.11960990000079619
+      },
+      {
+        "start_s": 3.3427454000047874,
+        "last_good_s": 3.423396900005173,
+        "good_samples": 3,
+        "reset_at_s": 3.4637595000021975,
+        "timer_when_reset_s": 0.12101409999741009,
+        "confirmed_good_sample_span_s": 0.08065150000038557
+      },
+      {
+        "start_s": 3.5037765000015497,
+        "last_good_s": 3.5438967000009143,
+        "good_samples": 2,
+        "reset_at_s": 3.5848824999993667,
+        "timer_when_reset_s": 0.08110599999781698,
+        "confirmed_good_sample_span_s": 0.04012019999936456
+      },
+      {
+        "start_s": 3.6237873999998556,
+        "last_good_s": 3.7038309999988996,
+        "good_samples": 3,
+        "reset_at_s": 3.743982200001483,
+        "timer_when_reset_s": 0.1201948000016273,
+        "confirmed_good_sample_span_s": 0.08004359999904409
+      },
+      {
+        "start_s": 3.7826504000040586,
+        "last_good_s": 3.7826504000040586,
+        "good_samples": 1,
+        "reset_at_s": 3.8239153000031365,
+        "timer_when_reset_s": 0.0412648999990779,
+        "confirmed_good_sample_span_s": 0.0
+      },
+      {
+        "start_s": 3.863517600002524,
+        "last_good_s": 4.023279400003958,
+        "good_samples": 5,
+        "reset_at_s": 4.065179400000488,
+        "timer_when_reset_s": 0.2016617999979644,
+        "confirmed_good_sample_span_s": 0.15976180000143358
+      },
+      {
+        "start_s": 4.143339200003538,
+        "last_good_s": 4.143339200003538,
+        "good_samples": 1,
+        "reset_at_s": 4.185792700001912,
+        "timer_when_reset_s": 0.042453499998373445,
+        "confirmed_good_sample_span_s": 0.0
+      },
+      {
+        "start_s": 4.225037500000326,
+        "last_good_s": 4.263428600002953,
+        "good_samples": 2,
+        "reset_at_s": 4.303710500003945,
+        "timer_when_reset_s": 0.07867300000361865,
+        "confirmed_good_sample_span_s": 0.038391100002627354
+      },
+      {
+        "start_s": 4.38233140000375,
+        "last_good_s": 4.38233140000375,
+        "good_samples": 1,
+        "reset_at_s": 4.424868599999172,
+        "timer_when_reset_s": 0.04253719999542227,
+        "confirmed_good_sample_span_s": 0.0
+      },
+      {
+        "start_s": 4.463794700001017,
+        "last_good_s": 4.463794700001017,
+        "good_samples": 1,
+        "reset_at_s": 4.5028434000050765,
+        "timer_when_reset_s": 0.039048700004059356,
+        "confirmed_good_sample_span_s": 0.0
+      },
+      {
+        "start_s": 4.544071600001189,
+        "last_good_s": 4.544071600001189,
+        "good_samples": 1,
+        "reset_at_s": 4.585243599998648,
+        "timer_when_reset_s": 0.04117199999745935,
+        "confirmed_good_sample_span_s": 0.0
+      },
+      {
+        "start_s": 4.623756000000867,
+        "last_good_s": 4.782750700003817,
+        "good_samples": 5,
+        "reset_at_s": 4.823790700000245,
+        "timer_when_reset_s": 0.20003469999937806,
+        "confirmed_good_sample_span_s": 0.15899470000294968
+      },
+      {
+        "start_s": 4.9037266000013915,
+        "last_good_s": 5.103076200000942,
+        "good_samples": 6,
+        "reset_at_s": 5.144543300004443,
+        "timer_when_reset_s": 0.24081670000305166,
+        "confirmed_good_sample_span_s": 0.19934959999955026
+      },
+      {
+        "start_s": 5.185971899998549,
+        "last_good_s": 5.2228839000017615,
+        "good_samples": 2,
+        "reset_at_s": 5.263716900000873,
+        "timer_when_reset_s": 0.07774500000232365,
+        "confirmed_good_sample_span_s": 0.0369120000032126
+      },
+      {
+        "start_s": 5.305538600005093,
+        "last_good_s": 5.3432826999996905,
+        "good_samples": 2,
+        "reset_at_s": 5.38557209999999,
+        "timer_when_reset_s": 0.08003349999489728,
+        "confirmed_good_sample_span_s": 0.03774409999459749
+      },
+      {
+        "start_s": 5.542879400003585,
+        "last_good_s": 5.542879400003585,
+        "good_samples": 1,
+        "reset_at_s": 5.583302800005185,
+        "timer_when_reset_s": 0.040423400001600385,
+        "confirmed_good_sample_span_s": 0.0
+      },
+      {
+        "start_s": 5.624099799999385,
+        "last_good_s": 5.783606199998758,
+        "good_samples": 5,
+        "reset_at_s": 5.822309100003622,
+        "timer_when_reset_s": 0.19820930000423687,
+        "confirmed_good_sample_span_s": 0.15950639999937266
+      },
+      {
+        "start_s": 5.943288400005258,
+        "last_good_s": 5.983753500004241,
+        "good_samples": 2,
+        "reset_at_s": 6.0218258000022615,
+        "timer_when_reset_s": 0.07853739999700338,
+        "confirmed_good_sample_span_s": 0.04046509999898262
+      },
+      {
+        "start_s": 6.062902600002417,
+        "last_good_s": 6.143737200000032,
+        "good_samples": 3,
+        "reset_at_s": 6.184277000000293,
+        "timer_when_reset_s": 0.12137439999787603,
+        "confirmed_good_sample_span_s": 0.08083459999761544
+      },
+      {
+        "start_s": 6.263787100004265,
+        "last_good_s": 6.424281799998425,
+        "good_samples": 5,
+        "reset_at_s": 6.465632799998275,
+        "timer_when_reset_s": 0.20184569999400992,
+        "confirmed_good_sample_span_s": 0.16049469999416033
+      },
+      {
+        "start_s": 6.5034731999985524,
+        "last_good_s": 6.5034731999985524,
+        "good_samples": 1,
+        "reset_at_s": 6.543212199998379,
+        "timer_when_reset_s": 0.039738999999826774,
+        "confirmed_good_sample_span_s": 0.0
+      },
+      {
+        "start_s": 6.584311999999045,
+        "last_good_s": 6.584311999999045,
+        "good_samples": 1,
+        "reset_at_s": 6.624564900004771,
+        "timer_when_reset_s": 0.04025290000572568,
+        "confirmed_good_sample_span_s": 0.0
+      },
+      {
+        "start_s": 6.663588700001128,
+        "last_good_s": 6.704427900003793,
+        "good_samples": 2,
+        "reset_at_s": 6.74328819999937,
+        "timer_when_reset_s": 0.07969949999824166,
+        "confirmed_good_sample_span_s": 0.040839200002665166
+      },
+      {
+        "start_s": 6.784327000001213,
+        "last_good_s": 6.904162099999667,
+        "good_samples": 4,
+        "reset_at_s": 6.945376000003307,
+        "timer_when_reset_s": 0.16104900000209454,
+        "confirmed_good_sample_span_s": 0.1198350999984541
+      },
+      {
+        "start_s": 6.985310200005188,
+        "last_good_s": 7.023477800001274,
+        "good_samples": 2,
+        "reset_at_s": 7.06478369999968,
+        "timer_when_reset_s": 0.07947349999449216,
+        "confirmed_good_sample_span_s": 0.03816759999608621
+      },
+      {
+        "start_s": 7.185431099998823,
+        "last_good_s": 7.264303900003142,
+        "good_samples": 3,
+        "reset_at_s": 7.304788400004327,
+        "timer_when_reset_s": 0.11935730000550393,
+        "confirmed_good_sample_span_s": 0.07887280000431929
+      },
+      {
+        "start_s": 7.384676300003775,
+        "last_good_s": 7.465711000004376,
+        "good_samples": 3,
+        "reset_at_s": 7.5039523000014015,
+        "timer_when_reset_s": 0.11927599999762606,
+        "confirmed_good_sample_span_s": 0.08103470000060042
+      },
+      {
+        "start_s": 7.5433413999999175,
+        "last_good_s": 7.663124400001834,
+        "good_samples": 4,
+        "reset_at_s": 7.704881400000886,
+        "timer_when_reset_s": 0.16154000000096858,
+        "confirmed_good_sample_span_s": 0.11978300000191666
+      },
+      {
+        "start_s": 7.743708000001789,
+        "last_good_s": 7.824834899998677,
+        "good_samples": 3,
+        "reset_at_s": 7.864374500000849,
+        "timer_when_reset_s": 0.12066649999906076,
+        "confirmed_good_sample_span_s": 0.08112689999688882
+      },
+      {
+        "start_s": 7.903887799999211,
+        "last_good_s": 7.984159400002682,
+        "good_samples": 3,
+        "reset_at_s": 8.024771399999736,
+        "timer_when_reset_s": 0.1208836000005249,
+        "confirmed_good_sample_span_s": 0.08027160000347067
+      },
+      {
+        "start_s": 8.064264300002833,
+        "last_good_s": 8.10275990000082,
+        "good_samples": 2,
+        "reset_at_s": 8.14306950000173,
+        "timer_when_reset_s": 0.07880519999889657,
+        "confirmed_good_sample_span_s": 0.038495599997986574
+      },
+      {
+        "start_s": 8.185119000001578,
+        "last_good_s": 8.464106700004777,
+        "good_samples": 8,
+        "reset_at_s": 8.503411900004721,
+        "timer_when_reset_s": 0.3182929000031436,
+        "confirmed_good_sample_span_s": 0.2789877000031993
+      },
+      {
+        "start_s": 8.544651600001089,
+        "last_good_s": 8.664155700003903,
+        "good_samples": 4,
+        "reset_at_s": 8.704357000002346,
+        "timer_when_reset_s": 0.15970540000125766,
+        "confirmed_good_sample_span_s": 0.11950410000281408
+      },
+      {
+        "start_s": 8.743855699998676,
+        "last_good_s": 8.8248265000002,
+        "good_samples": 3,
+        "reset_at_s": null,
+        "timer_when_reset_s": null,
+        "confirmed_good_sample_span_s": 0.08097080000152346
+      }
+    ],
+    "blocked_sample_details": [
+      {
+        "t": 0.9038758000024245,
+        "speed": [
+          {
+            "side": "right",
+            "motor_id": 1,
+            "velocity_rad_s": -0.0329670329670364
+          }
+        ],
+        "position": []
+      },
+      {
+        "t": 1.1025741000048583,
+        "speed": [
+          {
+            "side": "right",
+            "motor_id": 1,
+            "velocity_rad_s": -0.0329670329670364
+          }
+        ],
+        "position": []
+      },
+      {
+        "t": 1.54207260000112,
+        "speed": [
+          {
+            "side": "left",
+            "motor_id": 1,
+            "velocity_rad_s": 0.0329670329670364
+          }
+        ],
+        "position": []
+      },
+      {
+        "t": 1.7843272000027355,
+        "speed": [
+          {
+            "side": "right",
+            "motor_id": 1,
+            "velocity_rad_s": -0.0329670329670364
+          }
+        ],
+        "position": []
+      },
+      {
+        "t": 1.823844900005497,
+        "speed": [
+          {
+            "side": "right",
+            "motor_id": 1,
+            "velocity_rad_s": -0.0329670329670364
+          }
+        ],
+        "position": []
+      },
+      {
+        "t": 1.9044462000019848,
+        "speed": [
+          {
+            "side": "left",
+            "motor_id": 2,
+            "velocity_rad_s": -0.0329670329670364
+          }
+        ],
+        "position": []
+      },
+      {
+        "t": 2.063537499998347,
+        "speed": [
+          {
+            "side": "left",
+            "motor_id": 2,
+            "velocity_rad_s": -0.0329670329670364
+          }
+        ],
+        "position": []
+      },
+      {
+        "t": 2.143953099999635,
+        "speed": [
+          {
+            "side": "left",
+            "motor_id": 2,
+            "velocity_rad_s": -0.0329670329670364
+          }
+        ],
+        "position": []
+      },
+      {
+        "t": 2.1843395000032615,
+        "speed": [
+          {
+            "side": "right",
+            "motor_id": 5,
+            "velocity_rad_s": -0.0366300366300365
+          }
+        ],
+        "position": []
+      },
+      {
+        "t": 2.263570399998571,
+        "speed": [
+          {
+            "side": "left",
+            "motor_id": 2,
+            "velocity_rad_s": -0.0329670329670364
+          },
+          {
+            "side": "left",
+            "motor_id": 1,
+            "velocity_rad_s": 0.0329670329670364
+          }
+        ],
+        "position": []
+      },
+      {
+        "t": 2.3433069000020623,
+        "speed": [
+          {
+            "side": "left",
+            "motor_id": 1,
+            "velocity_rad_s": 0.0329670329670364
+          }
+        ],
+        "position": []
+      },
+      {
+        "t": 2.465397899999516,
+        "speed": [
+          {
+            "side": "right",
+            "motor_id": 1,
+            "velocity_rad_s": -0.0329670329670364
+          }
+        ],
+        "position": []
+      },
+      {
+        "t": 2.5047890999994706,
+        "speed": [
+          {
+            "side": "left",
+            "motor_id": 1,
+            "velocity_rad_s": 0.0329670329670364
+          }
+        ],
+        "position": []
+      },
+      {
+        "t": 2.743725699998322,
+        "speed": [
+          {
+            "side": "right",
+            "motor_id": 1,
+            "velocity_rad_s": -0.0329670329670364
+          }
+        ],
+        "position": []
+      },
+      {
+        "t": 2.8246475999985705,
+        "speed": [
+          {
+            "side": "left",
+            "motor_id": 1,
+            "velocity_rad_s": 0.0329670329670364
+          }
+        ],
+        "position": []
+      },
+      {
+        "t": 2.862675800002762,
+        "speed": [
+          {
+            "side": "left",
+            "motor_id": 1,
+            "velocity_rad_s": 0.0329670329670364
+          }
+        ],
+        "position": []
+      },
+      {
+        "t": 3.1042735000009998,
+        "speed": [
+          {
+            "side": "left",
+            "motor_id": 2,
+            "velocity_rad_s": -0.0329670329670364
+          }
+        ],
+        "position": []
+      },
+      {
+        "t": 3.303683300000557,
+        "speed": [
+          {
+            "side": "left",
+            "motor_id": 7,
+            "velocity_rad_s": 0.0366300366300365
+          }
+        ],
+        "position": []
+      },
+      {
+        "t": 3.4637595000021975,
+        "speed": [
+          {
+            "side": "left",
+            "motor_id": 1,
+            "velocity_rad_s": 0.0329670329670364
+          }
+        ],
+        "position": []
+      },
+      {
+        "t": 3.5848824999993667,
+        "speed": [
+          {
+            "side": "left",
+            "motor_id": 2,
+            "velocity_rad_s": -0.0329670329670364
+          }
+        ],
+        "position": []
+      },
+      {
+        "t": 3.743982200001483,
+        "speed": [
+          {
+            "side": "left",
+            "motor_id": 2,
+            "velocity_rad_s": -0.0329670329670364
+          }
+        ],
+        "position": []
+      },
+      {
+        "t": 3.8239153000031365,
+        "speed": [
+          {
+            "side": "left",
+            "motor_id": 1,
+            "velocity_rad_s": 0.0329670329670364
+          }
+        ],
+        "position": []
+      },
+      {
+        "t": 4.065179400000488,
+        "speed": [
+          {
+            "side": "right",
+            "motor_id": 1,
+            "velocity_rad_s": -0.0329670329670364
+          }
+        ],
+        "position": []
+      },
+      {
+        "t": 4.10489619999862,
+        "speed": [
+          {
+            "side": "left",
+            "motor_id": 1,
+            "velocity_rad_s": 0.0329670329670364
+          },
+          {
+            "side": "right",
+            "motor_id": 1,
+            "velocity_rad_s": -0.0329670329670364
+          }
+        ],
+        "position": []
+      },
+      {
+        "t": 4.185792700001912,
+        "speed": [
+          {
+            "side": "left",
+            "motor_id": 2,
+            "velocity_rad_s": -0.0329670329670364
+          }
+        ],
+        "position": []
+      },
+      {
+        "t": 4.303710500003945,
+        "speed": [
+          {
+            "side": "left",
+            "motor_id": 5,
+            "velocity_rad_s": -0.0366300366300365
+          },
+          {
+            "side": "right",
+            "motor_id": 1,
+            "velocity_rad_s": -0.0329670329670364
+          }
+        ],
+        "position": []
+      },
+      {
+        "t": 4.3433130999983405,
+        "speed": [
+          {
+            "side": "right",
+            "motor_id": 1,
+            "velocity_rad_s": -0.0329670329670364
+          }
+        ],
+        "position": []
+      },
+      {
+        "t": 4.424868599999172,
+        "speed": [
+          {
+            "side": "left",
+            "motor_id": 6,
+            "velocity_rad_s": 0.0366300366300365
+          }
+        ],
+        "position": []
+      },
+      {
+        "t": 4.5028434000050765,
+        "speed": [
+          {
+            "side": "left",
+            "motor_id": 2,
+            "velocity_rad_s": -0.0329670329670364
+          }
+        ],
+        "position": []
+      },
+      {
+        "t": 4.585243599998648,
+        "speed": [
+          {
+            "side": "right",
+            "motor_id": 1,
+            "velocity_rad_s": -0.0329670329670364
+          }
+        ],
+        "position": []
+      },
+      {
+        "t": 4.823790700000245,
+        "speed": [
+          {
+            "side": "left",
+            "motor_id": 1,
+            "velocity_rad_s": 0.0329670329670364
+          }
+        ],
+        "position": []
+      },
+      {
+        "t": 4.865273499999603,
+        "speed": [
+          {
+            "side": "left",
+            "motor_id": 2,
+            "velocity_rad_s": -0.0329670329670364
+          }
+        ],
+        "position": []
+      },
+      {
+        "t": 5.144543300004443,
+        "speed": [
+          {
+            "side": "right",
+            "motor_id": 2,
+            "velocity_rad_s": 0.0329670329670364
+          }
+        ],
+        "position": []
+      },
+      {
+        "t": 5.263716900000873,
+        "speed": [
+          {
+            "side": "left",
+            "motor_id": 1,
+            "velocity_rad_s": 0.0329670329670364
+          }
+        ],
+        "position": []
+      },
+      {
+        "t": 5.38557209999999,
+        "speed": [
+          {
+            "side": "right",
+            "motor_id": 1,
+            "velocity_rad_s": -0.0329670329670364
+          }
+        ],
+        "position": []
+      },
+      {
+        "t": 5.424074800001108,
+        "speed": [
+          {
+            "side": "left",
+            "motor_id": 1,
+            "velocity_rad_s": 0.0329670329670364
+          }
+        ],
+        "position": []
+      },
+      {
+        "t": 5.4640677999996115,
+        "speed": [
+          {
+            "side": "right",
+            "motor_id": 2,
+            "velocity_rad_s": 0.0329670329670364
+          }
+        ],
+        "position": []
+      },
+      {
+        "t": 5.502293500001542,
+        "speed": [
+          {
+            "side": "left",
+            "motor_id": 2,
+            "velocity_rad_s": -0.0329670329670364
+          },
+          {
+            "side": "left",
+            "motor_id": 1,
+            "velocity_rad_s": 0.0329670329670364
+          }
+        ],
+        "position": []
+      },
+      {
+        "t": 5.583302800005185,
+        "speed": [
+          {
+            "side": "right",
+            "motor_id": 7,
+            "velocity_rad_s": -0.0366300366300365
+          }
+        ],
+        "position": []
+      },
+      {
+        "t": 5.822309100003622,
+        "speed": [
+          {
+            "side": "left",
+            "motor_id": 2,
+            "velocity_rad_s": -0.0329670329670364
+          }
+        ],
+        "position": []
+      },
+      {
+        "t": 5.86542080000072,
+        "speed": [
+          {
+            "side": "right",
+            "motor_id": 1,
+            "velocity_rad_s": -0.0329670329670364
+          }
+        ],
+        "position": []
+      },
+      {
+        "t": 5.9045984000040335,
+        "speed": [
+          {
+            "side": "right",
+            "motor_id": 1,
+            "velocity_rad_s": -0.0329670329670364
+          }
+        ],
+        "position": []
+      },
+      {
+        "t": 6.0218258000022615,
+        "speed": [
+          {
+            "side": "left",
+            "motor_id": 2,
+            "velocity_rad_s": -0.0329670329670364
+          }
+        ],
+        "position": []
+      },
+      {
+        "t": 6.184277000000293,
+        "speed": [
+          {
+            "side": "right",
+            "motor_id": 1,
+            "velocity_rad_s": -0.0329670329670364
+          }
+        ],
+        "position": []
+      },
+      {
+        "t": 6.224942799999553,
+        "speed": [
+          {
+            "side": "left",
+            "motor_id": 1,
+            "velocity_rad_s": 0.0329670329670364
+          }
+        ],
+        "position": []
+      },
+      {
+        "t": 6.465632799998275,
+        "speed": [
+          {
+            "side": "left",
+            "motor_id": 2,
+            "velocity_rad_s": -0.0329670329670364
+          },
+          {
+            "side": "right",
+            "motor_id": 2,
+            "velocity_rad_s": 0.0329670329670364
+          }
+        ],
+        "position": []
+      },
+      {
+        "t": 6.543212199998379,
+        "speed": [
+          {
+            "side": "right",
+            "motor_id": 1,
+            "velocity_rad_s": -0.0329670329670364
+          }
+        ],
+        "position": []
+      },
+      {
+        "t": 6.624564900004771,
+        "speed": [
+          {
+            "side": "left",
+            "motor_id": 2,
+            "velocity_rad_s": -0.0329670329670364
+          },
+          {
+            "side": "right",
+            "motor_id": 1,
+            "velocity_rad_s": -0.0329670329670364
+          }
+        ],
+        "position": []
+      },
+      {
+        "t": 6.74328819999937,
+        "speed": [
+          {
+            "side": "left",
+            "motor_id": 1,
+            "velocity_rad_s": 0.0329670329670364
+          }
+        ],
+        "position": []
+      },
+      {
+        "t": 6.945376000003307,
+        "speed": [
+          {
+            "side": "left",
+            "motor_id": 2,
+            "velocity_rad_s": -0.0329670329670364
+          }
+        ],
+        "position": []
+      },
+      {
+        "t": 7.06478369999968,
+        "speed": [
+          {
+            "side": "right",
+            "motor_id": 1,
+            "velocity_rad_s": -0.0329670329670364
+          }
+        ],
+        "position": []
+      },
+      {
+        "t": 7.1034109000029275,
+        "speed": [
+          {
+            "side": "left",
+            "motor_id": 2,
+            "velocity_rad_s": -0.0329670329670364
+          }
+        ],
+        "position": []
+      },
+      {
+        "t": 7.14437149999867,
+        "speed": [
+          {
+            "side": "left",
+            "motor_id": 2,
+            "velocity_rad_s": -0.0329670329670364
+          }
+        ],
+        "position": []
+      },
+      {
+        "t": 7.304788400004327,
+        "speed": [
+          {
+            "side": "left",
+            "motor_id": 1,
+            "velocity_rad_s": 0.0329670329670364
+          },
+          {
+            "side": "right",
+            "motor_id": 1,
+            "velocity_rad_s": -0.0329670329670364
+          }
+        ],
+        "position": []
+      },
+      {
+        "t": 7.343419700002414,
+        "speed": [
+          {
+            "side": "right",
+            "motor_id": 2,
+            "velocity_rad_s": 0.0329670329670364
+          }
+        ],
+        "position": []
+      },
+      {
+        "t": 7.5039523000014015,
+        "speed": [
+          {
+            "side": "left",
+            "motor_id": 1,
+            "velocity_rad_s": 0.0329670329670364
+          }
+        ],
+        "position": []
+      },
+      {
+        "t": 7.704881400000886,
+        "speed": [
+          {
+            "side": "right",
+            "motor_id": 1,
+            "velocity_rad_s": -0.0329670329670364
+          }
+        ],
+        "position": []
+      },
+      {
+        "t": 7.864374500000849,
+        "speed": [
+          {
+            "side": "left",
+            "motor_id": 1,
+            "velocity_rad_s": 0.0329670329670364
+          }
+        ],
+        "position": []
+      },
+      {
+        "t": 8.024771399999736,
+        "speed": [
+          {
+            "side": "right",
+            "motor_id": 1,
+            "velocity_rad_s": -0.0329670329670364
+          }
+        ],
+        "position": []
+      },
+      {
+        "t": 8.14306950000173,
+        "speed": [
+          {
+            "side": "right",
+            "motor_id": 1,
+            "velocity_rad_s": -0.0329670329670364
+          }
+        ],
+        "position": []
+      },
+      {
+        "t": 8.503411900004721,
+        "speed": [
+          {
+            "side": "left",
+            "motor_id": 1,
+            "velocity_rad_s": 0.0329670329670364
+          }
+        ],
+        "position": []
+      },
+      {
+        "t": 8.704357000002346,
+        "speed": [
+          {
+            "side": "right",
+            "motor_id": 1,
+            "velocity_rad_s": -0.0329670329670364
+          }
+        ],
+        "position": []
+      }
+    ]
+  },
+  "joints": [
+    {
+      "side": "left",
+      "motor_id": 7,
+      "active_in_run": true,
+      "last_enabled_delta_deg": -14.644149032488373,
+      "last_enabled_error_deg": 0.35585096751162626,
+      "max_abs_tracking_error_deg": 0.9296923295834997,
+      "rms_tracking_error_deg": 0.4013191354337485,
+      "settling_max_abs_error_deg": 0.37770790636608653,
+      "measured_position_span_deg": 14.644149032488373,
+      "max_abs_velocity_rad_s": 0.6080586080586059,
+      "min_velocity_rad_s": -0.6080586080586059,
+      "max_velocity_rad_s": 0.0366300366300365,
+      "settling_max_abs_velocity_rad_s": 0.0366300366300365,
+      "settling_speed_blocked_samples": 1,
+      "settling_position_blocked_samples": 0,
+      "settling_velocity_histogram": [
+        {
+          "value": -0.0219780219780219,
+          "count": 4
+        },
+        {
+          "value": -0.0073260073260073,
+          "count": 50
+        },
+        {
+          "value": 0.0073260073260073,
+          "count": 104
+        },
+        {
+          "value": 0.0219780219780219,
+          "count": 42
+        },
+        {
+          "value": 0.0366300366300365,
+          "count": 1
+        }
+      ],
+      "max_abs_torque_nm": 0.3540903540903546,
+      "last_enabled_torque_nm": 0.34920634920634974,
+      "max_temperature_c": 29,
+      "enabled_sample_states": [
+        1
+      ]
+    },
+    {
+      "side": "right",
+      "motor_id": 7,
+      "active_in_run": true,
+      "last_enabled_delta_deg": -14.709719849051854,
+      "last_enabled_error_deg": 0.29028015094814374,
+      "max_abs_tracking_error_deg": 0.8641215130201189,
+      "rms_tracking_error_deg": 0.31942161521346185,
+      "settling_max_abs_error_deg": 0.29028015094814374,
+      "measured_position_span_deg": 14.731576787906315,
+      "max_abs_velocity_rad_s": 0.5054945054945073,
+      "min_velocity_rad_s": -0.5054945054945073,
+      "max_velocity_rad_s": 0.0073260073260073,
+      "settling_max_abs_velocity_rad_s": 0.0366300366300365,
+      "settling_speed_blocked_samples": 1,
+      "settling_position_blocked_samples": 0,
+      "settling_velocity_histogram": [
+        {
+          "value": -0.0366300366300365,
+          "count": 1
+        },
+        {
+          "value": -0.0219780219780219,
+          "count": 33
+        },
+        {
+          "value": -0.0073260073260073,
+          "count": 113
+        },
+        {
+          "value": 0.0073260073260073,
+          "count": 54
+        }
+      ],
+      "max_abs_torque_nm": 0.34920634920634974,
+      "last_enabled_torque_nm": -0.3443223443223449,
+      "max_temperature_c": 30,
+      "enabled_sample_states": [
+        1
+      ]
+    },
+    {
+      "side": "left",
+      "motor_id": 6,
+      "active_in_run": false,
+      "last_enabled_delta_deg": 0.0,
+      "last_enabled_error_deg": 0.0,
+      "max_abs_tracking_error_deg": 0.02185693885446026,
+      "rms_tracking_error_deg": 0.0020792571247534876,
+      "settling_max_abs_error_deg": 0.02185693885446026,
+      "measured_position_span_deg": 0.02185693885446026,
+      "max_abs_velocity_rad_s": 0.0366300366300365,
+      "min_velocity_rad_s": -0.0073260073260073,
+      "max_velocity_rad_s": 0.0366300366300365,
+      "settling_max_abs_velocity_rad_s": 0.0366300366300365,
+      "settling_speed_blocked_samples": 1,
+      "settling_position_blocked_samples": 0,
+      "settling_velocity_histogram": [
+        {
+          "value": -0.0073260073260073,
+          "count": 38
+        },
+        {
+          "value": 0.0073260073260073,
+          "count": 124
+        },
+        {
+          "value": 0.0219780219780219,
+          "count": 38
+        },
+        {
+          "value": 0.0366300366300365,
+          "count": 1
+        }
+      ],
+      "max_abs_torque_nm": 0.0366300366300365,
+      "last_enabled_torque_nm": -0.0219780219780219,
+      "max_temperature_c": 31,
+      "enabled_sample_states": [
+        1
+      ]
+    },
+    {
+      "side": "right",
+      "motor_id": 6,
+      "active_in_run": false,
+      "last_enabled_delta_deg": 0.0,
+      "last_enabled_error_deg": 0.0,
+      "max_abs_tracking_error_deg": 0.0,
+      "rms_tracking_error_deg": 0.0,
+      "settling_max_abs_error_deg": 0.0,
+      "measured_position_span_deg": 0.0,
+      "max_abs_velocity_rad_s": 0.0219780219780219,
+      "min_velocity_rad_s": -0.0219780219780219,
+      "max_velocity_rad_s": 0.0219780219780219,
+      "settling_max_abs_velocity_rad_s": 0.0219780219780219,
+      "settling_speed_blocked_samples": 0,
+      "settling_position_blocked_samples": 0,
+      "settling_velocity_histogram": [
+        {
+          "value": -0.0219780219780219,
+          "count": 31
+        },
+        {
+          "value": -0.0073260073260073,
+          "count": 126
+        },
+        {
+          "value": 0.0073260073260073,
+          "count": 43
+        },
+        {
+          "value": 0.0219780219780219,
+          "count": 1
+        }
+      ],
+      "max_abs_torque_nm": 0.03174603174603163,
+      "last_enabled_torque_nm": -0.026862026862026767,
+      "max_temperature_c": 30,
+      "enabled_sample_states": [
+        1
+      ]
+    },
+    {
+      "side": "left",
+      "motor_id": 5,
+      "active_in_run": false,
+      "last_enabled_delta_deg": -0.02185693885446026,
+      "last_enabled_error_deg": -0.02185693885446026,
+      "max_abs_tracking_error_deg": 0.02185693885446026,
+      "rms_tracking_error_deg": 0.021306045387119672,
+      "settling_max_abs_error_deg": 0.02185693885446026,
+      "measured_position_span_deg": 0.02185693885446026,
+      "max_abs_velocity_rad_s": 0.0366300366300365,
+      "min_velocity_rad_s": -0.0366300366300365,
+      "max_velocity_rad_s": 0.0219780219780219,
+      "settling_max_abs_velocity_rad_s": 0.0366300366300365,
+      "settling_speed_blocked_samples": 1,
+      "settling_position_blocked_samples": 0,
+      "settling_velocity_histogram": [
+        {
+          "value": -0.0366300366300365,
+          "count": 1
+        },
+        {
+          "value": -0.0219780219780219,
+          "count": 31
+        },
+        {
+          "value": -0.0073260073260073,
+          "count": 128
+        },
+        {
+          "value": 0.0073260073260073,
+          "count": 40
+        },
+        {
+          "value": 0.0219780219780219,
+          "count": 1
+        }
+      ],
+      "max_abs_torque_nm": 0.026862026862026767,
+      "last_enabled_torque_nm": -0.012210012210012167,
+      "max_temperature_c": 31,
+      "enabled_sample_states": [
+        1
+      ]
+    },
+    {
+      "side": "right",
+      "motor_id": 5,
+      "active_in_run": false,
+      "last_enabled_delta_deg": 0.0,
+      "last_enabled_error_deg": 0.0,
+      "max_abs_tracking_error_deg": 0.02185693885446026,
+      "rms_tracking_error_deg": 0.0032875941776769452,
+      "settling_max_abs_error_deg": 0.02185693885446026,
+      "measured_position_span_deg": 0.02185693885446026,
+      "max_abs_velocity_rad_s": 0.0366300366300365,
+      "min_velocity_rad_s": -0.0366300366300365,
+      "max_velocity_rad_s": 0.0366300366300365,
+      "settling_max_abs_velocity_rad_s": 0.0366300366300365,
+      "settling_speed_blocked_samples": 1,
+      "settling_position_blocked_samples": 0,
+      "settling_velocity_histogram": [
+        {
+          "value": -0.0366300366300365,
+          "count": 1
+        },
+        {
+          "value": -0.0219780219780219,
+          "count": 39
+        },
+        {
+          "value": -0.0073260073260073,
+          "count": 113
+        },
+        {
+          "value": 0.0073260073260073,
+          "count": 48
+        }
+      ],
+      "max_abs_torque_nm": 0.03174603174603163,
+      "last_enabled_torque_nm": -0.026862026862026767,
+      "max_temperature_c": 31,
+      "enabled_sample_states": [
+        1
+      ]
+    },
+    {
+      "side": "left",
+      "motor_id": 4,
+      "active_in_run": false,
+      "last_enabled_delta_deg": 0.02185693885446026,
+      "last_enabled_error_deg": 0.02185693885446026,
+      "max_abs_tracking_error_deg": 0.02185693885446026,
+      "rms_tracking_error_deg": 0.013792231450961022,
+      "settling_max_abs_error_deg": 0.02185693885446026,
+      "measured_position_span_deg": 0.02185693885446026,
+      "max_abs_velocity_rad_s": 0.0073260073260073,
+      "min_velocity_rad_s": -0.0073260073260073,
+      "max_velocity_rad_s": 0.0024420024420024333,
+      "settling_max_abs_velocity_rad_s": 0.0073260073260073,
+      "settling_speed_blocked_samples": 0,
+      "settling_position_blocked_samples": 0,
+      "settling_velocity_histogram": [
+        {
+          "value": -0.0073260073260073,
+          "count": 28
+        },
+        {
+          "value": -0.0024420024420024333,
+          "count": 153
+        },
+        {
+          "value": 0.0024420024420024333,
+          "count": 20
+        }
+      ],
+      "max_abs_torque_nm": 0.1025641025641022,
+      "last_enabled_torque_nm": -0.08888888888888857,
+      "max_temperature_c": 28,
+      "enabled_sample_states": [
+        1
+      ]
+    },
+    {
+      "side": "right",
+      "motor_id": 4,
+      "active_in_run": false,
+      "last_enabled_delta_deg": 0.0,
+      "last_enabled_error_deg": 0.0,
+      "max_abs_tracking_error_deg": 0.02185693885446026,
+      "rms_tracking_error_deg": 0.0020792571247534876,
+      "settling_max_abs_error_deg": 0.0,
+      "measured_position_span_deg": 0.02185693885446026,
+      "max_abs_velocity_rad_s": 0.0073260073260073,
+      "min_velocity_rad_s": -0.0073260073260073,
+      "max_velocity_rad_s": 0.0073260073260073,
+      "settling_max_abs_velocity_rad_s": 0.0073260073260073,
+      "settling_speed_blocked_samples": 0,
+      "settling_position_blocked_samples": 0,
+      "settling_velocity_histogram": [
+        {
+          "value": -0.0073260073260073,
+          "count": 34
+        },
+        {
+          "value": -0.0024420024420024333,
+          "count": 142
+        },
+        {
+          "value": 0.0024420024420024333,
+          "count": 25
+        }
+      ],
+      "max_abs_torque_nm": 0.04786324786324769,
+      "last_enabled_torque_nm": -0.03418803418803407,
+      "max_temperature_c": 28,
+      "enabled_sample_states": [
+        1
+      ]
+    },
+    {
+      "side": "left",
+      "motor_id": 3,
+      "active_in_run": false,
+      "last_enabled_delta_deg": 0.0,
+      "last_enabled_error_deg": 0.0,
+      "max_abs_tracking_error_deg": 0.0,
+      "rms_tracking_error_deg": 0.0,
+      "settling_max_abs_error_deg": 0.0,
+      "measured_position_span_deg": 0.0,
+      "max_abs_velocity_rad_s": 0.0073260073260073,
+      "min_velocity_rad_s": -0.0073260073260073,
+      "max_velocity_rad_s": 0.0024420024420024333,
+      "settling_max_abs_velocity_rad_s": 0.0073260073260073,
+      "settling_speed_blocked_samples": 0,
+      "settling_position_blocked_samples": 0,
+      "settling_velocity_histogram": [
+        {
+          "value": -0.0073260073260073,
+          "count": 20
+        },
+        {
+          "value": -0.0024420024420024333,
+          "count": 155
+        },
+        {
+          "value": 0.0024420024420024333,
+          "count": 26
+        }
+      ],
+      "max_abs_torque_nm": 0.03418803418803407,
+      "last_enabled_torque_nm": -0.03418803418803407,
+      "max_temperature_c": 29,
+      "enabled_sample_states": [
+        1
+      ]
+    },
+    {
+      "side": "right",
+      "motor_id": 3,
+      "active_in_run": false,
+      "last_enabled_delta_deg": 0.0,
+      "last_enabled_error_deg": 0.0,
+      "max_abs_tracking_error_deg": 0.0,
+      "rms_tracking_error_deg": 0.0,
+      "settling_max_abs_error_deg": 0.0,
+      "measured_position_span_deg": 0.0,
+      "max_abs_velocity_rad_s": 0.0073260073260073,
+      "min_velocity_rad_s": -0.0073260073260073,
+      "max_velocity_rad_s": 0.0024420024420024333,
+      "settling_max_abs_velocity_rad_s": 0.0073260073260073,
+      "settling_speed_blocked_samples": 0,
+      "settling_position_blocked_samples": 0,
+      "settling_velocity_histogram": [
+        {
+          "value": -0.0073260073260073,
+          "count": 19
+        },
+        {
+          "value": -0.0024420024420024333,
+          "count": 148
+        },
+        {
+          "value": 0.0024420024420024333,
+          "count": 34
+        }
+      ],
+      "max_abs_torque_nm": 0.04786324786324769,
+      "last_enabled_torque_nm": -0.03418803418803407,
+      "max_temperature_c": 29,
+      "enabled_sample_states": [
+        1
+      ]
+    },
+    {
+      "side": "left",
+      "motor_id": 2,
+      "active_in_run": false,
+      "last_enabled_delta_deg": 0.0,
+      "last_enabled_error_deg": 0.0,
+      "max_abs_tracking_error_deg": 0.0,
+      "rms_tracking_error_deg": 0.0,
+      "settling_max_abs_error_deg": 0.0,
+      "measured_position_span_deg": 0.0,
+      "max_abs_velocity_rad_s": 0.0329670329670364,
+      "min_velocity_rad_s": -0.0329670329670364,
+      "max_velocity_rad_s": 0.010989010989007397,
+      "settling_max_abs_velocity_rad_s": 0.0329670329670364,
+      "settling_speed_blocked_samples": 18,
+      "settling_position_blocked_samples": 0,
+      "settling_velocity_histogram": [
+        {
+          "value": -0.0329670329670364,
+          "count": 18
+        },
+        {
+          "value": -0.010989010989007397,
+          "count": 169
+        },
+        {
+          "value": 0.010989010989007397,
+          "count": 14
+        }
+      ],
+      "max_abs_torque_nm": 0.17142857142857082,
+      "last_enabled_torque_nm": -0.14505494505494454,
+      "max_temperature_c": 28,
+      "enabled_sample_states": [
+        1
+      ]
+    },
+    {
+      "side": "right",
+      "motor_id": 2,
+      "active_in_run": false,
+      "last_enabled_delta_deg": 0.0,
+      "last_enabled_error_deg": 0.0,
+      "max_abs_tracking_error_deg": 0.0,
+      "rms_tracking_error_deg": 0.0,
+      "settling_max_abs_error_deg": 0.0,
+      "measured_position_span_deg": 0.0,
+      "max_abs_velocity_rad_s": 0.0329670329670364,
+      "min_velocity_rad_s": -0.010989010989007397,
+      "max_velocity_rad_s": 0.0329670329670364,
+      "settling_max_abs_velocity_rad_s": 0.0329670329670364,
+      "settling_speed_blocked_samples": 4,
+      "settling_position_blocked_samples": 0,
+      "settling_velocity_histogram": [
+        {
+          "value": -0.010989010989007397,
+          "count": 2
+        },
+        {
+          "value": 0.010989010989007397,
+          "count": 195
+        },
+        {
+          "value": 0.0329670329670364,
+          "count": 4
+        }
+      ],
+      "max_abs_torque_nm": 0.17142857142857082,
+      "last_enabled_torque_nm": -0.14505494505494454,
+      "max_temperature_c": 28,
+      "enabled_sample_states": [
+        1
+      ]
+    },
+    {
+      "side": "left",
+      "motor_id": 1,
+      "active_in_run": false,
+      "last_enabled_delta_deg": 0.02185693885446026,
+      "last_enabled_error_deg": 0.02185693885446026,
+      "max_abs_tracking_error_deg": 0.02185693885446026,
+      "rms_tracking_error_deg": 0.021558196712969727,
+      "settling_max_abs_error_deg": 0.02185693885446026,
+      "measured_position_span_deg": 0.02185693885446026,
+      "max_abs_velocity_rad_s": 0.0329670329670364,
+      "min_velocity_rad_s": -0.010989010989007397,
+      "max_velocity_rad_s": 0.0329670329670364,
+      "settling_max_abs_velocity_rad_s": 0.0329670329670364,
+      "settling_speed_blocked_samples": 19,
+      "settling_position_blocked_samples": 0,
+      "settling_velocity_histogram": [
+        {
+          "value": -0.010989010989007397,
+          "count": 7
+        },
+        {
+          "value": 0.010989010989007397,
+          "count": 175
+        },
+        {
+          "value": 0.0329670329670364,
+          "count": 19
+        }
+      ],
+      "max_abs_torque_nm": 0.11868131868131826,
+      "last_enabled_torque_nm": -0.03956043956043942,
+      "max_temperature_c": 27,
+      "enabled_sample_states": [
+        1
+      ]
+    },
+    {
+      "side": "right",
+      "motor_id": 1,
+      "active_in_run": false,
+      "last_enabled_delta_deg": 0.0,
+      "last_enabled_error_deg": 0.0,
+      "max_abs_tracking_error_deg": 0.02185693885446026,
+      "rms_tracking_error_deg": 0.003889933889918117,
+      "settling_max_abs_error_deg": 0.0,
+      "measured_position_span_deg": 0.02185693885446026,
+      "max_abs_velocity_rad_s": 0.0329670329670364,
+      "min_velocity_rad_s": -0.0329670329670364,
+      "max_velocity_rad_s": 0.010989010989007397,
+      "settling_max_abs_velocity_rad_s": 0.0329670329670364,
+      "settling_speed_blocked_samples": 23,
+      "settling_position_blocked_samples": 0,
+      "settling_velocity_histogram": [
+        {
+          "value": -0.0329670329670364,
+          "count": 23
+        },
+        {
+          "value": -0.010989010989007397,
+          "count": 160
+        },
+        {
+          "value": 0.010989010989007397,
+          "count": 18
+        }
+      ],
+      "max_abs_torque_nm": 0.14505494505494454,
+      "last_enabled_torque_nm": -0.11868131868131826,
+      "max_temperature_c": 28,
+      "enabled_sample_states": [
+        1
+      ]
+    }
+  ],
+  "timing": {
+    "sample_interval_s": {
+      "n": 220,
+      "min": 0.036375899995618965,
+      "p50": 0.03997750000053202,
+      "p95": 0.041894679997494674,
+      "max": 0.04315700000006473
+    },
+    "cycle_s": {
+      "n": 221,
+      "min": 0.021273999998811632,
+      "p50": 0.023152800000389107,
+      "p95": 0.024352699998416938,
+      "max": 0.025168799998937175
+    },
+    "send_span_s": {
+      "n": 221,
+      "min": 0.000298400002066046,
+      "p50": 0.0005722999994759448,
+      "p95": 0.0009936000060406514,
+      "max": 0.00167199999850709
+    },
+    "feedback_collection_s": {
+      "n": 221,
+      "min": 0.020685000003140885,
+      "p50": 0.022518500001751818,
+      "p95": 0.023726599996734876,
+      "max": 0.024791800002276432
+    },
+    "pair_send_skew_s": {
+      "J1": {
+        "n": 221,
+        "min": 1.2800002878066152e-05,
+        "p50": 2.469999890308827e-05,
+        "p95": 7.229999755509198e-05,
+        "max": 0.00016060000052675605
+      },
+      "J2": {
+        "n": 221,
+        "min": 1.3199998647905886e-05,
+        "p50": 2.6900001103058457e-05,
+        "p95": 9.14999982342124e-05,
+        "max": 0.000359799996658694
+      },
+      "J3": {
+        "n": 221,
+        "min": 1.2399999832268804e-05,
+        "p50": 2.5699999241624027e-05,
+        "p95": 8.019999950192869e-05,
+        "max": 0.00018940000154543668
+      },
+      "J4": {
+        "n": 221,
+        "min": 1.2699994840659201e-05,
+        "p50": 2.4900000425986946e-05,
+        "p95": 7.959999493323267e-05,
+        "max": 0.000167500002135057
+      },
+      "J5": {
+        "n": 221,
+        "min": 1.2600001355167478e-05,
+        "p50": 3.0999995942693204e-05,
+        "p95": 8.610000077169389e-05,
+        "max": 0.00020819999917875975
+      },
+      "J6": {
+        "n": 221,
+        "min": 1.3999997463542968e-05,
+        "p50": 3.899999865097925e-05,
+        "p95": 9.88000028883107e-05,
+        "max": 0.00014919999375706539
+      },
+      "J7": {
+        "n": 221,
+        "min": 7.339999865507707e-05,
+        "p50": 0.00010620000102790073,
+        "p95": 0.00022729999909643084,
+        "max": 0.0004665000014938414
+      }
+    },
+    "all_dispatch_complete": true,
+    "basis": "Host API send timestamps; not device simultaneous arrival"
+  },
+  "shutdown": {
+    "stopped_event": {
+      "type": "state",
+      "state": "STOPPED",
+      "outcome": "FAULT",
+      "feedback_kind": "hardware",
+      "request_id": "dual-sequence-authorized-20261116-204117"
+    },
+    "confirmed_disable_keys": [
+      [
+        "left",
+        1
+      ],
+      [
+        "left",
+        2
+      ],
+      [
+        "left",
+        3
+      ],
+      [
+        "left",
+        4
+      ],
+      [
+        "left",
+        5
+      ],
+      [
+        "left",
+        6
+      ],
+      [
+        "left",
+        7
+      ],
+      [
+        "right",
+        1
+      ],
+      [
+        "right",
+        2
+      ],
+      [
+        "right",
+        3
+      ],
+      [
+        "right",
+        4
+      ],
+      [
+        "right",
+        5
+      ],
+      [
+        "right",
+        6
+      ],
+      [
+        "right",
+        7
+      ]
+    ],
+    "all_14_disable_confirmed": true,
+    "after_all_14_disabled": true,
+    "buses": [
+      {
+        "side": "left",
+        "online": 7,
+        "bus_status": "0x0"
+      },
+      {
+        "side": "right",
+        "online": 7,
+        "bus_status": "0x0"
+      }
+    ],
+    "after_j7": [
+      {
+        "side": "left",
+        "motor_id": 7,
+        "motor_type": "DM4310",
+        "state": 0,
+        "position_rad": 0.25158312352178136,
+        "velocity_rad_s": -0.1831501831501825,
+        "torque_nm": 0.03174603174603163,
+        "mos_c": 28,
+        "rotor_c": 28,
+        "received_at": 39465.218,
+        "raw": "0782937f38061c1c",
+        "online": true,
+        "state_name": "DISABLED",
+        "age_s": 0.0,
+        "error": null
+      },
+      {
+        "side": "right",
+        "motor_id": 7,
+        "motor_type": "DM4310",
+        "state": 0,
+        "position_rad": -0.2759975585564973,
+        "velocity_rad_s": 0.1098901098901095,
+        "torque_nm": -0.026862026862026767,
+        "mos_c": 30,
+        "rotor_c": 27,
+        "received_at": 39465.234,
+        "raw": "077d2c8077fa1e1b",
+        "online": true,
+        "state_name": "DISABLED",
+        "age_s": 0.0,
+        "error": null
+      }
+    ]
+  },
+  "interpretation": [
+    "All settling position samples met the 2-degree criterion; failure was the all-14-axis speed gate.",
+    "J1/J2 near-zero reported speeds frequently reached +/-0.032967 rad/s, exceeding 0.03 by 0.002967.",
+    "J1/J2 held positions moved at most one encoder position count or were unchanged. This is consistent with near-zero velocity quantization/noise; the log alone does not prove the physical source.",
+    "J7 reached near its requested angle but did not pass the required uninterrupted 1.5-second stage gate.",
+    "Disabled readback proves state=0, not mechanical immobility. J7 moved after disable in the immediate after snapshot."
+  ]
+}

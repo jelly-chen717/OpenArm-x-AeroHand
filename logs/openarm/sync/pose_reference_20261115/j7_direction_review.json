@@ -1,0 +1,17 @@
+{
+  "side": "right",
+  "channel": "0x52",
+  "motor_id": 7,
+  "candidate_direction": 1,
+  "direction_observation": "user confirmed candidate before/after rendering matches physical movement",
+  "delta_motor_deg": 37.507,
+  "evidence": [
+    "j7_baseline.jsonl",
+    "j7_forward.jsonl",
+    "j7_candidate_before_after.png"
+  ],
+  "zero_verified": false,
+  "scale_verified": false,
+  "hardware_verified": false,
+  "associated_j5_delta_deg": 4.787
+}

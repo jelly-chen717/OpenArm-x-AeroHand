@@ -1,0 +1,35 @@
+{
+  "convention": "unified-forward-inward-v1-20261116",
+  "files": [
+    {
+      "file": "configs/openarm_joint_mapping.json",
+      "before_sha256": "f302c78fb0ed1ec58a1652815bccaee6ed84e291feb65a73d041f97f4dc437d4",
+      "after_sha256": "305695745b7fb5e883ddf97b0acad794b2fe7fccf7ad74949c80cf827518330e"
+    },
+    {
+      "file": "openarm/skills/paino_skill/calibration.json",
+      "before_sha256": "5eaafe396a339a3c4b85fa6e499fa3f05128a063437b44dc85a18c6aa504309b",
+      "after_sha256": "4f73001186367466911144892f91da0e5a6179eb6f9956df5a0c0ff7381066b5"
+    },
+    {
+      "file": "openarm/skills/paino_skill/points.csv",
+      "before_sha256": "f994cdfac49dd849fc95b2a71f8513bb849fd673169cf9df74e23d878c6d702e",
+      "after_sha256": "b32c7fcfdbe43cf0949e84b69a1eae1ab832e38f85c985d46c40ae5d30545f4e"
+    },
+    {
+      "file": "openarm/skills/paino_skill/points.json",
+      "before_sha256": "6cf70d89e0d4cb2c0d908373f291f063148aae111c3c44b8fd67f2fc44de3ca7",
+      "after_sha256": "9d53dce7143c8d344c8e00c6ca0a9795fee4f49f5513dac97e35360c361dbc75"
+    },
+    {
+      "file": "openarm/trajectory.csv",
+      "before_sha256": "87c7b26fdebbf982a6651761247b570301ebfc2d8ee8afe7962e7c024b83becf",
+      "after_sha256": "8b39b09408774a0d7ad3c32a5d8787ac50892825f2604441c31f9d2a9c871476"
+    },
+    {
+      "file": "openarm/simulation_demo.csv",
+      "before_sha256": "87c7b26fdebbf982a6651761247b570301ebfc2d8ee8afe7962e7c024b83becf",
+      "after_sha256": "8b39b09408774a0d7ad3c32a5d8787ac50892825f2604441c31f9d2a9c871476"
+    }
+  ]
+}

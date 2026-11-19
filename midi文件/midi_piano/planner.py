@@ -4,9 +4,20 @@ import math
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent
-FINGERS = {"index": 3, "middle": 4, "ring": 5}
+FINGERS = {"index": 3, "middle": 4, "ring": 5, "pinky": 6}
 MAPPING = {60: ("A", "index"), 62: ("A", "middle"), 64: ("A", "ring"),
            65: ("B", "index"), 67: ("B", "middle"), 69: ("B", "ring"), 71: ("C", "index")}
+
+
+DUAL_MAPPING = {60: ("A", "index"), 62: ("A", "middle"), 64: ("A", "ring"),
+                65: ("A", "pinky"), 67: ("B", "index"), 69: ("B", "middle"), 71: ("B", "ring")}
+
+
+def mapping_for(cfg):
+    profile = cfg.get("layout", "three_finger_abc")
+    if profile not in ("three_finger_abc", "four_finger_ab"):
+        raise ValueError("未知琴位布局")
+    return DUAL_MAPPING if profile == "four_finger_ab" else MAPPING
 
 
 def finite(value, label, low, high):
@@ -22,6 +33,8 @@ def read_config(path=ROOT / "config.json"):
 
 
 def validate_config(cfg):
+    mapping = mapping_for(cfg)
+    groups = sorted({g for g, _ in mapping.values()})
     t = cfg["timing"]
     for key in ("down_seconds", "up_seconds", "min_hold_seconds", "startup_seconds", "stop_seconds"):
         finite(t[key], key, 0.02, 30)
@@ -30,8 +43,8 @@ def validate_config(cfg):
     finite(t["update_hz"], "update_hz", 10, 100)
     finite(t["late_tolerance_seconds"], "late_tolerance_seconds", 0.01, 1)
     finite(cfg["arm"]["initial_move_seconds"], "initial_move_seconds", 0.02, 120)
-    for a in "ABC":
-        for b in "ABC":
+    for a in groups:
+        for b in groups:
             if a != b:
                 finite(cfg["arm"]["move_seconds"][f"{a}-{b}"], f"换位 {a}-{b}", 0.02, 120)
     hand = cfg["hand"]
@@ -42,9 +55,9 @@ def validate_config(cfg):
     for i, v in enumerate(hand["rest_pose"]):
         if v is not None:
             finite(v, f"rest_pose[{i}]", 0, (100, 55, 90, 90, 90, 90, 90)[i])
-    if set(cfg["notes"]) != {str(n) for n in MAPPING}:
+    if set(cfg["notes"]) != {str(n) for n in mapping}:
         raise ValueError("音符映射必须恰好包含 C4–B4 七个自然音")
-    for pitch, (group, finger) in MAPPING.items():
+    for pitch, (group, finger) in mapping.items():
         entry = cfg["notes"][str(pitch)]
         if (entry["group"], entry["finger"]) != (group, finger):
             raise ValueError(f"音符 {pitch} 必须映射到 {group}/{finger}")
@@ -56,12 +69,15 @@ def validate_config(cfg):
 
 def build_plan(song, cfg, speed=1.0):
     validate_config(cfg)
+    mapping = mapping_for(cfg)
+    if not song.notes:
+        raise ValueError("曲目没有音符")
     finite(speed, "speed", 0.01, 4)
     for n in song.notes:
-        if n.pitch not in MAPPING:
+        if n.pitch not in mapping:
             raise ValueError(f"{n.start:.3f}s 音符 MIDI {n.pitch} 超出七音范围；可显式 --transpose，不能自动删音")
     t, arm = cfg["timing"], cfg["arm"]
-    groups = [MAPPING[n.pitch][0] for n in song.notes]
+    groups = [mapping[n.pitch][0] for n in song.notes]
     holds = []
     scale = 1 / speed
     for i, note in enumerate(song.notes):
@@ -88,7 +104,7 @@ def build_plan(song, cfg, speed=1.0):
     action("move", t["startup_seconds"], arm["initial_move_seconds"], group=groups[0])
     rows = []
     for i, (note, hold) in enumerate(zip(song.notes, holds)):
-        group, finger = MAPPING[note.pitch]
+        group, finger = mapping[note.pitch]
         onset = lead + note.start * scale
         release = onset + hold * scale
         action("press", onset - t["down_seconds"], t["down_seconds"], pitch=note.pitch, group=group, finger=finger)
@@ -106,7 +122,7 @@ def build_plan(song, cfg, speed=1.0):
                                "力度仅显示，不控制实物触键力度。"]
     if not arm["timing_is_measured"]:
         warnings.append("机械臂换位时间为模拟估计，不能作为实物性能证明。")
-    return dict(schema_version=1, source=song.to_dict(), requested_speed=speed,
+    return dict(schema_version=1, layout=cfg.get("layout", "three_finger_abc"), source=song.to_dict(), requested_speed=speed,
                 effective_speed=1 / scale, time_scale=scale, lead_seconds=lead,
                 total_seconds=total, group_changes=sum(a != b for a, b in zip(groups, groups[1:])),
                 tempos=[dict(at_seconds=lead + e["at_seconds"] * scale, bpm=e["bpm"] / scale) for e in song.tempos],

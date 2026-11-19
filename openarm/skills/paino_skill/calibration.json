@@ -1,0 +1,47 @@
+{
+  "numbering": "white_1_based",
+  "white_pitch_m": 0.0235,
+  "steps_each_direction": 14,
+  "anchor_keys": {
+    "right": 24,
+    "left": 19
+  },
+  "reference_fingers": {
+    "right": "右手食指",
+    "left": "用户指定的左手最左侧手指"
+  },
+  "center_q_rad": {
+    "right": [
+      0.568683,
+      0.141746,
+      -0.327925,
+      1.005719,
+      0.054817,
+      -0.352166,
+      -0.01734
+    ],
+    "left": [
+      0.568683,
+      0.141746,
+      0.327925,
+      1.005719,
+      -0.054817,
+      -0.352166,
+      -0.01734
+    ]
+  },
+  "regions": {
+    "left": [
+      1,
+      19
+    ],
+    "right": [
+      24,
+      52
+    ]
+  },
+  "central_c_key": 24,
+  "notes": "白键1-52对应A0-C8；第24白键为C4。CSV保持原中点相对平移，仅作定位；触键演奏按当前场景指尖和琴键几何另行调用官方IK。",
+  "white_key_count": 52,
+  "coordinate_convention": "unified-forward-inward-v1-20261116"
+}

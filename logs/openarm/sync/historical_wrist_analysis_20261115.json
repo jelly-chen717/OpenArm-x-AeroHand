@@ -1,0 +1,12 @@
+{
+  "source": "logs\\openarm\\wrist_demo_1794663472615342100.json",
+  "sample_count": 125,
+  "period_median_s": 0.030999999999039574,
+  "period_max_s": 0.03200000000288128,
+  "period_p95_s": 0.03200000000288128,
+  "max_tracking_error_rad": 0.037476727896944034,
+  "last_tracking_error_rad": 0.02643015182726799,
+  "max_torque_nm": 0.3296703296703303,
+  "error": "Wrist did not reach endpoint within 0.015 rad",
+  "disable_confirmed": true
+}

@@ -1,0 +1,37 @@
+{
+  "name": "openarm_aero_piano",
+  "size_m": [
+    1.37,
+    0.188,
+    0.055
+  ],
+  "center_world_m": [
+    0.67,
+    -0.198,
+    0.42
+  ],
+  "score_hover_clearance_m": 0.01,
+  "white_key_pitch_m": 0.026,
+  "white_key_gap_m": 0.00385,
+  "first_midi": 21,
+  "key_count": 88,
+  "key_travel_m": 0.008,
+  "palm_pos_m": [
+    0.005,
+    0,
+    0.1065
+  ],
+  "palm_alignment_quat_wxyz": [
+    0.573576436351046,
+    0,
+    -0.8191520442889918,
+    0
+  ],
+  "assumptions": "Task-local 26mm pitch / 22.15mm white surface. Existing Aero hands and 88-key scene; virtual keyboard repositioned for G3-G4. Not hardware calibration.",
+  "thumb_rest_q_rad": {
+    "cmc_abd": 1.65244276,
+    "cmc_flex": 0.0,
+    "mcp": 0.0,
+    "ip": 0.0
+  }
+}

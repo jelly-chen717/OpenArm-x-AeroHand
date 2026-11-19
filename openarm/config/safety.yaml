@@ -1,0 +1,5 @@
+# Documentation only; this project has no hardware execution path.
+hardware_enabled: false
+position_tolerance_m: 0.002
+orientation_tolerance_deg: 2
+collision_checking_implemented: false

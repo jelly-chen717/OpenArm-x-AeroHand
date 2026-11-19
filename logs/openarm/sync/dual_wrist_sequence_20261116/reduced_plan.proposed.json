@@ -1,0 +1,39 @@
+{
+  "schema_version": 1,
+  "name": "dual-mit-reduced-review-20261116",
+  "target_mode": "absolute_from_test_zero",
+  "description": "未经用户批准的减幅审核建议：保留顺序，J5改-85、J7改+30，第三步回本次零点。原始配置不改。",
+  "dwell_s": 1.0,
+  "settle_timeout_s": 8.0,
+  "settle_speed_rad_s": 0.05,
+  "arrival_tolerance_deg": 2.0,
+  "period_s": 0.04,
+  "max_lateness_s": 0.08,
+  "max_tracking_error_deg": 5.0,
+  "steps": [
+    {
+      "joint": 5,
+      "target_deg": -85.0
+    },
+    {
+      "joint": 7,
+      "target_deg": 30.0
+    },
+    {
+      "joint": 5,
+      "target_deg": 0.0
+    },
+    {
+      "joint": 4,
+      "target_deg": 30.0
+    },
+    {
+      "joint": 1,
+      "target_deg": -15.0
+    },
+    {
+      "joint": 2,
+      "target_deg": -15.0
+    }
+  ]
+}

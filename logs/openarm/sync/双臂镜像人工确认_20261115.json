@@ -1,0 +1,14 @@
+{
+  "date": "2026-11-15",
+  "user_confirmation": "用户明确表示双臂镜像已经验证、是正确的",
+  "scope": "双臂候选映射姿态与手动反馈同步的现场视觉确认",
+  "channels": {
+    "left": "0x51",
+    "right": "0x52"
+  },
+  "mapping": "q=p model candidate",
+  "source_log": "logs\\openarm\\sync\\双臂实时候选镜像_20261115_01.jsonl",
+  "precision_zero_verified": false,
+  "precision_scale_verified": false,
+  "disconnect_recovery_verified": false
+}

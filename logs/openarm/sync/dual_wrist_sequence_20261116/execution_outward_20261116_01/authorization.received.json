@@ -1,0 +1,9 @@
+{
+  "user_message": "按此表执行",
+  "received_at_unix": 1794836816.538351,
+  "review": "outward_review",
+  "baseline": "status_reconfirmed_zero.jsonl",
+  "baseline_local_time": "2026-11-16 21:31:48 Asia/Shanghai",
+  "action": "six-stage bilateral MIT; successful completion hold all 14 enabled",
+  "parameter_changes_allowed": false
+}

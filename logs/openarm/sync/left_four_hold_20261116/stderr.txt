@@ -1,0 +1,12 @@
+Traceback (most recent call last):
+  File "D:\桌面\open CyMon\弹钢琴\apps\drive_openarm_from_sim.py", line 272, in <module>
+    main()
+  File "D:\桌面\open CyMon\弹钢琴\apps\drive_openarm_from_sim.py", line 260, in main
+    execute(trajectory, mappings, transport, log, period=args.period,
+  File "D:\桌面\open CyMon\弹钢琴\apps\drive_openarm_from_sim.py", line 88, in execute
+    transport.command(targets)
+  File "D:\桌面\open CyMon\弹钢琴\apps\openarm_execution.py", line 179, in command
+    self.check(key,state)
+  File "D:\桌面\open CyMon\弹钢琴\apps\openarm_execution.py", line 105, in check
+    raise DriverError(
+openarm_driver.DriverError: Feedback speed or torque exceeded for ('left', 4): velocity=0.002442 rad/s (limit 0.5), torque=1.073504 Nm (limit 1.0)

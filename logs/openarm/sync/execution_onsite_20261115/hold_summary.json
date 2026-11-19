@@ -1,0 +1,10 @@
+{
+  "samples": 35,
+  "max_error_rad": 0.0,
+  "final_error_rad": 0.0,
+  "period_median_s": 0.031000000000858563,
+  "period_max_s": 0.04700000000048021,
+  "max_torque_nm": 0.026862026862026767,
+  "final_disabled": true,
+  "completed": true
+}

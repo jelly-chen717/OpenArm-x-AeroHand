@@ -1,0 +1,240 @@
+# finger_count = 4
+# midi_start_seconds = 6
+# 准备阶段：两臂异步同时移动，index 为覆盖范围最左白键
+left_arm_move(14, 5)
+right_arm_move(28, 5)
+sleep(5)
+sleep(1)
+# 正式 MIDI 时间轴：t = 0 秒；以下 hand 参数为手指编号序列
+# t = 0 s
+hand(D,47)
+sleep(0.1)
+# t = 0.1 s
+hand(U,47)
+sleep(1.4)
+# t = 1.5 s
+hand(D,x)
+sleep(0.1)
+# t = 1.6 s
+hand(U,x)
+sleep(1.025)
+# t = 2.625 s
+hand(D,x)
+sleep(0.1)
+# t = 2.725 s
+hand(U,x)
+sleep(0.275)
+# t = 3 s
+hand(D,4x)
+sleep(0.1)
+# t = 3.1 s
+hand(U,4x)
+sleep(2.9)
+# t = 6 s
+hand(D,47)
+sleep(0.1)
+# t = 6.1 s
+hand(U,47)
+right_arm_move(29, 1.4)
+sleep(1.4)
+# t = 7.5 s
+hand(D,1x)
+sleep(0.1)
+# t = 7.6 s
+hand(U,1x)
+right_arm_move(28, 1.025)
+sleep(1.025)
+# t = 8.625 s
+hand(D,9)
+sleep(0.1)
+# t = 8.725 s
+hand(U,9)
+sleep(0.275)
+# t = 9 s
+hand(D,4x)
+sleep(0.1)
+# t = 9.1 s
+hand(U,4x)
+sleep(2.9)
+# t = 12 s
+hand(D,47)
+sleep(0.1)
+# t = 12.1 s
+hand(U,47)
+sleep(1.4)
+# t = 13.5 s
+hand(D,x)
+sleep(0.1)
+# t = 13.6 s
+hand(U,x)
+right_arm_move(31, 1.025)
+sleep(1.025)
+# t = 14.625 s
+hand(D,x)
+sleep(0.1)
+# t = 14.725 s
+hand(U,x)
+sleep(0.275)
+# t = 15 s
+hand(D,4x)
+sleep(0.1)
+# t = 15.1 s
+hand(U,4x)
+left_arm_move(19, 2.9)
+sleep(1.4)
+# t = 16.5 s
+hand(D,9)
+sleep(0.1)
+# t = 16.6 s
+hand(U,9)
+right_arm_move(29, 0.65)
+sleep(0.65)
+# t = 17.25 s
+hand(D,x)
+sleep(0.1)
+# t = 17.35 s
+hand(U,x)
+sleep(0.65)
+# t = 18 s
+hand(D,49)
+sleep(0.1)
+# t = 18.1 s
+hand(U,49)
+left_arm_move(18, 1.4)
+sleep(1.4)
+# t = 19.5 s
+hand(D,18)
+sleep(0.1)
+# t = 19.6 s
+hand(U,18)
+sleep(1.025)
+# t = 20.625 s
+hand(D,9)
+sleep(0.1)
+# t = 20.725 s
+hand(U,9)
+sleep(0.275)
+# t = 21 s
+hand(D,4x)
+sleep(0.1)
+# t = 21.1 s
+hand(U,4x)
+left_arm_move(14, 2.9)
+right_arm_move(28, 2.9)
+sleep(2.9)
+# t = 24 s
+hand(D,47)
+sleep(0.1)
+# t = 24.1 s
+hand(U,47)
+sleep(1.4)
+# t = 25.5 s
+hand(D,x)
+sleep(0.1)
+# t = 25.6 s
+hand(U,x)
+sleep(1.025)
+# t = 26.625 s
+hand(D,x)
+sleep(0.1)
+# t = 26.725 s
+hand(U,x)
+sleep(0.275)
+# t = 27 s
+hand(D,4x)
+sleep(0.1)
+# t = 27.1 s
+hand(U,4x)
+sleep(2.9)
+# t = 30 s
+hand(D,47)
+sleep(0.1)
+# t = 30.1 s
+hand(U,47)
+right_arm_move(29, 1.4)
+sleep(1.4)
+# t = 31.5 s
+hand(D,1x)
+sleep(0.1)
+# t = 31.6 s
+hand(U,1x)
+right_arm_move(28, 1.025)
+sleep(1.025)
+# t = 32.625 s
+hand(D,9)
+sleep(0.1)
+# t = 32.725 s
+hand(U,9)
+sleep(0.275)
+# t = 33 s
+hand(D,4x)
+sleep(0.1)
+# t = 33.1 s
+hand(U,4x)
+sleep(2.9)
+# t = 36 s
+hand(D,47)
+sleep(0.1)
+# t = 36.1 s
+hand(U,47)
+left_arm_move(18, 2.9)
+sleep(1.4)
+# t = 37.5 s
+hand(D,x)
+sleep(0.1)
+# t = 37.6 s
+hand(U,x)
+right_arm_move(32, 1.025)
+sleep(1.025)
+# t = 38.625 s
+hand(D,8)
+sleep(0.1)
+# t = 38.725 s
+hand(U,8)
+sleep(0.275)
+# t = 39 s
+hand(D,2x)
+sleep(0.1)
+# t = 39.1 s
+hand(U,2x)
+sleep(1.4)
+# t = 40.5 s
+hand(D,8)
+sleep(0.1)
+# t = 40.6 s
+hand(U,8)
+right_arm_move(29, 1.025)
+sleep(1.025)
+# t = 41.625 s
+hand(D,9)
+sleep(0.1)
+# t = 41.725 s
+hand(U,9)
+sleep(0.275)
+# t = 42 s
+hand(D,37)
+sleep(0.1)
+# t = 42.1 s
+hand(U,37)
+sleep(1.4)
+# t = 43.5 s
+hand(D,4x)
+sleep(0.1)
+# t = 43.6 s
+hand(U,4x)
+left_arm_move(17, 1.4)
+right_arm_move(30, 1.025)
+sleep(1.025)
+# t = 44.625 s
+hand(D,x)
+sleep(0.1)
+# t = 44.725 s
+hand(U,x)
+sleep(0.275)
+# t = 45 s
+hand(D,18)
+sleep(0.1)
+# t = 45.1 s
+hand(U,18)
+sleep(1.256445)
+# 演奏结束：t = 46.356445 s，全部手指已抬起

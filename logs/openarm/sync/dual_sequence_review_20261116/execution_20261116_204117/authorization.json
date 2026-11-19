@@ -1,0 +1,12 @@
+{
+  "user_message": "按此表执行",
+  "time_unix": 1794832917.3656573,
+  "review_request_sha256": "ea826583fcab45e5755eac5ae529c3dfa0b6b32bc900440f1a0e0bff3f4f3dfd",
+  "settings_sha256": "244f20795950852f32d71317512407bb0baeb4265a09ba83d9d5848692336189",
+  "preserved": "all reviewed initial positions, targets, timings, sequence gates, gains and protection settings",
+  "changed_request_fields": [
+    "request_id",
+    "expires_at",
+    "authorization_status"
+  ]
+}

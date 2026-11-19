@@ -1,0 +1,17 @@
+{
+  "time_unix": 1794837268.2013206,
+  "action": "fault_cleanup_disable_only_no_enable_no_motion",
+  "records": [
+    {
+      "side": "left",
+      "confirmed": false,
+      "connection_error": "PCAN 0x51 initialize FD: 0x1400 The value of a handle (PCAN-Channel, PCAN-Hardware, PCAN-Net, PCAN-Client) is invalid"
+    },
+    {
+      "side": "right",
+      "confirmed": false,
+      "connection_error": "PCAN 0x52 initialize FD: 0x1400 The value of a handle (PCAN-Channel, PCAN-Hardware, PCAN-Net, PCAN-Client) is invalid"
+    }
+  ],
+  "all_14_disabled_confirmed": false
+}

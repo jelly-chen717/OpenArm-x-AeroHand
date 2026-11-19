@@ -1,0 +1,17 @@
+{
+  "side": "right",
+  "channel": "0x52",
+  "motor_id": 3,
+  "candidate_direction": 1,
+  "user_confirmation": "candidate upper arm rotation and final pose match physical clockwise movement viewed from above",
+  "evidence": [
+    "j3_baseline.jsonl",
+    "j3_clockwise.jsonl",
+    "j3_candidate_before_after.png"
+  ],
+  "delta_motor_deg": 47.8448,
+  "isolated_direction_verified": false,
+  "zero_verified": false,
+  "scale_verified": false,
+  "hardware_verified": false
+}

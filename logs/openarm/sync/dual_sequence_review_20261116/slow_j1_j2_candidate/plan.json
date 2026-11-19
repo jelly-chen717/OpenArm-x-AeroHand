@@ -1,0 +1,32 @@
+{
+  "status": "PREPARED_NOT_EXECUTED",
+  "user_instruction": "将J2 J1的运动速度都降下来",
+  "changes": [
+    {
+      "joint": "J2",
+      "both_arms": true,
+      "delta_deg": -45,
+      "move_s": 4.0,
+      "peak_velocity_deg_s": 21.09375,
+      "peak_velocity_rad_s": 0.3681553890925539,
+      "peak_acceleration_rad_s2": 0.2834061506615966
+    },
+    {
+      "joint": "J1",
+      "both_arms": true,
+      "delta_deg": -45,
+      "move_s": 4.0,
+      "peak_velocity_deg_s": 21.09375,
+      "peak_velocity_rad_s": 0.3681553890925539,
+      "peak_acceleration_rad_s2": 0.2834061506615966
+    }
+  ],
+  "nominal_total_s": 24.1,
+  "move_total_s": 13.6,
+  "dwell_total_s": 10.5,
+  "settle_speed_rad_s": 0.05,
+  "offline_preflight": true,
+  "limits": "unchanged rated velocity/torque, original position tolerances, gains and stop behavior",
+  "start_policy": "Fresh reset confirmed by user and measured before next run; current draft retains prior reset only as a planning reference.",
+  "caveat": "Slowing does not establish that right J6 sustained holding drift and right J2 increasing load torque are solved."
+}

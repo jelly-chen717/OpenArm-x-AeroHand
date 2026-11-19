@@ -1,0 +1,21 @@
+{
+  "mapping": {
+    "direction": -1,
+    "scale": 2.0,
+    "p_ref": 0.20000000000000004,
+    "q_ref": -0.19999999999999998
+  },
+  "motor_angle_at_model_zero": 0.10000000000000005,
+  "fit_max_error_rad": 8.326672684688674e-17,
+  "fit_rms_error_rad": 6.798699777552591e-17,
+  "validation_errors_rad": [
+    -8.326672684688674e-17,
+    -1.1102230246251565e-16
+  ],
+  "residual_check_passed": true,
+  "hardware_verified": false,
+  "measurements": "D:\\桌面\\open CyMon\\弹钢琴\\logs\\openarm\\sync\\execution_offline_20261115\\measurements_synthetic.json",
+  "side": "right",
+  "motor_id": 7,
+  "measurement_method": "synthetic arithmetic fixture"
+}

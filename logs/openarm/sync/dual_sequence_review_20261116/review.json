@@ -1,0 +1,353 @@
+{
+  "status": "READY_FOR_REVIEW_NOT_AUTHORIZED",
+  "mapping_version": "hardware-unified-forward-inward-v2-20261116",
+  "channels": {
+    "left": "0x51",
+    "right": "0x52"
+  },
+  "period_s": 0.04,
+  "max_lateness_s": 0.08,
+  "max_tracking_error_rad": 0.08726646259971647,
+  "hold_after": true,
+  "batch_mit": true,
+  "motor_enabled_this_preparation": false,
+  "nominal_total_s": 19.7,
+  "move_total_s": 9.2,
+  "nominal_dwell_total_s": 10.5,
+  "extra_time": "Measured settling and control scheduling; 8s post-motion timeout per stage includes dwell.",
+  "initial_all_axes_hold": true,
+  "baseline": {
+    "source": "logs\\openarm\\sync\\dual_sequence_review_20261116\\status_confirmed_zero.jsonl",
+    "sha256": "9dd891f8b37564c1d1bd4277023e11336a62dbe7e867724c543677b0fad74ee3",
+    "zero_confirmation": "User explicitly selected current pose as new test zero after initial-pose mismatch; movement approval still pending.",
+    "snapshot_time_unix": 1794832558.4518633,
+    "zero_policy": "q_test = q_logical - q_logical_at_snapshot; no persistent zero/calibration changes",
+    "joints": [
+      {
+        "side": "left",
+        "motor_id": 7,
+        "motor_rad": 0.0001907377737087046,
+        "logical_rad": -0.0001907377737087046,
+        "logical_deg": -0.01092846942723013,
+        "final_logical_deg": -15.01092846942723,
+        "raw_motor_delta_deg": 14.999999999999998
+      },
+      {
+        "side": "right",
+        "motor_id": 7,
+        "motor_rad": -0.02536812390325771,
+        "logical_rad": -0.02536812390325771,
+        "logical_deg": -1.4534864338216071,
+        "final_logical_deg": -16.453486433821606,
+        "raw_motor_delta_deg": -14.999999999999998
+      },
+      {
+        "side": "left",
+        "motor_id": 6,
+        "motor_rad": -0.11921110856794037,
+        "logical_rad": 0.11921110856794037,
+        "logical_deg": 6.830293392018831,
+        "final_logical_deg": -23.169706607981166,
+        "raw_motor_delta_deg": 29.999999999999996
+      },
+      {
+        "side": "right",
+        "motor_id": 6,
+        "motor_rad": 0.03490501258869294,
+        "logical_rad": 0.03490501258869294,
+        "logical_deg": 1.9999099051831135,
+        "final_logical_deg": -28.000090094816883,
+        "raw_motor_delta_deg": -29.999999999999996
+      },
+      {
+        "side": "left",
+        "motor_id": 5,
+        "motor_rad": 0.0791561760891124,
+        "logical_rad": 0.0791561760891124,
+        "logical_deg": 4.535314812300504,
+        "final_logical_deg": 49.535314812300506,
+        "raw_motor_delta_deg": 45.0
+      },
+      {
+        "side": "right",
+        "motor_id": 5,
+        "motor_rad": 0.07724879835202536,
+        "logical_rad": 0.07724879835202536,
+        "logical_deg": 4.426030118028202,
+        "final_logical_deg": 49.4260301180282,
+        "raw_motor_delta_deg": 45.0
+      },
+      {
+        "side": "left",
+        "motor_id": 4,
+        "motor_rad": 0.02994583047226662,
+        "logical_rad": 0.02994583047226662,
+        "logical_deg": 1.7157697000751302,
+        "final_logical_deg": 4.71576970007513,
+        "raw_motor_delta_deg": 3.0000000000000004
+      },
+      {
+        "side": "right",
+        "motor_id": 4,
+        "motor_rad": 0.046730754558632626,
+        "logical_rad": 0.046730754558632626,
+        "logical_deg": 2.6774750096713817,
+        "final_logical_deg": 5.677475009671382,
+        "raw_motor_delta_deg": 3.0000000000000004
+      },
+      {
+        "side": "left",
+        "motor_id": 3,
+        "motor_rad": -0.03681239032577999,
+        "logical_rad": -0.03681239032577999,
+        "logical_deg": -2.1091945994554147,
+        "final_logical_deg": -47.109194599455414,
+        "raw_motor_delta_deg": -45.0
+      },
+      {
+        "side": "right",
+        "motor_id": 3,
+        "motor_rad": 0.05321583886472858,
+        "logical_rad": 0.05321583886472858,
+        "logical_deg": 3.0490429701972057,
+        "final_logical_deg": -41.950957029802794,
+        "raw_motor_delta_deg": -45.0
+      },
+      {
+        "side": "left",
+        "motor_id": 2,
+        "motor_rad": -0.011253528648813571,
+        "logical_rad": -0.011253528648813571,
+        "logical_deg": -0.6447796962065776,
+        "final_logical_deg": -45.64477969620658,
+        "raw_motor_delta_deg": -45.0
+      },
+      {
+        "side": "right",
+        "motor_id": 2,
+        "motor_rad": 0.01583123521782248,
+        "logical_rad": -0.01583123521782248,
+        "logical_deg": -0.9070629624601007,
+        "final_logical_deg": -45.9070629624601,
+        "raw_motor_delta_deg": 45.0
+      },
+      {
+        "side": "left",
+        "motor_id": 1,
+        "motor_rad": -0.0024795910582131597,
+        "logical_rad": 0.0024795910582131597,
+        "logical_deg": 0.14207010255399166,
+        "final_logical_deg": -44.857929897446006,
+        "raw_motor_delta_deg": 45.0
+      },
+      {
+        "side": "right",
+        "motor_id": 1,
+        "motor_rad": -0.0024795910582131597,
+        "logical_rad": -0.0024795910582131597,
+        "logical_deg": -0.14207010255399166,
+        "final_logical_deg": -45.142070102553994,
+        "raw_motor_delta_deg": -45.0
+      }
+    ]
+  },
+  "sequence": {
+    "schema_version": 1,
+    "dwell_s": 1.5,
+    "settle_timeout_s": 8.0,
+    "settle_speed_rad_s": 0.03,
+    "endpoint_tolerances_rad": [
+      0.03490658503988659,
+      0.03490658503988659,
+      0.03490658503988659,
+      0.03490658503988659,
+      0.03490658503988659,
+      0.03490658503988659,
+      0.03490658503988659,
+      0.03490658503988659,
+      0.03490658503988659,
+      0.03490658503988659,
+      0.03490658503988659,
+      0.03490658503988659,
+      0.03490658503988659,
+      0.03490658503988659
+    ],
+    "stages": [
+      {
+        "name": "J7",
+        "endpoint_index": 1
+      },
+      {
+        "name": "J6",
+        "endpoint_index": 2
+      },
+      {
+        "name": "J5",
+        "endpoint_index": 3
+      },
+      {
+        "name": "J4",
+        "endpoint_index": 4,
+        "endpoint_tolerances_rad": [
+          0.03490658503988659,
+          0.03490658503988659,
+          0.03490658503988659,
+          0.03490658503988659,
+          0.03490658503988659,
+          0.03490658503988659,
+          0.008726646259971648,
+          0.008726646259971648,
+          0.03490658503988659,
+          0.03490658503988659,
+          0.03490658503988659,
+          0.03490658503988659,
+          0.03490658503988659,
+          0.03490658503988659
+        ]
+      },
+      {
+        "name": "J3",
+        "endpoint_index": 5
+      },
+      {
+        "name": "J2",
+        "endpoint_index": 6
+      },
+      {
+        "name": "J1",
+        "endpoint_index": 7
+      }
+    ]
+  },
+  "rows": [
+    {
+      "joint": 7,
+      "delta_deg": -15.0,
+      "direction": "向后",
+      "move_s": 0.8,
+      "dwell_s": 1.5,
+      "peak_velocity_deg_s": 35.15625,
+      "peak_velocity_rad_s": 0.6135923151542565,
+      "peak_acceleration_rad_s2": 2.3617179221799707,
+      "torque_peak_model_whole_sequence_nm": 0.7217193083643522,
+      "max_speed": 12.56637061435917,
+      "max_torque": 3.0,
+      "kp": 60.0,
+      "kd": 2.0
+    },
+    {
+      "joint": 6,
+      "delta_deg": -30.0,
+      "direction": "向外",
+      "move_s": 1.2,
+      "dwell_s": 1.5,
+      "peak_velocity_deg_s": 46.875,
+      "peak_velocity_rad_s": 0.8181230868723419,
+      "peak_acceleration_rad_s2": 2.09930481971553,
+      "torque_peak_model_whole_sequence_nm": 0.9978816740081589,
+      "max_speed": 12.56637061435917,
+      "max_torque": 3.0,
+      "kp": 60.0,
+      "kd": 2.0
+    },
+    {
+      "joint": 5,
+      "delta_deg": 45.0,
+      "direction": "俯视顺时针",
+      "move_s": 1.5,
+      "dwell_s": 1.5,
+      "peak_velocity_deg_s": 56.25,
+      "peak_velocity_rad_s": 0.9817477042468103,
+      "peak_acceleration_rad_s2": 2.015332626926909,
+      "torque_peak_model_whole_sequence_nm": 0.994078564667418,
+      "max_speed": 12.56637061435917,
+      "max_torque": 3.0,
+      "kp": 60.0,
+      "kd": 2.0
+    },
+    {
+      "joint": 4,
+      "delta_deg": 3.0,
+      "direction": "向前",
+      "move_s": 0.6,
+      "dwell_s": 1.5,
+      "peak_velocity_deg_s": 9.375,
+      "peak_velocity_rad_s": 0.1636246173744684,
+      "peak_acceleration_rad_s2": 0.8397219278862121,
+      "torque_peak_model_whole_sequence_nm": 3.694719001458874,
+      "max_speed": 3.7699111843077517,
+      "max_torque": 9.0,
+      "kp": 200.0,
+      "kd": 3.0
+    },
+    {
+      "joint": 3,
+      "delta_deg": -45.0,
+      "direction": "俯视逆时针",
+      "move_s": 1.5,
+      "dwell_s": 1.5,
+      "peak_velocity_deg_s": 56.25,
+      "peak_velocity_rad_s": 0.9817477042468103,
+      "peak_acceleration_rad_s2": 2.015332626926909,
+      "torque_peak_model_whole_sequence_nm": 0.9900812461770699,
+      "max_speed": 3.7699111843077517,
+      "max_torque": 9.0,
+      "kp": 80.0,
+      "kd": 3.0
+    },
+    {
+      "joint": 2,
+      "delta_deg": -45.0,
+      "direction": "向外",
+      "move_s": 1.8,
+      "dwell_s": 1.5,
+      "peak_velocity_deg_s": 46.875,
+      "peak_velocity_rad_s": 0.8181230868723419,
+      "peak_acceleration_rad_s2": 1.39953654647702,
+      "torque_peak_model_whole_sequence_nm": 8.520284927319823,
+      "max_speed": 10.471975511965978,
+      "max_torque": 20.0,
+      "kp": 300.0,
+      "kd": 5.0
+    },
+    {
+      "joint": 1,
+      "delta_deg": -45.0,
+      "direction": "向后",
+      "move_s": 1.8,
+      "dwell_s": 1.5,
+      "peak_velocity_deg_s": 46.875,
+      "peak_velocity_rad_s": 0.8181230868723419,
+      "peak_acceleration_rad_s2": 1.39953654647702,
+      "torque_peak_model_whole_sequence_nm": 5.658515202531069,
+      "max_speed": 10.471975511965978,
+      "max_torque": 20.0,
+      "kp": 300.0,
+      "kd": 5.0
+    }
+  ],
+  "offline_validation": {
+    "trajectory": true,
+    "sequence_schema": true,
+    "hardware_limits_without_connection": true,
+    "model_all_limits": true,
+    "model_torque": true,
+    "model_contact_samples": 0
+  },
+  "torque_note": "MIT tau_ff=0; motor internally applies Kp*(qdes-q)+Kd*(vdes-v). Rated thresholds are measured-feedback trips, not firmware current clamps. Model torque is not measured or guaranteed.",
+  "before_authorized_execution": [
+    "Receive user approval of this concrete plan.",
+    "Read current status without motion, verify 14 disabled online joints and exclusive bus ownership.",
+    "Keep frozen review origins; if any differs by >0.01rad, stop rather than silently rebase.",
+    "Refresh request_id and expires_at only after approval; hardware preflight must pass before execute.",
+    "Use dedicated executor with --sequence --allow-dual-arm --batch-mit --hold-after and cancel file."
+  ],
+  "uncertainties": [
+    "Model uses original V1 grippers and their CAD inertias; actual hands/payload unknown.",
+    "Model comments mark rotor inertia and gearbox damping as approximate/unconfirmed.",
+    "Numerical torque estimates are not hardware measurements or guaranteed upper bounds.",
+    "Static holding friction is excluded from gravity estimate; it may add or subtract up to declared frictionloss.",
+    "Only modeled collision meshes are checked; no external table, cables, piano or people.",
+    "Planning duration excludes feedback-based settling; 1.5 s hold starts after arrival."
+  ]
+}

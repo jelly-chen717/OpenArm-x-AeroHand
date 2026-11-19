@@ -1,0 +1,21 @@
+{
+  "date": "2026-11-16",
+  "scope": "static source and saved-log audit; no hardware access",
+  "sources": [
+    {
+      "file": "mujoco_v1.xml",
+      "url": "https://raw.githubusercontent.com/enactic/openarm_mujoco/master/v1/openarm_bimanual.xml",
+      "sha256": "dad843e830e166048b478e7110ae4370e7d048487a1b725637c3695bde0e8c2a"
+    },
+    {
+      "file": "control_config.py",
+      "url": "https://raw.githubusercontent.com/enactic/openarm_control/main/src/openarm_control/config.py",
+      "sha256": "f7a0f4f9516cad32d003be7299cdc699e52acc8b11d9c87cd0c446b086470aca"
+    },
+    {
+      "file": "official_v1.urdf",
+      "url": "https://raw.githubusercontent.com/enactic/openarm_description/main/assets/robot/openarm_v1.0/urdf/example/v1.urdf",
+      "sha256": "745e1d85b5b7ada3d99b215b5d60fc40bc08abafa4c92de4cdf5966fcf17ed9b"
+    }
+  ]
+}

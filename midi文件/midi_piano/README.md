@@ -81,7 +81,7 @@
 
 ## 配置与硬件接入边界
 
-`config.json` 独立于原有 `piano_config.json`，未知实物参数均为 `null`：
+`config.json` 独立于原有 `apps/fixed_position/piano_config.json`，未知实物参数均为 `null`：
 
 - `hand.port`：串口。
 - `hand.rest_pose`：七个关节角度，依次为拇指外展、拇指屈曲、拇指联动屈曲、食指、中指、无名指、小指。

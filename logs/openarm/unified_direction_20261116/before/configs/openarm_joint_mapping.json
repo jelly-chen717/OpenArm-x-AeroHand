@@ -1,0 +1,469 @@
+{
+  "schema_version": 1,
+  "version": "hardware-user-confirmed-v1-20261115",
+  "source": "logs/openarm/sync/offline_model_audit_20261115/audit.json",
+  "joints": [
+    {
+      "side": "left",
+      "motor_id": 1,
+      "joint_name": "openarm_left_joint1",
+      "limits_rad": [
+        -3.490659,
+        1.3962629999999998
+      ],
+      "model_candidate": {
+        "direction": 1,
+        "scale": 1.0,
+        "p_ref": 0.0,
+        "q_ref": 0.0
+      },
+      "hardware_mapping": {
+        "direction": 1,
+        "scale": 1.0,
+        "p_ref": 0.0,
+        "q_ref": 0.0
+      },
+      "hardware_verified": true,
+      "evidence": [
+        "logs/openarm/sync/双臂镜像人工确认_20261115.json",
+        "docs/project/仿真与实机联通_两日实施计划.md"
+      ],
+      "scale_verification": {
+        "status": "user_confirmed",
+        "ratio": "1:1",
+        "date": "2026-11-15",
+        "evidence": "docs/project/仿真与实机联通_两日实施计划.md#2026-11-15--角度比例确认"
+      },
+      "verification_basis": "user-confirmed hardware zero and 1:1 ratio; both-arm q=p visual synchronization confirmed"
+    },
+    {
+      "side": "left",
+      "motor_id": 2,
+      "joint_name": "openarm_left_joint2",
+      "limits_rad": [
+        -3.3161253267948965,
+        0.17453267320510335
+      ],
+      "model_candidate": {
+        "direction": 1,
+        "scale": 1.0,
+        "p_ref": 0.0,
+        "q_ref": 0.0
+      },
+      "hardware_mapping": {
+        "direction": 1,
+        "scale": 1.0,
+        "p_ref": 0.0,
+        "q_ref": 0.0
+      },
+      "hardware_verified": true,
+      "evidence": [
+        "logs/openarm/sync/双臂镜像人工确认_20261115.json",
+        "docs/project/仿真与实机联通_两日实施计划.md"
+      ],
+      "scale_verification": {
+        "status": "user_confirmed",
+        "ratio": "1:1",
+        "date": "2026-11-15",
+        "evidence": "docs/project/仿真与实机联通_两日实施计划.md#2026-11-15--角度比例确认"
+      },
+      "verification_basis": "user-confirmed hardware zero and 1:1 ratio; both-arm q=p visual synchronization confirmed"
+    },
+    {
+      "side": "left",
+      "motor_id": 3,
+      "joint_name": "openarm_left_joint3",
+      "limits_rad": [
+        -1.570796,
+        1.570796
+      ],
+      "model_candidate": {
+        "direction": 1,
+        "scale": 1.0,
+        "p_ref": 0.0,
+        "q_ref": 0.0
+      },
+      "hardware_mapping": {
+        "direction": 1,
+        "scale": 1.0,
+        "p_ref": 0.0,
+        "q_ref": 0.0
+      },
+      "hardware_verified": true,
+      "evidence": [
+        "logs/openarm/sync/双臂镜像人工确认_20261115.json",
+        "docs/project/仿真与实机联通_两日实施计划.md"
+      ],
+      "scale_verification": {
+        "status": "user_confirmed",
+        "ratio": "1:1",
+        "date": "2026-11-15",
+        "evidence": "docs/project/仿真与实机联通_两日实施计划.md#2026-11-15--角度比例确认"
+      },
+      "verification_basis": "user-confirmed hardware zero and 1:1 ratio; both-arm q=p visual synchronization confirmed"
+    },
+    {
+      "side": "left",
+      "motor_id": 4,
+      "joint_name": "openarm_left_joint4",
+      "limits_rad": [
+        0.0,
+        2.443461
+      ],
+      "model_candidate": {
+        "direction": 1,
+        "scale": 1.0,
+        "p_ref": 0.0,
+        "q_ref": 0.0
+      },
+      "hardware_mapping": {
+        "direction": 1,
+        "scale": 1.0,
+        "p_ref": 0.0,
+        "q_ref": 0.0
+      },
+      "hardware_verified": true,
+      "evidence": [
+        "logs/openarm/sync/双臂镜像人工确认_20261115.json",
+        "docs/project/仿真与实机联通_两日实施计划.md"
+      ],
+      "scale_verification": {
+        "status": "user_confirmed",
+        "ratio": "1:1",
+        "date": "2026-11-15",
+        "evidence": "docs/project/仿真与实机联通_两日实施计划.md#2026-11-15--角度比例确认"
+      },
+      "verification_basis": "user-confirmed hardware zero and 1:1 ratio; both-arm q=p visual synchronization confirmed"
+    },
+    {
+      "side": "left",
+      "motor_id": 5,
+      "joint_name": "openarm_left_joint5",
+      "limits_rad": [
+        -1.570796,
+        1.570796
+      ],
+      "model_candidate": {
+        "direction": 1,
+        "scale": 1.0,
+        "p_ref": 0.0,
+        "q_ref": 0.0
+      },
+      "hardware_mapping": {
+        "direction": 1,
+        "scale": 1.0,
+        "p_ref": 0.0,
+        "q_ref": 0.0
+      },
+      "hardware_verified": true,
+      "evidence": [
+        "logs/openarm/sync/双臂镜像人工确认_20261115.json",
+        "docs/project/仿真与实机联通_两日实施计划.md"
+      ],
+      "scale_verification": {
+        "status": "user_confirmed",
+        "ratio": "1:1",
+        "date": "2026-11-15",
+        "evidence": "docs/project/仿真与实机联通_两日实施计划.md#2026-11-15--角度比例确认"
+      },
+      "verification_basis": "user-confirmed hardware zero and 1:1 ratio; both-arm q=p visual synchronization confirmed"
+    },
+    {
+      "side": "left",
+      "motor_id": 6,
+      "joint_name": "openarm_left_joint6",
+      "limits_rad": [
+        -0.785398,
+        0.785398
+      ],
+      "model_candidate": {
+        "direction": 1,
+        "scale": 1.0,
+        "p_ref": 0.0,
+        "q_ref": 0.0
+      },
+      "hardware_mapping": {
+        "direction": 1,
+        "scale": 1.0,
+        "p_ref": 0.0,
+        "q_ref": 0.0
+      },
+      "hardware_verified": true,
+      "evidence": [
+        "logs/openarm/sync/双臂镜像人工确认_20261115.json",
+        "docs/project/仿真与实机联通_两日实施计划.md"
+      ],
+      "scale_verification": {
+        "status": "user_confirmed",
+        "ratio": "1:1",
+        "date": "2026-11-15",
+        "evidence": "docs/project/仿真与实机联通_两日实施计划.md#2026-11-15--角度比例确认"
+      },
+      "verification_basis": "user-confirmed hardware zero and 1:1 ratio; both-arm q=p visual synchronization confirmed"
+    },
+    {
+      "side": "left",
+      "motor_id": 7,
+      "joint_name": "openarm_left_joint7",
+      "limits_rad": [
+        -1.570796,
+        1.570796
+      ],
+      "model_candidate": {
+        "direction": 1,
+        "scale": 1.0,
+        "p_ref": 0.0,
+        "q_ref": 0.0
+      },
+      "hardware_mapping": {
+        "direction": 1,
+        "scale": 1.0,
+        "p_ref": 0.0,
+        "q_ref": 0.0
+      },
+      "hardware_verified": true,
+      "evidence": [
+        "logs/openarm/sync/双臂镜像人工确认_20261115.json",
+        "docs/project/仿真与实机联通_两日实施计划.md"
+      ],
+      "scale_verification": {
+        "status": "user_confirmed",
+        "ratio": "1:1",
+        "date": "2026-11-15",
+        "evidence": "docs/project/仿真与实机联通_两日实施计划.md#2026-11-15--角度比例确认"
+      },
+      "verification_basis": "user-confirmed hardware zero and 1:1 ratio; both-arm q=p visual synchronization confirmed"
+    },
+    {
+      "side": "right",
+      "motor_id": 1,
+      "joint_name": "openarm_right_joint1",
+      "limits_rad": [
+        -1.396263,
+        3.490659
+      ],
+      "model_candidate": {
+        "direction": 1,
+        "scale": 1.0,
+        "p_ref": 0.0,
+        "q_ref": 0.0
+      },
+      "hardware_mapping": {
+        "direction": 1,
+        "scale": 1.0,
+        "p_ref": 0.0,
+        "q_ref": 0.0
+      },
+      "hardware_verified": true,
+      "evidence": [
+        "logs/openarm/sync/双臂镜像人工确认_20261115.json",
+        "docs/project/仿真与实机联通_两日实施计划.md"
+      ],
+      "scale_verification": {
+        "status": "user_confirmed",
+        "ratio": "1:1",
+        "date": "2026-11-15",
+        "evidence": "docs/project/仿真与实机联通_两日实施计划.md#2026-11-15--角度比例确认"
+      },
+      "verification_basis": "user-confirmed hardware zero and 1:1 ratio; both-arm q=p visual synchronization confirmed"
+    },
+    {
+      "side": "right",
+      "motor_id": 2,
+      "joint_name": "openarm_right_joint2",
+      "limits_rad": [
+        -0.17453267320510335,
+        3.3161253267948965
+      ],
+      "model_candidate": {
+        "direction": 1,
+        "scale": 1.0,
+        "p_ref": 0.0,
+        "q_ref": 0.0
+      },
+      "hardware_mapping": {
+        "direction": 1,
+        "scale": 1.0,
+        "p_ref": 0.0,
+        "q_ref": 0.0
+      },
+      "hardware_verified": true,
+      "evidence": [
+        "logs/openarm/sync/双臂镜像人工确认_20261115.json",
+        "docs/project/仿真与实机联通_两日实施计划.md"
+      ],
+      "scale_verification": {
+        "status": "user_confirmed",
+        "ratio": "1:1",
+        "date": "2026-11-15",
+        "evidence": "docs/project/仿真与实机联通_两日实施计划.md#2026-11-15--角度比例确认"
+      },
+      "verification_basis": "user-confirmed hardware zero and 1:1 ratio; both-arm q=p visual synchronization confirmed"
+    },
+    {
+      "side": "right",
+      "motor_id": 3,
+      "joint_name": "openarm_right_joint3",
+      "limits_rad": [
+        -1.570796,
+        1.570796
+      ],
+      "model_candidate": {
+        "direction": 1,
+        "scale": 1.0,
+        "p_ref": 0.0,
+        "q_ref": 0.0
+      },
+      "hardware_mapping": {
+        "direction": 1,
+        "scale": 1.0,
+        "p_ref": 0.0,
+        "q_ref": 0.0
+      },
+      "hardware_verified": true,
+      "evidence": [
+        "logs/openarm/sync/双臂镜像人工确认_20261115.json",
+        "docs/project/仿真与实机联通_两日实施计划.md"
+      ],
+      "scale_verification": {
+        "status": "user_confirmed",
+        "ratio": "1:1",
+        "date": "2026-11-15",
+        "evidence": "docs/project/仿真与实机联通_两日实施计划.md#2026-11-15--角度比例确认"
+      },
+      "verification_basis": "user-confirmed hardware zero and 1:1 ratio; both-arm q=p visual synchronization confirmed"
+    },
+    {
+      "side": "right",
+      "motor_id": 4,
+      "joint_name": "openarm_right_joint4",
+      "limits_rad": [
+        0.0,
+        2.443461
+      ],
+      "model_candidate": {
+        "direction": 1,
+        "scale": 1.0,
+        "p_ref": 0.0,
+        "q_ref": 0.0
+      },
+      "hardware_mapping": {
+        "direction": 1,
+        "scale": 1.0,
+        "p_ref": 0.0,
+        "q_ref": 0.0
+      },
+      "hardware_verified": true,
+      "evidence": [
+        "logs/openarm/sync/双臂镜像人工确认_20261115.json",
+        "docs/project/仿真与实机联通_两日实施计划.md"
+      ],
+      "scale_verification": {
+        "status": "user_confirmed",
+        "ratio": "1:1",
+        "date": "2026-11-15",
+        "evidence": "docs/project/仿真与实机联通_两日实施计划.md#2026-11-15--角度比例确认"
+      },
+      "verification_basis": "user-confirmed hardware zero and 1:1 ratio; both-arm q=p visual synchronization confirmed"
+    },
+    {
+      "side": "right",
+      "motor_id": 5,
+      "joint_name": "openarm_right_joint5",
+      "limits_rad": [
+        -1.570796,
+        1.570796
+      ],
+      "model_candidate": {
+        "direction": 1,
+        "scale": 1.0,
+        "p_ref": 0.0,
+        "q_ref": 0.0
+      },
+      "hardware_mapping": {
+        "direction": 1,
+        "scale": 1.0,
+        "p_ref": 0.0,
+        "q_ref": 0.0
+      },
+      "hardware_verified": true,
+      "evidence": [
+        "logs/openarm/sync/双臂镜像人工确认_20261115.json",
+        "docs/project/仿真与实机联通_两日实施计划.md"
+      ],
+      "scale_verification": {
+        "status": "user_confirmed",
+        "ratio": "1:1",
+        "date": "2026-11-15",
+        "evidence": "docs/project/仿真与实机联通_两日实施计划.md#2026-11-15--角度比例确认"
+      },
+      "verification_basis": "user-confirmed hardware zero and 1:1 ratio; both-arm q=p visual synchronization confirmed"
+    },
+    {
+      "side": "right",
+      "motor_id": 6,
+      "joint_name": "openarm_right_joint6",
+      "limits_rad": [
+        -0.785398,
+        0.785398
+      ],
+      "model_candidate": {
+        "direction": 1,
+        "scale": 1.0,
+        "p_ref": 0.0,
+        "q_ref": 0.0
+      },
+      "hardware_mapping": {
+        "direction": 1,
+        "scale": 1.0,
+        "p_ref": 0.0,
+        "q_ref": 0.0
+      },
+      "hardware_verified": true,
+      "evidence": [
+        "logs/openarm/sync/双臂镜像人工确认_20261115.json",
+        "docs/project/仿真与实机联通_两日实施计划.md"
+      ],
+      "scale_verification": {
+        "status": "user_confirmed",
+        "ratio": "1:1",
+        "date": "2026-11-15",
+        "evidence": "docs/project/仿真与实机联通_两日实施计划.md#2026-11-15--角度比例确认"
+      },
+      "verification_basis": "user-confirmed hardware zero and 1:1 ratio; both-arm q=p visual synchronization confirmed"
+    },
+    {
+      "side": "right",
+      "motor_id": 7,
+      "joint_name": "openarm_right_joint7",
+      "limits_rad": [
+        -1.570796,
+        1.570796
+      ],
+      "model_candidate": {
+        "direction": 1,
+        "scale": 1.0,
+        "p_ref": 0.0,
+        "q_ref": 0.0
+      },
+      "hardware_mapping": {
+        "direction": 1,
+        "scale": 1.0,
+        "p_ref": 0.0,
+        "q_ref": 0.0
+      },
+      "hardware_verified": true,
+      "evidence": [
+        "logs/openarm/sync/双臂镜像人工确认_20261115.json",
+        "docs/project/仿真与实机联通_两日实施计划.md"
+      ],
+      "scale_verification": {
+        "status": "user_confirmed",
+        "ratio": "1:1",
+        "date": "2026-11-15",
+        "evidence": "docs/project/仿真与实机联通_两日实施计划.md#2026-11-15--角度比例确认"
+      },
+      "verification_basis": "user-confirmed hardware zero and 1:1 ratio; both-arm q=p visual synchronization confirmed"
+    }
+  ]
+}

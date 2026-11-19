@@ -1,0 +1,62 @@
+{
+  "request_id": "b12-corrected-7b2956dd358f45a599999d74e836b89e",
+  "mapping_version": "hardware-user-confirmed-v1-20261115",
+  "expires_at": 1794796444.1082547,
+  "joints": [
+    {
+      "side": "right",
+      "motor_id": 6
+    },
+    {
+      "side": "right",
+      "motor_id": 7
+    }
+  ],
+  "initial_model_position": [
+    0.042153047989623715,
+    0.042915999084458534
+  ],
+  "limits": {
+    "velocity_rad_s": 0.06,
+    "acceleration_rad_s2": 0.15,
+    "start_error_rad": 0.005
+  },
+  "points": [
+    {
+      "t": 0,
+      "q": [
+        0.042153047989623715,
+        0.042915999084458534
+      ]
+    },
+    {
+      "t": 8,
+      "q": [
+        0.042153047989623715,
+        0.24634962812874434
+      ]
+    },
+    {
+      "t": 10,
+      "q": [
+        0.042153047989623715,
+        0.24634962812874434
+      ]
+    },
+    {
+      "t": 26,
+      "q": [
+        -0.4079123847159854,
+        0.24634962812874434
+      ]
+    },
+    {
+      "t": 29,
+      "q": [
+        -0.4079123847159854,
+        0.24634962812874434
+      ]
+    }
+  ],
+  "source": "user-corrected-right-J7-plus15-J6-minus25-relative-original-baseline"
+}

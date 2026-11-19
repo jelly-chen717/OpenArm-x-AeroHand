@@ -1,0 +1,6 @@
+{
+  "started_at": "2026-11-16T11:32:30.4390624+08:00",
+  "args": "apps/drive_openarm_from_sim.py logs/openarm/sync/left_four_retry2nm_20261116/request.json --mode hardware --action execute --left-channel 0x51 --right-channel 0x52 --confirm-bus-ownership --joint-settings logs/openarm/sync/left_four_retry2nm_20261116/settings.json --period 0.04 --endpoint-tolerance 0.08726646259971647 --max-error 0.08726646259971647 --max-lateness 0.2 --mirror --hold-after --cancel-file logs/openarm/sync/left_four_retry2nm_20261116/cancel.stop --log logs/openarm/sync/left_four_retry2nm_20261116/execution.jsonl",
+  "stop_file": "D:\\桌面\\open CyMon\\弹钢琴\\logs\\openarm\\sync\\left_four_retry2nm_20261116\\cancel.stop",
+  "pid": 9636
+}

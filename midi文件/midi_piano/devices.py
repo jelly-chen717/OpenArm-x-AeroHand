@@ -5,7 +5,7 @@ import struct
 import sys
 import time
 
-from .planner import FINGERS, finite, validate_config
+from .planner import FINGERS, finite, validate_config, mapping_for
 
 
 class Clock:
@@ -15,6 +15,17 @@ class Clock:
     def sleep(self, seconds):
         if seconds > 0:
             time.sleep(seconds)
+
+
+class StoppableClock(Clock):
+    """Interrupt simulated waits; clear the event so cleanup can finish."""
+    def __init__(self, stop_event):
+        self.stop_event = stop_event
+
+    def sleep(self, seconds):
+        if self.stop_event.wait(max(0, seconds)):
+            self.stop_event.clear()
+            raise InterruptedError("用户停止模拟")
 
 
 class VirtualClock:
@@ -117,7 +128,7 @@ def validate_hardware(cfg):
     if any(v is None for v in cfg["hand"]["rest_pose"]):
         missing.append("hand.rest_pose")
     missing.extend(f"notes.{n}.press_degrees" for n, data in cfg["notes"].items() if data["press_degrees"] is None)
-    missing.extend(f"arm.poses.{g}" for g in "ABC" if cfg["arm"]["poses"].get(g) is None)
+    missing.extend(f"arm.poses.{g}" for g in sorted({g for g, _ in mapping_for(cfg).values()}) if cfg["arm"]["poses"].get(g) is None)
     if cfg["arm"]["timing_is_measured"] is not True:
         missing.append("机械臂实测换位时间")
     detail = "；缺少标定：" + ", ".join(missing) if missing else ""

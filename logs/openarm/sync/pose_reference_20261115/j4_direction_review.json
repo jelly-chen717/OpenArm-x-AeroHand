@@ -1,0 +1,17 @@
+{
+  "side": "right",
+  "channel": "0x52",
+  "motor_id": 4,
+  "candidate_direction": 1,
+  "user_confirmation": "candidate forearm forward and upward pose matches physical pose",
+  "evidence": [
+    "j4_baseline.jsonl",
+    "j4_forward_up.jsonl",
+    "j4_candidate_before_after.png"
+  ],
+  "delta_motor_deg": 19.4527,
+  "isolated_direction_verified": false,
+  "zero_verified": false,
+  "scale_verified": false,
+  "hardware_verified": false
+}

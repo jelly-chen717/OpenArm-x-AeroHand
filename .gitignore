@@ -9,3 +9,21 @@
 # Upstream repository is managed independently
 /aero-hand-open/
 /aero-hand-open.zip
+# Local staging and upstream checkout
+/.sim-temp/
+/resources/openarm_description/
+/resources/openarm_ros2/
+/MUJOCO_LOG.TXT
+
+# Handoff generated caches and archived original packages
+**/.uv-cache/
+**/.pytest_cache/
+**/.test-temp*/
+**/.build-temp/
+**/*.egg-info/
+/openarm/logs/
+/90_归档/
+
+# Rebuilt handoff project Python runtime and original environment backup
+/openarm/.python311/
+/backups/

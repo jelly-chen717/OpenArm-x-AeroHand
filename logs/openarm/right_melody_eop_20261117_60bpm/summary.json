@@ -1,0 +1,1062 @@
+{
+  "status": "passed",
+  "offline_only": true,
+  "hardware_executable": false,
+  "scene": "existing Aero hands and 88-key piano, task-local config",
+  "config": "D:\\桌面\\open CyMon\\弹钢琴\\openarm\\skills\\paino_skill\\scene_right_melody_eop.json",
+  "servo": "ideal position, contact-driven keys; not physical POS_VEL",
+  "bpm": 60.0,
+  "score_s": 23.25,
+  "pre_roll_s": 0.15833333333333333,
+  "transition_s": 0.125,
+  "peak_cartesian_speed_mm_s": 1560.0,
+  "simulation_automatic_motion_limits": true,
+  "exceeds_hardware_rated_reference": true,
+  "samples": 7167,
+  "note_on_count": 51,
+  "note_off_count": 51,
+  "wrong_contacts": [],
+  "unexpected_collisions": {},
+  "events": [
+    {
+      "id": 1,
+      "type": "on",
+      "midi": 64,
+      "time_s": 0.0,
+      "velocity": 0.5937697296729324,
+      "source": "aero_contact",
+      "hand": "right",
+      "finger": "pinky"
+    },
+    {
+      "id": 2,
+      "type": "off",
+      "midi": 64,
+      "time_s": 0.06833333333333333,
+      "velocity": 0.35,
+      "source": "aero_contact",
+      "hand": null,
+      "finger": null
+    },
+    {
+      "id": 3,
+      "type": "on",
+      "midi": 62,
+      "time_s": 0.25,
+      "velocity": 0.5937680481623233,
+      "source": "aero_contact",
+      "hand": "right",
+      "finger": "pinky"
+    },
+    {
+      "id": 4,
+      "type": "off",
+      "midi": 62,
+      "time_s": 0.46166666666666667,
+      "velocity": 0.35,
+      "source": "aero_contact",
+      "hand": null,
+      "finger": null
+    },
+    {
+      "id": 5,
+      "type": "on",
+      "midi": 60,
+      "time_s": 0.5,
+      "velocity": 0.59377299128253,
+      "source": "aero_contact",
+      "hand": "right",
+      "finger": "ring"
+    },
+    {
+      "id": 6,
+      "type": "off",
+      "midi": 60,
+      "time_s": 0.7116666666666666,
+      "velocity": 0.35,
+      "source": "aero_contact",
+      "hand": null,
+      "finger": null
+    },
+    {
+      "id": 7,
+      "type": "on",
+      "midi": 57,
+      "time_s": 0.75,
+      "velocity": 0.5937527230437027,
+      "source": "aero_contact",
+      "hand": "right",
+      "finger": "index"
+    },
+    {
+      "id": 8,
+      "type": "off",
+      "midi": 57,
+      "time_s": 0.8183333333333334,
+      "velocity": 0.35,
+      "source": "aero_contact",
+      "hand": null,
+      "finger": null
+    },
+    {
+      "id": 9,
+      "type": "on",
+      "midi": 67,
+      "time_s": 1.0,
+      "velocity": 0.5937697015784864,
+      "source": "aero_contact",
+      "hand": "right",
+      "finger": "pinky"
+    },
+    {
+      "id": 10,
+      "type": "off",
+      "midi": 67,
+      "time_s": 1.2116666666666667,
+      "velocity": 0.35,
+      "source": "aero_contact",
+      "hand": null,
+      "finger": null
+    },
+    {
+      "id": 11,
+      "type": "on",
+      "midi": 65,
+      "time_s": 1.25,
+      "velocity": 0.5937748469569776,
+      "source": "aero_contact",
+      "hand": "right",
+      "finger": "ring"
+    },
+    {
+      "id": 12,
+      "type": "off",
+      "midi": 65,
+      "time_s": 1.4616666666666667,
+      "velocity": 0.35,
+      "source": "aero_contact",
+      "hand": null,
+      "finger": null
+    },
+    {
+      "id": 13,
+      "type": "on",
+      "midi": 64,
+      "time_s": 1.5,
+      "velocity": 0.5937606168042956,
+      "source": "aero_contact",
+      "hand": "right",
+      "finger": "middle"
+    },
+    {
+      "id": 14,
+      "type": "off",
+      "midi": 64,
+      "time_s": 1.7116666666666667,
+      "velocity": 0.35,
+      "source": "aero_contact",
+      "hand": null,
+      "finger": null
+    },
+    {
+      "id": 15,
+      "type": "on",
+      "midi": 62,
+      "time_s": 1.75,
+      "velocity": 0.5937549836289447,
+      "source": "aero_contact",
+      "hand": "right",
+      "finger": "index"
+    },
+    {
+      "id": 16,
+      "type": "off",
+      "midi": 62,
+      "time_s": 1.8183333333333334,
+      "velocity": 0.35,
+      "source": "aero_contact",
+      "hand": null,
+      "finger": null
+    },
+    {
+      "id": 17,
+      "type": "on",
+      "midi": 60,
+      "time_s": 2.0,
+      "velocity": 0.5937680726819259,
+      "source": "aero_contact",
+      "hand": "right",
+      "finger": "pinky"
+    },
+    {
+      "id": 18,
+      "type": "off",
+      "midi": 60,
+      "time_s": 2.2116666666666664,
+      "velocity": 0.35,
+      "source": "aero_contact",
+      "hand": null,
+      "finger": null
+    },
+    {
+      "id": 19,
+      "type": "on",
+      "midi": 55,
+      "time_s": 2.25,
+      "velocity": 0.5937529314016241,
+      "source": "aero_contact",
+      "hand": "right",
+      "finger": "index"
+    },
+    {
+      "id": 20,
+      "type": "off",
+      "midi": 55,
+      "time_s": 2.3183333333333334,
+      "velocity": 0.35,
+      "source": "aero_contact",
+      "hand": null,
+      "finger": null
+    },
+    {
+      "id": 21,
+      "type": "on",
+      "midi": 67,
+      "time_s": 2.5,
+      "velocity": 0.5937699248406643,
+      "source": "aero_contact",
+      "hand": "right",
+      "finger": "pinky"
+    },
+    {
+      "id": 22,
+      "type": "off",
+      "midi": 67,
+      "time_s": 3.111666666666667,
+      "velocity": 0.35,
+      "source": "aero_contact",
+      "hand": null,
+      "finger": null
+    },
+    {
+      "id": 23,
+      "type": "on",
+      "midi": 65,
+      "time_s": 3.25,
+      "velocity": 0.5937750125181314,
+      "source": "aero_contact",
+      "hand": "right",
+      "finger": "ring"
+    },
+    {
+      "id": 24,
+      "type": "off",
+      "midi": 65,
+      "time_s": 3.4616666666666664,
+      "velocity": 0.35,
+      "source": "aero_contact",
+      "hand": null,
+      "finger": null
+    },
+    {
+      "id": 25,
+      "type": "on",
+      "midi": 64,
+      "time_s": 3.5,
+      "velocity": 0.5937607107290463,
+      "source": "aero_contact",
+      "hand": "right",
+      "finger": "middle"
+    },
+    {
+      "id": 26,
+      "type": "off",
+      "midi": 64,
+      "time_s": 3.7116666666666664,
+      "velocity": 0.35,
+      "source": "aero_contact",
+      "hand": null,
+      "finger": null
+    },
+    {
+      "id": 27,
+      "type": "on",
+      "midi": 62,
+      "time_s": 3.75,
+      "velocity": 0.5937550258841544,
+      "source": "aero_contact",
+      "hand": "right",
+      "finger": "index"
+    },
+    {
+      "id": 28,
+      "type": "off",
+      "midi": 62,
+      "time_s": 3.8183333333333334,
+      "velocity": 0.35,
+      "source": "aero_contact",
+      "hand": null,
+      "finger": null
+    },
+    {
+      "id": 29,
+      "type": "on",
+      "midi": 60,
+      "time_s": 4.0,
+      "velocity": 0.5937681003444077,
+      "source": "aero_contact",
+      "hand": "right",
+      "finger": "pinky"
+    },
+    {
+      "id": 30,
+      "type": "off",
+      "midi": 60,
+      "time_s": 4.211666666666667,
+      "velocity": 0.35,
+      "source": "aero_contact",
+      "hand": null,
+      "finger": null
+    },
+    {
+      "id": 31,
+      "type": "on",
+      "midi": 55,
+      "time_s": 4.25,
+      "velocity": 0.5937527811775716,
+      "source": "aero_contact",
+      "hand": "right",
+      "finger": "index"
+    },
+    {
+      "id": 32,
+      "type": "off",
+      "midi": 55,
+      "time_s": 4.318333333333333,
+      "velocity": 0.35,
+      "source": "aero_contact",
+      "hand": null,
+      "finger": null
+    },
+    {
+      "id": 33,
+      "type": "on",
+      "midi": 65,
+      "time_s": 4.5,
+      "velocity": 0.5937700406057534,
+      "source": "aero_contact",
+      "hand": "right",
+      "finger": "pinky"
+    },
+    {
+      "id": 34,
+      "type": "off",
+      "midi": 65,
+      "time_s": 4.711666666666667,
+      "velocity": 0.35,
+      "source": "aero_contact",
+      "hand": null,
+      "finger": null
+    },
+    {
+      "id": 35,
+      "type": "on",
+      "midi": 64,
+      "time_s": 4.75,
+      "velocity": 0.5937751479119534,
+      "source": "aero_contact",
+      "hand": "right",
+      "finger": "ring"
+    },
+    {
+      "id": 36,
+      "type": "off",
+      "midi": 64,
+      "time_s": 4.961666666666667,
+      "velocity": 0.35,
+      "source": "aero_contact",
+      "hand": null,
+      "finger": null
+    },
+    {
+      "id": 37,
+      "type": "on",
+      "midi": 62,
+      "time_s": 5.0,
+      "velocity": 0.59376085467609,
+      "source": "aero_contact",
+      "hand": "right",
+      "finger": "middle"
+    },
+    {
+      "id": 38,
+      "type": "off",
+      "midi": 62,
+      "time_s": 5.068333333333333,
+      "velocity": 0.35,
+      "source": "aero_contact",
+      "hand": null,
+      "finger": null
+    },
+    {
+      "id": 39,
+      "type": "on",
+      "midi": 60,
+      "time_s": 5.25,
+      "velocity": 0.5937682002966412,
+      "source": "aero_contact",
+      "hand": "right",
+      "finger": "pinky"
+    },
+    {
+      "id": 40,
+      "type": "off",
+      "midi": 60,
+      "time_s": 5.461666666666667,
+      "velocity": 0.35,
+      "source": "aero_contact",
+      "hand": null,
+      "finger": null
+    },
+    {
+      "id": 41,
+      "type": "on",
+      "midi": 59,
+      "time_s": 5.5,
+      "velocity": 0.5937732683347132,
+      "source": "aero_contact",
+      "hand": "right",
+      "finger": "ring"
+    },
+    {
+      "id": 42,
+      "type": "off",
+      "midi": 59,
+      "time_s": 5.711666666666667,
+      "velocity": 0.35,
+      "source": "aero_contact",
+      "hand": null,
+      "finger": null
+    },
+    {
+      "id": 43,
+      "type": "on",
+      "midi": 55,
+      "time_s": 5.75,
+      "velocity": 0.5937532981275453,
+      "source": "aero_contact",
+      "hand": "right",
+      "finger": "index"
+    },
+    {
+      "id": 44,
+      "type": "off",
+      "midi": 55,
+      "time_s": 5.961666666666667,
+      "velocity": 0.35,
+      "source": "aero_contact",
+      "hand": null,
+      "finger": null
+    },
+    {
+      "id": 45,
+      "type": "on",
+      "midi": 55,
+      "time_s": 6.0,
+      "velocity": 0.5937532981275453,
+      "source": "aero_contact",
+      "hand": "right",
+      "finger": "index"
+    },
+    {
+      "id": 46,
+      "type": "off",
+      "midi": 55,
+      "time_s": 6.211666666666667,
+      "velocity": 0.35,
+      "source": "aero_contact",
+      "hand": null,
+      "finger": null
+    },
+    {
+      "id": 47,
+      "type": "on",
+      "midi": 60,
+      "time_s": 6.25,
+      "velocity": 0.5937682002966412,
+      "source": "aero_contact",
+      "hand": "right",
+      "finger": "pinky"
+    },
+    {
+      "id": 48,
+      "type": "off",
+      "midi": 60,
+      "time_s": 6.461666666666667,
+      "velocity": 0.35,
+      "source": "aero_contact",
+      "hand": null,
+      "finger": null
+    },
+    {
+      "id": 49,
+      "type": "on",
+      "midi": 59,
+      "time_s": 6.5,
+      "velocity": 0.5937732683347132,
+      "source": "aero_contact",
+      "hand": "right",
+      "finger": "ring"
+    },
+    {
+      "id": 50,
+      "type": "off",
+      "midi": 59,
+      "time_s": 6.711666666666667,
+      "velocity": 0.35,
+      "source": "aero_contact",
+      "hand": null,
+      "finger": null
+    },
+    {
+      "id": 51,
+      "type": "on",
+      "midi": 60,
+      "time_s": 6.75,
+      "velocity": 0.5937682002966412,
+      "source": "aero_contact",
+      "hand": "right",
+      "finger": "pinky"
+    },
+    {
+      "id": 52,
+      "type": "off",
+      "midi": 60,
+      "time_s": 6.8183333333333325,
+      "velocity": 0.35,
+      "source": "aero_contact",
+      "hand": null,
+      "finger": null
+    },
+    {
+      "id": 53,
+      "type": "on",
+      "midi": 64,
+      "time_s": 7.0,
+      "velocity": 0.5937705365576511,
+      "source": "aero_contact",
+      "hand": "right",
+      "finger": "pinky"
+    },
+    {
+      "id": 54,
+      "type": "off",
+      "midi": 64,
+      "time_s": 7.0683333333333325,
+      "velocity": 0.35,
+      "source": "aero_contact",
+      "hand": null,
+      "finger": null
+    },
+    {
+      "id": 55,
+      "type": "on",
+      "midi": 62,
+      "time_s": 7.25,
+      "velocity": 0.5937689442562064,
+      "source": "aero_contact",
+      "hand": "right",
+      "finger": "pinky"
+    },
+    {
+      "id": 56,
+      "type": "off",
+      "midi": 62,
+      "time_s": 7.461666666666667,
+      "velocity": 0.35,
+      "source": "aero_contact",
+      "hand": null,
+      "finger": null
+    },
+    {
+      "id": 57,
+      "type": "on",
+      "midi": 60,
+      "time_s": 7.5,
+      "velocity": 0.5937740145134363,
+      "source": "aero_contact",
+      "hand": "right",
+      "finger": "ring"
+    },
+    {
+      "id": 58,
+      "type": "off",
+      "midi": 60,
+      "time_s": 7.711666666666667,
+      "velocity": 0.35,
+      "source": "aero_contact",
+      "hand": null,
+      "finger": null
+    },
+    {
+      "id": 59,
+      "type": "on",
+      "midi": 57,
+      "time_s": 7.75,
+      "velocity": 0.5937540293302462,
+      "source": "aero_contact",
+      "hand": "right",
+      "finger": "index"
+    },
+    {
+      "id": 60,
+      "type": "off",
+      "midi": 57,
+      "time_s": 7.8183333333333325,
+      "velocity": 0.35,
+      "source": "aero_contact",
+      "hand": null,
+      "finger": null
+    },
+    {
+      "id": 61,
+      "type": "on",
+      "midi": 67,
+      "time_s": 8.0,
+      "velocity": 0.5937680876073981,
+      "source": "aero_contact",
+      "hand": "right",
+      "finger": "pinky"
+    },
+    {
+      "id": 62,
+      "type": "off",
+      "midi": 67,
+      "time_s": 8.211666666666668,
+      "velocity": 0.35,
+      "source": "aero_contact",
+      "hand": null,
+      "finger": null
+    },
+    {
+      "id": 63,
+      "type": "on",
+      "midi": 65,
+      "time_s": 8.25,
+      "velocity": 0.5937731770208792,
+      "source": "aero_contact",
+      "hand": "right",
+      "finger": "ring"
+    },
+    {
+      "id": 64,
+      "type": "off",
+      "midi": 65,
+      "time_s": 8.461666666666668,
+      "velocity": 0.35,
+      "source": "aero_contact",
+      "hand": null,
+      "finger": null
+    },
+    {
+      "id": 65,
+      "type": "on",
+      "midi": 64,
+      "time_s": 8.5,
+      "velocity": 0.5937589244519536,
+      "source": "aero_contact",
+      "hand": "right",
+      "finger": "middle"
+    },
+    {
+      "id": 66,
+      "type": "off",
+      "midi": 64,
+      "time_s": 8.711666666666668,
+      "velocity": 0.35,
+      "source": "aero_contact",
+      "hand": null,
+      "finger": null
+    },
+    {
+      "id": 67,
+      "type": "on",
+      "midi": 62,
+      "time_s": 8.75,
+      "velocity": 0.5937532763968213,
+      "source": "aero_contact",
+      "hand": "right",
+      "finger": "index"
+    },
+    {
+      "id": 68,
+      "type": "off",
+      "midi": 62,
+      "time_s": 8.818333333333333,
+      "velocity": 0.35,
+      "source": "aero_contact",
+      "hand": null,
+      "finger": null
+    },
+    {
+      "id": 69,
+      "type": "on",
+      "midi": 60,
+      "time_s": 9.0,
+      "velocity": 0.5937691493617686,
+      "source": "aero_contact",
+      "hand": "right",
+      "finger": "pinky"
+    },
+    {
+      "id": 70,
+      "type": "off",
+      "midi": 60,
+      "time_s": 9.211666666666668,
+      "velocity": 0.35,
+      "source": "aero_contact",
+      "hand": null,
+      "finger": null
+    },
+    {
+      "id": 71,
+      "type": "on",
+      "midi": 55,
+      "time_s": 9.25,
+      "velocity": 0.5937540906713565,
+      "source": "aero_contact",
+      "hand": "right",
+      "finger": "index"
+    },
+    {
+      "id": 72,
+      "type": "off",
+      "midi": 55,
+      "time_s": 9.318333333333333,
+      "velocity": 0.35,
+      "source": "aero_contact",
+      "hand": null,
+      "finger": null
+    },
+    {
+      "id": 73,
+      "type": "on",
+      "midi": 67,
+      "time_s": 9.5,
+      "velocity": 0.593769774365599,
+      "source": "aero_contact",
+      "hand": "right",
+      "finger": "pinky"
+    },
+    {
+      "id": 74,
+      "type": "off",
+      "midi": 67,
+      "time_s": 10.111666666666666,
+      "velocity": 0.35,
+      "source": "aero_contact",
+      "hand": null,
+      "finger": null
+    },
+    {
+      "id": 75,
+      "type": "on",
+      "midi": 65,
+      "time_s": 10.25,
+      "velocity": 0.5937749217572749,
+      "source": "aero_contact",
+      "hand": "right",
+      "finger": "ring"
+    },
+    {
+      "id": 76,
+      "type": "off",
+      "midi": 65,
+      "time_s": 10.318333333333333,
+      "velocity": 0.35,
+      "source": "aero_contact",
+      "hand": null,
+      "finger": null
+    },
+    {
+      "id": 77,
+      "type": "on",
+      "midi": 55,
+      "time_s": 10.5,
+      "velocity": 0.5937580862360319,
+      "source": "aero_contact",
+      "hand": "right",
+      "finger": "middle"
+    },
+    {
+      "id": 78,
+      "type": "off",
+      "midi": 55,
+      "time_s": 11.311666666666667,
+      "velocity": 0.35,
+      "source": "aero_contact",
+      "hand": null,
+      "finger": null
+    },
+    {
+      "id": 79,
+      "type": "on",
+      "midi": 59,
+      "time_s": 11.5,
+      "velocity": 0.5937675308823038,
+      "source": "aero_contact",
+      "hand": "right",
+      "finger": "pinky"
+    },
+    {
+      "id": 80,
+      "type": "off",
+      "midi": 59,
+      "time_s": 12.311666666666667,
+      "velocity": 0.35,
+      "source": "aero_contact",
+      "hand": null,
+      "finger": null
+    },
+    {
+      "id": 81,
+      "type": "on",
+      "midi": 55,
+      "time_s": 12.5,
+      "velocity": 0.5937676255717033,
+      "source": "aero_contact",
+      "hand": "right",
+      "finger": "pinky"
+    },
+    {
+      "id": 82,
+      "type": "off",
+      "midi": 55,
+      "time_s": 13.311666666666667,
+      "velocity": 0.35,
+      "source": "aero_contact",
+      "hand": null,
+      "finger": null
+    },
+    {
+      "id": 83,
+      "type": "on",
+      "midi": 50,
+      "time_s": 13.5,
+      "velocity": 0.5937532914727751,
+      "source": "aero_contact",
+      "hand": "right",
+      "finger": "index"
+    },
+    {
+      "id": 84,
+      "type": "off",
+      "midi": 50,
+      "time_s": 14.311666666666667,
+      "velocity": 0.35,
+      "source": "aero_contact",
+      "hand": null,
+      "finger": null
+    },
+    {
+      "id": 85,
+      "type": "on",
+      "midi": 59,
+      "time_s": 14.5,
+      "velocity": 0.5937759166415151,
+      "source": "aero_contact",
+      "hand": "right",
+      "finger": "ring"
+    },
+    {
+      "id": 86,
+      "type": "off",
+      "midi": 59,
+      "time_s": 15.311666666666667,
+      "velocity": 0.35,
+      "source": "aero_contact",
+      "hand": null,
+      "finger": null
+    },
+    {
+      "id": 87,
+      "type": "on",
+      "midi": 59,
+      "time_s": 15.75,
+      "velocity": 0.5937759166415151,
+      "source": "aero_contact",
+      "hand": "right",
+      "finger": "ring"
+    },
+    {
+      "id": 88,
+      "type": "off",
+      "midi": 59,
+      "time_s": 15.961666666666666,
+      "velocity": 0.35,
+      "source": "aero_contact",
+      "hand": null,
+      "finger": null
+    },
+    {
+      "id": 89,
+      "type": "on",
+      "midi": 60,
+      "time_s": 16.0,
+      "velocity": 0.5937708995923398,
+      "source": "aero_contact",
+      "hand": "right",
+      "finger": "pinky"
+    },
+    {
+      "id": 90,
+      "type": "off",
+      "midi": 60,
+      "time_s": 16.211666666666666,
+      "velocity": 0.35,
+      "source": "aero_contact",
+      "hand": null,
+      "finger": null
+    },
+    {
+      "id": 91,
+      "type": "on",
+      "midi": 59,
+      "time_s": 16.25,
+      "velocity": 0.5937759166415151,
+      "source": "aero_contact",
+      "hand": "right",
+      "finger": "ring"
+    },
+    {
+      "id": 92,
+      "type": "off",
+      "midi": 59,
+      "time_s": 17.061666666666667,
+      "velocity": 0.35,
+      "source": "aero_contact",
+      "hand": null,
+      "finger": null
+    },
+    {
+      "id": 93,
+      "type": "on",
+      "midi": 60,
+      "time_s": 17.25,
+      "velocity": 0.5937708995923398,
+      "source": "aero_contact",
+      "hand": "right",
+      "finger": "pinky"
+    },
+    {
+      "id": 94,
+      "type": "off",
+      "midi": 60,
+      "time_s": 18.061666666666667,
+      "velocity": 0.35,
+      "source": "aero_contact",
+      "hand": null,
+      "finger": null
+    },
+    {
+      "id": 95,
+      "type": "on",
+      "midi": 55,
+      "time_s": 18.25,
+      "velocity": 0.5937556901923705,
+      "source": "aero_contact",
+      "hand": "right",
+      "finger": "index"
+    },
+    {
+      "id": 96,
+      "type": "off",
+      "midi": 55,
+      "time_s": 19.061666666666667,
+      "velocity": 0.35,
+      "source": "aero_contact",
+      "hand": null,
+      "finger": null
+    },
+    {
+      "id": 97,
+      "type": "on",
+      "midi": 57,
+      "time_s": 20.25,
+      "velocity": 0.5937614763367515,
+      "source": "aero_contact",
+      "hand": "right",
+      "finger": "middle"
+    },
+    {
+      "id": 98,
+      "type": "off",
+      "midi": 57,
+      "time_s": 21.061666666666667,
+      "velocity": 0.35,
+      "source": "aero_contact",
+      "hand": null,
+      "finger": null
+    },
+    {
+      "id": 99,
+      "type": "on",
+      "midi": 59,
+      "time_s": 21.25,
+      "velocity": 0.5937759166415151,
+      "source": "aero_contact",
+      "hand": "right",
+      "finger": "ring"
+    },
+    {
+      "id": 100,
+      "type": "off",
+      "midi": 59,
+      "time_s": 22.061666666666667,
+      "velocity": 0.35,
+      "source": "aero_contact",
+      "hand": null,
+      "finger": null
+    },
+    {
+      "id": 101,
+      "type": "on",
+      "midi": 60,
+      "time_s": 22.25,
+      "velocity": 0.5937708995923398,
+      "source": "aero_contact",
+      "hand": "right",
+      "finger": "pinky"
+    },
+    {
+      "id": 102,
+      "type": "off",
+      "midi": 60,
+      "time_s": 23.061666666666667,
+      "velocity": 0.35,
+      "source": "aero_contact",
+      "hand": null,
+      "finger": null
+    }
+  ],
+  "max_position_error_m": 4.6975201136272897e-05,
+  "max_orientation_error_rad": 1.1834937126436873e-06,
+  "peak_joint_speed_rad_s": [
+    2.038675546646128,
+    6.438580714166159,
+    1.5828967094424538,
+    6.298506259918208,
+    1.5555739402774091,
+    4.283782839774416,
+    2.2747993469238263
+  ],
+  "peak_joint_acceleration_rad_s2": [
+    75.28960704803453,
+    186.58652901649953,
+    46.41830921173089,
+    232.82110691070514,
+    40.72129726417776,
+    122.62791395167217,
+    91.74495935440046
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "side": "right",
+  "channel": "0x52",
+  "motor_id": 6,
+  "candidate_direction": 1,
+  "user_confirmation": "candidate current pose matches physical outward pose",
+  "evidence": [
+    "j6_baseline.jsonl",
+    "j6_outward.jsonl",
+    "j6_candidate_before_after.png"
+  ],
+  "isolated_direction_verified": false,
+  "zero_verified": false,
+  "scale_verified": false,
+  "hardware_verified": false,
+  "limitations": [
+    "multiple joints changed",
+    "baseline interval approximately 504 seconds"
+  ]
+}

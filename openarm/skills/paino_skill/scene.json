@@ -1,0 +1,37 @@
+{
+  "name": "openarm_aero_piano",
+  "size_m": [
+    1.24,
+    0.188,
+    0.055
+  ],
+  "center_world_m": [
+    0.67,
+    -0.02,
+    0.42
+  ],
+  "score_hover_clearance_m": 0.01,
+  "white_key_pitch_m": 0.0235,
+  "white_key_gap_m": 0.0008,
+  "first_midi": 21,
+  "key_count": 88,
+  "key_travel_m": 0.008,
+  "palm_pos_m": [
+    0.005,
+    0,
+    0.1065
+  ],
+  "palm_alignment_quat_wxyz": [
+    0.573576436351046,
+    0,
+    -0.8191520442889918,
+    0
+  ],
+  "assumptions": "88 keys A0-C8: 52 white + 36 black. Confirmed white-key center pitch 0.0235 m. Expanded case width 1.24 m; depth 0.188 m and height 0.055 m retained. Ideal contact-driven key travel; not a calibrated acoustic piano action.",
+  "thumb_rest_q_rad": {
+    "cmc_abd": 1.65244276,
+    "cmc_flex": 0.0,
+    "mcp": 0.0,
+    "ip": 0.0
+  }
+}

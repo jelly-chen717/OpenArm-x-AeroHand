@@ -1,0 +1,2533 @@
+# finger_count = 4
+# midi_start_seconds = 6
+# 准备阶段：两臂异步同时移动，index 为覆盖范围最左白键
+left_arm_move(14, 5)
+right_arm_move(24, 5)
+sleep(5)
+sleep(1)
+# 正式 MIDI 时间轴：t = 0 秒；以下 hand 参数为手指编号序列
+# t = 0 s
+hand(D,7)
+sleep(0.1)
+# t = 0.1 s
+hand(U,7)
+right_arm_move(25, 0.341176)
+sleep(0.341176)
+# t = 0.441176 s
+hand(D,x)
+sleep(0.1)
+# t = 0.541176 s
+hand(U,x)
+right_arm_move(29, 0.341176)
+sleep(0.341176)
+# t = 0.882352 s
+hand(D,x)
+sleep(0.1)
+# t = 0.982352 s
+hand(U,x)
+sleep(0.341176)
+# t = 1.323528 s
+hand(D,9)
+sleep(0.1)
+# t = 1.423528 s
+hand(U,9)
+right_arm_move(32, 0.341176)
+sleep(0.341176)
+# t = 1.764704 s
+hand(D,x)
+sleep(0.1)
+# t = 1.864704 s
+hand(U,x)
+right_arm_move(29, 1.664704)
+sleep(1.664704)
+# t = 3.529408 s
+hand(D,49)
+sleep(0.1)
+# t = 3.629408 s
+hand(U,49)
+sleep(0.341176)
+# t = 3.970584 s
+hand(D,x)
+sleep(0.1)
+# t = 4.070584 s
+hand(U,x)
+right_arm_move(28, 0.120588)
+sleep(0.120588)
+# t = 4.191172 s
+hand(D,x)
+sleep(0.1)
+# t = 4.291172 s
+hand(U,x)
+sleep(0.120588)
+# t = 4.41176 s
+hand(D,8)
+sleep(0.1)
+# t = 4.51176 s
+hand(U,8)
+sleep(0.341176)
+# t = 4.852936 s
+hand(D,7)
+sleep(0.1)
+# t = 4.952936 s
+hand(U,7)
+right_arm_move(32, 0.341176)
+sleep(0.341176)
+# t = 5.294112 s
+hand(D,37)
+sleep(0.1)
+# t = 5.394112 s
+hand(U,37)
+left_arm_move(12, 1.664704)
+sleep(0.341176)
+# t = 5.735288 s
+hand(D,x)
+sleep(0.1)
+# t = 5.835288 s
+hand(U,x)
+sleep(0.120588)
+# t = 5.955876 s
+hand(D,8)
+sleep(0.1)
+# t = 6.055876 s
+hand(U,8)
+sleep(0.120588)
+# t = 6.176464 s
+hand(D,x)
+sleep(0.1)
+# t = 6.276464 s
+hand(U,x)
+right_arm_move(30, 0.782352)
+sleep(0.782352)
+# t = 7.058816 s
+hand(D,48)
+sleep(0.1)
+# t = 7.158816 s
+hand(U,48)
+sleep(0.341176)
+# t = 7.499992 s
+hand(D,9)
+sleep(0.1)
+# t = 7.599992 s
+hand(U,9)
+sleep(0.120588)
+# t = 7.72058 s
+hand(D,x)
+sleep(0.1)
+# t = 7.82058 s
+hand(U,x)
+right_arm_move(28, 0.120588)
+sleep(0.120588)
+# t = 7.941168 s
+hand(D,8)
+sleep(0.1)
+# t = 8.041168 s
+hand(U,8)
+sleep(0.341176)
+# t = 8.382344 s
+hand(D,7)
+sleep(0.1)
+# t = 8.482344 s
+hand(U,7)
+sleep(0.120588)
+# t = 8.602932 s
+hand(D,8)
+sleep(0.1)
+# t = 8.702932 s
+hand(U,8)
+sleep(0.120588)
+# t = 8.82352 s
+hand(D,37)
+sleep(0.1)
+# t = 8.92352 s
+hand(U,37)
+sleep(1.664704)
+# t = 10.588224 s
+hand(D,2x)
+sleep(0.1)
+# t = 10.688224 s
+hand(U,2x)
+right_arm_move(30, 0.341176)
+sleep(0.341176)
+# t = 11.0294 s
+hand(D,9)
+sleep(0.1)
+# t = 11.1294 s
+hand(U,9)
+sleep(0.120588)
+# t = 11.249988 s
+hand(D,x)
+sleep(0.1)
+# t = 11.349988 s
+hand(U,x)
+right_arm_move(28, 0.120588)
+sleep(0.120588)
+# t = 11.470576 s
+hand(D,8)
+sleep(0.1)
+# t = 11.570576 s
+hand(U,8)
+sleep(0.341176)
+# t = 11.911752 s
+hand(D,7)
+sleep(0.1)
+# t = 12.011752 s
+hand(U,7)
+right_arm_move(32, 0.341176)
+sleep(0.341176)
+# t = 12.352928 s
+hand(D,17)
+sleep(0.1)
+# t = 12.452928 s
+hand(U,17)
+sleep(0.341176)
+# t = 12.794104 s
+hand(D,x)
+sleep(0.1)
+# t = 12.894104 s
+hand(U,x)
+sleep(0.120588)
+# t = 13.014692 s
+hand(D,8)
+sleep(0.1)
+# t = 13.114692 s
+hand(U,8)
+sleep(0.120588)
+# t = 13.23528 s
+hand(D,x)
+sleep(0.1)
+# t = 13.33528 s
+hand(U,x)
+right_arm_move(33, 0.782352)
+sleep(0.782352)
+# t = 14.117632 s
+hand(D,2x)
+sleep(0.1)
+# t = 14.217632 s
+hand(U,2x)
+sleep(0.341176)
+# t = 14.558808 s
+hand(D,9)
+sleep(0.1)
+# t = 14.658808 s
+hand(U,9)
+sleep(0.120588)
+# t = 14.779396 s
+hand(D,x)
+sleep(0.1)
+# t = 14.879396 s
+hand(U,x)
+sleep(0.120588)
+# t = 14.999984 s
+hand(D,9)
+sleep(0.1)
+# t = 15.099984 s
+hand(U,9)
+sleep(0.341176)
+# t = 15.44116 s
+hand(D,7)
+sleep(0.1)
+# t = 15.54116 s
+hand(U,7)
+right_arm_move(29, 0.341176)
+sleep(0.341176)
+# t = 15.882336 s
+hand(D,3x)
+sleep(0.1)
+# t = 15.982336 s
+hand(U,3x)
+left_arm_move(14, 1.664704)
+sleep(1.664704)
+# t = 17.64704 s
+hand(D,49)
+sleep(0.1)
+# t = 17.74704 s
+hand(U,49)
+left_arm_move(12, 1.664704)
+sleep(0.341176)
+# t = 18.088216 s
+hand(D,x)
+sleep(0.1)
+# t = 18.188216 s
+hand(U,x)
+right_arm_move(28, 0.120588)
+sleep(0.120588)
+# t = 18.308804 s
+hand(D,x)
+sleep(0.1)
+# t = 18.408804 s
+hand(U,x)
+sleep(0.120588)
+# t = 18.529392 s
+hand(D,8)
+sleep(0.1)
+# t = 18.629392 s
+hand(U,8)
+sleep(0.341176)
+# t = 18.970568 s
+hand(D,7)
+sleep(0.1)
+# t = 19.070568 s
+hand(U,7)
+right_arm_move(32, 0.341176)
+sleep(0.341176)
+# t = 19.411744 s
+hand(D,37)
+sleep(0.1)
+# t = 19.511744 s
+hand(U,37)
+sleep(0.341176)
+# t = 19.85292 s
+hand(D,x)
+sleep(0.1)
+# t = 19.95292 s
+hand(U,x)
+sleep(0.120588)
+# t = 20.073508 s
+hand(D,8)
+sleep(0.1)
+# t = 20.173508 s
+hand(U,8)
+sleep(0.120588)
+# t = 20.294096 s
+hand(D,x)
+sleep(0.1)
+# t = 20.394096 s
+hand(U,x)
+right_arm_move(30, 0.782352)
+sleep(0.782352)
+# t = 21.176448 s
+hand(D,48)
+sleep(0.1)
+# t = 21.276448 s
+hand(U,48)
+sleep(0.341176)
+# t = 21.617624 s
+hand(D,9)
+sleep(0.1)
+# t = 21.717624 s
+hand(U,9)
+sleep(0.120588)
+# t = 21.838212 s
+hand(D,x)
+sleep(0.1)
+# t = 21.938212 s
+hand(U,x)
+sleep(0.120588)
+# t = 22.0588 s
+hand(D,9)
+sleep(0.1)
+# t = 22.1588 s
+hand(U,9)
+right_arm_move(28, 0.341176)
+sleep(0.341176)
+# t = 22.499976 s
+hand(D,8)
+sleep(0.1)
+# t = 22.599976 s
+hand(U,8)
+sleep(0.341176)
+# t = 22.941152 s
+hand(D,3x)
+sleep(0.1)
+# t = 23.041152 s
+hand(U,3x)
+sleep(1.664704)
+# t = 24.705856 s
+hand(D,17)
+sleep(0.1)
+# t = 24.805856 s
+hand(U,17)
+sleep(0.341176)
+# t = 25.147032 s
+hand(D,8)
+sleep(0.1)
+# t = 25.247032 s
+hand(U,8)
+right_arm_move(32, 0.341176)
+sleep(0.341176)
+# t = 25.588208 s
+hand(D,7)
+sleep(0.1)
+# t = 25.688208 s
+hand(U,7)
+sleep(0.341176)
+# t = 26.029384 s
+hand(D,x)
+sleep(0.1)
+# t = 26.129384 s
+hand(U,x)
+sleep(0.341176)
+# t = 26.47056 s
+hand(D,48)
+sleep(0.1)
+# t = 26.57056 s
+hand(U,48)
+left_arm_move(11, 1.664704)
+sleep(0.341176)
+# t = 26.911736 s
+hand(D,7)
+sleep(0.1)
+# t = 27.011736 s
+hand(U,7)
+right_arm_move(28, 0.341176)
+sleep(0.341176)
+# t = 27.352912 s
+hand(D,x)
+sleep(0.1)
+# t = 27.452912 s
+hand(U,x)
+sleep(0.782352)
+# t = 28.235264 s
+hand(D,18)
+sleep(0.1)
+# t = 28.335264 s
+hand(U,18)
+sleep(0.341176)
+# t = 28.67644 s
+hand(D,7)
+sleep(0.1)
+# t = 28.77644 s
+hand(U,7)
+sleep(0.341176)
+# t = 29.117616 s
+hand(D,8)
+sleep(0.1)
+# t = 29.217616 s
+hand(U,8)
+right_arm_move(30, 0.341176)
+sleep(0.341176)
+# t = 29.558792 s
+hand(D,x)
+sleep(0.1)
+# t = 29.658792 s
+hand(U,x)
+sleep(0.341176)
+# t = 29.999968 s
+hand(D,4x)
+sleep(0.1)
+# t = 30.099968 s
+hand(U,4x)
+left_arm_move(14, 1.664704)
+right_arm_move(29, 0.782352)
+sleep(0.782352)
+# t = 30.88232 s
+hand(D,x)
+sleep(0.1)
+# t = 30.98232 s
+hand(U,x)
+sleep(0.341176)
+# t = 31.323496 s
+hand(D,7)
+sleep(0.1)
+# t = 31.423496 s
+hand(U,7)
+sleep(0.341176)
+# t = 31.764672 s
+hand(D,49)
+sleep(0.1)
+# t = 31.864672 s
+hand(U,49)
+sleep(0.120588)
+# t = 31.98526 s
+hand(D,x)
+sleep(0.1)
+# t = 32.08526 s
+hand(U,x)
+sleep(0.120588)
+# t = 32.205848 s
+hand(D,9)
+sleep(0.1)
+# t = 32.305848 s
+hand(U,9)
+sleep(1.223528)
+# t = 33.529376 s
+hand(D,4)
+sleep(0.1)
+# t = 33.629376 s
+hand(U,4)
+sleep(1.664704)
+# t = 35.29408 s
+hand(D,49)
+sleep(0.1)
+# t = 35.39408 s
+hand(U,49)
+sleep(0.120588)
+# t = 35.514668 s
+hand(D,x)
+sleep(0.1)
+# t = 35.614668 s
+hand(U,x)
+right_arm_move(33, 0.120588)
+sleep(0.120588)
+# t = 35.735256 s
+hand(D,7)
+sleep(0.1)
+# t = 35.835256 s
+hand(U,7)
+sleep(0.120588)
+# t = 35.955844 s
+hand(D,x)
+sleep(0.1)
+# t = 36.055844 s
+hand(U,x)
+sleep(0.120588)
+# t = 36.176432 s
+hand(D,9)
+sleep(0.1)
+# t = 36.276432 s
+hand(U,9)
+right_arm_move(31, 0.341176)
+sleep(0.341176)
+# t = 36.617608 s
+hand(D,9)
+sleep(0.1)
+# t = 36.717608 s
+hand(U,9)
+sleep(0.341176)
+# t = 37.058784 s
+hand(D,3)
+sleep(0.1)
+# t = 37.158784 s
+hand(U,3)
+left_arm_move(12, 1.664704)
+sleep(0.120588)
+# t = 37.279372 s
+hand(D,9)
+sleep(0.1)
+# t = 37.379372 s
+hand(U,9)
+sleep(0.120588)
+# t = 37.49996 s
+hand(D,9)
+sleep(0.1)
+# t = 37.59996 s
+hand(U,9)
+sleep(0.120588)
+# t = 37.720548 s
+hand(D,8)
+sleep(0.1)
+# t = 37.820548 s
+hand(U,8)
+sleep(0.120588)
+# t = 37.941136 s
+hand(D,7)
+sleep(0.1)
+# t = 38.041136 s
+hand(U,7)
+right_arm_move(35, 1.00294)
+sleep(0.782352)
+# t = 38.823488 s
+hand(D,4)
+sleep(0.1)
+# t = 38.923488 s
+hand(U,4)
+sleep(0.120588)
+# t = 39.044076 s
+hand(D,x)
+sleep(0.1)
+# t = 39.144076 s
+hand(U,x)
+sleep(0.120588)
+# t = 39.264664 s
+hand(D,x)
+sleep(0.1)
+# t = 39.364664 s
+hand(U,x)
+right_arm_move(33, 0.120588)
+sleep(0.120588)
+# t = 39.485252 s
+hand(D,7)
+sleep(0.1)
+# t = 39.585252 s
+hand(U,7)
+sleep(0.120588)
+# t = 39.70584 s
+hand(D,x)
+sleep(0.1)
+# t = 39.80584 s
+hand(U,x)
+sleep(0.341176)
+# t = 40.147016 s
+hand(D,9)
+sleep(0.1)
+# t = 40.247016 s
+hand(U,9)
+sleep(0.120588)
+# t = 40.367604 s
+hand(D,7)
+sleep(0.1)
+# t = 40.467604 s
+hand(U,7)
+right_arm_move(29, 0.120588)
+sleep(0.120588)
+# t = 40.588192 s
+hand(D,3x)
+sleep(0.1)
+# t = 40.688192 s
+hand(U,3x)
+right_arm_move(28, 1.664704)
+sleep(1.664704)
+# t = 42.352896 s
+hand(D,27)
+sleep(0.1)
+# t = 42.452896 s
+hand(U,27)
+sleep(0.341176)
+# t = 42.794072 s
+hand(D,8)
+sleep(0.1)
+# t = 42.894072 s
+hand(U,8)
+sleep(0.341176)
+# t = 43.235248 s
+hand(D,x)
+sleep(0.1)
+# t = 43.335248 s
+hand(U,x)
+right_arm_move(33, 0.782352)
+sleep(0.782352)
+# t = 44.1176 s
+hand(D,17)
+sleep(0.1)
+# t = 44.2176 s
+hand(U,17)
+sleep(0.341176)
+# t = 44.558776 s
+hand(D,x)
+sleep(0.1)
+# t = 44.658776 s
+hand(U,x)
+sleep(0.341176)
+# t = 44.999952 s
+hand(D,9)
+sleep(0.1)
+# t = 45.099952 s
+hand(U,9)
+sleep(0.341176)
+# t = 45.441128 s
+hand(D,7)
+sleep(0.1)
+# t = 45.541128 s
+hand(U,7)
+right_arm_move(29, 0.341176)
+sleep(0.341176)
+# t = 45.882304 s
+hand(D,2x)
+sleep(0.1)
+# t = 45.982304 s
+hand(U,2x)
+right_arm_move(28, 0.341176)
+sleep(0.341176)
+# t = 46.32348 s
+hand(D,x)
+sleep(0.1)
+# t = 46.42348 s
+hand(U,x)
+sleep(0.341176)
+# t = 46.764656 s
+hand(D,8)
+sleep(0.1)
+# t = 46.864656 s
+hand(U,8)
+sleep(0.341176)
+# t = 47.205832 s
+hand(D,x)
+sleep(0.1)
+# t = 47.305832 s
+hand(U,x)
+sleep(0.341176)
+# t = 47.647008 s
+hand(D,37)
+sleep(0.1)
+# t = 47.747008 s
+hand(U,37)
+left_arm_move(14, 1.664704)
+sleep(1.664704)
+# t = 49.411712 s
+hand(D,47)
+sleep(0.1)
+# t = 49.511712 s
+hand(U,47)
+left_arm_move(13, 1.664704)
+sleep(0.341176)
+# t = 49.852888 s
+hand(D,8)
+sleep(0.1)
+# t = 49.952888 s
+hand(U,8)
+sleep(0.341176)
+# t = 50.294064 s
+hand(D,x)
+sleep(0.1)
+# t = 50.394064 s
+hand(U,x)
+right_arm_move(33, 0.782352)
+sleep(0.782352)
+# t = 51.176416 s
+hand(D,47)
+sleep(0.1)
+# t = 51.276416 s
+hand(U,47)
+sleep(0.341176)
+# t = 51.617592 s
+hand(D,x)
+sleep(0.1)
+# t = 51.717592 s
+hand(U,x)
+sleep(0.341176)
+# t = 52.058768 s
+hand(D,9)
+sleep(0.1)
+# t = 52.158768 s
+hand(U,9)
+sleep(0.341176)
+# t = 52.499944 s
+hand(D,7)
+sleep(0.1)
+# t = 52.599944 s
+hand(U,7)
+right_arm_move(29, 0.341176)
+sleep(0.341176)
+# t = 52.94112 s
+hand(D,1x)
+sleep(0.1)
+# t = 53.04112 s
+hand(U,1x)
+sleep(0.341176)
+# t = 53.382296 s
+hand(D,9)
+sleep(0.1)
+# t = 53.482296 s
+hand(U,9)
+sleep(0.341176)
+# t = 53.823472 s
+hand(D,7)
+sleep(0.1)
+# t = 53.923472 s
+hand(U,7)
+sleep(0.341176)
+# t = 54.264648 s
+hand(D,9)
+sleep(0.1)
+# t = 54.364648 s
+hand(U,9)
+sleep(0.341176)
+# t = 54.705824 s
+hand(D,2x)
+sleep(0.1)
+# t = 54.805824 s
+hand(U,2x)
+left_arm_move(14, 1.664704)
+right_arm_move(28, 1.664704)
+sleep(1.664704)
+# t = 56.470528 s
+hand(D,47)
+sleep(0.1)
+# t = 56.570528 s
+hand(U,47)
+sleep(0.341176)
+# t = 56.911704 s
+hand(D,8)
+sleep(0.1)
+# t = 57.011704 s
+hand(U,8)
+sleep(0.341176)
+# t = 57.35288 s
+hand(D,x)
+sleep(0.1)
+# t = 57.45288 s
+hand(U,x)
+right_arm_move(33, 0.782352)
+sleep(0.782352)
+# t = 58.235232 s
+hand(D,37)
+sleep(0.1)
+# t = 58.335232 s
+hand(U,37)
+sleep(0.341176)
+# t = 58.676408 s
+hand(D,x)
+sleep(0.1)
+# t = 58.776408 s
+hand(U,x)
+sleep(0.341176)
+# t = 59.117584 s
+hand(D,9)
+sleep(0.1)
+# t = 59.217584 s
+hand(U,9)
+sleep(0.341176)
+# t = 59.55876 s
+hand(D,7)
+sleep(0.1)
+# t = 59.65876 s
+hand(U,7)
+right_arm_move(29, 0.341176)
+sleep(0.341176)
+# t = 59.999936 s
+hand(D,2x)
+sleep(0.1)
+# t = 60.099936 s
+hand(U,2x)
+left_arm_move(11, 1.664704)
+sleep(0.341176)
+# t = 60.441112 s
+hand(D,9)
+sleep(0.1)
+# t = 60.541112 s
+hand(U,9)
+sleep(0.341176)
+# t = 60.882288 s
+hand(D,x)
+sleep(0.1)
+# t = 60.982288 s
+hand(U,x)
+right_arm_move(28, 0.341176)
+sleep(0.341176)
+# t = 61.323464 s
+hand(D,x)
+sleep(0.1)
+# t = 61.423464 s
+hand(U,x)
+sleep(0.341176)
+# t = 61.76464 s
+hand(D,48)
+sleep(0.1)
+# t = 61.86464 s
+hand(U,48)
+sleep(1.664704)
+# t = 63.529344 s
+hand(D,38)
+sleep(0.1)
+# t = 63.629344 s
+hand(U,38)
+sleep(0.341176)
+# t = 63.97052 s
+hand(D,7)
+sleep(0.1)
+# t = 64.07052 s
+hand(U,7)
+right_arm_move(32, 0.341176)
+sleep(0.341176)
+# t = 64.411696 s
+hand(D,8)
+sleep(0.1)
+# t = 64.511696 s
+hand(U,8)
+sleep(0.782352)
+# t = 65.294048 s
+hand(D,27)
+sleep(0.1)
+# t = 65.394048 s
+hand(U,27)
+sleep(0.341176)
+# t = 65.735224 s
+hand(D,8)
+sleep(0.1)
+# t = 65.835224 s
+hand(U,8)
+sleep(0.341176)
+# t = 66.1764 s
+hand(D,x)
+sleep(0.1)
+# t = 66.2764 s
+hand(U,x)
+sleep(0.782352)
+# t = 67.058752 s
+hand(D,48)
+sleep(0.1)
+# t = 67.158752 s
+hand(U,48)
+left_arm_move(10, 1.664704)
+sleep(0.341176)
+# t = 67.499928 s
+hand(D,7)
+sleep(0.1)
+# t = 67.599928 s
+hand(U,7)
+sleep(0.341176)
+# t = 67.941104 s
+hand(D,8)
+sleep(0.1)
+# t = 68.041104 s
+hand(U,8)
+right_arm_move(28, 0.341176)
+sleep(0.341176)
+# t = 68.38228 s
+hand(D,8)
+sleep(0.1)
+# t = 68.48228 s
+hand(U,8)
+sleep(0.341176)
+# t = 68.823456 s
+hand(D,1x)
+sleep(0.1)
+# t = 68.923456 s
+hand(U,1x)
+left_arm_move(14, 1.664704)
+sleep(1.664704)
+# t = 70.58816 s
+hand(D,47)
+sleep(0.1)
+# t = 70.68816 s
+hand(U,47)
+left_arm_move(13, 1.664704)
+sleep(0.341176)
+# t = 71.029336 s
+hand(D,8)
+sleep(0.1)
+# t = 71.129336 s
+hand(U,8)
+sleep(0.341176)
+# t = 71.470512 s
+hand(D,x)
+sleep(0.1)
+# t = 71.570512 s
+hand(U,x)
+right_arm_move(33, 0.782352)
+sleep(0.782352)
+# t = 72.352864 s
+hand(D,37)
+sleep(0.1)
+# t = 72.452864 s
+hand(U,37)
+sleep(0.341176)
+# t = 72.79404 s
+hand(D,x)
+sleep(0.1)
+# t = 72.89404 s
+hand(U,x)
+sleep(0.341176)
+# t = 73.235216 s
+hand(D,9)
+sleep(0.1)
+# t = 73.335216 s
+hand(U,9)
+sleep(0.341176)
+# t = 73.676392 s
+hand(D,7)
+sleep(0.1)
+# t = 73.776392 s
+hand(U,7)
+right_arm_move(29, 0.341176)
+sleep(0.341176)
+# t = 74.117568 s
+hand(D,1x)
+sleep(0.1)
+# t = 74.217568 s
+hand(U,1x)
+right_arm_move(28, 0.341176)
+sleep(0.341176)
+# t = 74.558744 s
+hand(D,x)
+sleep(0.1)
+# t = 74.658744 s
+hand(U,x)
+sleep(0.341176)
+# t = 74.99992 s
+hand(D,8)
+sleep(0.1)
+# t = 75.09992 s
+hand(U,8)
+sleep(0.341176)
+# t = 75.441096 s
+hand(D,x)
+sleep(0.1)
+# t = 75.541096 s
+hand(U,x)
+sleep(0.341176)
+# t = 75.882272 s
+hand(D,27)
+sleep(0.1)
+# t = 75.982272 s
+hand(U,27)
+left_arm_move(14, 1.664704)
+sleep(1.664704)
+# t = 77.646976 s
+hand(D,47)
+sleep(0.1)
+# t = 77.746976 s
+hand(U,47)
+left_arm_move(13, 1.664704)
+sleep(0.341176)
+# t = 78.088152 s
+hand(D,8)
+sleep(0.1)
+# t = 78.188152 s
+hand(U,8)
+sleep(0.341176)
+# t = 78.529328 s
+hand(D,x)
+sleep(0.1)
+# t = 78.629328 s
+hand(U,x)
+right_arm_move(33, 0.782352)
+sleep(0.782352)
+# t = 79.41168 s
+hand(D,47)
+sleep(0.1)
+# t = 79.51168 s
+hand(U,47)
+sleep(0.341176)
+# t = 79.852856 s
+hand(D,x)
+sleep(0.1)
+# t = 79.952856 s
+hand(U,x)
+sleep(0.341176)
+# t = 80.294032 s
+hand(D,9)
+sleep(0.1)
+# t = 80.394032 s
+hand(U,9)
+sleep(0.341176)
+# t = 80.735208 s
+hand(D,7)
+sleep(0.1)
+# t = 80.835208 s
+hand(U,7)
+right_arm_move(29, 0.341176)
+sleep(0.341176)
+# t = 81.176384 s
+hand(D,1x)
+sleep(0.1)
+# t = 81.276384 s
+hand(U,1x)
+sleep(0.341176)
+# t = 81.61756 s
+hand(D,9)
+sleep(0.1)
+# t = 81.71756 s
+hand(U,9)
+sleep(0.341176)
+# t = 82.058736 s
+hand(D,7)
+sleep(0.1)
+# t = 82.158736 s
+hand(U,7)
+right_arm_move(30, 0.341176)
+sleep(0.341176)
+# t = 82.499912 s
+hand(D,x)
+sleep(0.1)
+# t = 82.599912 s
+hand(U,x)
+sleep(0.120588)
+# t = 82.7205 s
+hand(D,9)
+sleep(0.1)
+# t = 82.8205 s
+hand(U,9)
+sleep(0.120588)
+# t = 82.941088 s
+hand(D,29)
+sleep(0.1)
+# t = 83.041088 s
+hand(U,29)
+left_arm_move(14, 1.664704)
+right_arm_move(28, 1.664704)
+sleep(1.664704)
+# t = 84.705792 s
+hand(D,47)
+sleep(0.1)
+# t = 84.805792 s
+hand(U,47)
+sleep(0.341176)
+# t = 85.146968 s
+hand(D,8)
+sleep(0.1)
+# t = 85.246968 s
+hand(U,8)
+sleep(0.341176)
+# t = 85.588144 s
+hand(D,x)
+sleep(0.1)
+# t = 85.688144 s
+hand(U,x)
+right_arm_move(33, 0.782352)
+sleep(0.782352)
+# t = 86.470496 s
+hand(D,37)
+sleep(0.1)
+# t = 86.570496 s
+hand(U,37)
+left_arm_move(12, 1.664704)
+sleep(0.341176)
+# t = 86.911672 s
+hand(D,x)
+sleep(0.1)
+# t = 87.011672 s
+hand(U,x)
+sleep(0.341176)
+# t = 87.352848 s
+hand(D,9)
+sleep(0.1)
+# t = 87.452848 s
+hand(U,9)
+sleep(0.341176)
+# t = 87.794024 s
+hand(D,7)
+sleep(0.1)
+# t = 87.894024 s
+hand(U,7)
+right_arm_move(29, 0.341176)
+sleep(0.341176)
+# t = 88.2352 s
+hand(D,4x)
+sleep(0.1)
+# t = 88.3352 s
+hand(U,4x)
+sleep(0.341176)
+# t = 88.676376 s
+hand(D,9)
+sleep(0.1)
+# t = 88.776376 s
+hand(U,9)
+sleep(0.341176)
+# t = 89.117552 s
+hand(D,x)
+sleep(0.1)
+# t = 89.217552 s
+hand(U,x)
+right_arm_move(28, 0.341176)
+sleep(0.341176)
+# t = 89.558728 s
+hand(D,x)
+sleep(0.1)
+# t = 89.658728 s
+hand(U,x)
+sleep(0.341176)
+# t = 89.999904 s
+hand(D,38)
+sleep(0.1)
+# t = 90.099904 s
+hand(U,38)
+sleep(1.664704)
+# t = 91.764608 s
+hand(D,28)
+sleep(0.1)
+# t = 91.864608 s
+hand(U,28)
+sleep(0.341176)
+# t = 92.205784 s
+hand(D,7)
+sleep(0.1)
+# t = 92.305784 s
+hand(U,7)
+right_arm_move(32, 0.341176)
+sleep(0.341176)
+# t = 92.64696 s
+hand(D,8)
+sleep(0.1)
+# t = 92.74696 s
+hand(U,8)
+sleep(0.782352)
+# t = 93.529312 s
+hand(D,17)
+sleep(0.1)
+# t = 93.629312 s
+hand(U,17)
+sleep(0.341176)
+# t = 93.970488 s
+hand(D,8)
+sleep(0.1)
+# t = 94.070488 s
+hand(U,8)
+sleep(0.341176)
+# t = 94.411664 s
+hand(D,x)
+sleep(0.1)
+# t = 94.511664 s
+hand(U,x)
+right_arm_move(33, 0.782352)
+sleep(0.782352)
+# t = 95.294016 s
+hand(D,3x)
+sleep(0.1)
+# t = 95.394016 s
+hand(U,3x)
+left_arm_move(15, 0.782352)
+sleep(0.341176)
+# t = 95.735192 s
+hand(D,9)
+sleep(0.1)
+# t = 95.835192 s
+hand(U,9)
+sleep(0.341176)
+# t = 96.176368 s
+hand(D,47)
+sleep(0.1)
+# t = 96.276368 s
+hand(U,47)
+right_arm_move(29, 0.341176)
+sleep(0.341176)
+# t = 96.617544 s
+hand(D,7)
+sleep(0.1)
+# t = 96.717544 s
+hand(U,7)
+sleep(0.341176)
+# t = 97.05872 s
+hand(D,39)
+sleep(0.1)
+# t = 97.15872 s
+hand(U,39)
+sleep(0.120588)
+# t = 97.279308 s
+hand(D,x)
+sleep(0.1)
+# t = 97.379308 s
+hand(U,x)
+sleep(0.120588)
+# t = 97.499896 s
+hand(D,9)
+sleep(0.1)
+# t = 97.599896 s
+hand(U,9)
+sleep(1.223528)
+# t = 98.823424 s
+hand(D,3)
+sleep(0.1)
+# t = 98.923424 s
+hand(U,3)
+sleep(1.664704)
+# t = 100.588128 s
+hand(D,39)
+sleep(0.1)
+# t = 100.688128 s
+hand(U,39)
+sleep(0.341176)
+# t = 101.029304 s
+hand(D,x)
+sleep(0.1)
+# t = 101.129304 s
+hand(U,x)
+right_arm_move(28, 0.120588)
+sleep(0.120588)
+# t = 101.249892 s
+hand(D,x)
+sleep(0.1)
+# t = 101.349892 s
+hand(U,x)
+sleep(0.120588)
+# t = 101.47048 s
+hand(D,8)
+sleep(0.1)
+# t = 101.57048 s
+hand(U,8)
+sleep(0.341176)
+# t = 101.911656 s
+hand(D,7)
+sleep(0.1)
+# t = 102.011656 s
+hand(U,7)
+right_arm_move(32, 0.341176)
+sleep(0.341176)
+# t = 102.352832 s
+hand(D,27)
+sleep(0.1)
+# t = 102.452832 s
+hand(U,27)
+sleep(0.341176)
+# t = 102.794008 s
+hand(D,x)
+sleep(0.1)
+# t = 102.894008 s
+hand(U,x)
+sleep(0.120588)
+# t = 103.014596 s
+hand(D,8)
+sleep(0.1)
+# t = 103.114596 s
+hand(U,8)
+sleep(0.120588)
+# t = 103.235184 s
+hand(D,x)
+sleep(0.1)
+# t = 103.335184 s
+hand(U,x)
+right_arm_move(30, 0.782352)
+sleep(0.782352)
+# t = 104.117536 s
+hand(D,18)
+sleep(0.1)
+# t = 104.217536 s
+hand(U,18)
+left_arm_move(11, 1.664704)
+sleep(0.341176)
+# t = 104.558712 s
+hand(D,9)
+sleep(0.1)
+# t = 104.658712 s
+hand(U,9)
+sleep(0.120588)
+# t = 104.7793 s
+hand(D,x)
+sleep(0.1)
+# t = 104.8793 s
+hand(U,x)
+right_arm_move(28, 0.120588)
+sleep(0.120588)
+# t = 104.999888 s
+hand(D,8)
+sleep(0.1)
+# t = 105.099888 s
+hand(U,8)
+sleep(0.341176)
+# t = 105.441064 s
+hand(D,7)
+sleep(0.1)
+# t = 105.541064 s
+hand(U,7)
+sleep(0.341176)
+# t = 105.88224 s
+hand(D,47)
+sleep(0.1)
+# t = 105.98224 s
+hand(U,47)
+sleep(1.664704)
+# t = 107.646944 s
+hand(D,3x)
+sleep(0.1)
+# t = 107.746944 s
+hand(U,3x)
+right_arm_move(30, 0.341176)
+sleep(0.341176)
+# t = 108.08812 s
+hand(D,9)
+sleep(0.1)
+# t = 108.18812 s
+hand(U,9)
+sleep(0.120588)
+# t = 108.308708 s
+hand(D,x)
+sleep(0.1)
+# t = 108.408708 s
+hand(U,x)
+right_arm_move(28, 0.120588)
+sleep(0.120588)
+# t = 108.529296 s
+hand(D,8)
+sleep(0.1)
+# t = 108.629296 s
+hand(U,8)
+sleep(0.341176)
+# t = 108.970472 s
+hand(D,7)
+sleep(0.1)
+# t = 109.070472 s
+hand(U,7)
+right_arm_move(32, 0.341176)
+sleep(0.341176)
+# t = 109.411648 s
+hand(D,27)
+sleep(0.1)
+# t = 109.511648 s
+hand(U,27)
+sleep(0.341176)
+# t = 109.852824 s
+hand(D,x)
+sleep(0.1)
+# t = 109.952824 s
+hand(U,x)
+sleep(0.120588)
+# t = 110.073412 s
+hand(D,8)
+sleep(0.1)
+# t = 110.173412 s
+hand(U,8)
+sleep(0.120588)
+# t = 110.294 s
+hand(D,x)
+sleep(0.1)
+# t = 110.394 s
+hand(U,x)
+right_arm_move(33, 0.782352)
+sleep(0.782352)
+# t = 111.176352 s
+hand(D,1x)
+sleep(0.1)
+# t = 111.276352 s
+hand(U,1x)
+sleep(0.341176)
+# t = 111.617528 s
+hand(D,9)
+sleep(0.1)
+# t = 111.717528 s
+hand(U,9)
+sleep(0.120588)
+# t = 111.838116 s
+hand(D,x)
+sleep(0.1)
+# t = 111.938116 s
+hand(U,x)
+sleep(0.120588)
+# t = 112.058704 s
+hand(D,9)
+sleep(0.1)
+# t = 112.158704 s
+hand(U,9)
+sleep(0.341176)
+# t = 112.49988 s
+hand(D,7)
+sleep(0.1)
+# t = 112.59988 s
+hand(U,7)
+right_arm_move(29, 0.341176)
+sleep(0.341176)
+# t = 112.941056 s
+hand(D,4x)
+sleep(0.1)
+# t = 113.041056 s
+hand(U,4x)
+left_arm_move(14, 1.664704)
+sleep(1.664704)
+# t = 114.70576 s
+hand(D,49)
+sleep(0.1)
+# t = 114.80576 s
+hand(U,49)
+sleep(0.341176)
+# t = 115.146936 s
+hand(D,x)
+sleep(0.1)
+# t = 115.246936 s
+hand(U,x)
+right_arm_move(28, 0.120588)
+sleep(0.120588)
+# t = 115.367524 s
+hand(D,x)
+sleep(0.1)
+# t = 115.467524 s
+hand(U,x)
+sleep(0.120588)
+# t = 115.588112 s
+hand(D,8)
+sleep(0.1)
+# t = 115.688112 s
+hand(U,8)
+sleep(0.341176)
+# t = 116.029288 s
+hand(D,7)
+sleep(0.1)
+# t = 116.129288 s
+hand(U,7)
+right_arm_move(32, 0.341176)
+sleep(0.341176)
+# t = 116.470464 s
+hand(D,37)
+sleep(0.1)
+# t = 116.570464 s
+hand(U,37)
+sleep(0.341176)
+# t = 116.91164 s
+hand(D,x)
+sleep(0.1)
+# t = 117.01164 s
+hand(U,x)
+sleep(0.120588)
+# t = 117.132228 s
+hand(D,8)
+sleep(0.1)
+# t = 117.232228 s
+hand(U,8)
+sleep(0.120588)
+# t = 117.352816 s
+hand(D,x)
+sleep(0.1)
+# t = 117.452816 s
+hand(U,x)
+right_arm_move(30, 0.782352)
+sleep(0.782352)
+# t = 118.235168 s
+hand(D,28)
+sleep(0.1)
+# t = 118.335168 s
+hand(U,28)
+left_arm_move(11, 1.664704)
+sleep(0.341176)
+# t = 118.676344 s
+hand(D,9)
+sleep(0.1)
+# t = 118.776344 s
+hand(U,9)
+sleep(0.120588)
+# t = 118.896932 s
+hand(D,x)
+sleep(0.1)
+# t = 118.996932 s
+hand(U,x)
+sleep(0.120588)
+# t = 119.11752 s
+hand(D,9)
+sleep(0.1)
+# t = 119.21752 s
+hand(U,9)
+right_arm_move(28, 0.341176)
+sleep(0.341176)
+# t = 119.558696 s
+hand(D,8)
+sleep(0.1)
+# t = 119.658696 s
+hand(U,8)
+sleep(0.341176)
+# t = 119.999872 s
+hand(D,1x)
+sleep(0.1)
+# t = 120.099872 s
+hand(U,1x)
+sleep(1.664704)
+# t = 121.764576 s
+hand(D,27)
+sleep(0.1)
+# t = 121.864576 s
+hand(U,27)
+left_arm_move(12, 1.664704)
+sleep(0.341176)
+# t = 122.205752 s
+hand(D,8)
+sleep(0.1)
+# t = 122.305752 s
+hand(U,8)
+right_arm_move(32, 0.341176)
+sleep(0.341176)
+# t = 122.646928 s
+hand(D,7)
+sleep(0.1)
+# t = 122.746928 s
+hand(U,7)
+sleep(0.341176)
+# t = 123.088104 s
+hand(D,x)
+sleep(0.1)
+# t = 123.188104 s
+hand(U,x)
+sleep(0.341176)
+# t = 123.52928 s
+hand(D,48)
+sleep(0.1)
+# t = 123.62928 s
+hand(U,48)
+left_arm_move(11, 1.664704)
+sleep(0.341176)
+# t = 123.970456 s
+hand(D,7)
+sleep(0.1)
+# t = 124.070456 s
+hand(U,7)
+right_arm_move(28, 0.341176)
+sleep(0.341176)
+# t = 124.411632 s
+hand(D,x)
+sleep(0.1)
+# t = 124.511632 s
+hand(U,x)
+sleep(0.782352)
+# t = 125.293984 s
+hand(D,18)
+sleep(0.1)
+# t = 125.393984 s
+hand(U,18)
+sleep(0.341176)
+# t = 125.73516 s
+hand(D,7)
+sleep(0.1)
+# t = 125.83516 s
+hand(U,7)
+sleep(0.341176)
+# t = 126.176336 s
+hand(D,8)
+sleep(0.1)
+# t = 126.276336 s
+hand(U,8)
+right_arm_move(30, 0.341176)
+sleep(0.341176)
+# t = 126.617512 s
+hand(D,x)
+sleep(0.1)
+# t = 126.717512 s
+hand(U,x)
+sleep(0.341176)
+# t = 127.058688 s
+hand(D,4x)
+sleep(0.1)
+# t = 127.158688 s
+hand(U,4x)
+left_arm_move(14, 1.664704)
+right_arm_move(29, 0.782352)
+sleep(0.782352)
+# t = 127.94104 s
+hand(D,x)
+sleep(0.1)
+# t = 128.04104 s
+hand(U,x)
+sleep(0.120588)
+# t = 128.161628 s
+hand(D,9)
+sleep(0.1)
+# t = 128.261628 s
+hand(U,9)
+sleep(0.120588)
+# t = 128.382216 s
+hand(D,7)
+sleep(0.1)
+# t = 128.482216 s
+hand(U,7)
+sleep(0.341176)
+# t = 128.823392 s
+hand(D,49)
+sleep(0.1)
+# t = 128.923392 s
+hand(U,49)
+sleep(0.120588)
+# t = 129.04398 s
+hand(D,x)
+sleep(0.1)
+# t = 129.14398 s
+hand(U,x)
+sleep(0.120588)
+# t = 129.264568 s
+hand(D,9)
+sleep(0.1)
+# t = 129.364568 s
+hand(U,9)
+sleep(1.223528)
+# t = 130.588096 s
+hand(D,4)
+sleep(0.1)
+# t = 130.688096 s
+hand(U,4)
+left_arm_move(18, 1.664704)
+sleep(1.664704)
+# t = 132.3528 s
+hand(D,4x)
+sleep(0.1)
+# t = 132.4528 s
+hand(U,4x)
+left_arm_move(14, 3.429408)
+sleep(0.341176)
+# t = 132.793976 s
+hand(D,9)
+sleep(0.1)
+# t = 132.893976 s
+hand(U,9)
+sleep(0.341176)
+# t = 133.235152 s
+hand(D,x)
+sleep(0.1)
+# t = 133.335152 s
+hand(U,x)
+right_arm_move(32, 0.341176)
+sleep(0.341176)
+# t = 133.676328 s
+hand(D,8)
+sleep(0.1)
+# t = 133.776328 s
+hand(U,8)
+sleep(0.341176)
+# t = 134.117504 s
+hand(D,x)
+sleep(0.1)
+# t = 134.217504 s
+hand(U,x)
+right_arm_move(28, 1.664704)
+sleep(1.664704)
+# t = 135.882208 s
+hand(D,47)
+sleep(0.1)
+# t = 135.982208 s
+hand(U,47)
+left_arm_move(13, 1.664704)
+sleep(0.341176)
+# t = 136.323384 s
+hand(D,8)
+sleep(0.1)
+# t = 136.423384 s
+hand(U,8)
+sleep(0.341176)
+# t = 136.76456 s
+hand(D,x)
+sleep(0.1)
+# t = 136.86456 s
+hand(U,x)
+right_arm_move(33, 0.782352)
+sleep(0.782352)
+# t = 137.646912 s
+hand(D,37)
+sleep(0.1)
+# t = 137.746912 s
+hand(U,37)
+sleep(0.341176)
+# t = 138.088088 s
+hand(D,x)
+sleep(0.1)
+# t = 138.188088 s
+hand(U,x)
+sleep(0.341176)
+# t = 138.529264 s
+hand(D,9)
+sleep(0.1)
+# t = 138.629264 s
+hand(U,9)
+sleep(0.341176)
+# t = 138.97044 s
+hand(D,7)
+sleep(0.1)
+# t = 139.07044 s
+hand(U,7)
+right_arm_move(29, 0.341176)
+sleep(0.341176)
+# t = 139.411616 s
+hand(D,1x)
+sleep(0.1)
+# t = 139.511616 s
+hand(U,1x)
+right_arm_move(28, 0.341176)
+sleep(0.341176)
+# t = 139.852792 s
+hand(D,x)
+sleep(0.1)
+# t = 139.952792 s
+hand(U,x)
+sleep(0.341176)
+# t = 140.293968 s
+hand(D,8)
+sleep(0.1)
+# t = 140.393968 s
+hand(U,8)
+sleep(0.341176)
+# t = 140.735144 s
+hand(D,x)
+sleep(0.1)
+# t = 140.835144 s
+hand(U,x)
+sleep(0.341176)
+# t = 141.17632 s
+hand(D,27)
+sleep(0.1)
+# t = 141.27632 s
+hand(U,27)
+left_arm_move(14, 1.664704)
+sleep(1.664704)
+# t = 142.941024 s
+hand(D,47)
+sleep(0.1)
+# t = 143.041024 s
+hand(U,47)
+left_arm_move(13, 1.664704)
+sleep(0.341176)
+# t = 143.3822 s
+hand(D,8)
+sleep(0.1)
+# t = 143.4822 s
+hand(U,8)
+sleep(0.341176)
+# t = 143.823376 s
+hand(D,x)
+sleep(0.1)
+# t = 143.923376 s
+hand(U,x)
+right_arm_move(33, 0.782352)
+sleep(0.782352)
+# t = 144.705728 s
+hand(D,47)
+sleep(0.1)
+# t = 144.805728 s
+hand(U,47)
+sleep(0.341176)
+# t = 145.146904 s
+hand(D,x)
+sleep(0.1)
+# t = 145.246904 s
+hand(U,x)
+sleep(0.341176)
+# t = 145.58808 s
+hand(D,9)
+sleep(0.1)
+# t = 145.68808 s
+hand(U,9)
+sleep(0.341176)
+# t = 146.029256 s
+hand(D,7)
+sleep(0.1)
+# t = 146.129256 s
+hand(U,7)
+right_arm_move(29, 0.341176)
+sleep(0.341176)
+# t = 146.470432 s
+hand(D,1x)
+sleep(0.1)
+# t = 146.570432 s
+hand(U,1x)
+sleep(0.341176)
+# t = 146.911608 s
+hand(D,9)
+sleep(0.1)
+# t = 147.011608 s
+hand(U,9)
+sleep(0.341176)
+# t = 147.352784 s
+hand(D,7)
+sleep(0.1)
+# t = 147.452784 s
+hand(U,7)
+right_arm_move(30, 0.341176)
+sleep(0.341176)
+# t = 147.79396 s
+hand(D,x)
+sleep(0.1)
+# t = 147.89396 s
+hand(U,x)
+sleep(0.120588)
+# t = 148.014548 s
+hand(D,9)
+sleep(0.1)
+# t = 148.114548 s
+hand(U,9)
+sleep(0.120588)
+# t = 148.235136 s
+hand(D,29)
+sleep(0.1)
+# t = 148.335136 s
+hand(U,29)
+left_arm_move(14, 1.664704)
+right_arm_move(28, 1.664704)
+sleep(1.664704)
+# t = 149.99984 s
+hand(D,47)
+sleep(0.1)
+# t = 150.09984 s
+hand(U,47)
+sleep(0.341176)
+# t = 150.441016 s
+hand(D,8)
+sleep(0.1)
+# t = 150.541016 s
+hand(U,8)
+sleep(0.341176)
+# t = 150.882192 s
+hand(D,x)
+sleep(0.1)
+# t = 150.982192 s
+hand(U,x)
+right_arm_move(33, 0.782352)
+sleep(0.782352)
+# t = 151.764544 s
+hand(D,37)
+sleep(0.1)
+# t = 151.864544 s
+hand(U,37)
+left_arm_move(12, 1.664704)
+sleep(0.341176)
+# t = 152.20572 s
+hand(D,x)
+sleep(0.1)
+# t = 152.30572 s
+hand(U,x)
+sleep(0.341176)
+# t = 152.646896 s
+hand(D,9)
+sleep(0.1)
+# t = 152.746896 s
+hand(U,9)
+sleep(0.341176)
+# t = 153.088072 s
+hand(D,7)
+sleep(0.1)
+# t = 153.188072 s
+hand(U,7)
+right_arm_move(29, 0.341176)
+sleep(0.341176)
+# t = 153.529248 s
+hand(D,4x)
+sleep(0.1)
+# t = 153.629248 s
+hand(U,4x)
+sleep(0.341176)
+# t = 153.970424 s
+hand(D,9)
+sleep(0.1)
+# t = 154.070424 s
+hand(U,9)
+sleep(0.341176)
+# t = 154.4116 s
+hand(D,x)
+sleep(0.1)
+# t = 154.5116 s
+hand(U,x)
+right_arm_move(28, 0.341176)
+sleep(0.341176)
+# t = 154.852776 s
+hand(D,x)
+sleep(0.1)
+# t = 154.952776 s
+hand(U,x)
+sleep(0.341176)
+# t = 155.293952 s
+hand(D,38)
+sleep(0.1)
+# t = 155.393952 s
+hand(U,38)
+sleep(1.664704)
+# t = 157.058656 s
+hand(D,28)
+sleep(0.1)
+# t = 157.158656 s
+hand(U,28)
+sleep(0.341176)
+# t = 157.499832 s
+hand(D,7)
+sleep(0.1)
+# t = 157.599832 s
+hand(U,7)
+right_arm_move(32, 0.341176)
+sleep(0.341176)
+# t = 157.941008 s
+hand(D,8)
+sleep(0.1)
+# t = 158.041008 s
+hand(U,8)
+sleep(0.782352)
+# t = 158.82336 s
+hand(D,17)
+sleep(0.1)
+# t = 158.92336 s
+hand(U,17)
+sleep(0.341176)
+# t = 159.264536 s
+hand(D,8)
+sleep(0.1)
+# t = 159.364536 s
+hand(U,8)
+sleep(0.341176)
+# t = 159.705712 s
+hand(D,x)
+sleep(0.1)
+# t = 159.805712 s
+hand(U,x)
+right_arm_move(33, 0.782352)
+sleep(0.782352)
+# t = 160.588064 s
+hand(D,3x)
+sleep(0.1)
+# t = 160.688064 s
+hand(U,3x)
+left_arm_move(15, 0.782352)
+sleep(0.341176)
+# t = 161.02924 s
+hand(D,9)
+sleep(0.1)
+# t = 161.12924 s
+hand(U,9)
+sleep(0.341176)
+# t = 161.470416 s
+hand(D,47)
+sleep(0.1)
+# t = 161.570416 s
+hand(U,47)
+right_arm_move(29, 0.341176)
+sleep(0.341176)
+# t = 161.911592 s
+hand(D,7)
+sleep(0.1)
+# t = 162.011592 s
+hand(U,7)
+sleep(0.341176)
+# t = 162.352768 s
+hand(D,39)
+sleep(0.1)
+# t = 162.452768 s
+hand(U,39)
+sleep(0.120588)
+# t = 162.573356 s
+hand(D,x)
+sleep(0.1)
+# t = 162.673356 s
+hand(U,x)
+sleep(0.120588)
+# t = 162.793944 s
+hand(D,9)
+sleep(0.1)
+# t = 162.893944 s
+hand(U,9)
+sleep(1.223528)
+# t = 164.117472 s
+hand(D,3)
+sleep(0.1)
+# t = 164.217472 s
+hand(U,3)
+sleep(1.664704)
+# t = 165.882176 s
+hand(D,39)
+sleep(0.1)
+# t = 165.982176 s
+hand(U,39)
+sleep(0.341176)
+# t = 166.323352 s
+hand(D,x)
+sleep(0.1)
+# t = 166.423352 s
+hand(U,x)
+right_arm_move(28, 0.120588)
+sleep(0.120588)
+# t = 166.54394 s
+hand(D,x)
+sleep(0.1)
+# t = 166.64394 s
+hand(U,x)
+sleep(0.120588)
+# t = 166.764528 s
+hand(D,8)
+sleep(0.1)
+# t = 166.864528 s
+hand(U,8)
+sleep(0.341176)
+# t = 167.205704 s
+hand(D,7)
+sleep(0.1)
+# t = 167.305704 s
+hand(U,7)
+right_arm_move(32, 0.341176)
+sleep(0.341176)
+# t = 167.64688 s
+hand(D,27)
+sleep(0.1)
+# t = 167.74688 s
+hand(U,27)
+sleep(0.341176)
+# t = 168.088056 s
+hand(D,x)
+sleep(0.1)
+# t = 168.188056 s
+hand(U,x)
+sleep(0.120588)
+# t = 168.308644 s
+hand(D,8)
+sleep(0.1)
+# t = 168.408644 s
+hand(U,8)
+sleep(0.120588)
+# t = 168.529232 s
+hand(D,x)
+sleep(0.1)
+# t = 168.629232 s
+hand(U,x)
+right_arm_move(30, 0.782352)
+sleep(0.782352)
+# t = 169.411584 s
+hand(D,18)
+sleep(0.1)
+# t = 169.511584 s
+hand(U,18)
+left_arm_move(11, 1.664704)
+sleep(0.341176)
+# t = 169.85276 s
+hand(D,9)
+sleep(0.1)
+# t = 169.95276 s
+hand(U,9)
+sleep(0.120588)
+# t = 170.073348 s
+hand(D,x)
+sleep(0.1)
+# t = 170.173348 s
+hand(U,x)
+right_arm_move(28, 0.120588)
+sleep(0.120588)
+# t = 170.293936 s
+hand(D,8)
+sleep(0.1)
+# t = 170.393936 s
+hand(U,8)
+sleep(0.341176)
+# t = 170.735112 s
+hand(D,7)
+sleep(0.1)
+# t = 170.835112 s
+hand(U,7)
+sleep(0.341176)
+# t = 171.176288 s
+hand(D,47)
+sleep(0.1)
+# t = 171.276288 s
+hand(U,47)
+sleep(1.664704)
+# t = 172.940992 s
+hand(D,3x)
+sleep(0.1)
+# t = 173.040992 s
+hand(U,3x)
+right_arm_move(30, 0.341176)
+sleep(0.341176)
+# t = 173.382168 s
+hand(D,9)
+sleep(0.1)
+# t = 173.482168 s
+hand(U,9)
+sleep(0.120588)
+# t = 173.602756 s
+hand(D,x)
+sleep(0.1)
+# t = 173.702756 s
+hand(U,x)
+right_arm_move(28, 0.120588)
+sleep(0.120588)
+# t = 173.823344 s
+hand(D,8)
+sleep(0.1)
+# t = 173.923344 s
+hand(U,8)
+sleep(0.341176)
+# t = 174.26452 s
+hand(D,7)
+sleep(0.1)
+# t = 174.36452 s
+hand(U,7)
+right_arm_move(32, 0.341176)
+sleep(0.341176)
+# t = 174.705696 s
+hand(D,27)
+sleep(0.1)
+# t = 174.805696 s
+hand(U,27)
+sleep(0.341176)
+# t = 175.146872 s
+hand(D,x)
+sleep(0.1)
+# t = 175.246872 s
+hand(U,x)
+sleep(0.120588)
+# t = 175.36746 s
+hand(D,8)
+sleep(0.1)
+# t = 175.46746 s
+hand(U,8)
+sleep(0.120588)
+# t = 175.588048 s
+hand(D,x)
+sleep(0.1)
+# t = 175.688048 s
+hand(U,x)
+right_arm_move(33, 0.782352)
+sleep(0.782352)
+# t = 176.4704 s
+hand(D,1x)
+sleep(0.1)
+# t = 176.5704 s
+hand(U,1x)
+sleep(0.341176)
+# t = 176.911576 s
+hand(D,9)
+sleep(0.1)
+# t = 177.011576 s
+hand(U,9)
+sleep(0.120588)
+# t = 177.132164 s
+hand(D,x)
+sleep(0.1)
+# t = 177.232164 s
+hand(U,x)
+sleep(0.120588)
+# t = 177.352752 s
+hand(D,9)
+sleep(0.1)
+# t = 177.452752 s
+hand(U,9)
+sleep(0.341176)
+# t = 177.793928 s
+hand(D,7)
+sleep(0.1)
+# t = 177.893928 s
+hand(U,7)
+right_arm_move(29, 0.341176)
+sleep(0.341176)
+# t = 178.235104 s
+hand(D,4x)
+sleep(0.1)
+# t = 178.335104 s
+hand(U,4x)
+left_arm_move(14, 1.664704)
+sleep(1.664704)
+# t = 179.999808 s
+hand(D,49)
+sleep(0.1)
+# t = 180.099808 s
+hand(U,49)
+sleep(0.341176)
+# t = 180.440984 s
+hand(D,x)
+sleep(0.1)
+# t = 180.540984 s
+hand(U,x)
+right_arm_move(28, 0.120588)
+sleep(0.120588)
+# t = 180.661572 s
+hand(D,x)
+sleep(0.1)
+# t = 180.761572 s
+hand(U,x)
+sleep(0.120588)
+# t = 180.88216 s
+hand(D,8)
+sleep(0.1)
+# t = 180.98216 s
+hand(U,8)
+sleep(0.341176)
+# t = 181.323336 s
+hand(D,7)
+sleep(0.1)
+# t = 181.423336 s
+hand(U,7)
+right_arm_move(32, 0.341176)
+sleep(0.341176)
+# t = 181.764512 s
+hand(D,37)
+sleep(0.1)
+# t = 181.864512 s
+hand(U,37)
+sleep(0.341176)
+# t = 182.205688 s
+hand(D,x)
+sleep(0.1)
+# t = 182.305688 s
+hand(U,x)
+sleep(0.120588)
+# t = 182.426276 s
+hand(D,8)
+sleep(0.1)
+# t = 182.526276 s
+hand(U,8)
+sleep(0.120588)
+# t = 182.646864 s
+hand(D,x)
+sleep(0.1)
+# t = 182.746864 s
+hand(U,x)
+right_arm_move(30, 0.782352)
+sleep(0.782352)
+# t = 183.529216 s
+hand(D,28)
+sleep(0.1)
+# t = 183.629216 s
+hand(U,28)
+left_arm_move(11, 1.664704)
+sleep(0.341176)
+# t = 183.970392 s
+hand(D,9)
+sleep(0.1)
+# t = 184.070392 s
+hand(U,9)
+sleep(0.120588)
+# t = 184.19098 s
+hand(D,x)
+sleep(0.1)
+# t = 184.29098 s
+hand(U,x)
+sleep(0.120588)
+# t = 184.411568 s
+hand(D,9)
+sleep(0.1)
+# t = 184.511568 s
+hand(U,9)
+right_arm_move(28, 0.341176)
+sleep(0.341176)
+# t = 184.852744 s
+hand(D,8)
+sleep(0.1)
+# t = 184.952744 s
+hand(U,8)
+sleep(0.341176)
+# t = 185.29392 s
+hand(D,1x)
+sleep(0.1)
+# t = 185.39392 s
+hand(U,1x)
+sleep(1.664704)
+# t = 187.058624 s
+hand(D,27)
+sleep(0.1)
+# t = 187.158624 s
+hand(U,27)
+left_arm_move(12, 1.664704)
+sleep(0.341176)
+# t = 187.4998 s
+hand(D,8)
+sleep(0.1)
+# t = 187.5998 s
+hand(U,8)
+right_arm_move(32, 0.341176)
+sleep(0.341176)
+# t = 187.940976 s
+hand(D,7)
+sleep(0.1)
+# t = 188.040976 s
+hand(U,7)
+sleep(0.341176)
+# t = 188.382152 s
+hand(D,x)
+sleep(0.1)
+# t = 188.482152 s
+hand(U,x)
+sleep(0.341176)
+# t = 188.823328 s
+hand(D,48)
+sleep(0.1)
+# t = 188.923328 s
+hand(U,48)
+left_arm_move(11, 1.664704)
+sleep(0.341176)
+# t = 189.264504 s
+hand(D,7)
+sleep(0.1)
+# t = 189.364504 s
+hand(U,7)
+right_arm_move(28, 0.341176)
+sleep(0.341176)
+# t = 189.70568 s
+hand(D,x)
+sleep(0.1)
+# t = 189.80568 s
+hand(U,x)
+sleep(0.782352)
+# t = 190.588032 s
+hand(D,18)
+sleep(0.1)
+# t = 190.688032 s
+hand(U,18)
+sleep(0.341176)
+# t = 191.029208 s
+hand(D,7)
+sleep(0.1)
+# t = 191.129208 s
+hand(U,7)
+sleep(0.341176)
+# t = 191.470384 s
+hand(D,8)
+sleep(0.1)
+# t = 191.570384 s
+hand(U,8)
+right_arm_move(30, 0.341176)
+sleep(0.341176)
+# t = 191.91156 s
+hand(D,x)
+sleep(0.1)
+# t = 192.01156 s
+hand(U,x)
+sleep(0.341176)
+# t = 192.352736 s
+hand(D,4x)
+sleep(0.1)
+# t = 192.452736 s
+hand(U,4x)
+left_arm_move(14, 1.664704)
+right_arm_move(29, 0.782352)
+sleep(0.782352)
+# t = 193.235088 s
+hand(D,x)
+sleep(0.1)
+# t = 193.335088 s
+hand(U,x)
+sleep(0.120588)
+# t = 193.455676 s
+hand(D,9)
+sleep(0.1)
+# t = 193.555676 s
+hand(U,9)
+sleep(0.120588)
+# t = 193.676264 s
+hand(D,7)
+sleep(0.1)
+# t = 193.776264 s
+hand(U,7)
+sleep(0.341176)
+# t = 194.11744 s
+hand(D,49)
+sleep(0.1)
+# t = 194.21744 s
+hand(U,49)
+sleep(0.120588)
+# t = 194.338028 s
+hand(D,x)
+sleep(0.1)
+# t = 194.438028 s
+hand(U,x)
+sleep(0.120588)
+# t = 194.558616 s
+hand(D,9)
+sleep(0.1)
+# t = 194.658616 s
+hand(U,9)
+sleep(1.223528)
+# t = 195.882144 s
+hand(D,4)
+sleep(0.1)
+# t = 195.982144 s
+hand(U,4)
+left_arm_move(18, 1.664704)
+sleep(1.664704)
+# t = 197.646848 s
+hand(D,4x)
+sleep(0.1)
+# t = 197.746848 s
+hand(U,4x)
+left_arm_move(14, 3.429408)
+sleep(0.341176)
+# t = 198.088024 s
+hand(D,9)
+sleep(0.1)
+# t = 198.188024 s
+hand(U,9)
+sleep(0.341176)
+# t = 198.5292 s
+hand(D,x)
+sleep(0.1)
+# t = 198.6292 s
+hand(U,x)
+right_arm_move(32, 0.341176)
+sleep(0.341176)
+# t = 198.970376 s
+hand(D,8)
+sleep(0.1)
+# t = 199.070376 s
+hand(U,8)
+sleep(0.341176)
+# t = 199.411552 s
+hand(D,x)
+sleep(0.1)
+# t = 199.511552 s
+hand(U,x)
+right_arm_move(29, 1.664704)
+sleep(1.664704)
+# t = 201.176256 s
+hand(D,49)
+sleep(0.1)
+# t = 201.276256 s
+hand(U,49)
+sleep(0.120588)
+# t = 201.396844 s
+hand(D,x)
+sleep(0.1)
+# t = 201.496844 s
+hand(U,x)
+sleep(0.120588)
+# t = 201.617432 s
+hand(D,9)
+sleep(0.1)
+# t = 201.717432 s
+hand(U,9)
+sleep(1.223528)
+# t = 202.94096 s
+hand(D,4)
+sleep(0.1)
+# t = 203.04096 s
+hand(U,4)
+left_arm_move(11, 1.664704)
+sleep(1.664704)
+# t = 204.705664 s
+hand(D,39)
+sleep(0.1)
+# t = 204.805664 s
+hand(U,39)
+sleep(0.341176)
+# t = 205.14684 s
+hand(D,x)
+sleep(0.1)
+# t = 205.24684 s
+hand(U,x)
+right_arm_move(28, 0.120588)
+sleep(0.120588)
+# t = 205.367428 s
+hand(D,x)
+sleep(0.1)
+# t = 205.467428 s
+hand(U,x)
+sleep(0.120588)
+# t = 205.588016 s
+hand(D,8)
+sleep(0.1)
+# t = 205.688016 s
+hand(U,8)
+sleep(0.341176)
+# t = 206.029192 s
+hand(D,7)
+sleep(0.1)
+# t = 206.129192 s
+hand(U,7)
+right_arm_move(32, 0.341176)
+sleep(0.341176)
+# t = 206.470368 s
+hand(D,27)
+sleep(0.1)
+# t = 206.570368 s
+hand(U,27)
+sleep(0.341176)
+# t = 206.911544 s
+hand(D,x)
+sleep(0.1)
+# t = 207.011544 s
+hand(U,x)
+sleep(0.120588)
+# t = 207.132132 s
+hand(D,8)
+sleep(0.1)
+# t = 207.232132 s
+hand(U,8)
+sleep(0.120588)
+# t = 207.35272 s
+hand(D,x)
+sleep(0.1)
+# t = 207.45272 s
+hand(U,x)
+right_arm_move(30, 0.782352)
+sleep(0.782352)
+# t = 208.235072 s
+hand(D,18)
+sleep(0.1)
+# t = 208.335072 s
+hand(U,18)
+sleep(0.341176)
+# t = 208.676248 s
+hand(D,9)
+sleep(0.1)
+# t = 208.776248 s
+hand(U,9)
+sleep(0.120588)
+# t = 208.896836 s
+hand(D,x)
+sleep(0.1)
+# t = 208.996836 s
+hand(U,x)
+right_arm_move(29, 0.120588)
+sleep(0.120588)
+# t = 209.117424 s
+hand(D,x)
+sleep(0.1)
+# t = 209.217424 s
+hand(U,x)
+sleep(0.341176)
+# t = 209.5586 s
+hand(D,9)
+sleep(0.1)
+# t = 209.6586 s
+hand(U,9)
+sleep(0.341176)
+# t = 209.999776 s
+hand(D,47)
+sleep(0.1)
+# t = 210.099776 s
+hand(U,47)
+left_arm_move(14, 1.664704)
+sleep(1.664704)
+# t = 211.76448 s
+hand(D,49)
+sleep(0.1)
+# t = 211.86448 s
+hand(U,49)
+sleep(1.664704)
+# t = 213.529184 s
+hand(D,4)
+sleep(0.1)
+# t = 213.629184 s
+hand(U,4)
+sleep(1.58026)
+# 演奏结束：t = 215.209444 s，全部手指已抬起

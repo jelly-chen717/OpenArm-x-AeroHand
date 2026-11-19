@@ -1,0 +1,17 @@
+{
+  "side": "right",
+  "channel": "0x52",
+  "motor_id": 1,
+  "candidate_direction": 1,
+  "user_confirmation": "candidate forward shoulder raise matches physical pose",
+  "evidence": [
+    "j1_baseline.jsonl",
+    "j1_forward.jsonl",
+    "j1_candidate_before_after.png"
+  ],
+  "delta_motor_deg": 18.2505,
+  "isolated_direction_verified": false,
+  "zero_verified": false,
+  "scale_verified": false,
+  "hardware_verified": false
+}

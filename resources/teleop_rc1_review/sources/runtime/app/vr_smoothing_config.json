@@ -1,0 +1,142 @@
+{
+  "schema_version": 1,
+  "mode": "source",
+  "source_filter": {
+    "weights": [
+      0.6,
+      0.3,
+      0.1
+    ],
+    "history_max_age_s": 0.08
+  },
+  "period_s": 0.01,
+  "target_max_age_s": 0.25,
+  "ik_boundary_tolerance_rad": 0.017453292519943295,
+  "source_feedback_boundary_tolerance_rad": 0.03490658503988659,
+  "streaming_tracking": {
+    "independent_joints": true,
+    "check_trajectory_extrema": true
+  },
+  "profile": {
+    "id": "named_urdf_continuous_command_limits_20261106",
+    "validated_for_hardware": false,
+    "commissioning_evidence": null,
+    "model_urdf_sha256": "83f2ac75b3271b397b55b339a42c9edeb3994f472a6d65e1ce42f81014923a34",
+    "joints": {
+      "openarm_left_joint1": {
+        "min_position": -3.490659,
+        "max_position": 1.3962629999999998,
+        "max_velocity": 0.4,
+        "max_acceleration": 0.8,
+        "max_jerk": 8
+      },
+      "openarm_left_joint2": {
+        "min_position": -3.3161253267948965,
+        "max_position": 0.17453267320510335,
+        "max_velocity": 0.4,
+        "max_acceleration": 0.8,
+        "max_jerk": 8
+      },
+      "openarm_left_joint3": {
+        "min_position": -1.570796,
+        "max_position": 1.570796,
+        "max_velocity": 0.6,
+        "max_acceleration": 1.2,
+        "max_jerk": 12
+      },
+      "openarm_left_joint4": {
+        "min_position": 0.0,
+        "max_position": 2.443461,
+        "max_velocity": 0.6,
+        "max_acceleration": 1.2,
+        "max_jerk": 12
+      },
+      "openarm_left_joint5": {
+        "min_position": -1.570796,
+        "max_position": 1.570796,
+        "max_velocity": 0.8,
+        "max_acceleration": 1.6,
+        "max_jerk": 16
+      },
+      "openarm_left_joint6": {
+        "min_position": -0.785398,
+        "max_position": 0.785398,
+        "max_velocity": 0.8,
+        "max_acceleration": 1.6,
+        "max_jerk": 16
+      },
+      "openarm_left_joint7": {
+        "min_position": -1.570796,
+        "max_position": 1.570796,
+        "max_velocity": 0.8,
+        "max_acceleration": 1.6,
+        "max_jerk": 16
+      },
+      "openarm_right_joint1": {
+        "min_position": -1.396263,
+        "max_position": 3.490659,
+        "max_velocity": 0.4,
+        "max_acceleration": 0.8,
+        "max_jerk": 8
+      },
+      "openarm_right_joint2": {
+        "min_position": -0.17453267320510335,
+        "max_position": 3.3161253267948965,
+        "max_velocity": 0.4,
+        "max_acceleration": 0.8,
+        "max_jerk": 8
+      },
+      "openarm_right_joint3": {
+        "min_position": -1.570796,
+        "max_position": 1.570796,
+        "max_velocity": 0.6,
+        "max_acceleration": 1.2,
+        "max_jerk": 12
+      },
+      "openarm_right_joint4": {
+        "min_position": 0.0,
+        "max_position": 2.443461,
+        "max_velocity": 0.6,
+        "max_acceleration": 1.2,
+        "max_jerk": 12
+      },
+      "openarm_right_joint5": {
+        "min_position": -1.570796,
+        "max_position": 1.570796,
+        "max_velocity": 0.8,
+        "max_acceleration": 1.6,
+        "max_jerk": 16
+      },
+      "openarm_right_joint6": {
+        "min_position": -0.785398,
+        "max_position": 0.785398,
+        "max_velocity": 0.8,
+        "max_acceleration": 1.6,
+        "max_jerk": 16
+      },
+      "openarm_right_joint7": {
+        "min_position": -1.570796,
+        "max_position": 1.570796,
+        "max_velocity": 0.8,
+        "max_acceleration": 1.6,
+        "max_jerk": 16
+      }
+    },
+    "units": "rad, rad/s, rad/s2, rad/s3",
+    "dynamic_limit_basis": "Command speed, acceleration and jerk caps; physical maximum capability not certified."
+  },
+  "continuous_operation": {
+    "enabled": true,
+    "max_tracking_error_rad": 0.06,
+    "max_tracking_error_hard_rad": 0.08,
+    "tracking_error_debounce_s": 0.12,
+    "tracking_resume_error_rad": 0.05,
+    "tracking_settle_timeout_s": 0.8,
+    "tracking_settle_stable_s": 0.15,
+    "tracking_settled_release_error_rad": 0.06,
+    "tracking_settled_release_stable_s": 0.3,
+    "tracking_dynamic_wrist_lag_s": 0.05,
+    "offline_evidence_path": "/test/state/vr_continuous_20261106/commissioning/continuous_limit_verification.json",
+    "offline_evidence_sha256": "7a3d7ba632d0954ef6b4904c7ec7c52389f411b62d19ad9d60217c7083e6f9b0"
+  }
+}

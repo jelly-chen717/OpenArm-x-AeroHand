@@ -1,0 +1,11 @@
+{
+  "user_messages": [
+    "在运动过程中肯定会有轻微的关节震荡的 门槛值不要太高 要考虑现实运动情况",
+    "我先复位，再完整执行 J7→J1",
+    "已复位 执行吧"
+  ],
+  "time_unix": 1794833387.5509596,
+  "changed": "settle speed 0.03 -> 0.05 and user-requested new reset zero; all relative deltas/durations/gains/limits unchanged",
+  "zero_source": "reset_zero.jsonl",
+  "settings_sha256": "244f20795950852f32d71317512407bb0baeb4265a09ba83d9d5848692336189"
+}

@@ -1,0 +1,22 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>钢琴时光 · 离线演奏</title><style>__STYLE__</style><!-- Three.js license
+__THREE_LICENSE__
+--></head><body>
+<header><strong><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 4h18v16H3zM7 4v10h3V4m4 0v10h3V4M8 14v6m8-6v6"/></svg>钢琴时光</strong><small>本地曲库 · 四指演奏</small></header>
+<button id="libraryEdge" aria-label="打开曲库" aria-expanded="false" aria-controls="library" title="打开曲库"></button>
+<div id="overlay" hidden></div><main><aside id="library" class="library" aria-label="曲库" aria-hidden="true" inert><div class="library-head"><h2><span>曲库</span><span id="libraryCount"></span><button id="drawerClose" aria-label="关闭曲库" title="关闭曲库">关闭</button></h2>
+<div class="library-search"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m15.5 15.5 5 5"/></svg><input id="search" class="search" type="search" placeholder="搜索歌名" aria-label="搜索歌名"></div></div><div id="songList" aria-label="歌曲列表"><div id="rows"></div><div id="empty" hidden><p>未找到歌曲</p><button id="clearSearch">清空搜索</button></div></div><output id="focusTitle"></output><div class="library-foot"><input id="files" type="file" accept=".txt" multiple hidden><button id="import">导入 TXT</button><p id="selectionInfo">从曲库选择歌曲，或导入本地 TXT。</p><div id="pending" hidden><span id="pendingName"></span><button id="playPending">播放此曲</button></div><button id="cancel" hidden>取消准备</button><button id="settings">编辑曲谱</button><button id="choose" hidden>继续选曲</button><small>支持批量导入。导入与编辑仅在本次页面会话中保留，刷新后恢复内置曲库。</small></div></aside>
+<section class="stage-panel" id="stagePanel"><div id="scroll" tabindex="0" aria-label="钢琴舞台">
+<div id="sceneHost"></div><div id="stageHint">选择一首歌，音符将在这里落下</div><output id="noteReadout" aria-label="当前音符"></output><div id="stage"><canvas id="roll" aria-label="下落音符"></canvas><div class="rails"><div id="left" class="hand" hidden></div><div id="right" class="hand right" hidden></div></div><div id="keys"></div></div></div><div class="stage-caption"><span><span class="legend-left">左手 1234</span> / <span class="legend-right">右手 789x</span>　<span id="positions">手位尚未定位</span></span><span>A0 — C8 · 88 键</span></div><p id="notice" role="alert"></p></section></main>
+<nav id="viewActions" aria-label="视图工具"><button id="fullscreen" aria-label="进入全屏">全屏</button><button id="immerse" aria-pressed="false">沉浸模式</button><button id="drawerOpen" aria-expanded="false" aria-controls="library">曲库</button></nav>
+
+<section id="transport" aria-label="播放控制">
+<div id="playbackStatus"><div class="playback-heading"><h1 id="playingName">选一首歌，让音乐响起。</h1><span id="state" class="state" role="status">待选曲</span></div><progress id="progress" value="0" max="1" aria-label="演奏进度（只读）"></progress><div class="time-row"><span id="elapsed">0:00 / 0:00</span><span id="progressPercent">0%</span><span id="remaining">预计剩余 —</span></div></div>
+<div id="transportButtons" aria-label="播放操作"><button id="pause" disabled>暂停</button><button id="start" class="primary" disabled>开始</button><button id="restart" disabled>重播</button><button id="stop" disabled>结束</button></div>
+<section id="mixControls" aria-label="音量与倍速"><label class="vertical-parameter" for="volume"><span>音量</span><input id="volume" aria-label="音量" aria-orientation="horizontal" type="range" min="0" max="1" step=".01" value=".5"><output id="volumeValue" for="volume">50%</output></label><label class="vertical-parameter" for="speed"><span>倍速</span><input id="speed" aria-label="演奏倍速" aria-orientation="horizontal" type="range" min="0.5" max="2" step="0.1" value="1" list="speedTicks"><output id="speedValue" for="speed">1.0×</output></label><datalist id="speedTicks"><option value="0.5"></option><option value="1"></option><option value="1.5"></option><option value="2"></option></datalist></section></section>
+<dialog id="config"><h2>编辑曲谱</h2><p class="muted">左手覆盖白键 1–23，右手 24–52；每侧四指。保存为本次会话中的新歌曲。</p><label>音频调度容差（毫秒） <input id="tolerance" type="number" min="50" max="1000" value="200"></label><textarea id="text" spellcheck="false" aria-label="演奏指令"></textarea><button id="apply">保存为临时歌曲</button> <button id="close">关闭</button><p id="configError" role="alert"></p></dialog>
+<script id="assets" type="application/json">__ASSETS__</script>
+<script type="module">
+import * as THREE from "__THREE_URL__";
+__SCENE__
+__APP__
+</script></body></html>

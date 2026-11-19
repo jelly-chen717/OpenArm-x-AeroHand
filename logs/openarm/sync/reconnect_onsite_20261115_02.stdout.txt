@@ -1,0 +1,127 @@
+hardware | left: no feedback age=-- | right: no feedback age=--
+hardware | left: OK age=0.000s | right: OK age=0.015s
+hardware | left: OK age=0.015s | right: OK age=0.015s
+hardware | left: OK age=0.015s | right: OK age=0.015s
+hardware | left: OK age=0.031s | right: OK age=0.000s
+hardware | left: OK age=0.046s | right: OK age=0.015s
+hardware | left: OK age=0.015s | right: OK age=0.031s
+hardware | left: OK age=0.015s | right: OK age=0.015s
+hardware | left: OK age=0.015s | right: OK age=0.015s
+hardware | left: OK age=0.015s | right: OK age=0.015s
+hardware | left: OK age=0.016s | right: OK age=0.031s
+hardware | left: OK age=0.031s | right: OK age=0.031s
+hardware | left: OK age=0.031s | right: OK age=0.016s
+hardware | left: OK age=0.016s | right: OK age=0.031s
+hardware | left: OK age=0.032s | right: OK age=0.016s
+hardware | left: OK age=0.015s | right: OK age=0.031s
+hardware | left: OK age=0.016s | right: OK age=0.031s
+hardware | left: OK age=0.031s | right: OK age=0.015s
+hardware | left: OK age=0.046s | right: OK age=0.031s
+hardware | left: OK age=0.016s | right: OK age=0.016s
+hardware | left: OK age=0.016s | right: OK age=0.016s
+hardware | left: OK age=0.015s | right: OK age=0.031s
+hardware | left: OK age=0.047s | right: OK age=0.047s
+hardware | left: OK age=0.015s | right: OK age=0.015s
+hardware | left: OK age=0.016s | right: OK age=0.031s
+hardware | left: OK age=0.015s | right: OK age=0.015s
+hardware | left: OK age=0.016s | right: OK age=0.032s
+hardware | left: OK age=0.031s | right: OK age=0.031s
+hardware | left: OK age=0.031s | right: OK age=0.031s
+hardware | left: OK age=0.031s | right: OK age=0.047s
+hardware | left: OK age=0.016s | right: OK age=0.032s
+hardware | left: OK age=0.015s | right: OK age=0.047s
+hardware | left: OK age=0.031s | right: OK age=0.016s
+hardware | left: OK age=0.015s | right: OK age=0.031s
+hardware | left: OK age=0.016s | right: OK age=0.032s
+hardware | left: PCAN 0x51 before transmit: 0x1400 The value of a handle (PCAN-Channel, PCAN-Hardware, PCAN-Net, PCAN-Client) is invalid age=-- | right: stale or future feedback age=0.172s
+hardware | left: PCAN 0x51 before transmit: 0x1400 The value of a handle (PCAN-Channel, PCAN-Hardware, PCAN-Net, PCAN-Client) is invalid age=-- | right: PCAN 0x52 before transmit: 0x1400 The value of a handle (PCAN-Channel, PCAN-Hardware, PCAN-Net, PCAN-Client) is invalid age=--
+hardware | left: PCAN 0x51 initialize FD: 0x1400 The value of a handle (PCAN-Channel, PCAN-Hardware, PCAN-Net, PCAN-Client) is invalid age=-- | right: PCAN 0x52 before transmit: 0x1400 The value of a handle (PCAN-Channel, PCAN-Hardware, PCAN-Net, PCAN-Client) is invalid age=--
+hardware | left: PCAN 0x51 initialize FD: 0x1400 The value of a handle (PCAN-Channel, PCAN-Hardware, PCAN-Net, PCAN-Client) is invalid age=-- | right: PCAN 0x52 initialize FD: 0x1400 The value of a handle (PCAN-Channel, PCAN-Hardware, PCAN-Net, PCAN-Client) is invalid age=--
+hardware | left: PCAN 0x51 initialize FD: 0x1400 The value of a handle (PCAN-Channel, PCAN-Hardware, PCAN-Net, PCAN-Client) is invalid age=-- | right: PCAN 0x52 initialize FD: 0x1400 The value of a handle (PCAN-Channel, PCAN-Hardware, PCAN-Net, PCAN-Client) is invalid age=--
+hardware | left: PCAN 0x51 initialize FD: 0x1400 The value of a handle (PCAN-Channel, PCAN-Hardware, PCAN-Net, PCAN-Client) is invalid age=-- | right: PCAN 0x52 initialize FD: 0x1400 The value of a handle (PCAN-Channel, PCAN-Hardware, PCAN-Net, PCAN-Client) is invalid age=--
+hardware | left: PCAN 0x51 initialize FD: 0x1400 The value of a handle (PCAN-Channel, PCAN-Hardware, PCAN-Net, PCAN-Client) is invalid age=-- | right: PCAN 0x52 initialize FD: 0x1400 The value of a handle (PCAN-Channel, PCAN-Hardware, PCAN-Net, PCAN-Client) is invalid age=--
+hardware | left: PCAN 0x51 initialize FD: 0x1400 The value of a handle (PCAN-Channel, PCAN-Hardware, PCAN-Net, PCAN-Client) is invalid age=-- | right: PCAN 0x52 initialize FD: 0x1400 The value of a handle (PCAN-Channel, PCAN-Hardware, PCAN-Net, PCAN-Client) is invalid age=--
+hardware | left: PCAN 0x51 initialize FD: 0x1400 The value of a handle (PCAN-Channel, PCAN-Hardware, PCAN-Net, PCAN-Client) is invalid age=-- | right: PCAN 0x52 initialize FD: 0x1400 The value of a handle (PCAN-Channel, PCAN-Hardware, PCAN-Net, PCAN-Client) is invalid age=--
+hardware | left: PCAN 0x51 initialize FD: 0x1400 The value of a handle (PCAN-Channel, PCAN-Hardware, PCAN-Net, PCAN-Client) is invalid age=-- | right: PCAN 0x52 initialize FD: 0x1400 The value of a handle (PCAN-Channel, PCAN-Hardware, PCAN-Net, PCAN-Client) is invalid age=--
+hardware | left: PCAN 0x51 initialize FD: 0x1400 The value of a handle (PCAN-Channel, PCAN-Hardware, PCAN-Net, PCAN-Client) is invalid age=-- | right: PCAN 0x52 initialize FD: 0x1400 The value of a handle (PCAN-Channel, PCAN-Hardware, PCAN-Net, PCAN-Client) is invalid age=--
+hardware | left: PCAN 0x51 initialize FD: 0x1400 The value of a handle (PCAN-Channel, PCAN-Hardware, PCAN-Net, PCAN-Client) is invalid age=-- | right: PCAN 0x52 initialize FD: 0x1400 The value of a handle (PCAN-Channel, PCAN-Hardware, PCAN-Net, PCAN-Client) is invalid age=--
+hardware | left: PCAN 0x51 initialize FD: 0x1400 The value of a handle (PCAN-Channel, PCAN-Hardware, PCAN-Net, PCAN-Client) is invalid age=-- | right: PCAN 0x52 initialize FD: 0x1400 The value of a handle (PCAN-Channel, PCAN-Hardware, PCAN-Net, PCAN-Client) is invalid age=--
+hardware | left: PCAN 0x51 initialize FD: 0x1400 The value of a handle (PCAN-Channel, PCAN-Hardware, PCAN-Net, PCAN-Client) is invalid age=-- | right: PCAN 0x52 initialize FD: 0x1400 The value of a handle (PCAN-Channel, PCAN-Hardware, PCAN-Net, PCAN-Client) is invalid age=--
+hardware | left: PCAN 0x51 initialize FD: 0x1400 The value of a handle (PCAN-Channel, PCAN-Hardware, PCAN-Net, PCAN-Client) is invalid age=-- | right: PCAN 0x52 initialize FD: 0x1400 The value of a handle (PCAN-Channel, PCAN-Hardware, PCAN-Net, PCAN-Client) is invalid age=--
+hardware | left: PCAN 0x51 initialize FD: 0x1400 The value of a handle (PCAN-Channel, PCAN-Hardware, PCAN-Net, PCAN-Client) is invalid age=-- | right: PCAN 0x52 initialize FD: 0x1400 The value of a handle (PCAN-Channel, PCAN-Hardware, PCAN-Net, PCAN-Client) is invalid age=--
+hardware | left: PCAN 0x51 initialize FD: 0x1400 The value of a handle (PCAN-Channel, PCAN-Hardware, PCAN-Net, PCAN-Client) is invalid age=-- | right: PCAN 0x52 initialize FD: 0x1400 The value of a handle (PCAN-Channel, PCAN-Hardware, PCAN-Net, PCAN-Client) is invalid age=--
+hardware | left: PCAN 0x51 initialize FD: 0x1400 The value of a handle (PCAN-Channel, PCAN-Hardware, PCAN-Net, PCAN-Client) is invalid age=-- | right: PCAN 0x52 initialize FD: 0x1400 The value of a handle (PCAN-Channel, PCAN-Hardware, PCAN-Net, PCAN-Client) is invalid age=--
+hardware | left: PCAN 0x51 initialize FD: 0x1400 The value of a handle (PCAN-Channel, PCAN-Hardware, PCAN-Net, PCAN-Client) is invalid age=-- | right: PCAN 0x52 initialize FD: 0x1400 The value of a handle (PCAN-Channel, PCAN-Hardware, PCAN-Net, PCAN-Client) is invalid age=--
+hardware | left: PCAN 0x51 initialize FD: 0x1400 The value of a handle (PCAN-Channel, PCAN-Hardware, PCAN-Net, PCAN-Client) is invalid age=-- | right: PCAN 0x52 initialize FD: 0x1400 The value of a handle (PCAN-Channel, PCAN-Hardware, PCAN-Net, PCAN-Client) is invalid age=--
+hardware | left: PCAN 0x51 initialize FD: 0x1400 The value of a handle (PCAN-Channel, PCAN-Hardware, PCAN-Net, PCAN-Client) is invalid age=-- | right: PCAN 0x52 initialize FD: 0x1400 The value of a handle (PCAN-Channel, PCAN-Hardware, PCAN-Net, PCAN-Client) is invalid age=--
+hardware | left: PCAN 0x51 initialize FD: 0x1400 The value of a handle (PCAN-Channel, PCAN-Hardware, PCAN-Net, PCAN-Client) is invalid age=-- | right: PCAN 0x52 initialize FD: 0x1400 The value of a handle (PCAN-Channel, PCAN-Hardware, PCAN-Net, PCAN-Client) is invalid age=--
+hardware | left: PCAN 0x51 initialize FD: 0x1400 The value of a handle (PCAN-Channel, PCAN-Hardware, PCAN-Net, PCAN-Client) is invalid age=-- | right: PCAN 0x52 initialize FD: 0x1400 The value of a handle (PCAN-Channel, PCAN-Hardware, PCAN-Net, PCAN-Client) is invalid age=--
+hardware | left: PCAN 0x51 initialize FD: 0x1400 The value of a handle (PCAN-Channel, PCAN-Hardware, PCAN-Net, PCAN-Client) is invalid age=-- | right: PCAN 0x52 initialize FD: 0x1400 The value of a handle (PCAN-Channel, PCAN-Hardware, PCAN-Net, PCAN-Client) is invalid age=--
+hardware | left: PCAN 0x51 initialize FD: 0x1400 The value of a handle (PCAN-Channel, PCAN-Hardware, PCAN-Net, PCAN-Client) is invalid age=-- | right: PCAN 0x52 initialize FD: 0x1400 The value of a handle (PCAN-Channel, PCAN-Hardware, PCAN-Net, PCAN-Client) is invalid age=--
+hardware | left: PCAN 0x51 initialize FD: 0x1400 The value of a handle (PCAN-Channel, PCAN-Hardware, PCAN-Net, PCAN-Client) is invalid age=-- | right: PCAN 0x52 initialize FD: 0x1400 The value of a handle (PCAN-Channel, PCAN-Hardware, PCAN-Net, PCAN-Client) is invalid age=--
+hardware | left: PCAN 0x51 initialize FD: 0x1400 The value of a handle (PCAN-Channel, PCAN-Hardware, PCAN-Net, PCAN-Client) is invalid age=-- | right: PCAN 0x52 initialize FD: 0x1400 The value of a handle (PCAN-Channel, PCAN-Hardware, PCAN-Net, PCAN-Client) is invalid age=--
+hardware | left: PCAN 0x51 initialize FD: 0x1400 The value of a handle (PCAN-Channel, PCAN-Hardware, PCAN-Net, PCAN-Client) is invalid age=-- | right: PCAN 0x52 initialize FD: 0x1400 The value of a handle (PCAN-Channel, PCAN-Hardware, PCAN-Net, PCAN-Client) is invalid age=--
+hardware | left: PCAN 0x51 initialize FD: 0x1400 The value of a handle (PCAN-Channel, PCAN-Hardware, PCAN-Net, PCAN-Client) is invalid age=-- | right: PCAN 0x52 initialize FD: 0x1400 The value of a handle (PCAN-Channel, PCAN-Hardware, PCAN-Net, PCAN-Client) is invalid age=--
+hardware | left: PCAN 0x51 initialize FD: 0x1400 The value of a handle (PCAN-Channel, PCAN-Hardware, PCAN-Net, PCAN-Client) is invalid age=-- | right: PCAN 0x52 initialize FD: 0x1400 The value of a handle (PCAN-Channel, PCAN-Hardware, PCAN-Net, PCAN-Client) is invalid age=--
+hardware | left: PCAN 0x51 initialize FD: 0x1400 The value of a handle (PCAN-Channel, PCAN-Hardware, PCAN-Net, PCAN-Client) is invalid age=-- | right: PCAN 0x52 initialize FD: 0x1400 The value of a handle (PCAN-Channel, PCAN-Hardware, PCAN-Net, PCAN-Client) is invalid age=--
+hardware | left: PCAN 0x51 initialize FD: 0x1400 The value of a handle (PCAN-Channel, PCAN-Hardware, PCAN-Net, PCAN-Client) is invalid age=-- | right: PCAN 0x52 initialize FD: 0x1400 The value of a handle (PCAN-Channel, PCAN-Hardware, PCAN-Net, PCAN-Client) is invalid age=--
+hardware | left: PCAN 0x51 initialize FD: 0x1400 The value of a handle (PCAN-Channel, PCAN-Hardware, PCAN-Net, PCAN-Client) is invalid age=-- | right: PCAN 0x52 initialize FD: 0x1400 The value of a handle (PCAN-Channel, PCAN-Hardware, PCAN-Net, PCAN-Client) is invalid age=--
+hardware | left: PCAN 0x51 initialize FD: 0x1400 The value of a handle (PCAN-Channel, PCAN-Hardware, PCAN-Net, PCAN-Client) is invalid age=-- | right: PCAN 0x52 initialize FD: 0x1400 The value of a handle (PCAN-Channel, PCAN-Hardware, PCAN-Net, PCAN-Client) is invalid age=--
+hardware | left: PCAN 0x51 initialize FD: 0x1400 The value of a handle (PCAN-Channel, PCAN-Hardware, PCAN-Net, PCAN-Client) is invalid age=-- | right: PCAN 0x52 initialize FD: 0x1400 The value of a handle (PCAN-Channel, PCAN-Hardware, PCAN-Net, PCAN-Client) is invalid age=--
+hardware | left: PCAN 0x51 initialize FD: 0x1400 The value of a handle (PCAN-Channel, PCAN-Hardware, PCAN-Net, PCAN-Client) is invalid age=-- | right: PCAN 0x52 initialize FD: 0x1400 The value of a handle (PCAN-Channel, PCAN-Hardware, PCAN-Net, PCAN-Client) is invalid age=--
+hardware | left: PCAN 0x51 initialize FD: 0x1400 The value of a handle (PCAN-Channel, PCAN-Hardware, PCAN-Net, PCAN-Client) is invalid age=-- | right: PCAN 0x52 initialize FD: 0x1400 The value of a handle (PCAN-Channel, PCAN-Hardware, PCAN-Net, PCAN-Client) is invalid age=--
+hardware | left: PCAN 0x51 initialize FD: 0x1400 The value of a handle (PCAN-Channel, PCAN-Hardware, PCAN-Net, PCAN-Client) is invalid age=-- | right: PCAN 0x52 initialize FD: 0x1400 The value of a handle (PCAN-Channel, PCAN-Hardware, PCAN-Net, PCAN-Client) is invalid age=--
+hardware | left: PCAN 0x51 initialize FD: 0x1400 The value of a handle (PCAN-Channel, PCAN-Hardware, PCAN-Net, PCAN-Client) is invalid age=-- | right: PCAN 0x52 initialize FD: 0x1400 The value of a handle (PCAN-Channel, PCAN-Hardware, PCAN-Net, PCAN-Client) is invalid age=--
+hardware | left: PCAN 0x51 initialize FD: 0x1400 The value of a handle (PCAN-Channel, PCAN-Hardware, PCAN-Net, PCAN-Client) is invalid age=-- | right: PCAN 0x52 initialize FD: 0x1400 The value of a handle (PCAN-Channel, PCAN-Hardware, PCAN-Net, PCAN-Client) is invalid age=--
+hardware | left: PCAN 0x51 initialize FD: 0x1400 The value of a handle (PCAN-Channel, PCAN-Hardware, PCAN-Net, PCAN-Client) is invalid age=-- | right: PCAN 0x52 initialize FD: 0x1400 The value of a handle (PCAN-Channel, PCAN-Hardware, PCAN-Net, PCAN-Client) is invalid age=--
+hardware | left: PCAN 0x51 initialize FD: 0x1400 The value of a handle (PCAN-Channel, PCAN-Hardware, PCAN-Net, PCAN-Client) is invalid age=-- | right: right motor 1: feedback timeout after 2 attempts age=--
+hardware | left: left motor 1: feedback timeout after 2 attempts age=-- | right: right motor 1: feedback timeout after 2 attempts age=--
+hardware | left: left motor 1: feedback timeout after 2 attempts age=-- | right: OK age=0.031s
+hardware | left: left motor 1: feedback timeout after 2 attempts age=-- | right: OK age=0.031s
+hardware | left: left motor 1: feedback timeout after 2 attempts age=-- | right: OK age=0.016s
+hardware | left: left motor 1: feedback timeout after 2 attempts age=-- | right: OK age=0.032s
+hardware | left: left motor 1: feedback timeout after 2 attempts age=-- | right: OK age=0.016s
+hardware | left: left motor 1: feedback timeout after 2 attempts age=-- | right: OK age=0.016s
+hardware | left: left motor 1: feedback timeout after 2 attempts age=-- | right: OK age=0.031s
+hardware | left: OK age=0.047s | right: OK age=0.047s
+hardware | left: OK age=0.016s | right: OK age=0.016s
+hardware | left: OK age=0.031s | right: OK age=0.016s
+hardware | left: OK age=0.016s | right: OK age=0.031s
+hardware | left: OK age=0.031s | right: OK age=0.031s
+hardware | left: OK age=0.032s | right: OK age=0.032s
+hardware | left: OK age=0.015s | right: OK age=0.015s
+hardware | left: OK age=0.031s | right: OK age=0.031s
+hardware | left: OK age=0.016s | right: OK age=0.031s
+hardware | left: OK age=0.032s | right: OK age=0.016s
+hardware | left: OK age=0.047s | right: OK age=0.031s
+hardware | left: OK age=0.032s | right: OK age=0.032s
+hardware | left: OK age=0.016s | right: OK age=0.031s
+hardware | left: OK age=0.016s | right: OK age=0.031s
+hardware | left: OK age=0.016s | right: OK age=0.016s
+hardware | left: OK age=0.032s | right: OK age=0.047s
+hardware | left: OK age=0.016s | right: OK age=0.032s
+hardware | left: OK age=0.046s | right: OK age=0.031s
+hardware | left: OK age=0.031s | right: OK age=0.031s
+hardware | left: OK age=0.031s | right: OK age=0.031s
+hardware | left: OK age=0.000s | right: OK age=0.016s
+hardware | left: OK age=0.015s | right: OK age=0.015s
+hardware | left: OK age=0.031s | right: OK age=0.031s
+hardware | left: OK age=0.031s | right: OK age=0.046s
+hardware | left: OK age=0.016s | right: OK age=0.047s
+hardware | left: OK age=0.047s | right: OK age=0.016s
+hardware | left: OK age=0.031s | right: OK age=0.016s
+hardware | left: OK age=0.031s | right: OK age=0.031s
+hardware | left: OK age=0.031s | right: OK age=0.031s
+hardware | left: OK age=0.047s | right: OK age=0.031s
+hardware | left: OK age=0.031s | right: OK age=0.031s
+hardware | left: OK age=0.016s | right: OK age=0.016s
+hardware | left: OK age=0.047s | right: OK age=0.031s
+hardware | left: OK age=0.015s | right: OK age=0.015s
+hardware | left: OK age=0.015s | right: OK age=0.015s
+hardware | left: OK age=0.015s | right: OK age=0.031s
+hardware | left: OK age=0.031s | right: OK age=0.031s
+hardware | left: OK age=0.031s | right: OK age=0.031s
+hardware | left: OK age=0.016s | right: OK age=0.016s
+hardware | left: OK age=0.016s | right: OK age=0.047s
+hardware | left: OK age=0.000s | right: OK age=0.016s
+Log: logs\openarm\sync\reconnect_onsite_20261115_02.jsonl

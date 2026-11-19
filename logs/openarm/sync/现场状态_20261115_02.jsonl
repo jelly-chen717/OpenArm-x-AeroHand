@@ -1,0 +1,2 @@
+{"side": "right", "channel": "0x51", "bus_status": "0x40008", "motors": [{"motor_id": 1, "online": false, "error": "PCAN 0x51 read FD: 0x40008 "}], "expected_motors": 7, "online": 0, "time_unix": 1794737761.0954792}
+{"side": "left", "channel": "0x52", "bus_status": "0x40008", "motors": [{"motor_id": 1, "online": false, "error": "PCAN 0x52 read FD: 0x40008 "}], "expected_motors": 7, "online": 0, "time_unix": 1794737761.3454003}

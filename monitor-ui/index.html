@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>OpenArm · 监视控制台</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">OpenArm <span></span><h1>监视控制台</h1></div>
+    <div class="drive-controls" role="group" aria-label="双臂电机控制">
+      <label for="drive-mode">电机模式</label>
+      <select id="drive-mode" disabled>
+        <option value="" disabled>等待模式回读</option>
+        <option value="MIT">MIT · 阻抗</option>
+        <option value="POS_VEL">POS_VEL · 位置速度</option>
+        <option value="VEL">VEL · 速度</option>
+        <option value="POS_FORCE">POS_FORCE · 力位混合</option>
+      </select>
+      <button id="enable-all" type="button" disabled>全部使能</button>
+      <span class="small muted" id="enabled-count" aria-live="polite">使能 —/14</span>
+    </div>
+    <div class="badges">
+      <span id="connection" class="badge" data-status="offline" role="status"><i></i><span>等待本机服务</span></span>
+      <a id="open-service" href="http://127.0.0.1:8091/" hidden>打开本机服务</a>
+      <time id="clock"></time>
+    </div>
+  </header>
+  <main class="dashboard">
+    <section class="panel status">
+      <div class="panel-title">
+        <h2>关节与末端状态</h2>
+        <select id="joint-metric" aria-label="关节反馈项">
+          <option value="position_deg">角度 °</option>
+          <option value="velocity_deg_s">速度 °/s</option>
+          <option value="torque_nm">电机力矩 N·m</option>
+          <option value="mos_c">MOS 温度 °C</option>
+          <option value="rotor_c">电机温度 °C</option>
+          <option value="state">电机状态</option>
+        </select>
+      </div>
+      <div class="status-content">
+        <div class="table-wrap">
+          <table aria-label="相对标定零点的关节反馈">
+            <thead><tr><th>关节</th><th>左臂<span id="left-status" class="arm-status">—</span></th><th>右臂<span id="right-status" class="arm-status">—</span></th></tr></thead>
+            <tbody id="joint-status"></tbody>
+          </table>
+        </div>
+        <div class="endpoints">
+          <div class="subheading"><strong id="endpoint-label">末端位置</strong><span>基座坐标 · mm</span></div>
+          <table aria-label="左右臂末端位置">
+            <thead><tr><th>控制点</th><th>左侧 XYZ</th><th>右侧 XYZ</th></tr></thead>
+            <tbody id="endpoint-status"></tbody>
+          </table>
+          <p id="endpoint-note" class="small muted"></p>
+        </div>
+      </div>
+    </section>
+
+    <section class="panel feedback">
+      <div class="panel-title"><h2>重要反馈</h2><span class="small muted" id="feedback-count"></span></div>
+      <div id="feedback-current" role="status" aria-live="polite"></div>
+      <div id="tracking" hidden>
+        <div class="subheading"><strong>本次关节反馈</strong><span id="tracking-error"></span></div>
+        <div id="feedback-angles"></div>
+      </div>
+      <div id="feedback-history" class="feedback-history"></div>
+    </section>
+
+    <section class="panel control">
+      <div class="panel-title">
+        <h2>运动控制</h2>
+        <div class="segmented modes" role="group" aria-label="控制模式">
+          <button type="button" data-mode="ik" aria-pressed="false">IK 控制</button>
+          <button type="button" data-mode="joint" class="active" aria-pressed="true">关节控制</button>
+        </div>
+      </div>
+      <div class="control-scroll">
+        <form id="control-form">
+          <fieldset id="control-fields" disabled>
+            <div class="form-row">
+              <span class="field-label">控制臂</span>
+              <div class="segmented" role="group" aria-label="控制臂">
+                <button type="button" data-arm="left" class="active" aria-pressed="true">左臂</button>
+                <button type="button" data-arm="right" aria-pressed="false">右臂</button>
+                <button type="button" data-arm="both" aria-pressed="false">双臂</button>
+              </div>
+            </div>
+            <div id="joint-fields">
+              <div class="joint-input-head"><span>关节</span><span>左臂目标 °</span><span>右臂目标 °</span></div>
+              <div id="joint-inputs"></div>
+              <p class="small muted">角度相对标定零点。留空跳过该轴。</p>
+            </div>
+            <div id="ik-fields" hidden>
+              <div class="form-row">
+                <label for="endpoint">目标控制点</label>
+                <select id="endpoint">
+                  <option value="wrist">手腕</option>
+                  <option value="index">食指指尖</option>
+                  <option value="thumb">拇指指尖</option>
+                  <option value="middle">中指指尖</option>
+                  <option value="ring">无名指指尖</option>
+                  <option value="little">小指指尖</option>
+                </select>
+                <button id="use-current" type="button">填入当前位置</button>
+              </div>
+              <div id="ik-inputs"></div>
+              <p class="small muted">基座坐标，保持当前手腕朝向。</p>
+            </div>
+            <div class="two-cols motion-settings">
+              <label>运动时间<div class="input-unit"><input id="duration" type="number" value="3" min="0.1" max="600" step="any" required><span>s</span></div></label>
+              <label>额定速度上限<div class="input-unit"><input id="speed" type="number" value="20" min="1" max="100" step="1" required><span>%</span></div></label>
+            </div>
+            <div class="actions">
+              <button class="primary" id="prepare" type="submit" disabled>预览关节目标</button>
+              <button id="reset" type="button">重置输入</button>
+            </div>
+          </fieldset>
+        </form>
+        <div class="target">
+          <div class="subheading"><strong>待执行目标</strong><span id="target-state">尚未生成</span></div>
+          <div id="target-angles"></div>
+          <p id="target-note" class="small muted">填写目标后，先生成预览。</p>
+        </div>
+      </div>
+      <footer class="control-footer">
+        <div class="execution">
+          <span class="small muted" id="execution-state">等待本机服务</span>
+          <progress id="progress" max="1" value="0" aria-label="轨迹时间进度" hidden></progress>
+        </div>
+        <div>
+          <button class="primary" id="execute" type="button" disabled>执行目标</button>
+          <button id="stop" class="danger" type="button" disabled>停止并失能</button>
+        </div>
+      </footer>
+    </section>
+
+    <section class="panel logs">
+      <div class="panel-title"><h2>执行日志</h2><span class="small muted" id="request-label">本机服务</span></div>
+      <div class="log-tools">
+        <div class="segmented filters" role="group" aria-label="日志等级">
+          <button type="button" class="active" data-filter="ALL" aria-pressed="true">全部</button>
+          <button type="button" data-filter="INFO" aria-pressed="false">信息</button>
+          <button type="button" data-filter="WARN" aria-pressed="false">警告</button>
+          <button type="button" data-filter="ERROR" aria-pressed="false">错误</button>
+        </div>
+        <a class="button-link" id="export" href="/api/logs" download aria-disabled="true">导出 JSONL</a>
+      </div>
+      <input class="search" id="search" type="search" placeholder="搜索事件、参数或指令编号…" aria-label="搜索日志">
+      <div class="log-view" id="log-view" tabindex="0" aria-label="执行日志列表">
+        <table>
+          <thead><tr><th>时间</th><th>级别</th><th>事件 / 详情</th></tr></thead>
+          <tbody id="log-body"></tbody>
+        </table>
+        <p id="empty-logs">没有匹配的日志</p>
+      </div>
+      <footer class="log-footer">
+        <label class="switch-label"><input id="autoscroll" type="checkbox" checked><span class="switch"></span>自动滚动</label>
+        <span class="small muted" id="log-count"></span>
+      </footer>
+    </section>
+  </main>
+</body>
+</html>

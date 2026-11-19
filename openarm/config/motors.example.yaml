@@ -1,0 +1,3 @@
+# Deliberately unconfigured: no verified motor mapping exists in phases 1-2.
+hardware_enabled: false
+motors: []

@@ -1,0 +1,49 @@
+[package]
+name = "dmcan"
+version = "2.1.0"
+edition = "2021"
+rust-version = "1.77"
+description = "USB2CANFD 模块的 Rust 封装层：直接调用 C SDK 导出的 C ABI（随包提供 Windows x64/MSVC 原生库，其它平台用 DMCAN_SDK_DIR 指定）"
+license = "Apache-2.0"
+repository = "http://gitlab.dmbot.cn/module/canfd-tools/usb2canfd-sdk-rust"
+homepage = "http://gitlab.dmbot.cn/module/canfd-tools/usb2canfd-sdk-rust"
+readme = "README.md"
+keywords = ["can", "canfd", "usb2canfd", "dmcan", "ffi"]
+categories = ["api-bindings", "hardware-support"]
+links = "dmcan"
+
+# 进包白名单：dmcan 自己的交付件进包（Windows / Linux / macOS 五个平台目录），
+# 但 **libusb（LGPL-2.1）一律不进包**，由使用方自行提供（见 README / AGENTS）；
+# 内部资料（AGENTS.md、docs/、tests 下的报告 md）也不进包。
+# 这里刻意逐平台列举（不用 `native/**`），就是为了避免哪天有人把 libusb 放进哪里就顺手发出去了。
+# 改这里一定要跑 `cargo package --list` 复核。
+include = [
+    "src/**",
+    "examples/**",
+    "tests/**/*.rs",
+    "native/msvc/include/**",
+    "native/msvc/lib/**",
+    "native/msvc/bin/dmcan.dll",
+    "native/linux_x86_64/include/**",
+    "native/linux_x86_64/lib/**",
+    "native/linux_aarch64/include/**",
+    "native/linux_aarch64/lib/**",
+    "native/macos_arm64/include/**",
+    "native/macos_arm64/lib/**",
+    "native/macos_x86_64/include/**",
+    "native/macos_x86_64/lib/**",
+    "build.rs",
+    "Cargo.toml",
+    "README.md",
+    "LICENSE",
+]
+
+[lib]
+name = "dmcan"
+path = "src/lib.rs"
+
+[dependencies]
+
+[[example]]
+name = "basic"
+path = "examples/basic.rs"

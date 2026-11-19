@@ -1,0 +1,85 @@
+{
+  "version": 1,
+  "sides": {
+    "left": {
+      "demo": true,
+      "port": "COM1",
+      "real": {
+        "3": {
+          "home": "",
+          "press": ""
+        },
+        "4": {
+          "home": "",
+          "press": ""
+        },
+        "5": {
+          "home": "",
+          "press": ""
+        },
+        "6": {
+          "home": "",
+          "press": ""
+        }
+      },
+      "simulation": {
+        "3": {
+          "home": "0",
+          "press": "20"
+        },
+        "4": {
+          "home": "0",
+          "press": "20"
+        },
+        "5": {
+          "home": "0",
+          "press": "20"
+        },
+        "6": {
+          "home": "0",
+          "press": "20"
+        }
+      }
+    },
+    "right": {
+      "demo": false,
+      "port": "COM8",
+      "real": {
+        "3": {
+          "home": "8",
+          "press": "30"
+        },
+        "4": {
+          "home": "0",
+          "press": "20"
+        },
+        "5": {
+          "home": "10",
+          "press": "35"
+        },
+        "6": {
+          "home": "15",
+          "press": "40"
+        }
+      },
+      "simulation": {
+        "3": {
+          "home": "8",
+          "press": "30"
+        },
+        "4": {
+          "home": "0",
+          "press": "20"
+        },
+        "5": {
+          "home": "10",
+          "press": "35"
+        },
+        "6": {
+          "home": "15",
+          "press": "40"
+        }
+      }
+    }
+  }
+}

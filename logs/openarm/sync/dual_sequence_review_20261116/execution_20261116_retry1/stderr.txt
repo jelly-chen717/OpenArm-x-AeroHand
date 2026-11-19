@@ -1,0 +1,8 @@
+Traceback (most recent call last):
+  File "D:\桌面\open CyMon\弹钢琴\apps\drive_openarm_from_sim.py", line 503, in <module>
+    main()
+  File "D:\桌面\open CyMon\弹钢琴\apps\drive_openarm_from_sim.py", line 486, in main
+    execute_sequence(trajectory, mappings, transport, log, sequence=request['sequence'],
+  File "D:\桌面\open CyMon\弹钢琴\apps\drive_openarm_from_sim.py", line 267, in execute_sequence
+    raise RuntimeError('Holding error exceeded')
+RuntimeError: Holding error exceeded

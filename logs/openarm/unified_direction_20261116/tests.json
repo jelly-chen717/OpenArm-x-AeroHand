@@ -1,0 +1,20 @@
+{
+  "date": "2026-11-16",
+  "hardware_accessed": false,
+  "runs": [
+    {
+      "cwd": "openarm",
+      "command": ".venv/Scripts/python.exe -m pytest -q",
+      "exit_code": 0,
+      "passed": 174,
+      "seconds": 36.40
+    },
+    {
+      "cwd": ".",
+      "command": "openarm/.venv/Scripts/python.exe -m pytest apps/test_openarm_sync.py apps/test_openarm_execution.py apps/test_openarm_execution_hardware.py apps/test_openarm_driver.py -q",
+      "exit_code": 0,
+      "passed": 70,
+      "seconds": 4.98
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "openarm-v1-controller"
+version = "0.1.0"
+description = "OpenArm V1 dual-arm kinematics, joint planning and ideal simulation"
+requires-python = ">=3.11,<3.12"
+dependencies = ["numpy", "openarm-control==0.4.0", "openarm-mujoco==2.0.1"]
+
+[project.optional-dependencies]
+test = ["pytest>=8,<10"]
+aero-test = ["aero-open-sdk==0.1.0.dev1"]
+
+[project.scripts]
+openarm = "openarm_app.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src", "skills"]
+include = ["openarm_app*", "paino_skill"]
+
+[tool.setuptools.package-data]
+openarm_app = ["web/*.html", "web/*.css", "web/*.js", "web/lib/*"]
+paino_skill = ["*.json", "*.csv", "*.md", "*.cmd", "web/*", "third_party/**/*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests", "skills/paino_skill/tests"]
+pythonpath = ["src", "skills"]

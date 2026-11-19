@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "name": "dual-mit-j5-j7-j5-j4-j1-j2-20261116",
+  "target_mode": "absolute_from_test_zero",
+  "description": "按用户物理方向：J5第一步左逆右顺向外，左-88/右+88；第三步分别向里反转88度回本次零点0度；J7+88、J4+30、J1-15、J2-15。运动仍待最终表审核授权。",
+  "dwell_s": 1.0,
+  "settle_timeout_s": 8.0,
+  "settle_speed_rad_s": 0.05,
+  "arrival_tolerance_deg": 2.0,
+  "period_s": 0.04,
+  "max_lateness_s": 0.08,
+  "max_tracking_error_deg": 5.0,
+  "steps": [
+    {"joint": 5, "target_deg": {"left": -88.0, "right": 88.0}},
+    {"joint": 7, "target_deg": 88.0},
+    {"joint": 5, "target_deg": 0.0},
+    {"joint": 4, "target_deg": 30.0},
+    {"joint": 1, "target_deg": -15.0},
+    {"joint": 2, "target_deg": -15.0}
+  ]
+}

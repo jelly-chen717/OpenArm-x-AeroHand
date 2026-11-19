@@ -1,0 +1,833 @@
+{
+  "archive": "RobotControl-Windows11-WSL2-x64-1.0.0-rc2-20261111.zip",
+  "files": [
+    {
+      "path": "reference/restore_transport.reference.py",
+      "source": "RobotControl-Windows11-WSL2-x64-1.0.0-rc2-20261111/restore_transport.reference.py",
+      "bytes": 5449,
+      "sha256": "16e19422c9f557b41cffedbb592d84d4659cc87de0c4301831315fe230dec165"
+    },
+    {
+      "path": "reference/RELEASE.json",
+      "source": "RobotControl-Windows11-WSL2-x64-1.0.0-rc2-20261111/RELEASE.json",
+      "bytes": 1206,
+      "sha256": "d129a875a91bbafac500f840a993c8844c952ac108f1d1db1406425039ea03e3"
+    },
+    {
+      "path": "reference/THIRD_PARTY_NOTICES.txt",
+      "source": "RobotControl-Windows11-WSL2-x64-1.0.0-rc2-20261111/THIRD_PARTY_NOTICES.txt",
+      "bytes": 1381,
+      "sha256": "aed34d1f2cb57180bd4c82d6db03138faed5193d78fa3aff764084746670f589"
+    },
+    {
+      "path": "reference/can_observer.py",
+      "source": "runtime/app/can_observer.py",
+      "bytes": 7515,
+      "sha256": "375451a619969dc657d282cc37a731d9b250af7ca3a723b989b67aa410c46930"
+    },
+    {
+      "path": "reference/raw_standby.launch.py",
+      "source": "runtime/app/raw_standby.launch.py",
+      "bytes": 2354,
+      "sha256": "c3183ac5f81917d7ab30b5958a57129034a3adf1308ae0384624edc70930c116"
+    },
+    {
+      "path": "reference/prepare_can_20261020.py",
+      "source": "runtime/ops/prepare_can_20261020.py",
+      "bytes": 17105,
+      "sha256": "6119a62417318c3cdc6e4a801fab5f876d0031cb25ece66a5eff8d8945fd20e3"
+    },
+    {
+      "path": "openarm_can/CMakeLists.txt",
+      "source": "runtime/ros2_ws/src/openarm_can/CMakeLists.txt",
+      "bytes": 6925,
+      "sha256": "b55a678194b7aacc77cbedd9f9db7f9095dd0509858e30a82fac904cb80309c8"
+    },
+    {
+      "path": "openarm_can/CODE_OF_CONDUCT.md",
+      "source": "runtime/ros2_ws/src/openarm_can/CODE_OF_CONDUCT.md",
+      "bytes": 5484,
+      "sha256": "e900efb61d49d1a40550bafd0682ec38d8b322691aa1f54661e43bf6d317fa88"
+    },
+    {
+      "path": "openarm_can/CONTRIBUTING.md",
+      "source": "runtime/ros2_ws/src/openarm_can/CONTRIBUTING.md",
+      "bytes": 664,
+      "sha256": "9338c64d5e18baee2757ceb2efd698fccc7c0c1c7a3e583e87275812fc8c1d30"
+    },
+    {
+      "path": "openarm_can/LICENSE.txt",
+      "source": "runtime/ros2_ws/src/openarm_can/LICENSE.txt",
+      "bytes": 11358,
+      "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
+    },
+    {
+      "path": "openarm_can/OpenArmCANConfig.cmake.in",
+      "source": "runtime/ros2_ws/src/openarm_can/OpenArmCANConfig.cmake.in",
+      "bytes": 694,
+      "sha256": "5b27396cba799b445989cd1a4235ccd721ae78714e978927557f4febb6c7c30d"
+    },
+    {
+      "path": "openarm_can/README.md",
+      "source": "runtime/ros2_ws/src/openarm_can/README.md",
+      "bytes": 5044,
+      "sha256": "fde391271ddac513e2eb9f063fa201afd794e43f91bf8cce399b714928cd6970"
+    },
+    {
+      "path": "openarm_can/Rakefile",
+      "source": "runtime/ros2_ws/src/openarm_can/Rakefile",
+      "bytes": 4600,
+      "sha256": "3d6be9bb844ab5dc576e47a4b6f12fe56afbf28e6f62ffbad0d37e3d1289a52c"
+    },
+    {
+      "path": "openarm_can/examples/demo.cpp",
+      "source": "runtime/ros2_ws/src/openarm_can/examples/demo.cpp",
+      "bytes": 4927,
+      "sha256": "f23a0311c6791fef96d6596ccc37b81b3bfe0b9824dddc95b41b335e98b5d1cb"
+    },
+    {
+      "path": "openarm_can/examples/enable_switch.cpp",
+      "source": "runtime/ros2_ws/src/openarm_can/examples/enable_switch.cpp",
+      "bytes": 8772,
+      "sha256": "72188f023fdfd9d720d97550b8ba61ecb8a4c3df9c9a0adb848cdbe006608715"
+    },
+    {
+      "path": "openarm_can/examples/gripper_posforce.cpp",
+      "source": "runtime/ros2_ws/src/openarm_can/examples/gripper_posforce.cpp",
+      "bytes": 2605,
+      "sha256": "84b35828cf5e38afe340cdd76089998500920e55d4f96761bc612904ee592287"
+    },
+    {
+      "path": "openarm_can/examples/health.cpp",
+      "source": "runtime/ros2_ws/src/openarm_can/examples/health.cpp",
+      "bytes": 10479,
+      "sha256": "9906eb637048e26114cdd876d880c657d74f8d40a1bf988758aa49a30bf0ba04"
+    },
+    {
+      "path": "openarm_can/examples/mit.cpp",
+      "source": "runtime/ros2_ws/src/openarm_can/examples/mit.cpp",
+      "bytes": 2043,
+      "sha256": "43635bd174c470ceabae277a0a79e43c95ec6c79cf42c32ff5df00c3e2fd5579"
+    },
+    {
+      "path": "openarm_can/examples/posforce.cpp",
+      "source": "runtime/ros2_ws/src/openarm_can/examples/posforce.cpp",
+      "bytes": 2021,
+      "sha256": "c37714cabb3b9ff5ee015d8defbd457cf70ad0e81249e24b2ca7daa93cd79875"
+    },
+    {
+      "path": "openarm_can/examples/posvel.cpp",
+      "source": "runtime/ros2_ws/src/openarm_can/examples/posvel.cpp",
+      "bytes": 1932,
+      "sha256": "a3f5182ee5cf624d9e7f579d0387cb93247e98c1ce353f2112e829a67c1f1587"
+    },
+    {
+      "path": "openarm_can/examples/vel.cpp",
+      "source": "runtime/ros2_ws/src/openarm_can/examples/vel.cpp",
+      "bytes": 1991,
+      "sha256": "87b3ca0616aa023d8a95344b70af6f4a4ad41601f54d9a84e7dba6d111f4f762"
+    },
+    {
+      "path": "openarm_can/helper.rb",
+      "source": "runtime/ros2_ws/src/openarm_can/helper.rb",
+      "bytes": 2431,
+      "sha256": "0746ad7847cd0074fffd2b70066861936494420b292e2542113a92d370bba918"
+    },
+    {
+      "path": "openarm_can/include/openarm/can/socket/arm_component.hpp",
+      "source": "runtime/ros2_ws/src/openarm_can/include/openarm/can/socket/arm_component.hpp",
+      "bytes": 1386,
+      "sha256": "083c8f07476511bcb3bafd9c7c4097e2e7cbefa731275fd08d8655d5b2b1b94a"
+    },
+    {
+      "path": "openarm_can/include/openarm/can/socket/gripper_component.hpp",
+      "source": "runtime/ros2_ws/src/openarm_can/include/openarm/can/socket/gripper_component.hpp",
+      "bytes": 2203,
+      "sha256": "c38cc21e8d9a9a61344daaca8c10eeb919e070194104682cca10ca4147d93fea"
+    },
+    {
+      "path": "openarm_can/include/openarm/can/socket/openarm.hpp",
+      "source": "runtime/ros2_ws/src/openarm_can/include/openarm/can/socket/openarm.hpp",
+      "bytes": 3633,
+      "sha256": "8cbf6b9eeeea2078b90a0e86f33a18ea148d28a29c8e794667e58fe88f2cfa6f"
+    },
+    {
+      "path": "openarm_can/include/openarm/canbus/can_device.hpp",
+      "source": "runtime/ros2_ws/src/openarm_can/include/openarm/canbus/can_device.hpp",
+      "bytes": 1680,
+      "sha256": "9107b7857abf5658d30ca9465b7dc22d0939fd56968f04839bf61b1a23c2db3a"
+    },
+    {
+      "path": "openarm_can/include/openarm/canbus/can_device_collection.hpp",
+      "source": "runtime/ros2_ws/src/openarm_can/include/openarm/canbus/can_device_collection.hpp",
+      "bytes": 2103,
+      "sha256": "37354ce690e9b826457e6253adbfe4626351278d1dcf47cc1179ca1a756f4182"
+    },
+    {
+      "path": "openarm_can/include/openarm/canbus/can_socket.hpp",
+      "source": "runtime/ros2_ws/src/openarm_can/include/openarm/canbus/can_socket.hpp",
+      "bytes": 6097,
+      "sha256": "020b14d5028bff4abd09520736a2573f9a5e5fef77d22e8994e62a7a8dac1cb1"
+    },
+    {
+      "path": "openarm_can/include/openarm/config/openarm_v10_config.hpp",
+      "source": "runtime/ros2_ws/src/openarm_can/include/openarm/config/openarm_v10_config.hpp",
+      "bytes": 2758,
+      "sha256": "779998439e764bf24c64f6303082b59b3a6171086fb46ff6f8ec2a73e6301c86"
+    },
+    {
+      "path": "openarm_can/include/openarm/damiao_motor/dm_motor.hpp",
+      "source": "runtime/ros2_ws/src/openarm_can/include/openarm/damiao_motor/dm_motor.hpp",
+      "bytes": 2965,
+      "sha256": "33eccc793a53db446eb883b19e48b2fe3e645a1ddc526ec7b158753480ebcbea"
+    },
+    {
+      "path": "openarm_can/include/openarm/damiao_motor/dm_motor_constants.hpp",
+      "source": "runtime/ros2_ws/src/openarm_can/include/openarm/damiao_motor/dm_motor_constants.hpp",
+      "bytes": 4242,
+      "sha256": "73d2ba589621febabad8cca9d7c525d5c5b63a9c45f13c1136dc9cfb558e3925"
+    },
+    {
+      "path": "openarm_can/include/openarm/damiao_motor/dm_motor_control.hpp",
+      "source": "runtime/ros2_ws/src/openarm_can/include/openarm/damiao_motor/dm_motor_control.hpp",
+      "bytes": 5710,
+      "sha256": "2b032e2113614b3ac8f9654f22f1e9c11b889369f8d51c132c10cc95eee95b1e"
+    },
+    {
+      "path": "openarm_can/include/openarm/damiao_motor/dm_motor_device.hpp",
+      "source": "runtime/ros2_ws/src/openarm_can/include/openarm/damiao_motor/dm_motor_device.hpp",
+      "bytes": 4235,
+      "sha256": "b9806b93ee311d289fe52b9d7f0c2340603ef0d988266ae81cdd91d0fbfbf02e"
+    },
+    {
+      "path": "openarm_can/include/openarm/damiao_motor/dm_motor_device_collection.hpp",
+      "source": "runtime/ros2_ws/src/openarm_can/include/openarm/damiao_motor/dm_motor_device_collection.hpp",
+      "bytes": 3080,
+      "sha256": "f59a434199b9395f1330ca19d47874b6e680c6d7bf9f2dcad8515d4e9437a3ba"
+    },
+    {
+      "path": "openarm_can/openarm-can.pc.in",
+      "source": "runtime/ros2_ws/src/openarm_can/openarm-can.pc.in",
+      "bytes": 805,
+      "sha256": "3d902bf2897ff90beabe18d0e7e1ad71fe381f26447e84ecc6ed1dbb391a4ba2"
+    },
+    {
+      "path": "openarm_can/package.xml",
+      "source": "runtime/ros2_ws/src/openarm_can/package.xml",
+      "bytes": 979,
+      "sha256": "6c5b844705af3c6994aa9b3b30cce4e30ab97ec4ef2b2f63688c8764ba9cda01"
+    },
+    {
+      "path": "openarm_can/python/CMakeLists.txt",
+      "source": "runtime/ros2_ws/src/openarm_can/python/CMakeLists.txt",
+      "bytes": 5010,
+      "sha256": "4d65f72f399340cc51127a0bcfe24323fea595029e08208b6dd8c4f6d3c3098e"
+    },
+    {
+      "path": "openarm_can/python/LICENSE.txt",
+      "source": "runtime/ros2_ws/src/openarm_can/python/LICENSE.txt",
+      "bytes": 11358,
+      "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
+    },
+    {
+      "path": "openarm_can/python/README.md",
+      "source": "runtime/ros2_ws/src/openarm_can/python/README.md",
+      "bytes": 353,
+      "sha256": "fcd8003638aa3f5d94a4eeef8ecfa03c6a1d0b3b0ff15d5ea0d840169aba1f13"
+    },
+    {
+      "path": "openarm_can/python/build.sh",
+      "source": "runtime/ros2_ws/src/openarm_can/python/build.sh",
+      "bytes": 1966,
+      "sha256": "32b87d2a1607429cd1b18c95e6441ea15d7f26d5d429f1522d60a48e2984522b"
+    },
+    {
+      "path": "openarm_can/python/examples/example.py",
+      "source": "runtime/ros2_ws/src/openarm_can/python/examples/example.py",
+      "bytes": 1706,
+      "sha256": "1828663644e6bb002c536822a404f872ee380fdf728ae3d2469747aa7e38958f"
+    },
+    {
+      "path": "openarm_can/python/examples/test_gripper_posforce.py",
+      "source": "runtime/ros2_ws/src/openarm_can/python/examples/test_gripper_posforce.py",
+      "bytes": 1978,
+      "sha256": "0b2042245da4c62783acf0ef2cf0123ab705b09a404bad481bebec4c1f909dc5"
+    },
+    {
+      "path": "openarm_can/python/examples/test_mit.py",
+      "source": "runtime/ros2_ws/src/openarm_can/python/examples/test_mit.py",
+      "bytes": 1500,
+      "sha256": "eb028632718107297b38332203cf2caeeb69219a83b728ed65829e9cb3ee9cac"
+    },
+    {
+      "path": "openarm_can/python/examples/test_posforce.py",
+      "source": "runtime/ros2_ws/src/openarm_can/python/examples/test_posforce.py",
+      "bytes": 1430,
+      "sha256": "2b69f53347ba135e7599651a29a615063c16e97ccebffdb0259ee2e4dbcbd79a"
+    },
+    {
+      "path": "openarm_can/python/examples/test_posvel.py",
+      "source": "runtime/ros2_ws/src/openarm_can/python/examples/test_posvel.py",
+      "bytes": 1471,
+      "sha256": "05b70bc687e57d59f7f6f937084141300525d547338b381d813a8f1913aecede"
+    },
+    {
+      "path": "openarm_can/python/examples/test_vel.py",
+      "source": "runtime/ros2_ws/src/openarm_can/python/examples/test_vel.py",
+      "bytes": 1527,
+      "sha256": "51eba4adf79dc21c34f076636dd186c7a3ed8d830e1435f81acd680a9f345710"
+    },
+    {
+      "path": "openarm_can/python/openarm_can/__init__.py",
+      "source": "runtime/ros2_ws/src/openarm_can/python/openarm_can/__init__.py",
+      "bytes": 1478,
+      "sha256": "bde117ac58d39215369993e43f7dfe72bfaa452856d9efe82502c0b82ccf0db2"
+    },
+    {
+      "path": "openarm_can/python/pyproject.toml",
+      "source": "runtime/ros2_ws/src/openarm_can/python/pyproject.toml",
+      "bytes": 1335,
+      "sha256": "29e168c737c2884cd2f88b33a2c6454a3a1dd6d898c628d2be4e3bb13461f90c"
+    },
+    {
+      "path": "openarm_can/python/requirements.txt",
+      "source": "runtime/ros2_ws/src/openarm_can/python/requirements.txt",
+      "bytes": 577,
+      "sha256": "55d98f8f7b840c46e2b1ee82a00dc0e6018c41f64fd720c71ecc916a1621cfb9"
+    },
+    {
+      "path": "openarm_can/python/setup.py",
+      "source": "runtime/ros2_ws/src/openarm_can/python/setup.py",
+      "bytes": 1895,
+      "sha256": "741b562d57c7dd83161a292013039c49b736e6ed063a1f6a97916313332becc5"
+    },
+    {
+      "path": "openarm_can/python/src/openarm_can.cpp",
+      "source": "runtime/ros2_ws/src/openarm_can/python/src/openarm_can.cpp",
+      "bytes": 28201,
+      "sha256": "60625be416976d3d68702eeb7d9c296e9ccf08a9066fd2ebce202767f9423cf5"
+    },
+    {
+      "path": "openarm_can/setup/cli/cli.hpp",
+      "source": "runtime/ros2_ws/src/openarm_can/setup/cli/cli.hpp",
+      "bytes": 3779,
+      "sha256": "8a03a00c2fb25c855c863ba6328347b0619bf83d8eeb7957f01017219dee28d9"
+    },
+    {
+      "path": "openarm_can/setup/cli/commands/can_configure_commands.cpp",
+      "source": "runtime/ros2_ws/src/openarm_can/setup/cli/commands/can_configure_commands.cpp",
+      "bytes": 4899,
+      "sha256": "6ca2a5072ffc51f8c1dde25251e636061f1c6ea92f5710d9de4593c2f3f22090"
+    },
+    {
+      "path": "openarm_can/setup/cli/commands/change_motor_baudrate_commands.cpp",
+      "source": "runtime/ros2_ws/src/openarm_can/setup/cli/commands/change_motor_baudrate_commands.cpp",
+      "bytes": 4675,
+      "sha256": "ef36abc5cfdacece83496ed8a531dd367a22f14b99ed8d45033a7d2588caafeb"
+    },
+    {
+      "path": "openarm_can/setup/cli/commands/change_motor_id_commands.cpp",
+      "source": "runtime/ros2_ws/src/openarm_can/setup/cli/commands/change_motor_id_commands.cpp",
+      "bytes": 5332,
+      "sha256": "11e77d0fb963c574e642886aecfdd602950865fb480845eadfe7aa420519fbed"
+    },
+    {
+      "path": "openarm_can/setup/cli/commands/clear_error_commands.cpp",
+      "source": "runtime/ros2_ws/src/openarm_can/setup/cli/commands/clear_error_commands.cpp",
+      "bytes": 2294,
+      "sha256": "53f9fa9622649a214d68a6bf6bee4168186dd15ef9f18d6a46ad278525e60aaa"
+    },
+    {
+      "path": "openarm_can/setup/cli/commands/diagnose_commands.cpp",
+      "source": "runtime/ros2_ws/src/openarm_can/setup/cli/commands/diagnose_commands.cpp",
+      "bytes": 24224,
+      "sha256": "c6c099c113d5859276ac6810f956378687f2d54035079da208185abc34defe07"
+    },
+    {
+      "path": "openarm_can/setup/cli/commands/discover_motor_commands.cpp",
+      "source": "runtime/ros2_ws/src/openarm_can/setup/cli/commands/discover_motor_commands.cpp",
+      "bytes": 7808,
+      "sha256": "78376b691cf44779bcd8df44c7f790bc537b31c2d0b82fd31b7fd4c8a8f03082"
+    },
+    {
+      "path": "openarm_can/setup/cli/commands/monitor_motor_status_commands.cpp",
+      "source": "runtime/ros2_ws/src/openarm_can/setup/cli/commands/monitor_motor_status_commands.cpp",
+      "bytes": 6616,
+      "sha256": "f3bc4821d2ac93ef01f3e06b1d7043c245973a0dd97d65d0237c9dc5102415c3"
+    },
+    {
+      "path": "openarm_can/setup/cli/commands/motor_read_param_commands.cpp",
+      "source": "runtime/ros2_ws/src/openarm_can/setup/cli/commands/motor_read_param_commands.cpp",
+      "bytes": 11799,
+      "sha256": "ce9f55b16cb8b9a0fdfdb3e0453dc32d44e82359e860eeee579d1614f27b6ae1"
+    },
+    {
+      "path": "openarm_can/setup/cli/commands/motor_status_commands.cpp",
+      "source": "runtime/ros2_ws/src/openarm_can/setup/cli/commands/motor_status_commands.cpp",
+      "bytes": 4489,
+      "sha256": "5dd0899dd9359a1308d59fd355674d59068445ddd3354ea8855f68c78e3a109a"
+    },
+    {
+      "path": "openarm_can/setup/cli/commands/write_motor_param_commands.cpp",
+      "source": "runtime/ros2_ws/src/openarm_can/setup/cli/commands/write_motor_param_commands.cpp",
+      "bytes": 4573,
+      "sha256": "f1b6e65699034ea2cb9a409cbc0fe119b8e5dd04f537182f9b6b7c2576265a38"
+    },
+    {
+      "path": "openarm_can/setup/cli/commands/zero_position_commands.cpp",
+      "source": "runtime/ros2_ws/src/openarm_can/setup/cli/commands/zero_position_commands.cpp",
+      "bytes": 3736,
+      "sha256": "096e3f31c7ac2f7090efa0efe141d88f5b530cebbccccafd27fc21b40ce8a81b"
+    },
+    {
+      "path": "openarm_can/setup/cli/openarm_cli.cpp",
+      "source": "runtime/ros2_ws/src/openarm_can/setup/cli/openarm_cli.cpp",
+      "bytes": 17549,
+      "sha256": "c12637ced837b229ff3d5107a16bd716ac0302ed8dc1a4cff827fc55dc3089cc"
+    },
+    {
+      "path": "openarm_can/setup/motor_sampling_check.cpp",
+      "source": "runtime/ros2_ws/src/openarm_can/setup/motor_sampling_check.cpp",
+      "bytes": 7974,
+      "sha256": "5e0b217cdeea678e9d413fed613c9ebe1fa484f8004c7b6319a1e1608a0f2f86"
+    },
+    {
+      "path": "openarm_can/setup/openarm-can-calibration-in-cell",
+      "source": "runtime/ros2_ws/src/openarm_can/setup/openarm-can-calibration-in-cell",
+      "bytes": 10491,
+      "sha256": "e0b88fabce86479d2be2f58d723b8ffa8e957843f53202bc6f0803b56429219a"
+    },
+    {
+      "path": "openarm_can/setup/openarm-can-cli.bash",
+      "source": "runtime/ros2_ws/src/openarm_can/setup/openarm-can-cli.bash",
+      "bytes": 2815,
+      "sha256": "1aa14184fca0f5e5839d92a2c858d4bcf49f2386af8255d7fdcf1707167e7959"
+    },
+    {
+      "path": "openarm_can/setup/openarm-can-configure-socketcan-4-arms",
+      "source": "runtime/ros2_ws/src/openarm_can/setup/openarm-can-configure-socketcan-4-arms",
+      "bytes": 3107,
+      "sha256": "254fa2e87c2b54754d9efc81381e07799e19f92dd121a4b2828d2766a264db2d"
+    },
+    {
+      "path": "openarm_can/setup/openarm-can-zero-position-calibration",
+      "source": "runtime/ros2_ws/src/openarm_can/setup/openarm-can-zero-position-calibration",
+      "bytes": 15934,
+      "sha256": "1dd9809ba7ad42458319787836e1b1853a50126d6cee1faa052721d370e90718"
+    },
+    {
+      "path": "openarm_can/src/openarm/can/socket/arm_component.cpp",
+      "source": "runtime/ros2_ws/src/openarm_can/src/openarm/can/socket/arm_component.cpp",
+      "bytes": 2381,
+      "sha256": "ec0427ca5c5fb6ed286c9dab7d08d697c62a57cc71635a2b9e47aab4bd1f87dc"
+    },
+    {
+      "path": "openarm_can/src/openarm/can/socket/gripper_component.cpp",
+      "source": "runtime/ros2_ws/src/openarm_can/src/openarm/can/socket/gripper_component.cpp",
+      "bytes": 2696,
+      "sha256": "50ba4f4ce91b742ebf1e3be184899949772a32e6018a8e1296fddead556c6473"
+    },
+    {
+      "path": "openarm_can/src/openarm/can/socket/openarm.cpp",
+      "source": "runtime/ros2_ws/src/openarm_can/src/openarm/can/socket/openarm.cpp",
+      "bytes": 6103,
+      "sha256": "56e77b16bd939e34641a4f1e2fdcd6fbff4564bad3c48b2ed22af4460c2ac532"
+    },
+    {
+      "path": "openarm_can/src/openarm/canbus/can_device_collection.cpp",
+      "source": "runtime/ros2_ws/src/openarm_can/src/openarm/canbus/can_device_collection.cpp",
+      "bytes": 2357,
+      "sha256": "7186c3b303b9c44f6f641ea34cd4ca0366a1dc44004491b09a885c8d849afd56"
+    },
+    {
+      "path": "openarm_can/src/openarm/canbus/can_socket.cpp",
+      "source": "runtime/ros2_ws/src/openarm_can/src/openarm/canbus/can_socket.cpp",
+      "bytes": 8601,
+      "sha256": "e624adeaa11c78819140d32fa9d5adc54c89075a15defdf018d683bc7c2bb529"
+    },
+    {
+      "path": "openarm_can/src/openarm/damiao_motor/dm_motor.cpp",
+      "source": "runtime/ros2_ws/src/openarm_can/src/openarm/damiao_motor/dm_motor.cpp",
+      "bytes": 2702,
+      "sha256": "002be7367de375ca0ac03d2ea2283104b335c51c0cc2e558197554e9a19b74b7"
+    },
+    {
+      "path": "openarm_can/src/openarm/damiao_motor/dm_motor_control.cpp",
+      "source": "runtime/ros2_ws/src/openarm_can/src/openarm/damiao_motor/dm_motor_control.cpp",
+      "bytes": 11440,
+      "sha256": "1d5c68a725dd8110fa554d7d22260a37303dc81bc1c3f688711fb7f1d761d0b3"
+    },
+    {
+      "path": "openarm_can/src/openarm/damiao_motor/dm_motor_device.cpp",
+      "source": "runtime/ros2_ws/src/openarm_can/src/openarm/damiao_motor/dm_motor_device.cpp",
+      "bytes": 5007,
+      "sha256": "ae9455247f5fd71efc472a017c336bda7d537f439a7568ba081c549f08962732"
+    },
+    {
+      "path": "openarm_can/src/openarm/damiao_motor/dm_motor_device_collection.cpp",
+      "source": "runtime/ros2_ws/src/openarm_can/src/openarm/damiao_motor/dm_motor_device_collection.cpp",
+      "bytes": 7779,
+      "sha256": "fce6dbe7c055dbb612b3471e50cebee225600cf1617fabf6a5e1b30fdb8c7096"
+    },
+    {
+      "path": "model_config_reference/LICENSE.txt",
+      "source": "runtime/ros2_ws/src/openarm_description/LICENSE.txt",
+      "bytes": 11357,
+      "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
+    },
+    {
+      "path": "model_config_reference/assets/end_effector/parallel_link/config/inertials.yaml",
+      "source": "runtime/ros2_ws/src/openarm_description/assets/end_effector/parallel_link/config/inertials.yaml",
+      "bytes": 1655,
+      "sha256": "49706fdf203d6e343778683596ad85178464035523ad75187bbb0ce45c89c7f3"
+    },
+    {
+      "path": "model_config_reference/assets/end_effector/parallel_link/config/joint_limits.yaml",
+      "source": "runtime/ros2_ws/src/openarm_description/assets/end_effector/parallel_link/config/joint_limits.yaml",
+      "bytes": 671,
+      "sha256": "8a8eaf0947946749b531d91de3b6624d4cd29e0f8f2fdb7fe3ab9a337e783147"
+    },
+    {
+      "path": "model_config_reference/assets/end_effector/parallel_link/config/kinematics.yaml",
+      "source": "runtime/ros2_ws/src/openarm_description/assets/end_effector/parallel_link/config/kinematics.yaml",
+      "bytes": 772,
+      "sha256": "f56a9a41289edbed1605c05607b737273e2ef9855b087182dee4e208219e253a"
+    },
+    {
+      "path": "model_config_reference/assets/end_effector/parallel_link/config/kinematics_link.yaml",
+      "source": "runtime/ros2_ws/src/openarm_description/assets/end_effector/parallel_link/config/kinematics_link.yaml",
+      "bytes": 898,
+      "sha256": "d77029f3bb7e7f1c9ff342ad0c779f26dcaa77f6c0c72cb9008298867c72bf45"
+    },
+    {
+      "path": "model_config_reference/assets/end_effector/pinch_gripper/config/inertials/nominal.yaml",
+      "source": "runtime/ros2_ws/src/openarm_description/assets/end_effector/pinch_gripper/config/inertials/nominal.yaml",
+      "bytes": 1434,
+      "sha256": "472b595e6aab7477f3e2aa79b56d5cca6508f955035482597a601592a082cbff"
+    },
+    {
+      "path": "model_config_reference/assets/end_effector/pinch_gripper/config/joint/joint_axes.yaml",
+      "source": "runtime/ros2_ws/src/openarm_description/assets/end_effector/pinch_gripper/config/joint/joint_axes.yaml",
+      "bytes": 665,
+      "sha256": "d375d862d5215f1e12094eba7e5a6a8d7f678eff6a39059c9fd30b0f09e43eca"
+    },
+    {
+      "path": "model_config_reference/assets/end_effector/pinch_gripper/config/joint/joint_limits.yaml",
+      "source": "runtime/ros2_ws/src/openarm_description/assets/end_effector/pinch_gripper/config/joint/joint_limits.yaml",
+      "bytes": 736,
+      "sha256": "38cb8a541e53763c360c0d088620d9a2f645906480e5809011159b73f64057a3"
+    },
+    {
+      "path": "model_config_reference/assets/end_effector/pinch_gripper/config/joint/joint_mimics.yaml",
+      "source": "runtime/ros2_ws/src/openarm_description/assets/end_effector/pinch_gripper/config/joint/joint_mimics.yaml",
+      "bytes": 630,
+      "sha256": "e595488b9940608e48dc7b8878e3732710ecf3cee36af59f5f88909549c95575"
+    },
+    {
+      "path": "model_config_reference/assets/end_effector/pinch_gripper/config/joint/joint_origins.yaml",
+      "source": "runtime/ros2_ws/src/openarm_description/assets/end_effector/pinch_gripper/config/joint/joint_origins.yaml",
+      "bytes": 850,
+      "sha256": "3c44e3baacb15c6060567514d008c317ef5fd5fa92139e61030cec8fb80126cc"
+    },
+    {
+      "path": "model_config_reference/assets/end_effector/pinch_gripper/config/link/collisions.yaml",
+      "source": "runtime/ros2_ws/src/openarm_description/assets/end_effector/pinch_gripper/config/link/collisions.yaml",
+      "bytes": 1323,
+      "sha256": "58b2fb1aac7f17db5725927b6e95e666a58a8d50ccae18621d6c0e3b5b2f4437"
+    },
+    {
+      "path": "model_config_reference/assets/end_effector/pinch_gripper/config/link/visuals.yaml",
+      "source": "runtime/ros2_ws/src/openarm_description/assets/end_effector/pinch_gripper/config/link/visuals.yaml",
+      "bytes": 1314,
+      "sha256": "ae58a4def303980d456b4da551f7c6d0d80091ab3b56988c2e54d76e7c36dd01"
+    },
+    {
+      "path": "model_config_reference/assets/end_effector/pinch_gripper/config/old/inertials.yaml",
+      "source": "runtime/ros2_ws/src/openarm_description/assets/end_effector/pinch_gripper/config/old/inertials.yaml",
+      "bytes": 1437,
+      "sha256": "4e29b50a2a8a3048b5d94f7676891f683e2c7c33ce5b4b61ccf856315541cb2e"
+    },
+    {
+      "path": "model_config_reference/assets/end_effector/pinch_gripper/config/old/joint_limits.yaml",
+      "source": "runtime/ros2_ws/src/openarm_description/assets/end_effector/pinch_gripper/config/old/joint_limits.yaml",
+      "bytes": 672,
+      "sha256": "a7793cef3967b2a0f56442cb364a78ee68c188693ac93d720ea31462b80a5ca5"
+    },
+    {
+      "path": "model_config_reference/assets/end_effector/pinch_gripper/config/old/kinematics.yaml",
+      "source": "runtime/ros2_ws/src/openarm_description/assets/end_effector/pinch_gripper/config/old/kinematics.yaml",
+      "bytes": 677,
+      "sha256": "14f326f826f9edab180f3a21da77949baefed759b9307c5c8897586dc1ea82ab"
+    },
+    {
+      "path": "model_config_reference/assets/end_effector/pinch_gripper/config/old/kinematics_link.yaml",
+      "source": "runtime/ros2_ws/src/openarm_description/assets/end_effector/pinch_gripper/config/old/kinematics_link.yaml",
+      "bytes": 787,
+      "sha256": "7c39918de39bd221f7f98147b64c7253ed46542fcfda2de21ac2039c8210d140"
+    },
+    {
+      "path": "model_config_reference/assets/end_effector/pinch_gripper/config/struct/name_mapping.yaml",
+      "source": "runtime/ros2_ws/src/openarm_description/assets/end_effector/pinch_gripper/config/struct/name_mapping.yaml",
+      "bytes": 969,
+      "sha256": "f052eadbbeda62120b52dbcf9f60590e6ac7c9d40ff9c96942a16ff7023f4283"
+    },
+    {
+      "path": "model_config_reference/assets/end_effector/pinch_gripper/config/struct/reference_points.yaml",
+      "source": "runtime/ros2_ws/src/openarm_description/assets/end_effector/pinch_gripper/config/struct/reference_points.yaml",
+      "bytes": 1055,
+      "sha256": "b1b2fd40003c7a8c72d546e0ee02763b6a62c60929eb3b639cd655163ce8506e"
+    },
+    {
+      "path": "model_config_reference/assets/end_effector/pinch_gripper/config/struct/topology.yaml",
+      "source": "runtime/ros2_ws/src/openarm_description/assets/end_effector/pinch_gripper/config/struct/topology.yaml",
+      "bytes": 763,
+      "sha256": "b132f836ebe35934d310c1367c40ffe73199e43c7ce4c2ff1686ea5efd8b4115"
+    },
+    {
+      "path": "model_config_reference/assets/robot/openarm_v1.0/config/arm/control_gains.yaml",
+      "source": "runtime/ros2_ws/src/openarm_description/assets/robot/openarm_v1.0/config/arm/control_gains.yaml",
+      "bytes": 815,
+      "sha256": "088228c111d236c652afcccdaf17ff380e8e6e69a43bd47ef0566382e915f285"
+    },
+    {
+      "path": "model_config_reference/assets/robot/openarm_v1.0/config/arm/inertials.yaml",
+      "source": "runtime/ros2_ws/src/openarm_description/assets/robot/openarm_v1.0/config/arm/inertials.yaml",
+      "bytes": 2828,
+      "sha256": "db447d8c689512f73f933d517ca204a1d4239328d6e166feeda8e66ea7f25788"
+    },
+    {
+      "path": "model_config_reference/assets/robot/openarm_v1.0/config/arm/joint_limits.yaml",
+      "source": "runtime/ros2_ws/src/openarm_description/assets/robot/openarm_v1.0/config/arm/joint_limits.yaml",
+      "bytes": 1460,
+      "sha256": "b481d48c8de68894a36c77d6eef789d97c357a910f43c56f415f82e5e2c2e93b"
+    },
+    {
+      "path": "model_config_reference/assets/robot/openarm_v1.0/config/arm/kinematics.yaml",
+      "source": "runtime/ros2_ws/src/openarm_description/assets/robot/openarm_v1.0/config/arm/kinematics.yaml",
+      "bytes": 1581,
+      "sha256": "cb5dfbf2d51b39a1a61fa6634932c79863c853593dfa24c77603cd3c6377e9aa"
+    },
+    {
+      "path": "model_config_reference/assets/robot/openarm_v1.0/config/arm/kinematics_link.yaml",
+      "source": "runtime/ros2_ws/src/openarm_description/assets/robot/openarm_v1.0/config/arm/kinematics_link.yaml",
+      "bytes": 1515,
+      "sha256": "c384776165ff675516af920f01f10d1651d22e07f26fc54210386d65474fd5cd"
+    },
+    {
+      "path": "model_config_reference/assets/robot/openarm_v1.0/config/arm/kinematics_offset.yaml",
+      "source": "runtime/ros2_ws/src/openarm_description/assets/robot/openarm_v1.0/config/arm/kinematics_offset.yaml",
+      "bytes": 1377,
+      "sha256": "9fe85a052da84e2b6eef0a36fe8efb1ac08dbef1222cb85ecf7706833540247b"
+    },
+    {
+      "path": "model_config_reference/assets/robot/openarm_v1.0/config/body/inertials.yaml",
+      "source": "runtime/ros2_ws/src/openarm_description/assets/robot/openarm_v1.0/config/body/inertials.yaml",
+      "bytes": 745,
+      "sha256": "a3643cadb81936d1e769881b78fa261a95a4d9b995ab549f5f2a32320499efb4"
+    },
+    {
+      "path": "model_config_reference/assets/robot/openarm_v1.0/config/body/kinematics.yaml",
+      "source": "runtime/ros2_ws/src/openarm_description/assets/robot/openarm_v1.0/config/body/kinematics.yaml",
+      "bytes": 678,
+      "sha256": "2c7be4cf3782034d229a5b9dfa5b01d833f4a991e54fc2d43fa96c0438419e2f"
+    },
+    {
+      "path": "model_config_reference/assets/robot/openarm_v1.0/config/body/kinematics_link.yaml",
+      "source": "runtime/ros2_ws/src/openarm_description/assets/robot/openarm_v1.0/config/body/kinematics_link.yaml",
+      "bytes": 678,
+      "sha256": "2c7be4cf3782034d229a5b9dfa5b01d833f4a991e54fc2d43fa96c0438419e2f"
+    },
+    {
+      "path": "model_config_reference/assets/robot/openarm_v2.0/config/arm/control/control_gains.yaml",
+      "source": "runtime/ros2_ws/src/openarm_description/assets/robot/openarm_v2.0/config/arm/control/control_gains.yaml",
+      "bytes": 788,
+      "sha256": "4faa4ea10acced3db9c46a58c8041809d52668cd65772436f34e09b06f90dfb4"
+    },
+    {
+      "path": "model_config_reference/assets/robot/openarm_v2.0/config/arm/control/friction.yaml",
+      "source": "runtime/ros2_ws/src/openarm_description/assets/robot/openarm_v2.0/config/arm/control/friction.yaml",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "model_config_reference/assets/robot/openarm_v2.0/config/arm/inertials/nominal.yaml",
+      "source": "runtime/ros2_ws/src/openarm_description/assets/robot/openarm_v2.0/config/arm/inertials/nominal.yaml",
+      "bytes": 3020,
+      "sha256": "2fb0dfb9374f06bf7355e164e834e2f04e89831c416a8e0e932fb197e9ba4309"
+    },
+    {
+      "path": "model_config_reference/assets/robot/openarm_v2.0/config/arm/joint/joint_axes.yaml",
+      "source": "runtime/ros2_ws/src/openarm_description/assets/robot/openarm_v2.0/config/arm/joint/joint_axes.yaml",
+      "bytes": 884,
+      "sha256": "973c64674b9536be967bb0fb563c6d171bc75914e45ce6c9e3d9f140bc788230"
+    },
+    {
+      "path": "model_config_reference/assets/robot/openarm_v2.0/config/arm/joint/joint_limits.yaml",
+      "source": "runtime/ros2_ws/src/openarm_description/assets/robot/openarm_v2.0/config/arm/joint/joint_limits.yaml",
+      "bytes": 1200,
+      "sha256": "f26a871a68d92f67323f05e7c812462a6cd07bc84656a3add6a022b448be771e"
+    },
+    {
+      "path": "model_config_reference/assets/robot/openarm_v2.0/config/arm/joint/joint_origins.yaml",
+      "source": "runtime/ros2_ws/src/openarm_description/assets/robot/openarm_v2.0/config/arm/joint/joint_origins.yaml",
+      "bytes": 1237,
+      "sha256": "1011fb4b2072e52b367ce86f401598013afaa14395d273352f10727af6d2f50f"
+    },
+    {
+      "path": "model_config_reference/assets/robot/openarm_v2.0/config/arm/link/collisions.yaml",
+      "source": "runtime/ros2_ws/src/openarm_description/assets/robot/openarm_v2.0/config/arm/link/collisions.yaml",
+      "bytes": 2238,
+      "sha256": "9d804d3cb3fc1815230903c13dd9bc4d066ec70c13f19568ebf54153d5d863c9"
+    },
+    {
+      "path": "model_config_reference/assets/robot/openarm_v2.0/config/arm/link/visuals.yaml",
+      "source": "runtime/ros2_ws/src/openarm_description/assets/robot/openarm_v2.0/config/arm/link/visuals.yaml",
+      "bytes": 2217,
+      "sha256": "e9fbefe367def6f680dcba02163c11e454c55210ea31dc6ee00fc63d00ffc663"
+    },
+    {
+      "path": "model_config_reference/assets/robot/openarm_v2.0/config/arm/meta.md",
+      "source": "runtime/ros2_ws/src/openarm_description/assets/robot/openarm_v2.0/config/arm/meta.md",
+      "bytes": 88,
+      "sha256": "410b94124749d3c2429c4174edbee9cdf318054290b39beaf77690ab0b14aa25"
+    },
+    {
+      "path": "model_config_reference/assets/robot/openarm_v2.0/config/arm/struct/name_mapping.yaml",
+      "source": "runtime/ros2_ws/src/openarm_description/assets/robot/openarm_v2.0/config/arm/struct/name_mapping.yaml",
+      "bytes": 1271,
+      "sha256": "fdfc4ae212482932c579a08efe6bbeda696c8cbbb505d5edbfaa9885773f28b3"
+    },
+    {
+      "path": "model_config_reference/assets/robot/openarm_v2.0/config/arm/struct/reference_points.yaml",
+      "source": "runtime/ros2_ws/src/openarm_description/assets/robot/openarm_v2.0/config/arm/struct/reference_points.yaml",
+      "bytes": 996,
+      "sha256": "7912e21c9cf9b4d19d4a6aed24c7d76330b37e240b79fae960df9eecfcd2e9e6"
+    },
+    {
+      "path": "model_config_reference/assets/robot/openarm_v2.0/config/arm/struct/topology.yaml",
+      "source": "runtime/ros2_ws/src/openarm_description/assets/robot/openarm_v2.0/config/arm/struct/topology.yaml",
+      "bytes": 1129,
+      "sha256": "c994947b537eb1cc48901567e1a6da5accd61238e708a6d334b8933bcb2eb5b1"
+    },
+    {
+      "path": "model_config_reference/assets/robot/openarm_v2.0/config/body/inertials/nominal.yaml",
+      "source": "runtime/ros2_ws/src/openarm_description/assets/robot/openarm_v2.0/config/body/inertials/nominal.yaml",
+      "bytes": 766,
+      "sha256": "47f6e2a81e8cd5fd3d224cf76682539825305c61259a508bf1dc53da4282487f"
+    },
+    {
+      "path": "model_config_reference/assets/robot/openarm_v2.0/config/body/link/collisions.yaml",
+      "source": "runtime/ros2_ws/src/openarm_description/assets/robot/openarm_v2.0/config/body/link/collisions.yaml",
+      "bytes": 853,
+      "sha256": "74fac238dfe6bb884e5dee563f700e12aa93a1ad11b6b4b23f3b098994ffd42c"
+    },
+    {
+      "path": "model_config_reference/assets/robot/openarm_v2.0/config/body/link/visuals.yaml",
+      "source": "runtime/ros2_ws/src/openarm_description/assets/robot/openarm_v2.0/config/body/link/visuals.yaml",
+      "bytes": 845,
+      "sha256": "bdddfe71ace12eb37fb8440d06c5478709aaf5f697228c7d5cae387b9d51c9e0"
+    },
+    {
+      "path": "model_config_reference/assets/robot/openarm_v2.0/config/body/meta.md",
+      "source": "runtime/ros2_ws/src/openarm_description/assets/robot/openarm_v2.0/config/body/meta.md",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "model_config_reference/assets/robot/openarm_v2.0/config/body/struct/reference_points.yaml",
+      "source": "runtime/ros2_ws/src/openarm_description/assets/robot/openarm_v2.0/config/body/struct/reference_points.yaml",
+      "bytes": 1792,
+      "sha256": "7daa02138c561566373942306a17e6c0bee03d42470c11b9499cbbbcb8c6b156"
+    },
+    {
+      "path": "model_config_reference/assets/robot/openarm_v2.0/config/body/struct/topology.yaml",
+      "source": "runtime/ros2_ws/src/openarm_description/assets/robot/openarm_v2.0/config/body/struct/topology.yaml",
+      "bytes": 611,
+      "sha256": "e517110d5fc00adc45705dbb56aeae54e374487997254f7fbc16d2bd67527311"
+    },
+    {
+      "path": "model_config_reference/assets/robot/openarm_v2.0/config/meta.md",
+      "source": "runtime/ros2_ws/src/openarm_description/assets/robot/openarm_v2.0/config/meta.md",
+      "bytes": 415,
+      "sha256": "4a44433598c10ca66d223f1fee7b9701a9e056901bce67eb4685d11ce628fc93"
+    },
+    {
+      "path": "model_config_reference/assets/robot/openarm_v2.0/config/robot_presets/default_bimanual.yaml",
+      "source": "runtime/ros2_ws/src/openarm_description/assets/robot/openarm_v2.0/config/robot_presets/default_bimanual.yaml",
+      "bytes": 2532,
+      "sha256": "8a2bfc97c1612b8b0e53d6f1c0a4af233197159a4f36ed1f74eabff76b6f5eb7"
+    },
+    {
+      "path": "model_config_reference/assets/robot/openarm_v2.0/config/robot_presets/left_arm.yaml",
+      "source": "runtime/ros2_ws/src/openarm_description/assets/robot/openarm_v2.0/config/robot_presets/left_arm.yaml",
+      "bytes": 2468,
+      "sha256": "b3315007e8dcb774e63e06f65fa6bb4bbe08dc094bc98dd79ddd42a39a30ee2a"
+    },
+    {
+      "path": "model_config_reference/assets/robot/openarm_v2.0/config/robot_presets/left_arm_with_pinch_gripper.yaml",
+      "source": "runtime/ros2_ws/src/openarm_description/assets/robot/openarm_v2.0/config/robot_presets/left_arm_with_pinch_gripper.yaml",
+      "bytes": 2498,
+      "sha256": "21ac4ced2f0277b96c8065eaa9e8aad5ba10c19609f18a2b6b1c63e4eb3f93b3"
+    },
+    {
+      "path": "model_config_reference/assets/robot/openarm_v2.0/config/robot_presets/right_arm.yaml",
+      "source": "runtime/ros2_ws/src/openarm_description/assets/robot/openarm_v2.0/config/robot_presets/right_arm.yaml",
+      "bytes": 2468,
+      "sha256": "5e220a35c622bd7b498ec534c7fce5ee895be247ef75d019f5f1faffb2d70739"
+    },
+    {
+      "path": "model_config_reference/assets/robot/openarm_v2.0/config/robot_presets/right_arm_with_pinch_gripper.yaml",
+      "source": "runtime/ros2_ws/src/openarm_description/assets/robot/openarm_v2.0/config/robot_presets/right_arm_with_pinch_gripper.yaml",
+      "bytes": 2321,
+      "sha256": "1eaa4785cdff6eb46f9ed6c14b6f46d1454ee6855922ec14435f8fedd41ab7ce"
+    },
+    {
+      "path": "ros2_reference/openarm_bimanual_controllers.yaml",
+      "source": "runtime/ros2_ws/src/openarm_ros2/openarm_bringup/config/controllers/openarm_bimanual_controllers.yaml",
+      "bytes": 5036,
+      "sha256": "33eaa292aa9742b6dd3f0831388afbc791d32b57f0053ee1df9c2a4976dd755c"
+    },
+    {
+      "path": "ros2_reference/openarm_hardware/CMakeLists.txt",
+      "source": "runtime/ros2_ws/src/openarm_ros2/openarm_hardware/CMakeLists.txt",
+      "bytes": 1907,
+      "sha256": "d393e958d31dd93be10c31f9977b1a8d6e2fbb79d0f906f9ddce2ea4d1d2f8cd"
+    },
+    {
+      "path": "ros2_reference/openarm_hardware/LICENSE",
+      "source": "runtime/ros2_ws/src/openarm_ros2/openarm_hardware/LICENSE",
+      "bytes": 11358,
+      "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
+    },
+    {
+      "path": "ros2_reference/openarm_hardware/include/openarm_hardware/openarm_simple_hardware.hpp",
+      "source": "runtime/ros2_ws/src/openarm_ros2/openarm_hardware/include/openarm_hardware/openarm_simple_hardware.hpp",
+      "bytes": 7928,
+      "sha256": "ed06d814e6eec0c1f31675c7ce2d0a36958d2cab817df2ba9f94dbf43c66a0ad"
+    },
+    {
+      "path": "ros2_reference/openarm_hardware/include/openarm_hardware/visibility_control.h",
+      "source": "runtime/ros2_ws/src/openarm_ros2/openarm_hardware/include/openarm_hardware/visibility_control.h",
+      "bytes": 2119,
+      "sha256": "86169aaebc5e75f9621b104f7b7e05955dccb6d717e2bb02a266baf92e50b73c"
+    },
+    {
+      "path": "ros2_reference/openarm_hardware/openarm_hardware.xml",
+      "source": "runtime/ros2_ws/src/openarm_ros2/openarm_hardware/openarm_hardware.xml",
+      "bytes": 890,
+      "sha256": "e4daf5e60c38343439e34f0ec1cfd98d0887a33862cbbab161340fab470f349f"
+    },
+    {
+      "path": "ros2_reference/openarm_hardware/package.xml",
+      "source": "runtime/ros2_ws/src/openarm_ros2/openarm_hardware/package.xml",
+      "bytes": 1444,
+      "sha256": "669e871efe125f38cfe31ea2de5ba2b401bea64e14df525cf96161e2f71db6d1"
+    },
+    {
+      "path": "ros2_reference/openarm_hardware/src/openarm_simple_hardware.cpp",
+      "source": "runtime/ros2_ws/src/openarm_ros2/openarm_hardware/src/openarm_simple_hardware.cpp",
+      "bytes": 28088,
+      "sha256": "ecf39454d4e261449a014722b719d1a4cf425d20b89819e35d419b8f08381343"
+    }
+  ]
+}

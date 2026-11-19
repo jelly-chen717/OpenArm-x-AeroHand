@@ -1,0 +1,13 @@
+{
+  "passed": true,
+  "count": 141,
+  "duration_s": 7.21,
+  "kind": "offline_regression_not_hardware",
+  "command": "openarm/.venv/Scripts/python.exe -m pytest apps/test_openarm_driver.py apps/test_openarm_sync.py apps/test_openarm_execution.py apps/test_openarm_execution_hardware.py apps/test_openarm_dual_sequence.py apps/test_prepare_openarm_dual_sequence.py apps/test_openarm_sequence_dynamics.py -q",
+  "new_modules": [
+    "prepare_openarm_dual_sequence",
+    "openarm_sequence_dynamics"
+  ],
+  "user_latest_third_step": "J5 from -88 to test zero; 88 degree travel",
+  "hardware_motion_this_task": false
+}

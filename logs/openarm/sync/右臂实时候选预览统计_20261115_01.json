@@ -1,0 +1,28 @@
+{
+  "records": 874,
+  "valid_records": 873,
+  "invalid_reasons": [
+    "no feedback"
+  ],
+  "age_s_median_p95_max": [
+    0.030999999999039574,
+    0.046999999998661224,
+    0.04700000000048021
+  ],
+  "skew_s_max": 0.01600000000144064,
+  "observed_range_deg": [
+    10.16347656732402,
+    13.791728417164423,
+    7.999639620732454,
+    22.64378865322103,
+    93.13241645885536,
+    31.648847461258555,
+    53.6806418265546
+  ],
+  "exit": {
+    "type": "exit",
+    "elapsed_s": 60.04699999999866
+  },
+  "user_visual_confirmation": "right arm pose matches and manual movement follows in real time",
+  "mapping_status": "UNVERIFIED MODEL CANDIDATE"
+}

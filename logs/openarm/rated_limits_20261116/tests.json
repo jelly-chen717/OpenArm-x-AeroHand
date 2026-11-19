@@ -1,0 +1,9 @@
+{
+  "date": "2026-11-16",
+  "hardware_accessed": false,
+  "command": "openarm/.venv/Scripts/python.exe -m pytest apps/test_openarm_driver.py apps/test_openarm_sync.py apps/test_openarm_execution.py apps/test_openarm_execution_hardware.py -q",
+  "exit_code": 0,
+  "passed": 87,
+  "seconds": 5.39,
+  "scope": "Driver, mapping, trajectory and PCAN transport with fake drivers; rated defaults and boundaries for all 14 axes, old settings override, custom profile, CLI preflight/execute logging, cancel and fault cleanup. No actual motor motion."
+}

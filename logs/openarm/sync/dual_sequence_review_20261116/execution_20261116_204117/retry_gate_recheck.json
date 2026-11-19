@@ -1,0 +1,10 @@
+{
+  "kind": "offline_recheck_of_recorded_samples_not_a_new_hardware_run",
+  "proposed_settle_speed_rad_s": 0.05,
+  "settling_sample_count": 201,
+  "qualifying_sample_count": 201,
+  "first_qualifying_t": 0.8239366000052541,
+  "recorded_max_settling_speed_rad_s": 0.0366300366300365,
+  "continuous_qualified_interval_s": 8.000889899994945,
+  "proposed_change": "Only sequence.settle_speed_rad_s 0.03 -> 0.05; retain angles, timings, torque/rated speed limits, gains, 1.5 s dwell, position tolerances and fault stop."
+}

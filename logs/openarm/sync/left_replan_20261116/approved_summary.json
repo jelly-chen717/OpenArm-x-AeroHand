@@ -1,0 +1,57 @@
+{
+  "outcome": "FAULT",
+  "reason": "Waypoint tolerance exceeded at J7 hold end",
+  "completed": false,
+  "duration_s": 6.000185599999895,
+  "samples": 151,
+  "joint_order": [
+    "left_J5",
+    "left_J6",
+    "left_J7"
+  ],
+  "start_deg": [
+    -2.1747654160187957,
+    -6.240156042948404,
+    1.103775412150243
+  ],
+  "final_requested_deg": [
+    42.82523458398121,
+    -31.2401560429484,
+    26.10377541215024
+  ],
+  "last_measured_before_disable_deg": [
+    -2.1747654160187957,
+    -6.240156042948404,
+    25.14640815205673
+  ],
+  "delta_from_start_deg": [
+    0.0,
+    0.0,
+    24.042632739906487
+  ],
+  "checkpoint_error_deg": [
+    0.0,
+    0.0,
+    -0.9573672600935134
+  ],
+  "endpoint_tolerance_deg": 0.8594366926962348,
+  "max_measured_speed_deg_s": [
+    2.0987465023107004,
+    1.2592479013864202,
+    13.851726915250623
+  ],
+  "max_measured_torque_nm": [
+    0.026862026862026767,
+    0.026862026862026767,
+    0.6031746031746028
+  ],
+  "max_tracking_error_deg": [
+    0.02185693885446026,
+    2.497292022018117e-11,
+    1.1409257861061548
+  ],
+  "period_median_s": 0.039896049999697425,
+  "period_max_s": 0.04143529999964812,
+  "all_14_disabled": true,
+  "automatic_retry": false
+}

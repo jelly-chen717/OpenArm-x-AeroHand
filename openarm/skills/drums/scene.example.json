@@ -1,0 +1,14 @@
+{
+  "name": "drums_single_hit",
+  "status": "template_only",
+  "arm": "right",
+  "reference_frame": "arm_origin",
+  "controlled_site": "right_ee_control_point",
+  "pose_format": "x y z qw qx qy qz",
+  "position_unit": "m",
+  "waypoints": {
+    "ready": {"pose": null},
+    "drum_contact": {"pose": null}
+  },
+  "sequence": ["ready", "drum_contact", "ready"]
+}

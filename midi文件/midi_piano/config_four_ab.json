@@ -1,0 +1,86 @@
+{
+  "hand": {
+    "port": "COM7",
+    "baudrate": 921600,
+    "position_mode": "joint_degrees_7",
+    "rest_pose": [
+      0,
+      0,
+      0,
+      6.66,
+      4.41,
+      15.39,
+      25.38
+    ]
+  },
+  "arm": {
+    "backend": "unconfigured",
+    "poses": {
+      "A": null,
+      "B": null
+    },
+    "initial_move_seconds": 2.0,
+    "move_seconds": {
+      "A-B": 2.0,
+      "B-A": 2.0
+    },
+    "timing_is_measured": false
+  },
+  "notes": {
+    "60": {
+      "name": "C4/do",
+      "group": "A",
+      "finger": "index",
+      "press_degrees": 16.2
+    },
+    "62": {
+      "name": "D4/re",
+      "group": "A",
+      "finger": "middle",
+      "press_degrees": 15.57
+    },
+    "64": {
+      "name": "E4/mi",
+      "group": "A",
+      "finger": "ring",
+      "press_degrees": 28.8
+    },
+    "65": {
+      "name": "F4/fa",
+      "group": "A",
+      "finger": "pinky",
+      "press_degrees": 41.04
+    },
+    "67": {
+      "name": "G4/sol",
+      "group": "B",
+      "finger": "index",
+      "press_degrees": null
+    },
+    "69": {
+      "name": "A4/la",
+      "group": "B",
+      "finger": "middle",
+      "press_degrees": null
+    },
+    "71": {
+      "name": "B4/si",
+      "group": "B",
+      "finger": "ring",
+      "press_degrees": null
+    }
+  },
+  "timing": {
+    "down_seconds": 0.12,
+    "up_seconds": 0.15,
+    "min_hold_seconds": 0.05,
+    "gap_seconds": 0.05,
+    "startup_seconds": 2.0,
+    "stop_seconds": 0.5,
+    "articulation": 0.7,
+    "update_hz": 100,
+    "late_tolerance_seconds": 0.15
+  },
+  "layout": "four_finger_ab",
+  "calibration_note": "A 位参数沿用固定琴位记录，机械臂装配后须复核；B 位未标定；2 秒仅为模拟假设。"
+}

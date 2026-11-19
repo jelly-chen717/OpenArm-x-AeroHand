@@ -1,0 +1,16 @@
+{
+  "name": "drawing_single_stroke",
+  "status": "template_only",
+  "arm": "right",
+  "reference_frame": "arm_origin",
+  "controlled_site": "right_ee_control_point",
+  "pose_format": "x y z qw qx qy qz",
+  "position_unit": "m",
+  "waypoints": {
+    "above_start": {"pose": null},
+    "stroke_start": {"pose": null},
+    "stroke_end": {"pose": null},
+    "above_end": {"pose": null}
+  },
+  "sequence": ["above_start", "stroke_start", "stroke_end", "above_end"]
+}

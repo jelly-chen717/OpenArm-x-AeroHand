@@ -1,0 +1,658 @@
+{
+  "python": "D:\\桌面\\open CyMon\\弹钢琴\\openarm\\.venv\\Scripts\\python.exe",
+  "python_version": "3.11.9 (tags/v3.11.9:de54cf5, Apr  2 2024, 10:12:12) [MSC v.1938 64 bit (AMD64)]",
+  "versions": {
+    "mujoco": "3.17.0",
+    "numpy": "2.4.6",
+    "openarm-control": "0.4.0"
+  },
+  "scene": "D:\\桌面\\open CyMon\\弹钢琴\\openarm\\vendor\\openarm_mujoco\\v1\\scene.xml",
+  "dll_path": "C:\\WINDOWS\\SYSTEM32\\PCANBasic.dll",
+  "dll_symbols_resolved": true,
+  "hardware_bus_opened": false,
+  "xacro_installed": false,
+  "method": "Explicit source arm macro equations, not full Xacro expansion; local link0 frames",
+  "all_14_model_coordinates_equal": true,
+  "rows": [
+    {
+      "side": "left",
+      "joint": "openarm_left_joint1",
+      "motor_id": 1,
+      "feedback_id": "0x11",
+      "motor_type": "DM8009",
+      "pcan_candidate": "0x52",
+      "pcan_physical_mapping_verified": false,
+      "qpos_index": 0,
+      "dof_index": 0,
+      "axis": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "source_range": [
+        -3.490659,
+        1.3962629999999998
+      ],
+      "mujoco_range": [
+        -3.490659,
+        1.3962629999999998
+      ],
+      "checks": {
+        "axis_equal": true,
+        "origin_position_equal": true,
+        "origin_rotation_error_rad": 0.0,
+        "range_equal": true,
+        "joint_anchor_zero": true,
+        "qpos_reference_zero": true
+      },
+      "model_mapping_equal": true,
+      "source_to_mujoco_candidate": {
+        "sign": 1,
+        "scale": 1,
+        "offset_rad": 0
+      },
+      "hardware_calibration_verified": false
+    },
+    {
+      "side": "left",
+      "joint": "openarm_left_joint2",
+      "motor_id": 2,
+      "feedback_id": "0x12",
+      "motor_type": "DM8009",
+      "pcan_candidate": "0x52",
+      "pcan_physical_mapping_verified": false,
+      "qpos_index": 1,
+      "dof_index": 1,
+      "axis": [
+        -1.0,
+        0.0,
+        0.0
+      ],
+      "source_range": [
+        -3.3161253267948965,
+        0.17453267320510335
+      ],
+      "mujoco_range": [
+        -3.3161253267948965,
+        0.17453267320510335
+      ],
+      "checks": {
+        "axis_equal": true,
+        "origin_position_equal": true,
+        "origin_rotation_error_rad": 0.0,
+        "range_equal": true,
+        "joint_anchor_zero": true,
+        "qpos_reference_zero": true
+      },
+      "model_mapping_equal": true,
+      "source_to_mujoco_candidate": {
+        "sign": 1,
+        "scale": 1,
+        "offset_rad": 0
+      },
+      "hardware_calibration_verified": false
+    },
+    {
+      "side": "left",
+      "joint": "openarm_left_joint3",
+      "motor_id": 3,
+      "feedback_id": "0x13",
+      "motor_type": "DM4340",
+      "pcan_candidate": "0x52",
+      "pcan_physical_mapping_verified": false,
+      "qpos_index": 2,
+      "dof_index": 2,
+      "axis": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "source_range": [
+        -1.570796,
+        1.570796
+      ],
+      "mujoco_range": [
+        -1.570796,
+        1.570796
+      ],
+      "checks": {
+        "axis_equal": true,
+        "origin_position_equal": true,
+        "origin_rotation_error_rad": 0.0,
+        "range_equal": true,
+        "joint_anchor_zero": true,
+        "qpos_reference_zero": true
+      },
+      "model_mapping_equal": true,
+      "source_to_mujoco_candidate": {
+        "sign": 1,
+        "scale": 1,
+        "offset_rad": 0
+      },
+      "hardware_calibration_verified": false
+    },
+    {
+      "side": "left",
+      "joint": "openarm_left_joint4",
+      "motor_id": 4,
+      "feedback_id": "0x14",
+      "motor_type": "DM4340",
+      "pcan_candidate": "0x52",
+      "pcan_physical_mapping_verified": false,
+      "qpos_index": 3,
+      "dof_index": 3,
+      "axis": [
+        0.0,
+        1.0,
+        0.0
+      ],
+      "source_range": [
+        0.0,
+        2.443461
+      ],
+      "mujoco_range": [
+        0.0,
+        2.443461
+      ],
+      "checks": {
+        "axis_equal": true,
+        "origin_position_equal": true,
+        "origin_rotation_error_rad": 0.0,
+        "range_equal": true,
+        "joint_anchor_zero": true,
+        "qpos_reference_zero": true
+      },
+      "model_mapping_equal": true,
+      "source_to_mujoco_candidate": {
+        "sign": 1,
+        "scale": 1,
+        "offset_rad": 0
+      },
+      "hardware_calibration_verified": false
+    },
+    {
+      "side": "left",
+      "joint": "openarm_left_joint5",
+      "motor_id": 5,
+      "feedback_id": "0x15",
+      "motor_type": "DM4310",
+      "pcan_candidate": "0x52",
+      "pcan_physical_mapping_verified": false,
+      "qpos_index": 4,
+      "dof_index": 4,
+      "axis": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "source_range": [
+        -1.570796,
+        1.570796
+      ],
+      "mujoco_range": [
+        -1.570796,
+        1.570796
+      ],
+      "checks": {
+        "axis_equal": true,
+        "origin_position_equal": true,
+        "origin_rotation_error_rad": 0.0,
+        "range_equal": true,
+        "joint_anchor_zero": true,
+        "qpos_reference_zero": true
+      },
+      "model_mapping_equal": true,
+      "source_to_mujoco_candidate": {
+        "sign": 1,
+        "scale": 1,
+        "offset_rad": 0
+      },
+      "hardware_calibration_verified": false
+    },
+    {
+      "side": "left",
+      "joint": "openarm_left_joint6",
+      "motor_id": 6,
+      "feedback_id": "0x16",
+      "motor_type": "DM4310",
+      "pcan_candidate": "0x52",
+      "pcan_physical_mapping_verified": false,
+      "qpos_index": 5,
+      "dof_index": 5,
+      "axis": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "source_range": [
+        -0.785398,
+        0.785398
+      ],
+      "mujoco_range": [
+        -0.785398,
+        0.785398
+      ],
+      "checks": {
+        "axis_equal": true,
+        "origin_position_equal": true,
+        "origin_rotation_error_rad": 0.0,
+        "range_equal": true,
+        "joint_anchor_zero": true,
+        "qpos_reference_zero": true
+      },
+      "model_mapping_equal": true,
+      "source_to_mujoco_candidate": {
+        "sign": 1,
+        "scale": 1,
+        "offset_rad": 0
+      },
+      "hardware_calibration_verified": false
+    },
+    {
+      "side": "left",
+      "joint": "openarm_left_joint7",
+      "motor_id": 7,
+      "feedback_id": "0x17",
+      "motor_type": "DM4310",
+      "pcan_candidate": "0x52",
+      "pcan_physical_mapping_verified": false,
+      "qpos_index": 6,
+      "dof_index": 6,
+      "axis": [
+        0.0,
+        -1.0,
+        0.0
+      ],
+      "source_range": [
+        -1.570796,
+        1.570796
+      ],
+      "mujoco_range": [
+        -1.570796,
+        1.570796
+      ],
+      "checks": {
+        "axis_equal": true,
+        "origin_position_equal": true,
+        "origin_rotation_error_rad": 0.0,
+        "range_equal": true,
+        "joint_anchor_zero": true,
+        "qpos_reference_zero": true
+      },
+      "model_mapping_equal": true,
+      "source_to_mujoco_candidate": {
+        "sign": 1,
+        "scale": 1,
+        "offset_rad": 0
+      },
+      "hardware_calibration_verified": false
+    },
+    {
+      "side": "right",
+      "joint": "openarm_right_joint1",
+      "motor_id": 1,
+      "feedback_id": "0x11",
+      "motor_type": "DM8009",
+      "pcan_candidate": "0x51",
+      "pcan_physical_mapping_verified": false,
+      "qpos_index": 9,
+      "dof_index": 9,
+      "axis": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "source_range": [
+        -1.396263,
+        3.490659
+      ],
+      "mujoco_range": [
+        -1.396263,
+        3.490659
+      ],
+      "checks": {
+        "axis_equal": true,
+        "origin_position_equal": true,
+        "origin_rotation_error_rad": 0.0,
+        "range_equal": true,
+        "joint_anchor_zero": true,
+        "qpos_reference_zero": true
+      },
+      "model_mapping_equal": true,
+      "source_to_mujoco_candidate": {
+        "sign": 1,
+        "scale": 1,
+        "offset_rad": 0
+      },
+      "hardware_calibration_verified": false
+    },
+    {
+      "side": "right",
+      "joint": "openarm_right_joint2",
+      "motor_id": 2,
+      "feedback_id": "0x12",
+      "motor_type": "DM8009",
+      "pcan_candidate": "0x51",
+      "pcan_physical_mapping_verified": false,
+      "qpos_index": 10,
+      "dof_index": 10,
+      "axis": [
+        -1.0,
+        0.0,
+        0.0
+      ],
+      "source_range": [
+        -0.17453267320510335,
+        3.3161253267948965
+      ],
+      "mujoco_range": [
+        -0.17453267320510335,
+        3.3161253267948965
+      ],
+      "checks": {
+        "axis_equal": true,
+        "origin_position_equal": true,
+        "origin_rotation_error_rad": 0.0,
+        "range_equal": true,
+        "joint_anchor_zero": true,
+        "qpos_reference_zero": true
+      },
+      "model_mapping_equal": true,
+      "source_to_mujoco_candidate": {
+        "sign": 1,
+        "scale": 1,
+        "offset_rad": 0
+      },
+      "hardware_calibration_verified": false
+    },
+    {
+      "side": "right",
+      "joint": "openarm_right_joint3",
+      "motor_id": 3,
+      "feedback_id": "0x13",
+      "motor_type": "DM4340",
+      "pcan_candidate": "0x51",
+      "pcan_physical_mapping_verified": false,
+      "qpos_index": 11,
+      "dof_index": 11,
+      "axis": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "source_range": [
+        -1.570796,
+        1.570796
+      ],
+      "mujoco_range": [
+        -1.570796,
+        1.570796
+      ],
+      "checks": {
+        "axis_equal": true,
+        "origin_position_equal": true,
+        "origin_rotation_error_rad": 0.0,
+        "range_equal": true,
+        "joint_anchor_zero": true,
+        "qpos_reference_zero": true
+      },
+      "model_mapping_equal": true,
+      "source_to_mujoco_candidate": {
+        "sign": 1,
+        "scale": 1,
+        "offset_rad": 0
+      },
+      "hardware_calibration_verified": false
+    },
+    {
+      "side": "right",
+      "joint": "openarm_right_joint4",
+      "motor_id": 4,
+      "feedback_id": "0x14",
+      "motor_type": "DM4340",
+      "pcan_candidate": "0x51",
+      "pcan_physical_mapping_verified": false,
+      "qpos_index": 12,
+      "dof_index": 12,
+      "axis": [
+        0.0,
+        1.0,
+        0.0
+      ],
+      "source_range": [
+        0.0,
+        2.443461
+      ],
+      "mujoco_range": [
+        0.0,
+        2.443461
+      ],
+      "checks": {
+        "axis_equal": true,
+        "origin_position_equal": true,
+        "origin_rotation_error_rad": 0.0,
+        "range_equal": true,
+        "joint_anchor_zero": true,
+        "qpos_reference_zero": true
+      },
+      "model_mapping_equal": true,
+      "source_to_mujoco_candidate": {
+        "sign": 1,
+        "scale": 1,
+        "offset_rad": 0
+      },
+      "hardware_calibration_verified": false
+    },
+    {
+      "side": "right",
+      "joint": "openarm_right_joint5",
+      "motor_id": 5,
+      "feedback_id": "0x15",
+      "motor_type": "DM4310",
+      "pcan_candidate": "0x51",
+      "pcan_physical_mapping_verified": false,
+      "qpos_index": 13,
+      "dof_index": 13,
+      "axis": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "source_range": [
+        -1.570796,
+        1.570796
+      ],
+      "mujoco_range": [
+        -1.570796,
+        1.570796
+      ],
+      "checks": {
+        "axis_equal": true,
+        "origin_position_equal": true,
+        "origin_rotation_error_rad": 0.0,
+        "range_equal": true,
+        "joint_anchor_zero": true,
+        "qpos_reference_zero": true
+      },
+      "model_mapping_equal": true,
+      "source_to_mujoco_candidate": {
+        "sign": 1,
+        "scale": 1,
+        "offset_rad": 0
+      },
+      "hardware_calibration_verified": false
+    },
+    {
+      "side": "right",
+      "joint": "openarm_right_joint6",
+      "motor_id": 6,
+      "feedback_id": "0x16",
+      "motor_type": "DM4310",
+      "pcan_candidate": "0x51",
+      "pcan_physical_mapping_verified": false,
+      "qpos_index": 14,
+      "dof_index": 14,
+      "axis": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "source_range": [
+        -0.785398,
+        0.785398
+      ],
+      "mujoco_range": [
+        -0.785398,
+        0.785398
+      ],
+      "checks": {
+        "axis_equal": true,
+        "origin_position_equal": true,
+        "origin_rotation_error_rad": 0.0,
+        "range_equal": true,
+        "joint_anchor_zero": true,
+        "qpos_reference_zero": true
+      },
+      "model_mapping_equal": true,
+      "source_to_mujoco_candidate": {
+        "sign": 1,
+        "scale": 1,
+        "offset_rad": 0
+      },
+      "hardware_calibration_verified": false
+    },
+    {
+      "side": "right",
+      "joint": "openarm_right_joint7",
+      "motor_id": 7,
+      "feedback_id": "0x17",
+      "motor_type": "DM4310",
+      "pcan_candidate": "0x51",
+      "pcan_physical_mapping_verified": false,
+      "qpos_index": 15,
+      "dof_index": 15,
+      "axis": [
+        0.0,
+        1.0,
+        0.0
+      ],
+      "source_range": [
+        -1.570796,
+        1.570796
+      ],
+      "mujoco_range": [
+        -1.570796,
+        1.570796
+      ],
+      "checks": {
+        "axis_equal": true,
+        "origin_position_equal": true,
+        "origin_rotation_error_rad": 0.0,
+        "range_equal": true,
+        "joint_anchor_zero": true,
+        "qpos_reference_zero": true
+      },
+      "model_mapping_equal": true,
+      "source_to_mujoco_candidate": {
+        "sign": 1,
+        "scale": 1,
+        "offset_rad": 0
+      },
+      "hardware_calibration_verified": false
+    }
+  ],
+  "chain_checks": [
+    {
+      "side": "left",
+      "poses": 33,
+      "links_per_pose": 7,
+      "max_position_error_m": 2.618455766672135e-16,
+      "max_rotation_error_rad": 5.904525254943689e-16
+    },
+    {
+      "side": "right",
+      "poses": 33,
+      "links_per_pose": 7,
+      "max_position_error_m": 3.1432500083045447e-16,
+      "max_rotation_error_rad": 5.532356274224145e-16
+    }
+  ],
+  "base_mount_comparison": [
+    {
+      "side": "left",
+      "source_base_xyz": [
+        0.0,
+        0.031,
+        0.698
+      ],
+      "mujoco_base_xyz": [
+        0.0,
+        0.03,
+        0.697
+      ],
+      "delta_xyz_m": [
+        0.0,
+        -0.0010000000000000009,
+        -0.0010000000000000009
+      ],
+      "rotation_error_rad": 5.551031990690897e-17
+    },
+    {
+      "side": "right",
+      "source_base_xyz": [
+        0.0,
+        -0.031,
+        0.698
+      ],
+      "mujoco_base_xyz": [
+        0.0,
+        -0.03,
+        0.697
+      ],
+      "delta_xyz_m": [
+        0.0,
+        0.0010000000000000009,
+        -0.0010000000000000009
+      ],
+      "rotation_error_rad": 5.551031990690897e-17
+    }
+  ],
+  "sources": [
+    {
+      "path": "resources\\teleop_rc1_review\\sources\\runtime\\ros2_ws\\install\\openarm_description\\share\\openarm_description\\assets\\robot\\openarm_v1.0\\config\\arm\\kinematics.yaml",
+      "sha256": "cb5dfbf2d51b39a1a61fa6634932c79863c853593dfa24c77603cd3c6377e9aa"
+    },
+    {
+      "path": "resources\\teleop_rc1_review\\sources\\runtime\\ros2_ws\\install\\openarm_description\\share\\openarm_description\\assets\\robot\\openarm_v1.0\\config\\arm\\kinematics_offset.yaml",
+      "sha256": "9fe85a052da84e2b6eef0a36fe8efb1ac08dbef1222cb85ecf7706833540247b"
+    },
+    {
+      "path": "resources\\teleop_rc1_review\\sources\\runtime\\ros2_ws\\install\\openarm_description\\share\\openarm_description\\assets\\robot\\openarm_v1.0\\config\\arm\\joint_limits.yaml",
+      "sha256": "b481d48c8de68894a36c77d6eef789d97c357a910f43c56f415f82e5e2c2e93b"
+    },
+    {
+      "path": "resources\\teleop_rc1_review\\sources\\runtime\\ros2_ws\\install\\openarm_description\\share\\openarm_description\\assets\\robot\\openarm_v1.0\\urdf\\arm\\openarm_arm.xacro",
+      "sha256": "4660227cea93f164959197770ab3a7b32e13366457cf35a19542ef6ef11aadf9"
+    },
+    {
+      "path": "resources\\teleop_rc1_review\\sources\\runtime\\ros2_ws\\install\\openarm_description\\share\\openarm_description\\assets\\robot\\openarm_v1.0\\urdf\\arm\\openarm_macro.xacro",
+      "sha256": "eea9089f4e79cc22d2ee90c7d437c7f8636de6b88abcb2553a07b05a7dbfd5bd"
+    },
+    {
+      "path": "resources\\teleop_rc1_review\\sources\\runtime\\ros2_ws\\install\\openarm_description\\share\\openarm_description\\assets\\robot\\openarm_v1.0\\urdf\\openarm_v10.urdf.xacro",
+      "sha256": "3fee2911aa26f1b360b5f5952656c75c6a12f271a8b8aa3c5049aca24a18cdf3"
+    },
+    {
+      "path": "openarm\\vendor\\openarm_mujoco\\v1\\scene.xml",
+      "sha256": "5d37dc3b9099fd69405c8687ee5bf8b0cf94a86521b6173225916782bd944691"
+    },
+    {
+      "path": "openarm\\vendor\\openarm_mujoco\\v1\\openarm_bimanual.xml",
+      "sha256": "829ba39131420182c3a058804fd456eca4b0437f125cf113db55ef096d1e28b1"
+    },
+    {
+      "path": "apps\\openarm_driver.py",
+      "sha256": "26ecedbf611ec19eb1e70bf3d7af74d06bfccf88f6c741f72eceb4f95aacdb59"
+    }
+  ]
+}

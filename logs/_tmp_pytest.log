@@ -1,0 +1,7 @@
+============================= test session starts =============================
+platform win32 -- Python 3.11.9, pytest-9.2.0, pluggy-1.7.0
+rootdir: D:\桌面\open CyMon\弹钢琴
+collected 46 items
+
+apps\test_openarm_driver.py ....F...F...FF....F.....                     [ 52%]
+apps\test_openarm_execution.py ..............FFFF...

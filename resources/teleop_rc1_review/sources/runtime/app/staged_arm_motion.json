@@ -1,0 +1,127 @@
+{
+  "schema_version": 1,
+  "lift_joint": 2,
+  "description": "A/X先J2侧抬至原复位角，其他关节后动；关闭使能先复位、收直其他关节、最后J2垂下，反馈到位后关闭使能。",
+  "hanging": {
+    "left": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "right": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  "limits": {
+    "left": [
+      [
+        -3.490659,
+        1.3962629999999998
+      ],
+      [
+        -3.3161253267948965,
+        0.17453267320510335
+      ],
+      [
+        -1.570796,
+        1.570796
+      ],
+      [
+        0.0,
+        2.443461
+      ],
+      [
+        -1.570796,
+        1.570796
+      ],
+      [
+        -0.785398,
+        0.785398
+      ],
+      [
+        -1.570796,
+        1.570796
+      ]
+    ],
+    "right": [
+      [
+        -1.396263,
+        3.490659
+      ],
+      [
+        -0.17453267320510335,
+        3.3161253267948965
+      ],
+      [
+        -1.570796,
+        1.570796
+      ],
+      [
+        0.0,
+        2.443461
+      ],
+      [
+        -1.570796,
+        1.570796
+      ],
+      [
+        -0.785398,
+        0.785398
+      ],
+      [
+        -1.570796,
+        1.570796
+      ]
+    ]
+  },
+  "velocity": [
+    0.4,
+    0.4,
+    0.6,
+    0.6,
+    0.8,
+    0.8,
+    0.8
+  ],
+  "acceleration": [
+    0.8,
+    0.8,
+    1.2,
+    1.2,
+    1.6,
+    1.6,
+    1.6
+  ],
+  "min_duration_s": 1.5,
+  "arrival_tolerance_rad": 0.03490658503988659,
+  "settle_s": 0.35,
+  "arrival_timeout_s": 5,
+  "tracking_error_rad": 0.12,
+  "tracking_error_s": 0.4,
+  "feedback_max_age_s": 0.25,
+  "max_tick_gap_s": 0.25,
+  "lease_timeout_s": 1.5,
+  "model_sha256": "c7d15b083402e17fdd7d7bac2662eb6b60f12f973fa3bcbba65e31c90ec6631c",
+  "pose_basis": "Current bimanual URDF: q1..q7=0 gives downward upper arm and forearm; disabled feedback verified 2026-11-10; first powered acceptance pending.",
+  "arrival_tolerance_rad_by_joint": [
+    0.03490658503988659,
+    0.03490658503988659,
+    0.03490658503988659,
+    0.03490658503988659,
+    0.03490658503988659,
+    0.06981317007977318,
+    0.03490658503988659
+  ],
+  "settle_motion_span_rad": 0.008726646259971648,
+  "arrival_policy": "J1-J5/J7:2deg; J6:4deg; every joint feedback span <=0.5deg over settle_s; all four parking stages required"
+}

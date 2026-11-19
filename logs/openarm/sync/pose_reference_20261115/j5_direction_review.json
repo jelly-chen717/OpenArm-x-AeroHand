@@ -1,0 +1,18 @@
+{
+  "side": "right",
+  "channel": "0x52",
+  "motor_id": 5,
+  "candidate_direction": 1,
+  "user_confirmation": "candidate movement and current pose match physical clockwise movement viewed from above",
+  "evidence": [
+    "j5_baseline.jsonl",
+    "j5_clockwise.jsonl",
+    "j5_candidate_before_after.png"
+  ],
+  "delta_motor_deg": 38.3808,
+  "associated_j7_delta_deg": 33.2007,
+  "isolated_direction_verified": false,
+  "zero_verified": false,
+  "scale_verified": false,
+  "hardware_verified": false
+}

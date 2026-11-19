@@ -1,0 +1,2 @@
+{"side": "right", "error": "PCAN 0x51 initialize FD: 0x1400 The value of a handle (PCAN-Channel, PCAN-Hardware, PCAN-Net, PCAN-Client) is invalid"}
+{"side": "left", "error": "PCAN 0x52 initialize FD: 0x1400 The value of a handle (PCAN-Channel, PCAN-Hardware, PCAN-Net, PCAN-Client) is invalid"}

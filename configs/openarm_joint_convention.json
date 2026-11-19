@@ -1,0 +1,13 @@
+{
+  "version": "unified-forward-inward-v1-20261116",
+  "reference": "All arm joints zero; robot +X forward, +Y left, +Z up",
+  "positive_motion": {
+    "1": "forward", "2": "inward", "3": "clockwise viewed from above",
+    "4": "forward elbow flexion", "5": "clockwise viewed from above",
+    "6": "inward", "7": "forward"
+  },
+  "official_to_logical_signs": {
+    "left": [-1, 1, 1, 1, 1, -1, -1],
+    "right": [1, -1, 1, 1, 1, 1, 1]
+  }
+}

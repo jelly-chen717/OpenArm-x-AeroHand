@@ -1,0 +1,9 @@
+{
+  "previous_fault": "J7 measured velocity 0.227106 rad/s > 0.18 rad/s; cause not fully identified; not assumed false alarm",
+  "velocity_quantization_rad_s": 0.014652014652014652,
+  "last_target_speed_deg_s": 7.469824419746755,
+  "last_error_deg": -0.5653840532915544,
+  "sample_interval_min_s": 0.039138399999956164,
+  "sample_interval_max_s": 0.04080739999972138,
+  "interpretation": "No deadline anomaly observed. Instantaneous velocity differs from position finite difference; quantization alone does not explain rejected value. Faster proposal uses existing 0.30 rad/s transport default with unchanged torque, temperature, age, travel and tracking safeguards; requires user confirmation and hardware acceptance."
+}

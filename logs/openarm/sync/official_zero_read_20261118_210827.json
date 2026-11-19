@@ -1,0 +1,21 @@
+{
+  "started_at": "2026-11-18T21:08:27.951+08:00",
+  "purpose": "OpenArm V1 read-only mechanical offset",
+  "read_parameters": {
+    "0x36": "m_off (raw float, vendor table has no unit)"
+  },
+  "arms": {
+    "left": {
+      "pcan_channel": "0x51",
+      "joints": {},
+      "channel_error": "PCAN 0x51 initialize FD: 0x1400 The value of a handle (PCAN-Channel, PCAN-Hardware, PCAN-Net, PCAN-Client) is invalid"
+    },
+    "right": {
+      "pcan_channel": "0x52",
+      "joints": {},
+      "channel_error": "PCAN 0x52 initialize FD: 0x1400 The value of a handle (PCAN-Channel, PCAN-Hardware, PCAN-Net, PCAN-Client) is invalid"
+    }
+  },
+  "finished_at": "2026-11-18T21:08:28.048+08:00",
+  "m_off_replies": 0
+}

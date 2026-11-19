@@ -1,0 +1,41 @@
+{
+  "request_id": "b12-hold-e87e8844d5234900a41a74b8501f5e90",
+  "mapping_version": "hardware-user-confirmed-v1-20261115",
+  "expires_at": 1794795379.2617784,
+  "joints": [
+    {
+      "side": "right",
+      "motor_id": 6
+    },
+    {
+      "side": "right",
+      "motor_id": 7
+    }
+  ],
+  "initial_model_position": [
+    0.028419928282596985,
+    -0.015449759670405072
+  ],
+  "limits": {
+    "velocity_rad_s": 0.1,
+    "acceleration_rad_s2": 0.5,
+    "start_error_rad": 0.005
+  },
+  "points": [
+    {
+      "t": 0,
+      "q": [
+        0.028419928282596985,
+        -0.015449759670405072
+      ]
+    },
+    {
+      "t": 1,
+      "q": [
+        0.028419928282596985,
+        -0.015449759670405072
+      ]
+    }
+  ],
+  "source": "measured-current-pose-hold"
+}

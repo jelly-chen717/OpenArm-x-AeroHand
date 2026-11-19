@@ -1,0 +1,15 @@
+{
+  "log": "virtual-f54856d3a59b4aa9b3636770149a5a80.jsonl",
+  "samples": 76,
+  "passed": [
+    "dual_joint",
+    "aero_ik",
+    "stop",
+    "limits",
+    "logs_export",
+    "feedback_reconnect",
+    "origin_guard",
+    "mobile",
+    "file_entry"
+  ]
+}

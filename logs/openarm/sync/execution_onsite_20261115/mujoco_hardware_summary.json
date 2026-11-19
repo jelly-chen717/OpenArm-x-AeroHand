@@ -1,0 +1,47 @@
+{
+  "feedback_kind": "hardware",
+  "samples": 151,
+  "duration_s": 6.000625599999694,
+  "max_error_rad": 0.008703257200922881,
+  "rms_error_rad": 0.005555650803065389,
+  "final_error_rad": 0.0003814755474174092,
+  "measured_range_rad": 0.011444266422522276,
+  "checkpoints": [
+    {
+      "type": "checkpoint",
+      "t": 3.000968999998804,
+      "planned_t": 3.0,
+      "target": [
+        -0.03207141222247635
+      ],
+      "error": [
+        -0.008555733577477728
+      ],
+      "feedback_kind": "hardware",
+      "request_id": "mujoco-validated-roundtrip-1794742761752549600"
+    },
+    {
+      "type": "checkpoint",
+      "t": 6.000625599999694,
+      "planned_t": 6.0,
+      "target": [
+        -0.052071412222476354
+      ],
+      "error": [
+        0.0003814755474174092
+      ],
+      "feedback_kind": "hardware",
+      "request_id": "mujoco-validated-roundtrip-1794742761752549600"
+    }
+  ],
+  "period_median_s": 0.04003645000011602,
+  "period_p95_s": 0.040793600001052255,
+  "period_max_s": 0.04124059999958263,
+  "max_torque_nm": 0.2271062271062263,
+  "max_temperature_c": 30,
+  "final_disabled": true,
+  "mujoco_updated": true,
+  "completed": true,
+  "request_sha256": "ececfc3bf54c028fd24bf139abbeb55d7f447951cdeb0dfbe27fa8a98d880a8a",
+  "simulation_log_sha256": "e4b433432cde199d01e83690015053278592226f46450d5fa5ed7d88a6c5c45a"
+}

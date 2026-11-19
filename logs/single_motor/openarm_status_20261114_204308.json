@@ -1,0 +1,30 @@
+[
+  {
+    "index": 0,
+    "frames": [],
+    "state": 2,
+    "stats": {
+      "rx_frames": 0,
+      "tx_frames": 14,
+      "rx_errors": 6,
+      "tx_errors": 0,
+      "rx_overruns": 0,
+      "tx_dropped": 0,
+      "bus_state": 2
+    }
+  },
+  {
+    "index": 1,
+    "frames": [],
+    "state": 2,
+    "stats": {
+      "rx_frames": 0,
+      "tx_frames": 14,
+      "rx_errors": 7,
+      "tx_errors": 0,
+      "rx_overruns": 0,
+      "tx_dropped": 0,
+      "bus_state": 2
+    }
+  }
+]

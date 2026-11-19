@@ -1,0 +1,7 @@
+{
+  "command": "openarm/.venv/Scripts/python.exe -m pytest apps/test_openarm_driver.py apps/test_openarm_sync.py apps/test_openarm_execution.py apps/test_openarm_execution_hardware.py apps/test_openarm_dual_sequence.py -q",
+  "result": "115 passed in 5.58s",
+  "kind": "offline_fake_drivers_no_hardware",
+  "hardware_motion_authorized": false,
+  "hardware_motion_performed": false
+}

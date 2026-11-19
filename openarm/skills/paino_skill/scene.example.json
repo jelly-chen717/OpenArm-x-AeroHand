@@ -1,0 +1,14 @@
+{
+  "name": "piano_single_key",
+  "status": "template_only",
+  "arm": "right",
+  "reference_frame": "arm_origin",
+  "controlled_site": "right_ee_control_point",
+  "pose_format": "x y z qw qx qy qz",
+  "position_unit": "m",
+  "waypoints": {
+    "above_key": {"pose": null},
+    "key_pressed": {"pose": null}
+  },
+  "sequence": ["above_key", "key_pressed", "above_key"]
+}

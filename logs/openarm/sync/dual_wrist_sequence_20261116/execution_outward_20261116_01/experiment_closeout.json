@@ -1,0 +1,19 @@
+{
+  "schema_version": 1,
+  "experiment_outcome": "NORMAL_COMPLETION_USER_TERMINATED",
+  "recorded_at": "2026-11-16T22:10:59.543979+08:00",
+  "user_stop_confirmation": "我已断电或按下急停",
+  "user_closeout_instruction": "本次实验当结束了 写实验总结 正常结束的",
+  "stop_method": "User-confirmed power-off or physical emergency stop; exact choice unspecified",
+  "six_stage_acceptance": "PASSED",
+  "six_stage_duration_s": 23.78395669999736,
+  "enabled_hold_acceptance": "PASSED_FOR_OBSERVED_62_SECONDS",
+  "observed_enabled_hold_s": 62.16064280000137,
+  "holding_max_error_deg": 0.711701935023049,
+  "all_motion_complete_before_communication_exit": true,
+  "software_disable_readback_confirmed": false,
+  "software_exit_record_preserved": "STOP_UNCONFIRMED",
+  "hardware_actions_after_user_declared_end": false,
+  "report": "docs/project/OpenArm双臂MIT六步实机实验总结_20261116.md",
+  "raw_summary": "execution_summary.json"
+}

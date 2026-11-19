@@ -1,0 +1,55 @@
+{
+  "request_id": "mujoco-validated-roundtrip-1794742761752549600",
+  "mapping_version": "hardware-user-confirmed-v1-20261115",
+  "expires_at": 1794743001.7525496,
+  "joints": [
+    {
+      "side": "right",
+      "motor_id": 7
+    }
+  ],
+  "initial_model_position": [
+    -0.052071412222476354
+  ],
+  "limits": {
+    "velocity_rad_s": 0.1,
+    "acceleration_rad_s2": 0.3,
+    "start_error_rad": 0.01
+  },
+  "points": [
+    {
+      "t": 0,
+      "q": [
+        -0.052071412222476354
+      ]
+    },
+    {
+      "t": 2,
+      "q": [
+        -0.03207141222247635
+      ]
+    },
+    {
+      "t": 3,
+      "q": [
+        -0.03207141222247635
+      ]
+    },
+    {
+      "t": 5,
+      "q": [
+        -0.052071412222476354
+      ]
+    },
+    {
+      "t": 6,
+      "q": [
+        -0.052071412222476354
+      ]
+    }
+  ],
+  "source": {
+    "kind": "dedicated model-space quintic trajectory",
+    "simulation_validation_log": "logs\\openarm\\sync\\execution_onsite_20261115\\mujoco_target_validation.jsonl"
+  }
+}

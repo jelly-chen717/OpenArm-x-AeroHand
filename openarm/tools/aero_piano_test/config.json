@@ -1,0 +1,34 @@
+{
+  "version": 1,
+  "port": "COM8",
+  "mode": "全部一起",
+  "press_dwell": "0.1",
+  "home_dwell": "0.1",
+  "cycles": "10",
+  "fingers": {
+    "3": {
+      "enabled": true,
+      "home": "8",
+      "press": "30",
+      "transition": "0"
+    },
+    "4": {
+      "enabled": true,
+      "home": "0",
+      "press": "20",
+      "transition": "0"
+    },
+    "5": {
+      "enabled": true,
+      "home": "10",
+      "press": "35",
+      "transition": "0"
+    },
+    "6": {
+      "enabled": true,
+      "home": "15",
+      "press": "40",
+      "transition": "0"
+    }
+  }
+}

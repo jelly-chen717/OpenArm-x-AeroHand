@@ -1,0 +1,102 @@
+{
+  "status": "BLOCKED_START_POSE_MISMATCH",
+  "threshold_rad": 0.01,
+  "differences": [
+    {
+      "side": "left",
+      "motor_id": 1,
+      "difference_rad": 0.0,
+      "difference_deg": 0.0
+    },
+    {
+      "side": "right",
+      "motor_id": 1,
+      "difference_rad": 0.0,
+      "difference_deg": 0.0
+    },
+    {
+      "side": "left",
+      "motor_id": 2,
+      "difference_rad": 0.0003814755474174092,
+      "difference_deg": 0.02185693885446026
+    },
+    {
+      "side": "right",
+      "motor_id": 2,
+      "difference_rad": 0.0,
+      "difference_deg": 0.0
+    },
+    {
+      "side": "left",
+      "motor_id": 3,
+      "difference_rad": 0.0,
+      "difference_deg": 0.0
+    },
+    {
+      "side": "right",
+      "motor_id": 3,
+      "difference_rad": 0.0,
+      "difference_deg": 0.0
+    },
+    {
+      "side": "left",
+      "motor_id": 4,
+      "difference_rad": 0.0,
+      "difference_deg": 0.0
+    },
+    {
+      "side": "right",
+      "motor_id": 4,
+      "difference_rad": 0.0,
+      "difference_deg": 0.0
+    },
+    {
+      "side": "left",
+      "motor_id": 5,
+      "difference_rad": 0.026321812771801234,
+      "difference_deg": 1.5081287809577577
+    },
+    {
+      "side": "right",
+      "motor_id": 5,
+      "difference_rad": 0.0,
+      "difference_deg": 0.0
+    },
+    {
+      "side": "left",
+      "motor_id": 6,
+      "difference_rad": 0.0,
+      "difference_deg": 0.0
+    },
+    {
+      "side": "right",
+      "motor_id": 6,
+      "difference_rad": 0.0,
+      "difference_deg": 0.0
+    },
+    {
+      "side": "left",
+      "motor_id": 7,
+      "difference_rad": 0.0,
+      "difference_deg": 0.0
+    },
+    {
+      "side": "right",
+      "motor_id": 7,
+      "difference_rad": 0.0,
+      "difference_deg": 0.0
+    }
+  ],
+  "violations": [
+    {
+      "side": "left",
+      "motor_id": 5,
+      "difference_rad": 0.026321812771801234,
+      "difference_deg": 1.5081287809577577
+    }
+  ],
+  "no_enable": true,
+  "no_MIT_commands": true,
+  "user_motion_authorization_received": true,
+  "pending": "User decides fixed baseline update or restoration"
+}

@@ -1,0 +1,30 @@
+{
+  "release": "1.0.0-rc1",
+  "date": "2026-11-11",
+  "python_unit_tests": {"passed": 13, "scope": "gateway origins and actions, portable identity, no duplicate writer, disabled lifecycle guards"},
+  "frontend_mock_actions": {"passed": 7, "real_hardware_requests": 0, "automatic_page_load_actions": 0, "immediate_disable_available_when_busy": true},
+  "frontend_live_read_only": {"url": "https://192.168.31.220:4448/", "three_rgb_frames": true, "frame_width": 640, "native_vr_entry_present": true, "javascript_errors": 0, "hardware_posts": 0},
+  "syntax": {"python": "passed", "powershell_files": 5, "bash_files": 2},
+  "portable_image": {
+    "id": "sha256:514530039dcae6e04334d43e3157ded83382009bd339a16e33d711b66d08d7cb",
+    "docker_load_verified": true,
+    "historical_private_keys_removed_from_layers": true,
+    "fresh_tls_and_tokens_generated_at_install": true
+  },
+  "isolated_runtime": {
+    "network": "none", "usb_devices": [], "can_interfaces": [],
+    "camera_binding_fixture": "synthetic distinct IDs only; no simulated image or robot feedback",
+    "web_started": true, "ik_warmup_complete": true, "ik_version": "1.3.5",
+    "named_joint_limits_verified": true, "ik_output_enabled": false,
+    "motion_commands_sent": 0, "camera_without_devices_reports_503": true,
+    "cv2_version": "4.12.0", "numpy_version": "2.2.6", "native_camera_ldd_missing_libraries": []
+  },
+  "current_target_deployment": {"scope": "new 4448 frontend only", "old_controller_restarted": false, "old_motion_files_changed": false, "new_can_writer": false},
+  "not_validated": [
+    "clean Ubuntu installation end to end",
+    "Windows WSL setup and optional kernel build on new PC",
+    "Windows USB-CAN and three-camera hardware passthrough",
+    "fresh robot calibration, reset path and real motion",
+    "headset WebXR input through the new 4448 entry on new hardware"
+  ]
+}

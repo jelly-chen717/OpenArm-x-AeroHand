@@ -1,0 +1,51 @@
+{
+  "request_id": "onsite-roundtrip-1794742501404295100",
+  "mapping_version": "hardware-user-confirmed-v1-20261115",
+  "expires_at": 1794742681.4042952,
+  "joints": [
+    {
+      "side": "right",
+      "motor_id": 7
+    }
+  ],
+  "initial_model_position": [
+    -0.05245288776989376
+  ],
+  "limits": {
+    "velocity_rad_s": 0.1,
+    "acceleration_rad_s2": 0.3,
+    "start_error_rad": 0.01
+  },
+  "points": [
+    {
+      "t": 0,
+      "q": [
+        -0.05245288776989376
+      ]
+    },
+    {
+      "t": 2,
+      "q": [
+        -0.03245288776989376
+      ]
+    },
+    {
+      "t": 3,
+      "q": [
+        -0.03245288776989376
+      ]
+    },
+    {
+      "t": 5,
+      "q": [
+        -0.05245288776989376
+      ]
+    },
+    {
+      "t": 6,
+      "q": [
+        -0.05245288776989376
+      ]
+    }
+  ]
+}

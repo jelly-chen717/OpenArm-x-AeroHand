@@ -1,0 +1,511 @@
+{
+  "status": "passed",
+  "offline_only": true,
+  "hardware_executable": false,
+  "servo": "ideal kinematic position; not firmware POS_VEL",
+  "score_duration_s": 78,
+  "pre_roll_s": 0.95,
+  "samples": 4106,
+  "notes": [
+    {
+      "index": 1,
+      "time_s": 0.0,
+      "expected_key": 24,
+      "contact_keys": [
+        24
+      ],
+      "passed": true
+    },
+    {
+      "index": 2,
+      "time_s": 1.5,
+      "expected_key": 23,
+      "contact_keys": [
+        23
+      ],
+      "passed": true
+    },
+    {
+      "index": 3,
+      "time_s": 3.0,
+      "expected_key": 22,
+      "contact_keys": [
+        22
+      ],
+      "passed": true
+    },
+    {
+      "index": 4,
+      "time_s": 4.5,
+      "expected_key": 20,
+      "contact_keys": [
+        20
+      ],
+      "passed": true
+    },
+    {
+      "index": 5,
+      "time_s": 6.0,
+      "expected_key": 26,
+      "contact_keys": [
+        26
+      ],
+      "passed": true
+    },
+    {
+      "index": 6,
+      "time_s": 7.5,
+      "expected_key": 25,
+      "contact_keys": [
+        25
+      ],
+      "passed": true
+    },
+    {
+      "index": 7,
+      "time_s": 9.0,
+      "expected_key": 24,
+      "contact_keys": [
+        24
+      ],
+      "passed": true
+    },
+    {
+      "index": 8,
+      "time_s": 10.5,
+      "expected_key": 23,
+      "contact_keys": [
+        23
+      ],
+      "passed": true
+    },
+    {
+      "index": 9,
+      "time_s": 12.0,
+      "expected_key": 22,
+      "contact_keys": [
+        22
+      ],
+      "passed": true
+    },
+    {
+      "index": 10,
+      "time_s": 13.5,
+      "expected_key": 19,
+      "contact_keys": [
+        19
+      ],
+      "passed": true
+    },
+    {
+      "index": 11,
+      "time_s": 15.0,
+      "expected_key": 26,
+      "contact_keys": [
+        26
+      ],
+      "passed": true
+    },
+    {
+      "index": 12,
+      "time_s": 16.5,
+      "expected_key": 25,
+      "contact_keys": [
+        25
+      ],
+      "passed": true
+    },
+    {
+      "index": 13,
+      "time_s": 18.0,
+      "expected_key": 24,
+      "contact_keys": [
+        24
+      ],
+      "passed": true
+    },
+    {
+      "index": 14,
+      "time_s": 19.5,
+      "expected_key": 23,
+      "contact_keys": [
+        23
+      ],
+      "passed": true
+    },
+    {
+      "index": 15,
+      "time_s": 21.0,
+      "expected_key": 22,
+      "contact_keys": [
+        22
+      ],
+      "passed": true
+    },
+    {
+      "index": 16,
+      "time_s": 22.5,
+      "expected_key": 19,
+      "contact_keys": [
+        19
+      ],
+      "passed": true
+    },
+    {
+      "index": 17,
+      "time_s": 24.0,
+      "expected_key": 25,
+      "contact_keys": [
+        25
+      ],
+      "passed": true
+    },
+    {
+      "index": 18,
+      "time_s": 25.5,
+      "expected_key": 24,
+      "contact_keys": [
+        24
+      ],
+      "passed": true
+    },
+    {
+      "index": 19,
+      "time_s": 27.0,
+      "expected_key": 23,
+      "contact_keys": [
+        23
+      ],
+      "passed": true
+    },
+    {
+      "index": 20,
+      "time_s": 28.5,
+      "expected_key": 22,
+      "contact_keys": [
+        22
+      ],
+      "passed": true
+    },
+    {
+      "index": 21,
+      "time_s": 30.0,
+      "expected_key": 21,
+      "contact_keys": [
+        21
+      ],
+      "passed": true
+    },
+    {
+      "index": 22,
+      "time_s": 31.5,
+      "expected_key": 19,
+      "contact_keys": [
+        19
+      ],
+      "passed": true
+    },
+    {
+      "index": 23,
+      "time_s": 33.0,
+      "expected_key": 19,
+      "contact_keys": [
+        19
+      ],
+      "passed": true
+    },
+    {
+      "index": 24,
+      "time_s": 34.5,
+      "expected_key": 22,
+      "contact_keys": [
+        22
+      ],
+      "passed": true
+    },
+    {
+      "index": 25,
+      "time_s": 36.0,
+      "expected_key": 21,
+      "contact_keys": [
+        21
+      ],
+      "passed": true
+    },
+    {
+      "index": 26,
+      "time_s": 37.5,
+      "expected_key": 22,
+      "contact_keys": [
+        22
+      ],
+      "passed": true
+    },
+    {
+      "index": 27,
+      "time_s": 39.0,
+      "expected_key": 24,
+      "contact_keys": [
+        24
+      ],
+      "passed": true
+    },
+    {
+      "index": 28,
+      "time_s": 40.5,
+      "expected_key": 23,
+      "contact_keys": [
+        23
+      ],
+      "passed": true
+    },
+    {
+      "index": 29,
+      "time_s": 42.0,
+      "expected_key": 22,
+      "contact_keys": [
+        22
+      ],
+      "passed": true
+    },
+    {
+      "index": 30,
+      "time_s": 43.5,
+      "expected_key": 20,
+      "contact_keys": [
+        20
+      ],
+      "passed": true
+    },
+    {
+      "index": 31,
+      "time_s": 45.0,
+      "expected_key": 26,
+      "contact_keys": [
+        26
+      ],
+      "passed": true
+    },
+    {
+      "index": 32,
+      "time_s": 46.5,
+      "expected_key": 25,
+      "contact_keys": [
+        25
+      ],
+      "passed": true
+    },
+    {
+      "index": 33,
+      "time_s": 48.0,
+      "expected_key": 24,
+      "contact_keys": [
+        24
+      ],
+      "passed": true
+    },
+    {
+      "index": 34,
+      "time_s": 49.5,
+      "expected_key": 23,
+      "contact_keys": [
+        23
+      ],
+      "passed": true
+    },
+    {
+      "index": 35,
+      "time_s": 51.0,
+      "expected_key": 22,
+      "contact_keys": [
+        22
+      ],
+      "passed": true
+    },
+    {
+      "index": 36,
+      "time_s": 52.5,
+      "expected_key": 19,
+      "contact_keys": [
+        19
+      ],
+      "passed": true
+    },
+    {
+      "index": 37,
+      "time_s": 54.0,
+      "expected_key": 26,
+      "contact_keys": [
+        26
+      ],
+      "passed": true
+    },
+    {
+      "index": 38,
+      "time_s": 55.5,
+      "expected_key": 25,
+      "contact_keys": [
+        25
+      ],
+      "passed": true
+    },
+    {
+      "index": 39,
+      "time_s": 57.0,
+      "expected_key": 24,
+      "contact_keys": [
+        24
+      ],
+      "passed": true
+    },
+    {
+      "index": 40,
+      "time_s": 58.5,
+      "expected_key": 23,
+      "contact_keys": [
+        23
+      ],
+      "passed": true
+    },
+    {
+      "index": 41,
+      "time_s": 60.0,
+      "expected_key": 22,
+      "contact_keys": [
+        22
+      ],
+      "passed": true
+    },
+    {
+      "index": 42,
+      "time_s": 61.5,
+      "expected_key": 19,
+      "contact_keys": [
+        19
+      ],
+      "passed": true
+    },
+    {
+      "index": 43,
+      "time_s": 63.0,
+      "expected_key": 25,
+      "contact_keys": [
+        25
+      ],
+      "passed": true
+    },
+    {
+      "index": 44,
+      "time_s": 64.5,
+      "expected_key": 24,
+      "contact_keys": [
+        24
+      ],
+      "passed": true
+    },
+    {
+      "index": 45,
+      "time_s": 66.0,
+      "expected_key": 23,
+      "contact_keys": [
+        23
+      ],
+      "passed": true
+    },
+    {
+      "index": 46,
+      "time_s": 67.5,
+      "expected_key": 22,
+      "contact_keys": [
+        22
+      ],
+      "passed": true
+    },
+    {
+      "index": 47,
+      "time_s": 69.0,
+      "expected_key": 21,
+      "contact_keys": [
+        21
+      ],
+      "passed": true
+    },
+    {
+      "index": 48,
+      "time_s": 70.5,
+      "expected_key": 19,
+      "contact_keys": [
+        19
+      ],
+      "passed": true
+    },
+    {
+      "index": 49,
+      "time_s": 72.0,
+      "expected_key": 19,
+      "contact_keys": [
+        19
+      ],
+      "passed": true
+    },
+    {
+      "index": 50,
+      "time_s": 73.5,
+      "expected_key": 22,
+      "contact_keys": [
+        22
+      ],
+      "passed": true
+    },
+    {
+      "index": 51,
+      "time_s": 75.0,
+      "expected_key": 21,
+      "contact_keys": [
+        21
+      ],
+      "passed": true
+    },
+    {
+      "index": 52,
+      "time_s": 76.5,
+      "expected_key": 22,
+      "contact_keys": [
+        22
+      ],
+      "passed": true
+    }
+  ],
+  "unexpected_contacts": {},
+  "off_schedule_contacts": [],
+  "geometry": {
+    "tool_origin_world_m": [
+      0.47999994926429224,
+      -0.04691433165949988,
+      0.5170000358320568
+    ],
+    "keyboard_top_world_m": 0.4610000358320568,
+    "calibration_source": "simulation calibration only; keyboard placed to match ideal tool",
+    "finger_model": "four ideal linear fingers, 26 mm pitch; not Aero"
+  },
+  "max_position_error_m": 4.842952766149573e-05,
+  "max_orientation_error_rad": 9.424321830774485e-08,
+  "peak_joint_speed_rad_s": [
+    0.17884671688083392,
+    0.6438179872931331,
+    0.3497526049613872,
+    0.42195916175843184,
+    0.34836418926715046,
+    0.5657836794853331,
+    0.13208966702223104
+  ],
+  "peak_joint_acceleration_rad_s2": [
+    0.9779632091508902,
+    2.7592293918083963,
+    1.5264004468918506,
+    2.3972988128663135,
+    1.5398114919663124,
+    2.396889030933484,
+    0.8226931095124596
+  ]
+}

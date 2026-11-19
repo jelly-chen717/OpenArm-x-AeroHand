@@ -1,0 +1,10 @@
+{
+  "settings": "configs/openarm_execution_right_wrist.json",
+  "stage": "B12",
+  "feedback_kind": "fake_driver_tests",
+  "software": "implemented",
+  "hardware_commands_executed": false,
+  "hardware_acceptance": "pending",
+  "tests_passed": 63,
+  "test_duration_s": 9.95
+}

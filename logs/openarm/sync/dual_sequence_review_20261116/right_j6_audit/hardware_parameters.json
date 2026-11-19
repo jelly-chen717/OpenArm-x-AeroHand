@@ -1,0 +1,693 @@
+{
+  "time_unix": 1794833916.6994936,
+  "read_only": true,
+  "no_enable_or_MIT_frames": true,
+  "rows": [
+    {
+      "side": "left",
+      "motor_id": 6,
+      "before": {
+        "motor_id": 6,
+        "motor_type": "DM4310",
+        "state": 0,
+        "position_rad": -0.04520485236896299,
+        "velocity_rad_s": -0.0073260073260073,
+        "torque_nm": 0.0024420024420024333,
+        "mos_c": 32,
+        "rotor_c": 29,
+        "received_at": 40393.625,
+        "raw": "067f897ff800201d"
+      },
+      "parameters": {
+        "UV_Value": {
+          "register": 0,
+          "value": 15.0
+        },
+        "KT_Value": {
+          "register": 1,
+          "value": 0.0
+        },
+        "OT_Value": {
+          "register": 2,
+          "value": 100.0
+        },
+        "OC_Value": {
+          "register": 3,
+          "value": 0.800000011920929
+        },
+        "MAX_SPD": {
+          "register": 6,
+          "value": 600.0
+        },
+        "TIMEOUT": {
+          "register": 9,
+          "value": 0
+        },
+        "CTRL_MODE": {
+          "register": 10,
+          "value": 1
+        },
+        "Damp": {
+          "register": 11,
+          "value": 0.0003011189983226359
+        },
+        "Inertia": {
+          "register": 12,
+          "value": 1.7247799405595288e-05
+        },
+        "hw_ver": {
+          "register": 13,
+          "value": 0
+        },
+        "sw_ver": {
+          "register": 14,
+          "value": 925970485
+        },
+        "Gr": {
+          "register": 20,
+          "value": 10.0
+        },
+        "PMAX": {
+          "register": 21,
+          "value": 12.5
+        },
+        "VMAX": {
+          "register": 22,
+          "value": 30.0
+        },
+        "TMAX": {
+          "register": 23,
+          "value": 10.0
+        },
+        "I_BW": {
+          "register": 24,
+          "value": 1000.0
+        },
+        "KP_ASR": {
+          "register": 25,
+          "value": 0.003719999920576811
+        },
+        "KI_ASR": {
+          "register": 26,
+          "value": 0.0020000000949949026
+        },
+        "KP_APR": {
+          "register": 27,
+          "value": 54.0
+        },
+        "KI_APR": {
+          "register": 28,
+          "value": 0.0
+        }
+      },
+      "after": {
+        "motor_id": 6,
+        "motor_type": "DM4310",
+        "state": 0,
+        "position_rad": -0.04520485236896299,
+        "velocity_rad_s": -0.0219780219780219,
+        "torque_nm": 0.0024420024420024333,
+        "mos_c": 32,
+        "rotor_c": 29,
+        "received_at": 40393.656,
+        "raw": "067f897fe800201d"
+      }
+    },
+    {
+      "side": "left",
+      "motor_id": 2,
+      "before": {
+        "motor_id": 2,
+        "motor_type": "DM8009",
+        "state": 0,
+        "position_rad": 0.0024795910582131597,
+        "velocity_rad_s": 0.010989010989007397,
+        "torque_nm": -0.01318681318681314,
+        "mos_c": 29,
+        "rotor_c": 26,
+        "received_at": 40393.656,
+        "raw": "0280068007ff1d1a"
+      },
+      "parameters": {
+        "UV_Value": {
+          "register": 0,
+          "value": 15.0
+        },
+        "KT_Value": {
+          "register": 1,
+          "value": 0.0
+        },
+        "OT_Value": {
+          "register": 2,
+          "value": 100.0
+        },
+        "OC_Value": {
+          "register": 3,
+          "value": 0.800000011920929
+        },
+        "MAX_SPD": {
+          "register": 6,
+          "value": 600.0
+        },
+        "TIMEOUT": {
+          "register": 9,
+          "value": 0
+        },
+        "CTRL_MODE": {
+          "register": 10,
+          "value": 1
+        },
+        "Damp": {
+          "register": 11,
+          "value": 0.0010941199725493789
+        },
+        "Inertia": {
+          "register": 12,
+          "value": 0.00017305200162809342
+        },
+        "hw_ver": {
+          "register": 13,
+          "value": 0
+        },
+        "sw_ver": {
+          "register": 14,
+          "value": 925971510
+        },
+        "Gr": {
+          "register": 20,
+          "value": 9.0
+        },
+        "PMAX": {
+          "register": 21,
+          "value": 12.5
+        },
+        "VMAX": {
+          "register": 22,
+          "value": 45.0
+        },
+        "TMAX": {
+          "register": 23,
+          "value": 54.0
+        },
+        "I_BW": {
+          "register": 24,
+          "value": 1000.0
+        },
+        "KP_ASR": {
+          "register": 25,
+          "value": 0.006800000090152025
+        },
+        "KI_ASR": {
+          "register": 26,
+          "value": 0.0020000000949949026
+        },
+        "KP_APR": {
+          "register": 27,
+          "value": 54.0
+        },
+        "KI_APR": {
+          "register": 28,
+          "value": 0.0
+        }
+      },
+      "after": {
+        "motor_id": 2,
+        "motor_type": "DM8009",
+        "state": 0,
+        "position_rad": 0.0024795910582131597,
+        "velocity_rad_s": -0.010989010989007397,
+        "torque_nm": -0.01318681318681314,
+        "mos_c": 29,
+        "rotor_c": 26,
+        "received_at": 40393.703,
+        "raw": "0280067ff7ff1d1a"
+      }
+    },
+    {
+      "side": "right",
+      "motor_id": 6,
+      "before": {
+        "motor_id": 6,
+        "motor_type": "DM4310",
+        "state": 0,
+        "position_rad": 0.06923781185625977,
+        "velocity_rad_s": 0.0073260073260073,
+        "torque_nm": 0.0024420024420024333,
+        "mos_c": 31,
+        "rotor_c": 29,
+        "received_at": 40393.703,
+        "raw": "0680b58008001f1d"
+      },
+      "parameters": {
+        "UV_Value": {
+          "register": 0,
+          "value": 15.0
+        },
+        "KT_Value": {
+          "register": 1,
+          "value": 0.0
+        },
+        "OT_Value": {
+          "register": 2,
+          "value": 100.0
+        },
+        "OC_Value": {
+          "register": 3,
+          "value": 0.800000011920929
+        },
+        "MAX_SPD": {
+          "register": 6,
+          "value": 600.0
+        },
+        "TIMEOUT": {
+          "register": 9,
+          "value": 0
+        },
+        "CTRL_MODE": {
+          "register": 10,
+          "value": 1
+        },
+        "Damp": {
+          "register": 11,
+          "value": 0.00028179099899716675
+        },
+        "Inertia": {
+          "register": 12,
+          "value": 1.76937992364401e-05
+        },
+        "hw_ver": {
+          "register": 13,
+          "value": 0
+        },
+        "sw_ver": {
+          "register": 14,
+          "value": 925970485
+        },
+        "Gr": {
+          "register": 20,
+          "value": 10.0
+        },
+        "PMAX": {
+          "register": 21,
+          "value": 12.5
+        },
+        "VMAX": {
+          "register": 22,
+          "value": 30.0
+        },
+        "TMAX": {
+          "register": 23,
+          "value": 10.0
+        },
+        "I_BW": {
+          "register": 24,
+          "value": 1000.0
+        },
+        "KP_ASR": {
+          "register": 25,
+          "value": 0.003719999920576811
+        },
+        "KI_ASR": {
+          "register": 26,
+          "value": 0.0020000000949949026
+        },
+        "KP_APR": {
+          "register": 27,
+          "value": 54.0
+        },
+        "KI_APR": {
+          "register": 28,
+          "value": 0.0
+        }
+      },
+      "after": {
+        "motor_id": 6,
+        "motor_type": "DM4310",
+        "state": 0,
+        "position_rad": 0.06923781185625977,
+        "velocity_rad_s": -0.0073260073260073,
+        "torque_nm": 0.0024420024420024333,
+        "mos_c": 31,
+        "rotor_c": 29,
+        "received_at": 40393.734,
+        "raw": "0680b57ff8001f1d"
+      }
+    },
+    {
+      "side": "right",
+      "motor_id": 2,
+      "before": {
+        "motor_id": 2,
+        "motor_type": "DM8009",
+        "state": 0,
+        "position_rad": 0.013542381933318026,
+        "velocity_rad_s": 0.010989010989007397,
+        "torque_nm": -0.01318681318681314,
+        "mos_c": 29,
+        "rotor_c": 27,
+        "received_at": 40393.734,
+        "raw": "0280238007ff1d1b"
+      },
+      "parameters": {
+        "UV_Value": {
+          "register": 0,
+          "value": 15.0
+        },
+        "KT_Value": {
+          "register": 1,
+          "value": 0.0
+        },
+        "OT_Value": {
+          "register": 2,
+          "value": 100.0
+        },
+        "OC_Value": {
+          "register": 3,
+          "value": 0.800000011920929
+        },
+        "MAX_SPD": {
+          "register": 6,
+          "value": 600.0
+        },
+        "TIMEOUT": {
+          "register": 9,
+          "value": 0
+        },
+        "CTRL_MODE": {
+          "register": 10,
+          "value": 1
+        },
+        "Damp": {
+          "register": 11,
+          "value": 0.0010177399963140488
+        },
+        "Inertia": {
+          "register": 12,
+          "value": 0.0001974500046344474
+        },
+        "hw_ver": {
+          "register": 13,
+          "value": 0
+        },
+        "sw_ver": {
+          "register": 14,
+          "value": 925971510
+        },
+        "Gr": {
+          "register": 20,
+          "value": 9.0
+        },
+        "PMAX": {
+          "register": 21,
+          "value": 12.5
+        },
+        "VMAX": {
+          "register": 22,
+          "value": 45.0
+        },
+        "TMAX": {
+          "register": 23,
+          "value": 54.0
+        },
+        "I_BW": {
+          "register": 24,
+          "value": 1000.0
+        },
+        "KP_ASR": {
+          "register": 25,
+          "value": 0.006800000090152025
+        },
+        "KI_ASR": {
+          "register": 26,
+          "value": 0.0020000000949949026
+        },
+        "KP_APR": {
+          "register": 27,
+          "value": 54.0
+        },
+        "KI_APR": {
+          "register": 28,
+          "value": 0.0
+        }
+      },
+      "after": {
+        "motor_id": 2,
+        "motor_type": "DM8009",
+        "state": 0,
+        "position_rad": 0.013542381933318026,
+        "velocity_rad_s": -0.010989010989007397,
+        "torque_nm": -0.01318681318681314,
+        "mos_c": 29,
+        "rotor_c": 27,
+        "received_at": 40393.765,
+        "raw": "0280237ff7ff1d1b"
+      }
+    }
+  ],
+  "final": [
+    {
+      "side": "left",
+      "channel": "0x51",
+      "bus_status": "0x0",
+      "motors": [
+        {
+          "motor_id": 1,
+          "motor_type": "DM8009",
+          "state": 0,
+          "position_rad": -0.004386968795300206,
+          "velocity_rad_s": -0.010989010989007397,
+          "torque_nm": -0.01318681318681314,
+          "mos_c": 28,
+          "rotor_c": 26,
+          "received_at": 40393.765,
+          "raw": "017ff47ff7ff1c1a",
+          "online": true,
+          "state_name": "DISABLED",
+          "age_s": 0.0,
+          "error": null
+        },
+        {
+          "motor_id": 2,
+          "motor_type": "DM8009",
+          "state": 0,
+          "position_rad": 0.0024795910582131597,
+          "velocity_rad_s": -0.010989010989007397,
+          "torque_nm": -0.01318681318681314,
+          "mos_c": 29,
+          "rotor_c": 26,
+          "received_at": 40393.781,
+          "raw": "0280067ff7ff1d1a",
+          "online": true,
+          "state_name": "DISABLED",
+          "age_s": 0.0,
+          "error": null
+        },
+        {
+          "motor_id": 3,
+          "motor_type": "DM4340",
+          "state": 0,
+          "position_rad": 0.07000076295109459,
+          "velocity_rad_s": -0.0073260073260073,
+          "torque_nm": -0.006837606837606813,
+          "mos_c": 30,
+          "rotor_c": 28,
+          "received_at": 40393.781,
+          "raw": "0380b77fe7ff1e1c",
+          "online": true,
+          "state_name": "DISABLED",
+          "age_s": 0.0,
+          "error": null
+        },
+        {
+          "motor_id": 4,
+          "motor_type": "DM4340",
+          "state": 0,
+          "position_rad": 0.008583199816891707,
+          "velocity_rad_s": -0.0024420024420024333,
+          "torque_nm": 0.006837606837606813,
+          "mos_c": 29,
+          "rotor_c": 28,
+          "received_at": 40393.781,
+          "raw": "0480167ff8001d1c",
+          "online": true,
+          "state_name": "DISABLED",
+          "age_s": 0.0,
+          "error": null
+        },
+        {
+          "motor_id": 5,
+          "motor_type": "DM4310",
+          "state": 0,
+          "position_rad": -0.019645990691996573,
+          "velocity_rad_s": -0.0073260073260073,
+          "torque_nm": -0.0073260073260073,
+          "mos_c": 32,
+          "rotor_c": 27,
+          "received_at": 40393.781,
+          "raw": "057fcc7ff7fe201b",
+          "online": true,
+          "state_name": "DISABLED",
+          "age_s": 0.0,
+          "error": null
+        },
+        {
+          "motor_id": 6,
+          "motor_type": "DM4310",
+          "state": 0,
+          "position_rad": -0.04520485236896299,
+          "velocity_rad_s": -0.0219780219780219,
+          "torque_nm": 0.0024420024420024333,
+          "mos_c": 32,
+          "rotor_c": 29,
+          "received_at": 40393.781,
+          "raw": "067f897fe800201d",
+          "online": true,
+          "state_name": "DISABLED",
+          "age_s": 0.0,
+          "error": null
+        },
+        {
+          "motor_id": 7,
+          "motor_type": "DM4310",
+          "state": 0,
+          "position_rad": -0.09288929579613914,
+          "velocity_rad_s": -0.0073260073260073,
+          "torque_nm": 0.0073260073260073,
+          "mos_c": 29,
+          "rotor_c": 28,
+          "received_at": 40393.781,
+          "raw": "077f0c7ff8011d1c",
+          "online": true,
+          "state_name": "DISABLED",
+          "age_s": 0.0,
+          "error": null
+        }
+      ],
+      "expected_motors": 7,
+      "online": 7
+    },
+    {
+      "side": "right",
+      "channel": "0x52",
+      "bus_status": "0x0",
+      "motors": [
+        {
+          "motor_id": 1,
+          "motor_type": "DM8009",
+          "state": 0,
+          "position_rad": 0.032997634851605895,
+          "velocity_rad_s": 0.010989010989007397,
+          "torque_nm": 0.01318681318681314,
+          "mos_c": 28,
+          "rotor_c": 26,
+          "received_at": 40393.781,
+          "raw": "0180568008001c1a",
+          "online": true,
+          "state_name": "DISABLED",
+          "age_s": 0.0,
+          "error": null
+        },
+        {
+          "motor_id": 2,
+          "motor_type": "DM8009",
+          "state": 0,
+          "position_rad": 0.013160906385900617,
+          "velocity_rad_s": -0.010989010989007397,
+          "torque_nm": -0.01318681318681314,
+          "mos_c": 29,
+          "rotor_c": 27,
+          "received_at": 40393.781,
+          "raw": "0280227ff7ff1d1b",
+          "online": true,
+          "state_name": "DISABLED",
+          "age_s": 0.0,
+          "error": null
+        },
+        {
+          "motor_id": 3,
+          "motor_type": "DM4340",
+          "state": 0,
+          "position_rad": 0.0661860074769205,
+          "velocity_rad_s": 0.0024420024420024333,
+          "torque_nm": 0.006837606837606813,
+          "mos_c": 30,
+          "rotor_c": 27,
+          "received_at": 40393.781,
+          "raw": "0380ad8008001e1b",
+          "online": true,
+          "state_name": "DISABLED",
+          "age_s": 0.0,
+          "error": null
+        },
+        {
+          "motor_id": 4,
+          "motor_type": "DM4340",
+          "state": 0,
+          "position_rad": 0.006294346532387252,
+          "velocity_rad_s": -0.0024420024420024333,
+          "torque_nm": -0.03418803418803407,
+          "mos_c": 29,
+          "rotor_c": 27,
+          "received_at": 40393.796,
+          "raw": "0480107ff7fd1d1b",
+          "online": true,
+          "state_name": "DISABLED",
+          "age_s": 0.0,
+          "error": null
+        },
+        {
+          "motor_id": 5,
+          "motor_type": "DM4310",
+          "state": 0,
+          "position_rad": -0.04444190127412817,
+          "velocity_rad_s": -0.0219780219780219,
+          "torque_nm": -0.0073260073260073,
+          "mos_c": 32,
+          "rotor_c": 28,
+          "received_at": 40393.796,
+          "raw": "057f8b7fe7fe201c",
+          "online": true,
+          "state_name": "DISABLED",
+          "age_s": 0.0,
+          "error": null
+        },
+        {
+          "motor_id": 6,
+          "motor_type": "DM4310",
+          "state": 0,
+          "position_rad": 0.06923781185625977,
+          "velocity_rad_s": 0.0073260073260073,
+          "torque_nm": 0.0024420024420024333,
+          "mos_c": 31,
+          "rotor_c": 29,
+          "received_at": 40393.796,
+          "raw": "0680b58008001f1d",
+          "online": true,
+          "state_name": "DISABLED",
+          "age_s": 0.0,
+          "error": null
+        },
+        {
+          "motor_id": 7,
+          "motor_type": "DM4310",
+          "state": 0,
+          "position_rad": -0.02574959945067512,
+          "velocity_rad_s": 0.0073260073260073,
+          "torque_nm": -0.0024420024420024333,
+          "mos_c": 30,
+          "rotor_c": 28,
+          "received_at": 40393.796,
+          "raw": "077fbc8007ff1e1c",
+          "online": true,
+          "state_name": "DISABLED",
+          "age_s": 0.0,
+          "error": null
+        }
+      ],
+      "expected_motors": 7,
+      "online": 7
+    }
+  ],
+  "register_source": "resources/openarm_control_extract/openarm_can/include/openarm/damiao_motor/dm_motor_constants.hpp",
+  "note": "Parameter equality is not proof of identical physical payload or motor capability. ASR/APR values do not replace explicit MIT Kp/Kd."
+}

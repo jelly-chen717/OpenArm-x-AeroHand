@@ -1,0 +1,2 @@
+{"side": "right", "error": "PCAN 0x52 listen-only off: 0x400 The PCAN-Hardware is already being used by a PCAN-Net"}
+{"side": "left", "error": "PCAN 0x51 listen-only off: 0x400 The PCAN-Hardware is already being used by a PCAN-Net"}

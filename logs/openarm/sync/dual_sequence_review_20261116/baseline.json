@@ -1,0 +1,135 @@
+{
+  "source": "logs\\openarm\\sync\\dual_sequence_review_20261116\\status_confirmed_zero.jsonl",
+  "sha256": "9dd891f8b37564c1d1bd4277023e11336a62dbe7e867724c543677b0fad74ee3",
+  "zero_confirmation": "User explicitly selected current pose as new test zero after initial-pose mismatch; movement approval still pending.",
+  "snapshot_time_unix": 1794832558.4518633,
+  "zero_policy": "q_test = q_logical - q_logical_at_snapshot; no persistent zero/calibration changes",
+  "joints": [
+    {
+      "side": "left",
+      "motor_id": 7,
+      "motor_rad": 0.0001907377737087046,
+      "logical_rad": -0.0001907377737087046,
+      "logical_deg": -0.01092846942723013,
+      "final_logical_deg": -15.01092846942723,
+      "raw_motor_delta_deg": 14.999999999999998
+    },
+    {
+      "side": "right",
+      "motor_id": 7,
+      "motor_rad": -0.02536812390325771,
+      "logical_rad": -0.02536812390325771,
+      "logical_deg": -1.4534864338216071,
+      "final_logical_deg": -16.453486433821606,
+      "raw_motor_delta_deg": -14.999999999999998
+    },
+    {
+      "side": "left",
+      "motor_id": 6,
+      "motor_rad": -0.11921110856794037,
+      "logical_rad": 0.11921110856794037,
+      "logical_deg": 6.830293392018831,
+      "final_logical_deg": -23.169706607981166,
+      "raw_motor_delta_deg": 29.999999999999996
+    },
+    {
+      "side": "right",
+      "motor_id": 6,
+      "motor_rad": 0.03490501258869294,
+      "logical_rad": 0.03490501258869294,
+      "logical_deg": 1.9999099051831135,
+      "final_logical_deg": -28.000090094816883,
+      "raw_motor_delta_deg": -29.999999999999996
+    },
+    {
+      "side": "left",
+      "motor_id": 5,
+      "motor_rad": 0.0791561760891124,
+      "logical_rad": 0.0791561760891124,
+      "logical_deg": 4.535314812300504,
+      "final_logical_deg": 49.535314812300506,
+      "raw_motor_delta_deg": 45.0
+    },
+    {
+      "side": "right",
+      "motor_id": 5,
+      "motor_rad": 0.07724879835202536,
+      "logical_rad": 0.07724879835202536,
+      "logical_deg": 4.426030118028202,
+      "final_logical_deg": 49.4260301180282,
+      "raw_motor_delta_deg": 45.0
+    },
+    {
+      "side": "left",
+      "motor_id": 4,
+      "motor_rad": 0.02994583047226662,
+      "logical_rad": 0.02994583047226662,
+      "logical_deg": 1.7157697000751302,
+      "final_logical_deg": 4.71576970007513,
+      "raw_motor_delta_deg": 3.0000000000000004
+    },
+    {
+      "side": "right",
+      "motor_id": 4,
+      "motor_rad": 0.046730754558632626,
+      "logical_rad": 0.046730754558632626,
+      "logical_deg": 2.6774750096713817,
+      "final_logical_deg": 5.677475009671382,
+      "raw_motor_delta_deg": 3.0000000000000004
+    },
+    {
+      "side": "left",
+      "motor_id": 3,
+      "motor_rad": -0.03681239032577999,
+      "logical_rad": -0.03681239032577999,
+      "logical_deg": -2.1091945994554147,
+      "final_logical_deg": -47.109194599455414,
+      "raw_motor_delta_deg": -45.0
+    },
+    {
+      "side": "right",
+      "motor_id": 3,
+      "motor_rad": 0.05321583886472858,
+      "logical_rad": 0.05321583886472858,
+      "logical_deg": 3.0490429701972057,
+      "final_logical_deg": -41.950957029802794,
+      "raw_motor_delta_deg": -45.0
+    },
+    {
+      "side": "left",
+      "motor_id": 2,
+      "motor_rad": -0.011253528648813571,
+      "logical_rad": -0.011253528648813571,
+      "logical_deg": -0.6447796962065776,
+      "final_logical_deg": -45.64477969620658,
+      "raw_motor_delta_deg": -45.0
+    },
+    {
+      "side": "right",
+      "motor_id": 2,
+      "motor_rad": 0.01583123521782248,
+      "logical_rad": -0.01583123521782248,
+      "logical_deg": -0.9070629624601007,
+      "final_logical_deg": -45.9070629624601,
+      "raw_motor_delta_deg": 45.0
+    },
+    {
+      "side": "left",
+      "motor_id": 1,
+      "motor_rad": -0.0024795910582131597,
+      "logical_rad": 0.0024795910582131597,
+      "logical_deg": 0.14207010255399166,
+      "final_logical_deg": -44.857929897446006,
+      "raw_motor_delta_deg": 45.0
+    },
+    {
+      "side": "right",
+      "motor_id": 1,
+      "motor_rad": -0.0024795910582131597,
+      "logical_rad": -0.0024795910582131597,
+      "logical_deg": -0.14207010255399166,
+      "final_logical_deg": -45.142070102553994,
+      "raw_motor_delta_deg": -45.0
+    }
+  ]
+}

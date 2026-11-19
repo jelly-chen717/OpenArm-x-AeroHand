@@ -1,0 +1,33 @@
+{
+  "request_id": "onsite-hold-1794742421632152200",
+  "mapping_version": "hardware-user-confirmed-v1-20261115",
+  "expires_at": 1794742601.6321523,
+  "joints": [
+    {
+      "side": "right",
+      "motor_id": 7
+    }
+  ],
+  "initial_model_position": [
+    -0.05245288776989376
+  ],
+  "limits": {
+    "velocity_rad_s": 0.1,
+    "acceleration_rad_s2": 0.3,
+    "start_error_rad": 0.01
+  },
+  "points": [
+    {
+      "t": 0,
+      "q": [
+        -0.05245288776989376
+      ]
+    },
+    {
+      "t": 1,
+      "q": [
+        -0.05245288776989376
+      ]
+    }
+  ]
+}

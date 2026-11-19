@@ -1,0 +1,51 @@
+Traceback (most recent call last):
+  File "D:\桌面\open CyMon\弹钢琴\apps\drive_openarm_from_sim.py", line 241, in execute_sequence
+    transport.command(targets)
+  File "D:\桌面\open CyMon\弹钢琴\apps\openarm_execution.py", line 204, in command
+    self._command_batch(payloads)
+  File "D:\桌面\open CyMon\弹钢琴\apps\openarm_execution.py", line 240, in _command_batch
+    state = self.arms[key[0]].query_motor(key[1])
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\桌面\open CyMon\弹钢琴\apps\openarm_driver.py", line 231, in query_motor
+    frame = self.bus.receive()
+            ^^^^^^^^^^^^^^^^^^
+  File "D:\桌面\open CyMon\弹钢琴\apps\openarm_driver.py", line 127, in receive
+    self.check(status, "read FD")
+  File "D:\桌面\open CyMon\弹钢琴\apps\openarm_driver.py", line 78, in check
+    raise DriverError(f"PCAN 0x{self.channel:X} {operation}: "
+openarm_driver.DriverError: PCAN 0x51 read FD: 0x40008 
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\桌面\open CyMon\弹钢琴\apps\drive_openarm_from_sim.py", line 488, in main
+    execute_sequence(trajectory, mappings, transport, log, sequence=request['sequence'],
+  File "D:\桌面\open CyMon\弹钢琴\apps\drive_openarm_from_sim.py", line 326, in execute_sequence
+    raise RuntimeError('Stop unconfirmed')
+RuntimeError: Stop unconfirmed
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\桌面\open CyMon\弹钢琴\apps\drive_openarm_from_sim.py", line 501, in main
+    log(dict(type='after',reports=transport.require_disabled()))
+                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\桌面\open CyMon\弹钢琴\apps\openarm_execution.py", line 117, in require_disabled
+    raise DriverError('Both arms must have seven online disabled joints')
+openarm_driver.DriverError: Both arms must have seven online disabled joints
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\桌面\open CyMon\弹钢琴\apps\drive_openarm_from_sim.py", line 505, in <module>
+    main()
+  File "D:\桌面\open CyMon\弹钢琴\apps\drive_openarm_from_sim.py", line 407, in main
+    with ExitStack() as stack:
+  File "D:\桌面\open CyMon\弹钢琴\openarm\.python311\Lib\contextlib.py", line 601, in __exit__
+    raise exc_details[1]
+  File "D:\桌面\open CyMon\弹钢琴\openarm\.python311\Lib\contextlib.py", line 586, in __exit__
+    if cb(*exc_details):
+       ^^^^^^^^^^^^^^^^
+  File "D:\桌面\open CyMon\弹钢琴\apps\openarm_execution.py", line 108, in __exit__
+    raise DriverError('Disable remains unconfirmed')
+openarm_driver.DriverError: Disable remains unconfirmed

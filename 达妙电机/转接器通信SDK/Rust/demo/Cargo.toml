@@ -1,0 +1,9 @@
+[package]
+name = "dmcan_demo"
+version = "1.0.0"
+edition = "2021"
+publish = false
+
+[dependencies]
+# 用同目录下解包出来的 dmcan 封装层（由 pack/dmcan-2.1.0.crate 解出）
+dmcan = { path = "dmcan-2.1.0" }

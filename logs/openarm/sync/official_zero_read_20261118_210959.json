@@ -1,0 +1,21 @@
+{
+  "started_at": "2026-11-18T21:09:59.987+08:00",
+  "purpose": "OpenArm V1 read-only mechanical offset",
+  "read_parameters": {
+    "0x36": "m_off (raw float, vendor table has no unit)"
+  },
+  "arms": {
+    "left": {
+      "pcan_channel": "0x51",
+      "joints": {},
+      "channel_error": "PCAN 0x51 owned by another OpenArm process"
+    },
+    "right": {
+      "pcan_channel": "0x52",
+      "joints": {},
+      "channel_error": "PCAN 0x52 owned by another OpenArm process"
+    }
+  },
+  "finished_at": "2026-11-18T21:10:00.006+08:00",
+  "m_off_replies": 0
+}

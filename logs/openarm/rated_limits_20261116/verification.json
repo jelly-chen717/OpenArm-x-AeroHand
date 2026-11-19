@@ -1,0 +1,217 @@
+{
+  "date": "2026-11-16",
+  "hardware_accessed": false,
+  "mapping_version": "hardware-unified-forward-inward-v2-20261116",
+  "limit_profile": "rated",
+  "voltage_v": 24,
+  "effective_defaults": [
+    {
+      "side": "left",
+      "motor_id": 1,
+      "kp": 10.0,
+      "kd": 2.0,
+      "max_travel": 0.12,
+      "max_speed": 10.471975511965978,
+      "max_torque": 20.0,
+      "max_temperature": 50.0,
+      "max_age": 0.15
+    },
+    {
+      "side": "left",
+      "motor_id": 2,
+      "kp": 10.0,
+      "kd": 2.0,
+      "max_travel": 0.12,
+      "max_speed": 10.471975511965978,
+      "max_torque": 20.0,
+      "max_temperature": 50.0,
+      "max_age": 0.15
+    },
+    {
+      "side": "left",
+      "motor_id": 3,
+      "kp": 10.0,
+      "kd": 2.0,
+      "max_travel": 0.12,
+      "max_speed": 3.7699111843077517,
+      "max_torque": 9.0,
+      "max_temperature": 50.0,
+      "max_age": 0.15
+    },
+    {
+      "side": "left",
+      "motor_id": 4,
+      "kp": 10.0,
+      "kd": 2.0,
+      "max_travel": 0.12,
+      "max_speed": 3.7699111843077517,
+      "max_torque": 9.0,
+      "max_temperature": 50.0,
+      "max_age": 0.15
+    },
+    {
+      "side": "left",
+      "motor_id": 5,
+      "kp": 10.0,
+      "kd": 2.0,
+      "max_travel": 0.12,
+      "max_speed": 12.56637061435917,
+      "max_torque": 3.0,
+      "max_temperature": 50.0,
+      "max_age": 0.15
+    },
+    {
+      "side": "left",
+      "motor_id": 6,
+      "kp": 10.0,
+      "kd": 2.0,
+      "max_travel": 0.12,
+      "max_speed": 12.56637061435917,
+      "max_torque": 3.0,
+      "max_temperature": 50.0,
+      "max_age": 0.15
+    },
+    {
+      "side": "left",
+      "motor_id": 7,
+      "kp": 10.0,
+      "kd": 2.0,
+      "max_travel": 0.12,
+      "max_speed": 12.56637061435917,
+      "max_torque": 3.0,
+      "max_temperature": 50.0,
+      "max_age": 0.15
+    },
+    {
+      "side": "right",
+      "motor_id": 1,
+      "kp": 10.0,
+      "kd": 2.0,
+      "max_travel": 0.12,
+      "max_speed": 10.471975511965978,
+      "max_torque": 20.0,
+      "max_temperature": 50.0,
+      "max_age": 0.15
+    },
+    {
+      "side": "right",
+      "motor_id": 2,
+      "kp": 10.0,
+      "kd": 2.0,
+      "max_travel": 0.12,
+      "max_speed": 10.471975511965978,
+      "max_torque": 20.0,
+      "max_temperature": 50.0,
+      "max_age": 0.15
+    },
+    {
+      "side": "right",
+      "motor_id": 3,
+      "kp": 10.0,
+      "kd": 2.0,
+      "max_travel": 0.12,
+      "max_speed": 3.7699111843077517,
+      "max_torque": 9.0,
+      "max_temperature": 50.0,
+      "max_age": 0.15
+    },
+    {
+      "side": "right",
+      "motor_id": 4,
+      "kp": 10.0,
+      "kd": 2.0,
+      "max_travel": 0.12,
+      "max_speed": 3.7699111843077517,
+      "max_torque": 9.0,
+      "max_temperature": 50.0,
+      "max_age": 0.15
+    },
+    {
+      "side": "right",
+      "motor_id": 5,
+      "kp": 10.0,
+      "kd": 2.0,
+      "max_travel": 0.12,
+      "max_speed": 12.56637061435917,
+      "max_torque": 3.0,
+      "max_temperature": 50.0,
+      "max_age": 0.15
+    },
+    {
+      "side": "right",
+      "motor_id": 6,
+      "kp": 10.0,
+      "kd": 2.0,
+      "max_travel": 0.12,
+      "max_speed": 12.56637061435917,
+      "max_torque": 3.0,
+      "max_temperature": 50.0,
+      "max_age": 0.15
+    },
+    {
+      "side": "right",
+      "motor_id": 7,
+      "kp": 10.0,
+      "kd": 2.0,
+      "max_travel": 0.12,
+      "max_speed": 12.56637061435917,
+      "max_torque": 3.0,
+      "max_temperature": 50.0,
+      "max_age": 0.15
+    }
+  ],
+  "historical_file": "logs\\openarm\\sync\\left_four_retry2nm_20261116\\settings.json",
+  "historical_sha256": "cf82cca7b2aee46b506bf803a4c7e206d890d93c6767f0dbd4ddf27628caa587",
+  "historical_loaded_effective": [
+    {
+      "side": "left",
+      "motor_id": 4,
+      "kp": 60.0,
+      "kd": 2.0,
+      "max_travel": 0.35,
+      "max_speed": 3.7699111843077517,
+      "max_torque": 9.0,
+      "max_temperature": 50.0,
+      "max_age": 0.15
+    },
+    {
+      "side": "left",
+      "motor_id": 5,
+      "kp": 20.0,
+      "kd": 2.0,
+      "max_travel": 0.83,
+      "max_speed": 12.56637061435917,
+      "max_torque": 3.0,
+      "max_temperature": 50.0,
+      "max_age": 0.15
+    },
+    {
+      "side": "left",
+      "motor_id": 6,
+      "kp": 20.0,
+      "kd": 2.0,
+      "max_travel": 0.48,
+      "max_speed": 12.56637061435917,
+      "max_torque": 3.0,
+      "max_temperature": 50.0,
+      "max_age": 0.15
+    },
+    {
+      "side": "left",
+      "motor_id": 7,
+      "kp": 30.0,
+      "kd": 2.0,
+      "max_travel": 0.48,
+      "max_speed": 12.56637061435917,
+      "max_torque": 3.0,
+      "max_temperature": 50.0,
+      "max_age": 0.15
+    }
+  ],
+  "checks": {
+    "all_14_defaults": true,
+    "current_wrist_example": true,
+    "actual_historical_settings_overridden": true,
+    "historical_unchanged": true
+  }
+}

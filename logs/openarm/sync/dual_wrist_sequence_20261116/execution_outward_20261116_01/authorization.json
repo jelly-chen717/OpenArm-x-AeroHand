@@ -1,0 +1,20 @@
+{
+  "user_authorization": "按此表执行",
+  "zero_update_authorization": "以当前姿态更新零点，沿用已授权表执行",
+  "created_at_unix": 1794837018.7787142,
+  "request_id": "authorized-outward-29b3dfc5-26d5-47c2-9162-6eba682acc9b",
+  "request_sha256": "d71f516450384454044efcbcec842e915d3887acd14604fa3e276ba1a4ab95ee",
+  "settings_sha256": "ac5b7d5e7e02a0cd5f845e7b7ce44c5ad7b77fbb56af854ed6bd09a73495dd48",
+  "baseline": {
+    "kind": "saved_feedback_not_live",
+    "source": "D:\\桌面\\open CyMon\\弹钢琴\\logs\\openarm\\sync\\dual_wrist_sequence_20261116\\execution_outward_20261116_01\\updated_zero.jsonl",
+    "sha256": "2375821e4c227ebe611d06e3e7b821dbd0cee23070db28511b986ff96086d267",
+    "snapshot_time_unix": 1794836973.7473292,
+    "zero_policy": "Test-relative reference only; persistent calibration is unchanged"
+  },
+  "relative_motion_equal_to_review": true,
+  "sequence_equal_to_review": true,
+  "model_samples": 6007,
+  "model_contacts": 0,
+  "model_torque_within_rated": true
+}
