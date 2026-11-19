@@ -1,0 +1,28 @@
+{
+  "title": "槿（60 BPM 纯和弦）",
+  "imported": true,
+  "catalog_api": true,
+  "duration_us": 312000000,
+  "early_chords_midi": [
+    [
+      53,
+      57,
+      60,
+      64
+    ],
+    [
+      53,
+      57,
+      60,
+      64
+    ],
+    [
+      53,
+      60,
+      64
+    ]
+  ],
+  "audible": true,
+  "stop_released_keys": true,
+  "page_errors": []
+}
