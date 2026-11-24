@@ -4,7 +4,8 @@ import struct
 
 import pytest
 
-from openarm_driver import DriverError, OpenArmDriver
+from openarm_driver import DriverError, LIMITS, OpenArmDriver, motor_type
+from openarm_monitor_modes import position_frame
 from openarm_position_mode import DEFAULT_CONFIG, check_config, encode_target, load_config, read_inventory
 from test_openarm_driver import FakeBus
 
@@ -27,6 +28,25 @@ def test_config_routes_all_position_mode_axes():
             encode_target(mapping, target, speed)
     with pytest.raises(ValueError, match="Position"):
         encode_target(mapping, mapping.limits[1] + .01, .15)
+
+
+def test_position_frames_saturate_speed_and_current_at_protocol_limits():
+    _, mappings = load_config()
+    mapping = mappings["left", 1]
+    target = mapping.to_motor(math.radians(-2))
+    _, speed_range, _ = LIMITS[motor_type(mapping.motor_id)]
+
+    can_id, payload = position_frame("POS_VEL", mapping, target, 100., .1)
+    encoded_target, encoded_speed = struct.unpack("<ff", payload)
+    assert can_id == 0x101
+    assert encoded_target == pytest.approx(target)
+    assert encoded_speed == pytest.approx(speed_range)
+
+    can_id, payload = position_frame("POS_FORCE", mapping, target, 100., 1.5)
+    _, speed_code, current_code = struct.unpack("<fHH", payload)
+    assert can_id == 0x301
+    assert speed_code == 10000
+    assert current_code == 10000
 
 
 def test_config_rejects_missing_axes(tmp_path):

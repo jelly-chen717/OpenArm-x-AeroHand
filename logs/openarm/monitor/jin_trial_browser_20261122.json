@@ -1,0 +1,57 @@
+{
+  "mode": "virtual",
+  "browser": "Chromium headless",
+  "score": "jin-chords",
+  "anchor_run": 2,
+  "positioned_white_keys": [
+    24,
+    23,
+    24
+  ],
+  "scope": "prelude",
+  "speed": 1,
+  "score_completed": "排练完成",
+  "transferred": {
+    "arm": "right",
+    "hand": "right",
+    "finger_frames": 17,
+    "notes": 16
+  },
+  "first_down": {
+    "time_us": 250000,
+    "sent_s": 0.25,
+    "changes": {
+      "right": [
+        [
+          3,
+          true
+        ],
+        [
+          5,
+          true
+        ]
+      ]
+    }
+  },
+  "peak_frame_delay_s": 0.014999999999417923,
+  "wrist_keys": [
+    24,
+    29
+  ],
+  "continued_from_24": true,
+  "full_score_preview_note_count": 694,
+  "full_score_preview_wrist_keys": [
+    24,
+    29,
+    26
+  ],
+  "run_ids": {
+    "first": "b238956e6ee94c06918b73ec48064567",
+    "start": "8a76c087e23649928d40b21010b8f3e1",
+    "prelude": "40f5b1f3fe254a3c824209cb9e44340e",
+    "full": "41de1cd1900641948ab98127b622532e"
+  },
+  "points_sha256": "0b681ea1e573eb82e70883b2fac17a779e64efa9777024236570291acf568f77",
+  "score_sha256": "ec899d101644cb6ce32865ade277eaf1152d1b6a95ea047151810d5375a08e0e",
+  "final_state": "STOPPED"
+}

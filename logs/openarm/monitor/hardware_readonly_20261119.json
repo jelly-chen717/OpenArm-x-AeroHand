@@ -1,0 +1,284 @@
+﻿{
+    "instance":  "0ca6e19b37304b8ab52390b4ecc7ccf6",
+    "mode":  "hardware",
+    "mapping_version":  "hardware-unified-forward-inward-v2-20261116",
+    "limits_deg":  {
+                       "left":  [
+                                    [
+                                        -79.99997699027485,
+                                        200.00002841935643
+                                    ],
+                                    [
+                                        -189.99998556178846,
+                                        9.999985561788453
+                                    ],
+                                    [
+                                        -89.99998127603166,
+                                        89.99998127603166
+                                    ],
+                                    [
+                                        0.0,
+                                        140.00000270481564
+                                    ],
+                                    [
+                                        -89.99998127603166,
+                                        89.99998127603166
+                                    ],
+                                    [
+                                        -44.99999063801583,
+                                        44.99999063801583
+                                    ],
+                                    [
+                                        -89.99998127603166,
+                                        89.99998127603166
+                                    ]
+                                ],
+                       "right":  [
+                                     [
+                                         -79.99997699027486,
+                                         200.00002841935643
+                                     ],
+                                     [
+                                         -189.99998556178846,
+                                         9.999985561788453
+                                     ],
+                                     [
+                                         -89.99998127603166,
+                                         89.99998127603166
+                                     ],
+                                     [
+                                         0.0,
+                                         140.00000270481564
+                                     ],
+                                     [
+                                         -89.99998127603166,
+                                         89.99998127603166
+                                     ],
+                                     [
+                                         -44.99999063801583,
+                                         44.99999063801583
+                                     ],
+                                     [
+                                         -89.99998127603166,
+                                         89.99998127603166
+                                     ]
+                                 ]
+                   },
+    "arms":  {
+                 "left":  {
+                              "fresh":  true,
+                              "disabled":  true,
+                              "ready":  true,
+                              "reason":  null,
+                              "age_ms":  125,
+                              "joints":  [
+                                             {
+                                                 "position_deg":  1.103775412150243,
+                                                 "velocity_deg_s":  0.6296239506930066,
+                                                 "torque_nm":  -0.01318681318681314,
+                                                 "mos_c":  27,
+                                                 "rotor_c":  25,
+                                                 "state":  0,
+                                                 "age_ms":  125
+                                             },
+                                             {
+                                                 "position_deg":  -1.5627711280939085,
+                                                 "velocity_deg_s":  -0.6296239506930066,
+                                                 "torque_nm":  -0.01318681318681314,
+                                                 "mos_c":  27,
+                                                 "rotor_c":  24,
+                                                 "state":  0,
+                                                 "age_ms":  125
+                                             },
+                                             {
+                                                 "position_deg":  -12.032244839380473,
+                                                 "velocity_deg_s":  -0.13991643348738003,
+                                                 "torque_nm":  0.006837606837606813,
+                                                 "mos_c":  27,
+                                                 "rotor_c":  25,
+                                                 "state":  0,
+                                                 "age_ms":  125
+                                             },
+                                             {
+                                                 "position_deg":  0.4917811242253558,
+                                                 "velocity_deg_s":  -0.13991643348738003,
+                                                 "torque_nm":  -0.02051282051282044,
+                                                 "mos_c":  26,
+                                                 "rotor_c":  25,
+                                                 "state":  0,
+                                                 "age_ms":  125
+                                             },
+                                             {
+                                                 "position_deg":  6.764722575455449,
+                                                 "velocity_deg_s":  -1.2592479013864202,
+                                                 "torque_nm":  -0.0073260073260073,
+                                                 "mos_c":  28,
+                                                 "rotor_c":  23,
+                                                 "state":  0,
+                                                 "age_ms":  125
+                                             },
+                                             {
+                                                 "position_deg":  2.7430458262347623,
+                                                 "velocity_deg_s":  -0.4197493004621401,
+                                                 "torque_nm":  -0.0073260073260073,
+                                                 "mos_c":  27,
+                                                 "rotor_c":  24,
+                                                 "state":  0,
+                                                 "age_ms":  109
+                                             },
+                                             {
+                                                 "position_deg":  -0.20764091911737245,
+                                                 "velocity_deg_s":  1.2592479013864202,
+                                                 "torque_nm":  0.017094017094017033,
+                                                 "mos_c":  26,
+                                                 "rotor_c":  25,
+                                                 "state":  0,
+                                                 "age_ms":  109
+                                             }
+                                         ],
+                              "endpoints_mm":  {
+                                                   "wrist":  [
+                                                                 10.208210380264795,
+                                                                 164.7751611193009,
+                                                                 -435.7040327170861
+                                                             ]
+                                               }
+                          },
+                 "right":  {
+                               "fresh":  true,
+                               "disabled":  true,
+                               "ready":  true,
+                               "reason":  null,
+                               "age_ms":  109,
+                               "joints":  [
+                                              {
+                                                  "position_deg":  2.5244764376901596,
+                                                  "velocity_deg_s":  -0.6296239506930066,
+                                                  "torque_nm":  -0.01318681318681314,
+                                                  "mos_c":  27,
+                                                  "rotor_c":  24,
+                                                  "state":  0,
+                                                  "age_ms":  109
+                                              },
+                                              {
+                                                  "position_deg":  -5.344021549915533,
+                                                  "velocity_deg_s":  0.6296239506930066,
+                                                  "torque_nm":  -0.01318681318681314,
+                                                  "mos_c":  27,
+                                                  "rotor_c":  25,
+                                                  "state":  0,
+                                                  "age_ms":  109
+                                              },
+                                              {
+                                                  "position_deg":  -90.71722471543761,
+                                                  "velocity_deg_s":  -0.13991643348738003,
+                                                  "torque_nm":  0.02051282051282044,
+                                                  "mos_c":  27,
+                                                  "rotor_c":  24,
+                                                  "state":  0,
+                                                  "age_ms":  109
+                                              },
+                                              {
+                                                  "position_deg":  5.584447877314596,
+                                                  "velocity_deg_s":  -0.13991643348738003,
+                                                  "torque_nm":  0.006837606837606813,
+                                                  "mos_c":  26,
+                                                  "rotor_c":  25,
+                                                  "state":  0,
+                                                  "age_ms":  109
+                                              },
+                                              {
+                                                  "position_deg":  2.4370486822723185,
+                                                  "velocity_deg_s":  -0.4197493004621401,
+                                                  "torque_nm":  -0.012210012210012167,
+                                                  "mos_c":  28,
+                                                  "rotor_c":  24,
+                                                  "state":  0,
+                                                  "age_ms":  109
+                                              },
+                                              {
+                                                  "position_deg":  -4.382316240319281,
+                                                  "velocity_deg_s":  -0.4197493004621401,
+                                                  "torque_nm":  0.0024420024420024333,
+                                                  "mos_c":  27,
+                                                  "rotor_c":  25,
+                                                  "state":  0,
+                                                  "age_ms":  109
+                                              },
+                                              {
+                                                  "position_deg":  -5.387735427624453,
+                                                  "velocity_deg_s":  -1.2592479013864202,
+                                                  "torque_nm":  -0.0024420024420024333,
+                                                  "mos_c":  27,
+                                                  "rotor_c":  24,
+                                                  "state":  0,
+                                                  "age_ms":  94
+                                              }
+                                          ],
+                               "endpoints_mm":  {
+                                                    "wrist":  [
+                                                                  18.89906206308203,
+                                                                  -172.0834911436699,
+                                                                  -434.6316019900273
+                                                              ]
+                                                }
+                           }
+             },
+    "can_prepare":  true,
+    "run":  null,
+    "drive_mode":  "MIT",
+    "revision":  0,
+    "can_enable_all":  true,
+    "pending_mode":  null,
+    "can_switch_mode":  false,
+    "drive_modes":  [
+                        "MIT"
+                    ],
+    "log_error":  null,
+    "events":  [
+                   {
+                       "timestamp":  "2026-11-19T08:53:31.773559+00:00",
+                       "event":  "service.ready",
+                       "level":  "INFO",
+                       "mode":  "hardware",
+                       "request_id":  null,
+                       "message":  "实机服务已启动",
+                       "data":  {
+                                    "mode":  "hardware",
+                                    "mapping_version":  "hardware-unified-forward-inward-v2-20261116",
+                                    "channels":  {
+                                                     "left":  81,
+                                                     "right":  82
+                                                 }
+                                },
+                       "important":  true,
+                       "sequence":  1
+                   },
+                   {
+                       "timestamp":  "2026-11-19T08:53:34.165350+00:00",
+                       "event":  "feedback.online",
+                       "level":  "INFO",
+                       "mode":  "hardware",
+                       "request_id":  null,
+                       "message":  "左臂 · 反馈在线",
+                       "data":  {
+                                    "side":  "left"
+                                },
+                       "important":  true,
+                       "sequence":  2
+                   },
+                   {
+                       "timestamp":  "2026-11-19T08:53:34.300787+00:00",
+                       "event":  "feedback.online",
+                       "level":  "INFO",
+                       "mode":  "hardware",
+                       "request_id":  null,
+                       "message":  "右臂 · 反馈在线",
+                       "data":  {
+                                    "side":  "right"
+                                },
+                       "important":  true,
+                       "sequence":  3
+                   }
+               ]
+}

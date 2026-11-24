@@ -7,6 +7,12 @@ from pathlib import Path
 CONVENTION_VERSION = json.loads((Path(__file__).resolve().parents[1] /
     'configs/openarm_joint_convention.json').read_text(encoding='utf-8'))['version']
 
+# One magnetic-encoder step is about 2e-4 rad. An axis resting against a hard
+# stop therefore reads a step or two outside its model limit (J4's lower limit
+# is exactly 0 deg), so limit comparisons allow this much slack instead of
+# treating encoder quantisation as an invalid pose.
+LIMIT_TOLERANCE = 5e-4
+
 
 def finite(value):
     if isinstance(value, bool) or not isinstance(value, (float, int)) or not math.isfinite(value):

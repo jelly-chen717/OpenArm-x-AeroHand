@@ -178,10 +178,30 @@ def test_score_timeout_stops_releases_and_never_catches_up(piano):
     assert piano.score.held=={'7'} and piano.piano.pressed
     clock[0]+=200_000_000;piano.advance(1/60)
     assert piano.score.status=='ERROR' and piano.state=='STOPPED'
+    assert piano.score.stop_reason == 'scheduler_error'
     assert not piano.piano.pressed and not piano.score.held
     events=piano.piano.event_id
     clock[0]+=5_000_000_000;piano.advance(1/60)
     assert piano.piano.event_id==events  # No stale note-ons dispatched later.
+
+
+def test_score_stop_only_cancels_its_own_preflight_or_playback(piano):
+    reset_midpoint(piano)
+    piano.score.clock = lambda: 0
+    prepare = {"action": "piano_score_prepare", "finger_count": 4, "text": "right_arm_move(28,2)"}
+    stale = piano.command(prepare)["token"]
+    token = piano.command(prepare)["token"]
+    stop = {"action": "piano_score_stop", "token": stale, "reason": "page_closed"}
+    assert piano.command(stop) == {"stopped": False}
+    piano.command({"action": "piano_score_start", "token": token})
+    assert piano.command(stop) == {"stopped": False}
+    assert piano.score.status == "RUNNING"
+    assert piano.command({**stop, "token": token}) == {"stopped": True}
+    assert piano.score.snapshot()["stop_reason"] == "page_closed"
+    assert piano.score.status == "STOPPED" and not piano.piano.pressed
+    assert piano.command({**stop, "token": token}) == {"stopped": False}
+    with pytest.raises(ValueError, match="预检"):
+        piano.command({"action": "piano_score_start", "token": token})
 
 
 def test_score_preflight_rejects_limits_and_changed_start_pose(piano):

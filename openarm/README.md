@@ -1,6 +1,6 @@
 2026-11-15 已统一本机工程，149 项回归通过，双臂运动与《小苹果》完整接触演奏通过。[本机启动与恢复](REPRODUCE_WINDOWS.md) · [新旧资料核对](../docs/guides/仿真统一核对.md)。
 
-统一调试入口：`Start-OpenArm-Debug.cmd`；[控制资料与调试指南](调试指南.md)。当前工程根目录为本目录。
+日常启动使用[项目根目录的三个入口](../README.md#双击启动)。本目录的 `Start-OpenArm-Debug.cmd` 用于仿真调试。[控制资料与调试指南](调试指南.md)
 
 ## 2026-11-09 交接合并说明
 
@@ -14,7 +14,9 @@
 
 支持左右臂分别控制或双臂同步控制，输入关节角度或末端位姿，复用官方 FK/IK 与五次关节轨迹。独立控制面板和常驻仿真服务已支持 14 轴同步执行；夹爪固定。本项目不包含串口通信和真机执行代码。
 
-钢琴场景可用 `skills/paino_skill/start_piano.cmd` 启动：双臂换装 Aero 左右灵巧手，前方悬空 88 键电子琴（52 白键、36 黑键）。启动钢琴网页上位机并开启声音，可由 Aero 手指接触琴键发声，也可触屏试音。详见 [钢琴场景](skills/paino_skill/README.md)。
+MuJoCo 钢琴场景可用 `skills/paino_skill/start_piano.cmd` 启动。模型为 A0–C8 的 88 键钢琴（52 白键、36 黑键），可由 Aero 模型指尖接触发声，也可触屏试音。[钢琴场景](skills/paino_skill/README.md)
+
+OpenArm 现场使用 C2–C7 的 61 键琴，双手食指原位为左 B3、右 C4。定位与点位数据见实机控制台说明。[实琴编号与标定表](../monitor-ui/README.md#实琴琴键与食指原位)
 
 MuJoCo 默认采用理想位置跟随，不做重力补偿。双击 `start_mujoco.cmd` 打开常驻仿真端，再双击 `start_controller.cmd` 用独立控制面板发送关节或末端目标，无需按空格。详见 [CONTROL.md](CONTROL.md)。旧的 CSV 回放入口仍为 `verify_simulation.cmd`，见 [SIMULATION.md](SIMULATION.md)。
 

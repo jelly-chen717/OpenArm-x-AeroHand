@@ -169,6 +169,8 @@ def test_score_service_is_independent_and_routes_are_separate(monkeypatch):
             assert calls[-1] == ("piano_score_" + action, {})
         with post(url, "/api/score", dict(action="rate", rate=2.)): pass
         assert calls[-1] == ("piano_score_rate", {"rate": 2.})
+        with post(url, "/api/score", dict(action="stop", token="example", reason="page_closed")): pass
+        assert calls[-1] == ("piano_score_stop", {"token": "example", "reason": "page_closed"})
         with post(url, "/api/move", dict(action="stop")): pass
         assert calls[-1][0] == "stop"
         count = len(calls)
@@ -233,6 +235,10 @@ def test_score_root_serves_user_standalone_with_simulation_bridge(monkeypatch, t
     original = '<html><script id="assets" type="application/json">{"songs":[],"samples":{"60":"large-wav"}}</script><script type="module">const ui = true;</script></html>'
     frontend.write_text(original, encoding='utf-8')
     monkeypatch.setattr(controller, 'STANDALONE_UI', frontend)
+    monkeypatch.setattr(controller, 'MUSIC_DIR', tmp_path)
+    song = tmp_path / '槿（实琴分手·副歌纯旋律）.txt'
+    score = '# C4 < B4\nright_arm_move(30, 2)\nsleep(2)'
+    song.write_text(score, encoding='utf-8-sig')
     server = controller.create_server(0, score_only=True)
     thread = threading.Thread(target=server.serve_forever, daemon=True)
     thread.start()
@@ -244,6 +250,9 @@ def test_score_root_serves_user_standalone_with_simulation_bridge(monkeypatch, t
             assert 'pollSimulation' in html
             assert 'large-wav' not in html
             assert '"samples": {}' in html
+            asset_tag = '<script id="assets" type="application/json">'
+            catalog = json.loads(html.split(asset_tag, 1)[1].split('</script>', 1)[0])
+            assert catalog['songs'] == [{'name': song.stem, 'text': score}]
             assert 'nonce=' in html
             assert 'nonce-' in response.headers['Content-Security-Policy']
         assert frontend.read_text(encoding='utf-8') == original

@@ -4,6 +4,7 @@ const offlineUpdateUI = updateUI;
 const offlineFinish = finish;
 const offlineCancelLoading = cancelLoading;
 let simOwned = false;
+let simScoreToken = null;
 let simStopping = false;
 let simCursor = 0;
 let simSession = null;
@@ -112,13 +113,18 @@ updateUI = function () {
     !simOnline ? '仿真未连接' : status === '待选曲' ? '仿真已连接' : status;
 };
 
-async function stopSimulation() {
+async function stopPreparedScore(token, reason) {
+  if (token) await simRequest('/api/score', {action: 'stop', token, reason}, 15000);
+}
+
+async function stopSimulation(reason = 'user_stop') {
   if (simStopping) throw Error('正在停止仿真，请稍后');
   simStopping = true;
   simPollVersion++;
   updateUI();
   try {
-    await simRequest('/api/move', {action: 'stop'}, 15000);
+    await stopPreparedScore(simScoreToken, reason);
+    simScoreToken = null;
     simOwned = false;
   } finally {
     simStopping = false;
@@ -135,15 +141,15 @@ finish = function (message = '演奏已结束') {
   silenceContacts();
   heldAudio.clear();
   pausedOffsets.clear();
-  if (simOwned && message !== '演奏完成') {
-    stopSimulation().catch(error => notice('停止结果未知：' + error.message));
+  if (simOwned && message === '演奏已结束') {
+    stopSimulation().then(() => notice('已结束演奏。'),
+      error => notice('停止结果未知：' + error.message));
   }
 };
 
 cancelLoading = function () {
   offlineCancelLoading();
-  // Stop also invalidates a preflight token or a late start request.
-  stopSimulation().catch(error => notice('取消结果未知：' + error.message));
+  stopSimulation('cancel_start').catch(error => notice('取消结果未知：' + error.message));
 };
 
 function rememberContactOffsets() {
@@ -173,6 +179,7 @@ function applyTransport(snapshot) {
     }
   } else {
     simOwned = false;
+    simScoreToken = null;
     finish(snapshot.score.status === 'COMPLETED' ? '演奏完成' : snapshot.score.status === 'ERROR' ? '出错' : '演奏已结束');
   }
   draw();
@@ -224,7 +231,11 @@ start = async function (replay = false) {
     const ready = await simRequest('/api/score', {
       action: 'prepare', text: song.text, finger_count: 4, automatic_motion: true,
     }, 125000);
-    if (token !== loadToken) return;
+    if (token !== loadToken) {
+      await stopPreparedScore(ready.token, 'cancel_start');
+      return;
+    }
+    simScoreToken = ready.token;
     status = '准备音色';
     updateUI();
     // Any key may sound from contact while the hand moves.
@@ -258,7 +269,7 @@ start = async function (replay = false) {
     cleanup();
     silenceContacts();
     // A timed-out start may have reached the server.
-    try { await stopSimulation(); } catch { /* Display the initiating failure below. */ }
+    try { await stopSimulation('cancel_start'); } catch { /* Display the initiating failure below. */ }
     notice('无法开始：' + error.message);
     updateUI();
   }
@@ -300,7 +311,8 @@ async function pollSimulation() {
   const version = simPollVersion;
   try {
     const snapshot = await simRequest('/api/piano?after=' + simCursor);
-    if (version !== simPollVersion || simControlPending || rateUpdateRunning) return;
+    if (version !== simPollVersion || simControlPending || rateUpdateRunning || simStopping) return;
+    const reconnected = !simOnline;
     simOnline = true;
     if ($('notice').textContent === '正在连接 MuJoCo 仿真…') notice();
     if (simSession !== snapshot.session) {
@@ -309,9 +321,15 @@ async function pollSimulation() {
       simCursor = snapshot.last_event_id;
       if (restarted && simOwned) {
         simOwned = false;
+        simScoreToken = null;
         finish('出错');
         notice('仿真已重启，请重新开始');
       }
+    } else if (reconnected && simOwned && snapshot.score.status === 'RUNNING' &&
+      snapshot.events.length && (snapshot.events[0].id > simCursor + 1 ||
+        simAudioOrigin + snapshot.events[0].time_s < ctx.currentTime)) {
+      // Restore the current keys when the recovered events can no longer play on time.
+      applyTransport(snapshot);
     } else {
       for (const event of snapshot.events) {
         if (event.id <= simCursor) continue;
@@ -330,26 +348,30 @@ async function pollSimulation() {
           snapshot.score.status === 'RUNNING' && status === '已暂停') applyTransport(snapshot);
       if (['COMPLETED', 'STOPPED', 'ERROR'].includes(snapshot.score.status)) {
         simOwned = false;
+        simScoreToken = null;
         finish(snapshot.score.status === 'COMPLETED' ? '演奏完成' :
           snapshot.score.status === 'ERROR' ? '出错' : '演奏已结束');
         notice(snapshot.score.error || (snapshot.score.status === 'COMPLETED' ? '仿真演奏完成' : '仿真演奏已结束'));
+      } else if (reconnected) {
+        notice('已恢复仿真连接。');
       }
     }
   } catch (error) {
+    if (version !== simPollVersion || simControlPending || rateUpdateRunning || simStopping) return;
     simOnline = false;
     if (simOwned) {
-      finish('出错');
-      notice('仿真连接中断：' + error.message);
+      notice('暂时读不到仿真状态，正在重新连接…');
     }
   } finally {
     updateUI();
-    setTimeout(pollSimulation, 40);
+    setTimeout(pollSimulation, simOnline || simOwned ? 40 : 250);
   }
 }
 
 window.addEventListener('pagehide', () => {
-  if (simOwned || loading || simStopping) {
-    navigator.sendBeacon('/api/move', new Blob([JSON.stringify({action: 'stop'})], {type: 'application/json'}));
+  if (simScoreToken) {
+    const stop = {action: 'stop', token: simScoreToken, reason: 'page_closed'};
+    navigator.sendBeacon('/api/score', new Blob([JSON.stringify(stop)], {type: 'application/json'}));
   }
   silenceContacts();
 }, {capture: true});

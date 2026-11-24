@@ -1,0 +1,1941 @@
+{
+  "kind": "position_mode_read_only_inventory",
+  "timestamp": "2026-11-19T09:15:15.913422+00:00",
+  "target_control_mode": "POS_VEL",
+  "target_ctrl_mode": 2,
+  "mapping_version": "hardware-unified-forward-inward-v2-20261116",
+  "before": {
+    "left": {
+      "side": "left",
+      "channel": "0x51",
+      "bus_status": "0x0",
+      "motors": [
+        {
+          "motor_id": 1,
+          "motor_type": "DM8009",
+          "state": 0,
+          "position_rad": -0.018883039597161755,
+          "velocity_rad_s": 0.010989010989007397,
+          "torque_nm": -0.01318681318681314,
+          "mos_c": 27,
+          "rotor_c": 26,
+          "received_at": 31493.562,
+          "raw": "017fce8007ff1b1a",
+          "online": true,
+          "state_name": "DISABLED",
+          "age_s": 0.0,
+          "error": null
+        },
+        {
+          "motor_id": 2,
+          "motor_type": "DM8009",
+          "state": 0,
+          "position_rad": -0.027275501640344757,
+          "velocity_rad_s": -0.010989010989007397,
+          "torque_nm": -0.01318681318681314,
+          "mos_c": 27,
+          "rotor_c": 25,
+          "received_at": 31493.562,
+          "raw": "027fb87ff7ff1b19",
+          "online": true,
+          "state_name": "DISABLED",
+          "age_s": 0.0,
+          "error": null
+        },
+        {
+          "motor_id": 3,
+          "motor_type": "DM4340",
+          "state": 0,
+          "position_rad": -0.21000228885328553,
+          "velocity_rad_s": -0.0024420024420024333,
+          "torque_nm": 0.006837606837606813,
+          "mos_c": 27,
+          "rotor_c": 26,
+          "received_at": 31493.562,
+          "raw": "037dd97ff8001b1a",
+          "online": true,
+          "state_name": "DISABLED",
+          "age_s": 0.0,
+          "error": null
+        },
+        {
+          "motor_id": 4,
+          "motor_type": "DM4340",
+          "state": 0,
+          "position_rad": 0.008583199816891707,
+          "velocity_rad_s": -0.0024420024420024333,
+          "torque_nm": -0.02051282051282044,
+          "mos_c": 27,
+          "rotor_c": 26,
+          "received_at": 31493.578,
+          "raw": "0480167ff7fe1b1a",
+          "online": true,
+          "state_name": "DISABLED",
+          "age_s": 0.0,
+          "error": null
+        },
+        {
+          "motor_id": 5,
+          "motor_type": "DM4310",
+          "state": 0,
+          "position_rad": 0.11844815747310555,
+          "velocity_rad_s": -0.0073260073260073,
+          "torque_nm": -0.0073260073260073,
+          "mos_c": 28,
+          "rotor_c": 24,
+          "received_at": 31493.578,
+          "raw": "0581367ff7fe1c18",
+          "online": true,
+          "state_name": "DISABLED",
+          "age_s": 0.0,
+          "error": null
+        },
+        {
+          "motor_id": 6,
+          "motor_type": "DM4310",
+          "state": 0,
+          "position_rad": -0.06275272755016381,
+          "velocity_rad_s": -0.0073260073260073,
+          "torque_nm": -0.0024420024420024333,
+          "mos_c": 28,
+          "rotor_c": 26,
+          "received_at": 31493.578,
+          "raw": "067f5b7ff7ff1c1a",
+          "online": true,
+          "state_name": "DISABLED",
+          "age_s": 0.0,
+          "error": null
+        },
+        {
+          "motor_id": 7,
+          "motor_type": "DM4310",
+          "state": 0,
+          "position_rad": 0.0036240177004653873,
+          "velocity_rad_s": -0.0073260073260073,
+          "torque_nm": 0.012210012210012167,
+          "mos_c": 27,
+          "rotor_c": 26,
+          "received_at": 31493.578,
+          "raw": "0780097ff8021b1a",
+          "online": true,
+          "state_name": "DISABLED",
+          "age_s": 0.0,
+          "error": null
+        }
+      ],
+      "expected_motors": 7,
+      "online": 7
+    },
+    "right": {
+      "side": "right",
+      "channel": "0x52",
+      "bus_status": "0x0",
+      "motors": [
+        {
+          "motor_id": 1,
+          "motor_type": "DM8009",
+          "state": 0,
+          "position_rad": -0.06313420309758122,
+          "velocity_rad_s": -0.010989010989007397,
+          "torque_nm": 0.01318681318681314,
+          "mos_c": 27,
+          "rotor_c": 25,
+          "received_at": 31493.578,
+          "raw": "017f5a7ff8001b19",
+          "online": true,
+          "state_name": "DISABLED",
+          "age_s": 0.0,
+          "error": null
+        },
+        {
+          "motor_id": 2,
+          "motor_type": "DM8009",
+          "state": 0,
+          "position_rad": 0.010872053101396162,
+          "velocity_rad_s": -0.010989010989007397,
+          "torque_nm": -0.01318681318681314,
+          "mos_c": 27,
+          "rotor_c": 26,
+          "received_at": 31493.578,
+          "raw": "02801c7ff7ff1b1a",
+          "online": true,
+          "state_name": "DISABLED",
+          "age_s": 0.0,
+          "error": null
+        },
+        {
+          "motor_id": 3,
+          "motor_type": "DM4340",
+          "state": 0,
+          "position_rad": -0.017738612954909527,
+          "velocity_rad_s": -0.0024420024420024333,
+          "torque_nm": -0.03418803418803407,
+          "mos_c": 28,
+          "rotor_c": 25,
+          "received_at": 31493.578,
+          "raw": "037fd17ff7fd1c19",
+          "online": true,
+          "state_name": "DISABLED",
+          "age_s": 0.0,
+          "error": null
+        },
+        {
+          "motor_id": 4,
+          "motor_type": "DM4340",
+          "state": 0,
+          "position_rad": 0.11654077973601851,
+          "velocity_rad_s": -0.0024420024420024333,
+          "torque_nm": -0.06153846153846132,
+          "mos_c": 27,
+          "rotor_c": 26,
+          "received_at": 31493.578,
+          "raw": "0481317ff7fb1b1a",
+          "online": true,
+          "state_name": "DISABLED",
+          "age_s": 0.0,
+          "error": null
+        },
+        {
+          "motor_id": 5,
+          "motor_type": "DM4310",
+          "state": 0,
+          "position_rad": -1.4868009460593576,
+          "velocity_rad_s": -0.0073260073260073,
+          "torque_nm": -0.012210012210012167,
+          "mos_c": 29,
+          "rotor_c": 25,
+          "received_at": 31493.578,
+          "raw": "0570c67ff7fd1d19",
+          "online": true,
+          "state_name": "DISABLED",
+          "age_s": 0.0,
+          "error": null
+        },
+        {
+          "motor_id": 6,
+          "motor_type": "DM4310",
+          "state": 0,
+          "position_rad": -0.18024719615472584,
+          "velocity_rad_s": -0.0073260073260073,
+          "torque_nm": -0.0024420024420024333,
+          "mos_c": 28,
+          "rotor_c": 26,
+          "received_at": 31493.578,
+          "raw": "067e277ff7ff1c1a",
+          "online": true,
+          "state_name": "DISABLED",
+          "age_s": 0.0,
+          "error": null
+        },
+        {
+          "motor_id": 7,
+          "motor_type": "DM4310",
+          "state": 0,
+          "position_rad": -0.018501564049744346,
+          "velocity_rad_s": -0.0073260073260073,
+          "torque_nm": 0.0024420024420024333,
+          "mos_c": 28,
+          "rotor_c": 26,
+          "received_at": 31493.593,
+          "raw": "077fcf7ff8001c1a",
+          "online": true,
+          "state_name": "DISABLED",
+          "age_s": 0.0,
+          "error": null
+        }
+      ],
+      "expected_motors": 7,
+      "online": 7
+    }
+  },
+  "after": {
+    "left": {
+      "side": "left",
+      "channel": "0x51",
+      "bus_status": "0x0",
+      "motors": [
+        {
+          "motor_id": 1,
+          "motor_type": "DM8009",
+          "state": 0,
+          "position_rad": -0.018883039597161755,
+          "velocity_rad_s": -0.0329670329670364,
+          "torque_nm": -0.01318681318681314,
+          "mos_c": 27,
+          "rotor_c": 26,
+          "received_at": 31494.015,
+          "raw": "017fce7fe7ff1b1a",
+          "online": true,
+          "state_name": "DISABLED",
+          "age_s": 0.0,
+          "error": null
+        },
+        {
+          "motor_id": 2,
+          "motor_type": "DM8009",
+          "state": 0,
+          "position_rad": -0.027275501640344757,
+          "velocity_rad_s": -0.010989010989007397,
+          "torque_nm": -0.01318681318681314,
+          "mos_c": 27,
+          "rotor_c": 25,
+          "received_at": 31494.015,
+          "raw": "027fb87ff7ff1b19",
+          "online": true,
+          "state_name": "DISABLED",
+          "age_s": 0.0,
+          "error": null
+        },
+        {
+          "motor_id": 3,
+          "motor_type": "DM4340",
+          "state": 0,
+          "position_rad": -0.21000228885328553,
+          "velocity_rad_s": -0.0024420024420024333,
+          "torque_nm": 0.006837606837606813,
+          "mos_c": 27,
+          "rotor_c": 26,
+          "received_at": 31494.031,
+          "raw": "037dd97ff8001b1a",
+          "online": true,
+          "state_name": "DISABLED",
+          "age_s": 0.0,
+          "error": null
+        },
+        {
+          "motor_id": 4,
+          "motor_type": "DM4340",
+          "state": 0,
+          "position_rad": 0.008583199816891707,
+          "velocity_rad_s": -0.0024420024420024333,
+          "torque_nm": -0.02051282051282044,
+          "mos_c": 27,
+          "rotor_c": 26,
+          "received_at": 31494.031,
+          "raw": "0480167ff7fe1b1a",
+          "online": true,
+          "state_name": "DISABLED",
+          "age_s": 0.0,
+          "error": null
+        },
+        {
+          "motor_id": 5,
+          "motor_type": "DM4310",
+          "state": 0,
+          "position_rad": 0.11844815747310555,
+          "velocity_rad_s": 0.0073260073260073,
+          "torque_nm": -0.0073260073260073,
+          "mos_c": 28,
+          "rotor_c": 24,
+          "received_at": 31494.031,
+          "raw": "0581368007fe1c18",
+          "online": true,
+          "state_name": "DISABLED",
+          "age_s": 0.0,
+          "error": null
+        },
+        {
+          "motor_id": 6,
+          "motor_type": "DM4310",
+          "state": 0,
+          "position_rad": -0.06313420309758122,
+          "velocity_rad_s": -0.0073260073260073,
+          "torque_nm": -0.0024420024420024333,
+          "mos_c": 28,
+          "rotor_c": 26,
+          "received_at": 31494.031,
+          "raw": "067f5a7ff7ff1c1a",
+          "online": true,
+          "state_name": "DISABLED",
+          "age_s": 0.0,
+          "error": null
+        },
+        {
+          "motor_id": 7,
+          "motor_type": "DM4310",
+          "state": 0,
+          "position_rad": 0.0036240177004653873,
+          "velocity_rad_s": 0.0073260073260073,
+          "torque_nm": 0.0073260073260073,
+          "mos_c": 27,
+          "rotor_c": 26,
+          "received_at": 31494.031,
+          "raw": "0780098008011b1a",
+          "online": true,
+          "state_name": "DISABLED",
+          "age_s": 0.0,
+          "error": null
+        }
+      ],
+      "expected_motors": 7,
+      "online": 7
+    },
+    "right": {
+      "side": "right",
+      "channel": "0x52",
+      "bus_status": "0x0",
+      "motors": [
+        {
+          "motor_id": 1,
+          "motor_type": "DM8009",
+          "state": 0,
+          "position_rad": -0.06313420309758122,
+          "velocity_rad_s": -0.010989010989007397,
+          "torque_nm": 0.01318681318681314,
+          "mos_c": 27,
+          "rotor_c": 25,
+          "received_at": 31494.031,
+          "raw": "017f5a7ff8001b19",
+          "online": true,
+          "state_name": "DISABLED",
+          "age_s": 0.0,
+          "error": null
+        },
+        {
+          "motor_id": 2,
+          "motor_type": "DM8009",
+          "state": 0,
+          "position_rad": 0.010872053101396162,
+          "velocity_rad_s": -0.010989010989007397,
+          "torque_nm": -0.01318681318681314,
+          "mos_c": 27,
+          "rotor_c": 26,
+          "received_at": 31494.031,
+          "raw": "02801c7ff7ff1b1a",
+          "online": true,
+          "state_name": "DISABLED",
+          "age_s": 0.0,
+          "error": null
+        },
+        {
+          "motor_id": 3,
+          "motor_type": "DM4340",
+          "state": 0,
+          "position_rad": -0.017738612954909527,
+          "velocity_rad_s": -0.0024420024420024333,
+          "torque_nm": -0.02051282051282044,
+          "mos_c": 28,
+          "rotor_c": 25,
+          "received_at": 31494.031,
+          "raw": "037fd17ff7fe1c19",
+          "online": true,
+          "state_name": "DISABLED",
+          "age_s": 0.0,
+          "error": null
+        },
+        {
+          "motor_id": 4,
+          "motor_type": "DM4340",
+          "state": 0,
+          "position_rad": 0.11654077973601851,
+          "velocity_rad_s": -0.0024420024420024333,
+          "torque_nm": -0.04786324786324769,
+          "mos_c": 27,
+          "rotor_c": 26,
+          "received_at": 31494.031,
+          "raw": "0481317ff7fc1b1a",
+          "online": true,
+          "state_name": "DISABLED",
+          "age_s": 0.0,
+          "error": null
+        },
+        {
+          "motor_id": 5,
+          "motor_type": "DM4310",
+          "state": 0,
+          "position_rad": -1.4864194705119402,
+          "velocity_rad_s": 0.0073260073260073,
+          "torque_nm": -0.0073260073260073,
+          "mos_c": 29,
+          "rotor_c": 25,
+          "received_at": 31494.046,
+          "raw": "0570c78007fe1d19",
+          "online": true,
+          "state_name": "DISABLED",
+          "age_s": 0.0,
+          "error": null
+        },
+        {
+          "motor_id": 6,
+          "motor_type": "DM4310",
+          "state": 0,
+          "position_rad": -0.18024719615472584,
+          "velocity_rad_s": -0.0073260073260073,
+          "torque_nm": -0.0024420024420024333,
+          "mos_c": 28,
+          "rotor_c": 26,
+          "received_at": 31494.046,
+          "raw": "067e277ff7ff1c1a",
+          "online": true,
+          "state_name": "DISABLED",
+          "age_s": 0.0,
+          "error": null
+        },
+        {
+          "motor_id": 7,
+          "motor_type": "DM4310",
+          "state": 0,
+          "position_rad": -0.018501564049744346,
+          "velocity_rad_s": -0.0073260073260073,
+          "torque_nm": 0.0024420024420024333,
+          "mos_c": 28,
+          "rotor_c": 26,
+          "received_at": 31494.046,
+          "raw": "077fcf7ff8001c1a",
+          "online": true,
+          "state_name": "DISABLED",
+          "age_s": 0.0,
+          "error": null
+        }
+      ],
+      "expected_motors": 7,
+      "online": 7
+    }
+  },
+  "axes": [
+    {
+      "side": "left",
+      "channel": 81,
+      "motor_id": 1,
+      "parameters": {
+        "OC_Value": {
+          "register": 3,
+          "value": 0.800000011920929,
+          "raw_reply": "01003303cdcc4c3f"
+        },
+        "ACC": {
+          "register": 4,
+          "value": 2.0,
+          "raw_reply": "0100330400000040"
+        },
+        "DEC": {
+          "register": 5,
+          "value": -2.0,
+          "raw_reply": "01003305000000c0"
+        },
+        "MAX_SPD": {
+          "register": 6,
+          "value": 600.0,
+          "raw_reply": "0100330600001644"
+        },
+        "MST_ID": {
+          "register": 7,
+          "value": 17,
+          "raw_reply": "0100330711000000"
+        },
+        "ESC_ID": {
+          "register": 8,
+          "value": 1,
+          "raw_reply": "0100330801000000"
+        },
+        "TIMEOUT": {
+          "register": 9,
+          "value": 0,
+          "raw_reply": "0100330900000000"
+        },
+        "CTRL_MODE": {
+          "register": 10,
+          "value": 1,
+          "raw_reply": "0100330a01000000"
+        },
+        "hw_ver": {
+          "register": 13,
+          "value": 0,
+          "raw_reply": "0100330d00000000"
+        },
+        "sw_ver": {
+          "register": 14,
+          "value": 925971510,
+          "raw_reply": "0100330e36343137"
+        },
+        "sub_ver": {
+          "register": 36,
+          "value": 52,
+          "raw_reply": "0100332434000000"
+        },
+        "PMAX": {
+          "register": 21,
+          "value": 12.5,
+          "raw_reply": "0100331500004841"
+        },
+        "VMAX": {
+          "register": 22,
+          "value": 45.0,
+          "raw_reply": "0100331600003442"
+        },
+        "TMAX": {
+          "register": 23,
+          "value": 54.0,
+          "raw_reply": "0100331700005842"
+        },
+        "I_BW": {
+          "register": 24,
+          "value": 1000.0,
+          "raw_reply": "0100331800007a44"
+        },
+        "KP_ASR": {
+          "register": 25,
+          "value": 0.006800000090152025,
+          "raw_reply": "0100331989d2de3b"
+        },
+        "KI_ASR": {
+          "register": 26,
+          "value": 0.0020000000949949026,
+          "raw_reply": "0100331a6f12033b"
+        },
+        "KP_APR": {
+          "register": 27,
+          "value": 54.0,
+          "raw_reply": "0100331b00005842"
+        },
+        "KI_APR": {
+          "register": 28,
+          "value": 0.0,
+          "raw_reply": "0100331c00000000"
+        }
+      },
+      "read_errors": {}
+    },
+    {
+      "side": "left",
+      "channel": 81,
+      "motor_id": 2,
+      "parameters": {
+        "OC_Value": {
+          "register": 3,
+          "value": 0.800000011920929,
+          "raw_reply": "02003303cdcc4c3f"
+        },
+        "ACC": {
+          "register": 4,
+          "value": 2.0,
+          "raw_reply": "0200330400000040"
+        },
+        "DEC": {
+          "register": 5,
+          "value": -2.0,
+          "raw_reply": "02003305000000c0"
+        },
+        "MAX_SPD": {
+          "register": 6,
+          "value": 600.0,
+          "raw_reply": "0200330600001644"
+        },
+        "MST_ID": {
+          "register": 7,
+          "value": 18,
+          "raw_reply": "0200330712000000"
+        },
+        "ESC_ID": {
+          "register": 8,
+          "value": 2,
+          "raw_reply": "0200330802000000"
+        },
+        "TIMEOUT": {
+          "register": 9,
+          "value": 0,
+          "raw_reply": "0200330900000000"
+        },
+        "CTRL_MODE": {
+          "register": 10,
+          "value": 1,
+          "raw_reply": "0200330a01000000"
+        },
+        "hw_ver": {
+          "register": 13,
+          "value": 0,
+          "raw_reply": "0200330d00000000"
+        },
+        "sw_ver": {
+          "register": 14,
+          "value": 925971510,
+          "raw_reply": "0200330e36343137"
+        },
+        "sub_ver": {
+          "register": 36,
+          "value": 52,
+          "raw_reply": "0200332434000000"
+        },
+        "PMAX": {
+          "register": 21,
+          "value": 12.5,
+          "raw_reply": "0200331500004841"
+        },
+        "VMAX": {
+          "register": 22,
+          "value": 45.0,
+          "raw_reply": "0200331600003442"
+        },
+        "TMAX": {
+          "register": 23,
+          "value": 54.0,
+          "raw_reply": "0200331700005842"
+        },
+        "I_BW": {
+          "register": 24,
+          "value": 1000.0,
+          "raw_reply": "0200331800007a44"
+        },
+        "KP_ASR": {
+          "register": 25,
+          "value": 0.006800000090152025,
+          "raw_reply": "0200331989d2de3b"
+        },
+        "KI_ASR": {
+          "register": 26,
+          "value": 0.0020000000949949026,
+          "raw_reply": "0200331a6f12033b"
+        },
+        "KP_APR": {
+          "register": 27,
+          "value": 54.0,
+          "raw_reply": "0200331b00005842"
+        },
+        "KI_APR": {
+          "register": 28,
+          "value": 0.0,
+          "raw_reply": "0200331c00000000"
+        }
+      },
+      "read_errors": {}
+    },
+    {
+      "side": "left",
+      "channel": 81,
+      "motor_id": 3,
+      "parameters": {
+        "OC_Value": {
+          "register": 3,
+          "value": 0.800000011920929,
+          "raw_reply": "03003303cdcc4c3f"
+        },
+        "ACC": {
+          "register": 4,
+          "value": 2.0,
+          "raw_reply": "0300330400000040"
+        },
+        "DEC": {
+          "register": 5,
+          "value": -2.0,
+          "raw_reply": "03003305000000c0"
+        },
+        "MAX_SPD": {
+          "register": 6,
+          "value": 600.0,
+          "raw_reply": "0300330600001644"
+        },
+        "MST_ID": {
+          "register": 7,
+          "value": 19,
+          "raw_reply": "0300330713000000"
+        },
+        "ESC_ID": {
+          "register": 8,
+          "value": 3,
+          "raw_reply": "0300330803000000"
+        },
+        "TIMEOUT": {
+          "register": 9,
+          "value": 0,
+          "raw_reply": "0300330900000000"
+        },
+        "CTRL_MODE": {
+          "register": 10,
+          "value": 1,
+          "raw_reply": "0300330a01000000"
+        },
+        "hw_ver": {
+          "register": 13,
+          "value": 0,
+          "raw_reply": "0300330d00000000"
+        },
+        "sw_ver": {
+          "register": 14,
+          "value": 925970741,
+          "raw_reply": "0300330e35313137"
+        },
+        "sub_ver": {
+          "register": 36,
+          "value": 52,
+          "raw_reply": "0300332434000000"
+        },
+        "PMAX": {
+          "register": 21,
+          "value": 12.5,
+          "raw_reply": "0300331500004841"
+        },
+        "VMAX": {
+          "register": 22,
+          "value": 10.0,
+          "raw_reply": "0300331600002041"
+        },
+        "TMAX": {
+          "register": 23,
+          "value": 28.0,
+          "raw_reply": "030033170000e041"
+        },
+        "I_BW": {
+          "register": 24,
+          "value": 1000.0,
+          "raw_reply": "0300331800007a44"
+        },
+        "KP_ASR": {
+          "register": 25,
+          "value": 0.0038399999029934406,
+          "raw_reply": "0300331982a87b3b"
+        },
+        "KI_ASR": {
+          "register": 26,
+          "value": 0.0020000000949949026,
+          "raw_reply": "0300331a6f12033b"
+        },
+        "KP_APR": {
+          "register": 27,
+          "value": 54.0,
+          "raw_reply": "0300331b00005842"
+        },
+        "KI_APR": {
+          "register": 28,
+          "value": 0.0,
+          "raw_reply": "0300331c00000000"
+        }
+      },
+      "read_errors": {}
+    },
+    {
+      "side": "left",
+      "channel": 81,
+      "motor_id": 4,
+      "parameters": {
+        "OC_Value": {
+          "register": 3,
+          "value": 0.800000011920929,
+          "raw_reply": "04003303cdcc4c3f"
+        },
+        "ACC": {
+          "register": 4,
+          "value": 2.0,
+          "raw_reply": "0400330400000040"
+        },
+        "DEC": {
+          "register": 5,
+          "value": -2.0,
+          "raw_reply": "04003305000000c0"
+        },
+        "MAX_SPD": {
+          "register": 6,
+          "value": 600.0,
+          "raw_reply": "0400330600001644"
+        },
+        "MST_ID": {
+          "register": 7,
+          "value": 20,
+          "raw_reply": "0400330714000000"
+        },
+        "ESC_ID": {
+          "register": 8,
+          "value": 4,
+          "raw_reply": "0400330804000000"
+        },
+        "TIMEOUT": {
+          "register": 9,
+          "value": 0,
+          "raw_reply": "0400330900000000"
+        },
+        "CTRL_MODE": {
+          "register": 10,
+          "value": 1,
+          "raw_reply": "0400330a01000000"
+        },
+        "hw_ver": {
+          "register": 13,
+          "value": 0,
+          "raw_reply": "0400330d00000000"
+        },
+        "sw_ver": {
+          "register": 14,
+          "value": 925970741,
+          "raw_reply": "0400330e35313137"
+        },
+        "sub_ver": {
+          "register": 36,
+          "value": 52,
+          "raw_reply": "0400332434000000"
+        },
+        "PMAX": {
+          "register": 21,
+          "value": 12.5,
+          "raw_reply": "0400331500004841"
+        },
+        "VMAX": {
+          "register": 22,
+          "value": 10.0,
+          "raw_reply": "0400331600002041"
+        },
+        "TMAX": {
+          "register": 23,
+          "value": 28.0,
+          "raw_reply": "040033170000e041"
+        },
+        "I_BW": {
+          "register": 24,
+          "value": 1000.0,
+          "raw_reply": "0400331800007a44"
+        },
+        "KP_ASR": {
+          "register": 25,
+          "value": 0.0038399999029934406,
+          "raw_reply": "0400331982a87b3b"
+        },
+        "KI_ASR": {
+          "register": 26,
+          "value": 0.0020000000949949026,
+          "raw_reply": "0400331a6f12033b"
+        },
+        "KP_APR": {
+          "register": 27,
+          "value": 54.0,
+          "raw_reply": "0400331b00005842"
+        },
+        "KI_APR": {
+          "register": 28,
+          "value": 0.0,
+          "raw_reply": "0400331c00000000"
+        }
+      },
+      "read_errors": {}
+    },
+    {
+      "side": "left",
+      "channel": 81,
+      "motor_id": 5,
+      "parameters": {
+        "OC_Value": {
+          "register": 3,
+          "value": 0.800000011920929,
+          "raw_reply": "05003303cdcc4c3f"
+        },
+        "ACC": {
+          "register": 4,
+          "value": 2.0,
+          "raw_reply": "0500330400000040"
+        },
+        "DEC": {
+          "register": 5,
+          "value": -2.0,
+          "raw_reply": "05003305000000c0"
+        },
+        "MAX_SPD": {
+          "register": 6,
+          "value": 600.0,
+          "raw_reply": "0500330600001644"
+        },
+        "MST_ID": {
+          "register": 7,
+          "value": 21,
+          "raw_reply": "0500330715000000"
+        },
+        "ESC_ID": {
+          "register": 8,
+          "value": 5,
+          "raw_reply": "0500330805000000"
+        },
+        "TIMEOUT": {
+          "register": 9,
+          "value": 0,
+          "raw_reply": "0500330900000000"
+        },
+        "CTRL_MODE": {
+          "register": 10,
+          "value": 1,
+          "raw_reply": "0500330a01000000"
+        },
+        "hw_ver": {
+          "register": 13,
+          "value": 0,
+          "raw_reply": "0500330d00000000"
+        },
+        "sw_ver": {
+          "register": 14,
+          "value": 925970485,
+          "raw_reply": "0500330e35303137"
+        },
+        "sub_ver": {
+          "register": 36,
+          "value": 52,
+          "raw_reply": "0500332434000000"
+        },
+        "PMAX": {
+          "register": 21,
+          "value": 12.5,
+          "raw_reply": "0500331500004841"
+        },
+        "VMAX": {
+          "register": 22,
+          "value": 30.0,
+          "raw_reply": "050033160000f041"
+        },
+        "TMAX": {
+          "register": 23,
+          "value": 10.0,
+          "raw_reply": "0500331700002041"
+        },
+        "I_BW": {
+          "register": 24,
+          "value": 1000.0,
+          "raw_reply": "0500331800007a44"
+        },
+        "KP_ASR": {
+          "register": 25,
+          "value": 0.003719999920576811,
+          "raw_reply": "050033193ecb733b"
+        },
+        "KI_ASR": {
+          "register": 26,
+          "value": 0.0020000000949949026,
+          "raw_reply": "0500331a6f12033b"
+        },
+        "KP_APR": {
+          "register": 27,
+          "value": 54.0,
+          "raw_reply": "0500331b00005842"
+        },
+        "KI_APR": {
+          "register": 28,
+          "value": 0.0,
+          "raw_reply": "0500331c00000000"
+        }
+      },
+      "read_errors": {}
+    },
+    {
+      "side": "left",
+      "channel": 81,
+      "motor_id": 6,
+      "parameters": {
+        "OC_Value": {
+          "register": 3,
+          "value": 0.800000011920929,
+          "raw_reply": "06003303cdcc4c3f"
+        },
+        "ACC": {
+          "register": 4,
+          "value": 2.0,
+          "raw_reply": "0600330400000040"
+        },
+        "DEC": {
+          "register": 5,
+          "value": -2.0,
+          "raw_reply": "06003305000000c0"
+        },
+        "MAX_SPD": {
+          "register": 6,
+          "value": 600.0,
+          "raw_reply": "0600330600001644"
+        },
+        "MST_ID": {
+          "register": 7,
+          "value": 22,
+          "raw_reply": "0600330716000000"
+        },
+        "ESC_ID": {
+          "register": 8,
+          "value": 6,
+          "raw_reply": "0600330806000000"
+        },
+        "TIMEOUT": {
+          "register": 9,
+          "value": 0,
+          "raw_reply": "0600330900000000"
+        },
+        "CTRL_MODE": {
+          "register": 10,
+          "value": 1,
+          "raw_reply": "0600330a01000000"
+        },
+        "hw_ver": {
+          "register": 13,
+          "value": 0,
+          "raw_reply": "0600330d00000000"
+        },
+        "sw_ver": {
+          "register": 14,
+          "value": 925970485,
+          "raw_reply": "0600330e35303137"
+        },
+        "sub_ver": {
+          "register": 36,
+          "value": 52,
+          "raw_reply": "0600332434000000"
+        },
+        "PMAX": {
+          "register": 21,
+          "value": 12.5,
+          "raw_reply": "0600331500004841"
+        },
+        "VMAX": {
+          "register": 22,
+          "value": 30.0,
+          "raw_reply": "060033160000f041"
+        },
+        "TMAX": {
+          "register": 23,
+          "value": 10.0,
+          "raw_reply": "0600331700002041"
+        },
+        "I_BW": {
+          "register": 24,
+          "value": 1000.0,
+          "raw_reply": "0600331800007a44"
+        },
+        "KP_ASR": {
+          "register": 25,
+          "value": 0.003719999920576811,
+          "raw_reply": "060033193ecb733b"
+        },
+        "KI_ASR": {
+          "register": 26,
+          "value": 0.0020000000949949026,
+          "raw_reply": "0600331a6f12033b"
+        },
+        "KP_APR": {
+          "register": 27,
+          "value": 54.0,
+          "raw_reply": "0600331b00005842"
+        },
+        "KI_APR": {
+          "register": 28,
+          "value": 0.0,
+          "raw_reply": "0600331c00000000"
+        }
+      },
+      "read_errors": {}
+    },
+    {
+      "side": "left",
+      "channel": 81,
+      "motor_id": 7,
+      "parameters": {
+        "OC_Value": {
+          "register": 3,
+          "value": 0.800000011920929,
+          "raw_reply": "07003303cdcc4c3f"
+        },
+        "ACC": {
+          "register": 4,
+          "value": 2.0,
+          "raw_reply": "0700330400000040"
+        },
+        "DEC": {
+          "register": 5,
+          "value": -2.0,
+          "raw_reply": "07003305000000c0"
+        },
+        "MAX_SPD": {
+          "register": 6,
+          "value": 600.0,
+          "raw_reply": "0700330600001644"
+        },
+        "MST_ID": {
+          "register": 7,
+          "value": 23,
+          "raw_reply": "0700330717000000"
+        },
+        "ESC_ID": {
+          "register": 8,
+          "value": 7,
+          "raw_reply": "0700330807000000"
+        },
+        "TIMEOUT": {
+          "register": 9,
+          "value": 0,
+          "raw_reply": "0700330900000000"
+        },
+        "CTRL_MODE": {
+          "register": 10,
+          "value": 1,
+          "raw_reply": "0700330a01000000"
+        },
+        "hw_ver": {
+          "register": 13,
+          "value": 0,
+          "raw_reply": "0700330d00000000"
+        },
+        "sw_ver": {
+          "register": 14,
+          "value": 925970485,
+          "raw_reply": "0700330e35303137"
+        },
+        "sub_ver": {
+          "register": 36,
+          "value": 52,
+          "raw_reply": "0700332434000000"
+        },
+        "PMAX": {
+          "register": 21,
+          "value": 12.5,
+          "raw_reply": "0700331500004841"
+        },
+        "VMAX": {
+          "register": 22,
+          "value": 30.0,
+          "raw_reply": "070033160000f041"
+        },
+        "TMAX": {
+          "register": 23,
+          "value": 10.0,
+          "raw_reply": "0700331700002041"
+        },
+        "I_BW": {
+          "register": 24,
+          "value": 1000.0,
+          "raw_reply": "0700331800007a44"
+        },
+        "KP_ASR": {
+          "register": 25,
+          "value": 0.003719999920576811,
+          "raw_reply": "070033193ecb733b"
+        },
+        "KI_ASR": {
+          "register": 26,
+          "value": 0.0020000000949949026,
+          "raw_reply": "0700331a6f12033b"
+        },
+        "KP_APR": {
+          "register": 27,
+          "value": 54.0,
+          "raw_reply": "0700331b00005842"
+        },
+        "KI_APR": {
+          "register": 28,
+          "value": 0.0,
+          "raw_reply": "0700331c00000000"
+        }
+      },
+      "read_errors": {}
+    },
+    {
+      "side": "right",
+      "channel": 82,
+      "motor_id": 1,
+      "parameters": {
+        "OC_Value": {
+          "register": 3,
+          "value": 0.800000011920929,
+          "raw_reply": "01003303cdcc4c3f"
+        },
+        "ACC": {
+          "register": 4,
+          "value": 2.0,
+          "raw_reply": "0100330400000040"
+        },
+        "DEC": {
+          "register": 5,
+          "value": -2.0,
+          "raw_reply": "01003305000000c0"
+        },
+        "MAX_SPD": {
+          "register": 6,
+          "value": 600.0,
+          "raw_reply": "0100330600001644"
+        },
+        "MST_ID": {
+          "register": 7,
+          "value": 17,
+          "raw_reply": "0100330711000000"
+        },
+        "ESC_ID": {
+          "register": 8,
+          "value": 1,
+          "raw_reply": "0100330801000000"
+        },
+        "TIMEOUT": {
+          "register": 9,
+          "value": 0,
+          "raw_reply": "0100330900000000"
+        },
+        "CTRL_MODE": {
+          "register": 10,
+          "value": 1,
+          "raw_reply": "0100330a01000000"
+        },
+        "hw_ver": {
+          "register": 13,
+          "value": 0,
+          "raw_reply": "0100330d00000000"
+        },
+        "sw_ver": {
+          "register": 14,
+          "value": 925971510,
+          "raw_reply": "0100330e36343137"
+        },
+        "sub_ver": {
+          "register": 36,
+          "value": 52,
+          "raw_reply": "0100332434000000"
+        },
+        "PMAX": {
+          "register": 21,
+          "value": 12.5,
+          "raw_reply": "0100331500004841"
+        },
+        "VMAX": {
+          "register": 22,
+          "value": 45.0,
+          "raw_reply": "0100331600003442"
+        },
+        "TMAX": {
+          "register": 23,
+          "value": 54.0,
+          "raw_reply": "0100331700005842"
+        },
+        "I_BW": {
+          "register": 24,
+          "value": 1000.0,
+          "raw_reply": "0100331800007a44"
+        },
+        "KP_ASR": {
+          "register": 25,
+          "value": 0.006800000090152025,
+          "raw_reply": "0100331989d2de3b"
+        },
+        "KI_ASR": {
+          "register": 26,
+          "value": 0.0020000000949949026,
+          "raw_reply": "0100331a6f12033b"
+        },
+        "KP_APR": {
+          "register": 27,
+          "value": 54.0,
+          "raw_reply": "0100331b00005842"
+        },
+        "KI_APR": {
+          "register": 28,
+          "value": 0.0,
+          "raw_reply": "0100331c00000000"
+        }
+      },
+      "read_errors": {}
+    },
+    {
+      "side": "right",
+      "channel": 82,
+      "motor_id": 2,
+      "parameters": {
+        "OC_Value": {
+          "register": 3,
+          "value": 0.800000011920929,
+          "raw_reply": "02003303cdcc4c3f"
+        },
+        "ACC": {
+          "register": 4,
+          "value": 2.0,
+          "raw_reply": "0200330400000040"
+        },
+        "DEC": {
+          "register": 5,
+          "value": -2.0,
+          "raw_reply": "02003305000000c0"
+        },
+        "MAX_SPD": {
+          "register": 6,
+          "value": 600.0,
+          "raw_reply": "0200330600001644"
+        },
+        "MST_ID": {
+          "register": 7,
+          "value": 18,
+          "raw_reply": "0200330712000000"
+        },
+        "ESC_ID": {
+          "register": 8,
+          "value": 2,
+          "raw_reply": "0200330802000000"
+        },
+        "TIMEOUT": {
+          "register": 9,
+          "value": 0,
+          "raw_reply": "0200330900000000"
+        },
+        "CTRL_MODE": {
+          "register": 10,
+          "value": 1,
+          "raw_reply": "0200330a01000000"
+        },
+        "hw_ver": {
+          "register": 13,
+          "value": 0,
+          "raw_reply": "0200330d00000000"
+        },
+        "sw_ver": {
+          "register": 14,
+          "value": 925971510,
+          "raw_reply": "0200330e36343137"
+        },
+        "sub_ver": {
+          "register": 36,
+          "value": 52,
+          "raw_reply": "0200332434000000"
+        },
+        "PMAX": {
+          "register": 21,
+          "value": 12.5,
+          "raw_reply": "0200331500004841"
+        },
+        "VMAX": {
+          "register": 22,
+          "value": 45.0,
+          "raw_reply": "0200331600003442"
+        },
+        "TMAX": {
+          "register": 23,
+          "value": 54.0,
+          "raw_reply": "0200331700005842"
+        },
+        "I_BW": {
+          "register": 24,
+          "value": 1000.0,
+          "raw_reply": "0200331800007a44"
+        },
+        "KP_ASR": {
+          "register": 25,
+          "value": 0.006800000090152025,
+          "raw_reply": "0200331989d2de3b"
+        },
+        "KI_ASR": {
+          "register": 26,
+          "value": 0.0020000000949949026,
+          "raw_reply": "0200331a6f12033b"
+        },
+        "KP_APR": {
+          "register": 27,
+          "value": 54.0,
+          "raw_reply": "0200331b00005842"
+        },
+        "KI_APR": {
+          "register": 28,
+          "value": 0.0,
+          "raw_reply": "0200331c00000000"
+        }
+      },
+      "read_errors": {}
+    },
+    {
+      "side": "right",
+      "channel": 82,
+      "motor_id": 3,
+      "parameters": {
+        "OC_Value": {
+          "register": 3,
+          "value": 0.800000011920929,
+          "raw_reply": "03003303cdcc4c3f"
+        },
+        "ACC": {
+          "register": 4,
+          "value": 2.0,
+          "raw_reply": "0300330400000040"
+        },
+        "DEC": {
+          "register": 5,
+          "value": -2.0,
+          "raw_reply": "03003305000000c0"
+        },
+        "MAX_SPD": {
+          "register": 6,
+          "value": 600.0,
+          "raw_reply": "0300330600001644"
+        },
+        "MST_ID": {
+          "register": 7,
+          "value": 19,
+          "raw_reply": "0300330713000000"
+        },
+        "ESC_ID": {
+          "register": 8,
+          "value": 3,
+          "raw_reply": "0300330803000000"
+        },
+        "TIMEOUT": {
+          "register": 9,
+          "value": 0,
+          "raw_reply": "0300330900000000"
+        },
+        "CTRL_MODE": {
+          "register": 10,
+          "value": 1,
+          "raw_reply": "0300330a01000000"
+        },
+        "hw_ver": {
+          "register": 13,
+          "value": 0,
+          "raw_reply": "0300330d00000000"
+        },
+        "sw_ver": {
+          "register": 14,
+          "value": 925970741,
+          "raw_reply": "0300330e35313137"
+        },
+        "sub_ver": {
+          "register": 36,
+          "value": 52,
+          "raw_reply": "0300332434000000"
+        },
+        "PMAX": {
+          "register": 21,
+          "value": 12.5,
+          "raw_reply": "0300331500004841"
+        },
+        "VMAX": {
+          "register": 22,
+          "value": 10.0,
+          "raw_reply": "0300331600002041"
+        },
+        "TMAX": {
+          "register": 23,
+          "value": 28.0,
+          "raw_reply": "030033170000e041"
+        },
+        "I_BW": {
+          "register": 24,
+          "value": 1000.0,
+          "raw_reply": "0300331800007a44"
+        },
+        "KP_ASR": {
+          "register": 25,
+          "value": 0.0038399999029934406,
+          "raw_reply": "0300331982a87b3b"
+        },
+        "KI_ASR": {
+          "register": 26,
+          "value": 0.0020000000949949026,
+          "raw_reply": "0300331a6f12033b"
+        },
+        "KP_APR": {
+          "register": 27,
+          "value": 54.0,
+          "raw_reply": "0300331b00005842"
+        },
+        "KI_APR": {
+          "register": 28,
+          "value": 0.0,
+          "raw_reply": "0300331c00000000"
+        }
+      },
+      "read_errors": {}
+    },
+    {
+      "side": "right",
+      "channel": 82,
+      "motor_id": 4,
+      "parameters": {
+        "OC_Value": {
+          "register": 3,
+          "value": 0.800000011920929,
+          "raw_reply": "04003303cdcc4c3f"
+        },
+        "ACC": {
+          "register": 4,
+          "value": 2.0,
+          "raw_reply": "0400330400000040"
+        },
+        "DEC": {
+          "register": 5,
+          "value": -2.0,
+          "raw_reply": "04003305000000c0"
+        },
+        "MAX_SPD": {
+          "register": 6,
+          "value": 600.0,
+          "raw_reply": "0400330600001644"
+        },
+        "MST_ID": {
+          "register": 7,
+          "value": 20,
+          "raw_reply": "0400330714000000"
+        },
+        "ESC_ID": {
+          "register": 8,
+          "value": 4,
+          "raw_reply": "0400330804000000"
+        },
+        "TIMEOUT": {
+          "register": 9,
+          "value": 0,
+          "raw_reply": "0400330900000000"
+        },
+        "CTRL_MODE": {
+          "register": 10,
+          "value": 1,
+          "raw_reply": "0400330a01000000"
+        },
+        "hw_ver": {
+          "register": 13,
+          "value": 0,
+          "raw_reply": "0400330d00000000"
+        },
+        "sw_ver": {
+          "register": 14,
+          "value": 925970741,
+          "raw_reply": "0400330e35313137"
+        },
+        "sub_ver": {
+          "register": 36,
+          "value": 52,
+          "raw_reply": "0400332434000000"
+        },
+        "PMAX": {
+          "register": 21,
+          "value": 12.5,
+          "raw_reply": "0400331500004841"
+        },
+        "VMAX": {
+          "register": 22,
+          "value": 10.0,
+          "raw_reply": "0400331600002041"
+        },
+        "TMAX": {
+          "register": 23,
+          "value": 28.0,
+          "raw_reply": "040033170000e041"
+        },
+        "I_BW": {
+          "register": 24,
+          "value": 1000.0,
+          "raw_reply": "0400331800007a44"
+        },
+        "KP_ASR": {
+          "register": 25,
+          "value": 0.0038399999029934406,
+          "raw_reply": "0400331982a87b3b"
+        },
+        "KI_ASR": {
+          "register": 26,
+          "value": 0.0020000000949949026,
+          "raw_reply": "0400331a6f12033b"
+        },
+        "KP_APR": {
+          "register": 27,
+          "value": 54.0,
+          "raw_reply": "0400331b00005842"
+        },
+        "KI_APR": {
+          "register": 28,
+          "value": 0.0,
+          "raw_reply": "0400331c00000000"
+        }
+      },
+      "read_errors": {}
+    },
+    {
+      "side": "right",
+      "channel": 82,
+      "motor_id": 5,
+      "parameters": {
+        "OC_Value": {
+          "register": 3,
+          "value": 0.800000011920929,
+          "raw_reply": "05003303cdcc4c3f"
+        },
+        "ACC": {
+          "register": 4,
+          "value": 2.0,
+          "raw_reply": "0500330400000040"
+        },
+        "DEC": {
+          "register": 5,
+          "value": -2.0,
+          "raw_reply": "05003305000000c0"
+        },
+        "MAX_SPD": {
+          "register": 6,
+          "value": 600.0,
+          "raw_reply": "0500330600001644"
+        },
+        "MST_ID": {
+          "register": 7,
+          "value": 21,
+          "raw_reply": "0500330715000000"
+        },
+        "ESC_ID": {
+          "register": 8,
+          "value": 5,
+          "raw_reply": "0500330805000000"
+        },
+        "TIMEOUT": {
+          "register": 9,
+          "value": 0,
+          "raw_reply": "0500330900000000"
+        },
+        "CTRL_MODE": {
+          "register": 10,
+          "value": 1,
+          "raw_reply": "0500330a01000000"
+        },
+        "hw_ver": {
+          "register": 13,
+          "value": 0,
+          "raw_reply": "0500330d00000000"
+        },
+        "sw_ver": {
+          "register": 14,
+          "value": 925970485,
+          "raw_reply": "0500330e35303137"
+        },
+        "sub_ver": {
+          "register": 36,
+          "value": 52,
+          "raw_reply": "0500332434000000"
+        },
+        "PMAX": {
+          "register": 21,
+          "value": 12.5,
+          "raw_reply": "0500331500004841"
+        },
+        "VMAX": {
+          "register": 22,
+          "value": 30.0,
+          "raw_reply": "050033160000f041"
+        },
+        "TMAX": {
+          "register": 23,
+          "value": 10.0,
+          "raw_reply": "0500331700002041"
+        },
+        "I_BW": {
+          "register": 24,
+          "value": 1000.0,
+          "raw_reply": "0500331800007a44"
+        },
+        "KP_ASR": {
+          "register": 25,
+          "value": 0.003719999920576811,
+          "raw_reply": "050033193ecb733b"
+        },
+        "KI_ASR": {
+          "register": 26,
+          "value": 0.0020000000949949026,
+          "raw_reply": "0500331a6f12033b"
+        },
+        "KP_APR": {
+          "register": 27,
+          "value": 54.0,
+          "raw_reply": "0500331b00005842"
+        },
+        "KI_APR": {
+          "register": 28,
+          "value": 0.0,
+          "raw_reply": "0500331c00000000"
+        }
+      },
+      "read_errors": {}
+    },
+    {
+      "side": "right",
+      "channel": 82,
+      "motor_id": 6,
+      "parameters": {
+        "OC_Value": {
+          "register": 3,
+          "value": 0.800000011920929,
+          "raw_reply": "06003303cdcc4c3f"
+        },
+        "ACC": {
+          "register": 4,
+          "value": 2.0,
+          "raw_reply": "0600330400000040"
+        },
+        "DEC": {
+          "register": 5,
+          "value": -2.0,
+          "raw_reply": "06003305000000c0"
+        },
+        "MAX_SPD": {
+          "register": 6,
+          "value": 600.0,
+          "raw_reply": "0600330600001644"
+        },
+        "MST_ID": {
+          "register": 7,
+          "value": 22,
+          "raw_reply": "0600330716000000"
+        },
+        "ESC_ID": {
+          "register": 8,
+          "value": 6,
+          "raw_reply": "0600330806000000"
+        },
+        "TIMEOUT": {
+          "register": 9,
+          "value": 0,
+          "raw_reply": "0600330900000000"
+        },
+        "CTRL_MODE": {
+          "register": 10,
+          "value": 1,
+          "raw_reply": "0600330a01000000"
+        },
+        "hw_ver": {
+          "register": 13,
+          "value": 0,
+          "raw_reply": "0600330d00000000"
+        },
+        "sw_ver": {
+          "register": 14,
+          "value": 925970485,
+          "raw_reply": "0600330e35303137"
+        },
+        "sub_ver": {
+          "register": 36,
+          "value": 52,
+          "raw_reply": "0600332434000000"
+        },
+        "PMAX": {
+          "register": 21,
+          "value": 12.5,
+          "raw_reply": "0600331500004841"
+        },
+        "VMAX": {
+          "register": 22,
+          "value": 30.0,
+          "raw_reply": "060033160000f041"
+        },
+        "TMAX": {
+          "register": 23,
+          "value": 10.0,
+          "raw_reply": "0600331700002041"
+        },
+        "I_BW": {
+          "register": 24,
+          "value": 1000.0,
+          "raw_reply": "0600331800007a44"
+        },
+        "KP_ASR": {
+          "register": 25,
+          "value": 0.003719999920576811,
+          "raw_reply": "060033193ecb733b"
+        },
+        "KI_ASR": {
+          "register": 26,
+          "value": 0.0020000000949949026,
+          "raw_reply": "0600331a6f12033b"
+        },
+        "KP_APR": {
+          "register": 27,
+          "value": 54.0,
+          "raw_reply": "0600331b00005842"
+        },
+        "KI_APR": {
+          "register": 28,
+          "value": 0.0,
+          "raw_reply": "0600331c00000000"
+        }
+      },
+      "read_errors": {}
+    },
+    {
+      "side": "right",
+      "channel": 82,
+      "motor_id": 7,
+      "parameters": {
+        "OC_Value": {
+          "register": 3,
+          "value": 0.800000011920929,
+          "raw_reply": "07003303cdcc4c3f"
+        },
+        "ACC": {
+          "register": 4,
+          "value": 2.0,
+          "raw_reply": "0700330400000040"
+        },
+        "DEC": {
+          "register": 5,
+          "value": -2.0,
+          "raw_reply": "07003305000000c0"
+        },
+        "MAX_SPD": {
+          "register": 6,
+          "value": 600.0,
+          "raw_reply": "0700330600001644"
+        },
+        "MST_ID": {
+          "register": 7,
+          "value": 23,
+          "raw_reply": "0700330717000000"
+        },
+        "ESC_ID": {
+          "register": 8,
+          "value": 7,
+          "raw_reply": "0700330807000000"
+        },
+        "TIMEOUT": {
+          "register": 9,
+          "value": 0,
+          "raw_reply": "0700330900000000"
+        },
+        "CTRL_MODE": {
+          "register": 10,
+          "value": 1,
+          "raw_reply": "0700330a01000000"
+        },
+        "hw_ver": {
+          "register": 13,
+          "value": 0,
+          "raw_reply": "0700330d00000000"
+        },
+        "sw_ver": {
+          "register": 14,
+          "value": 925970485,
+          "raw_reply": "0700330e35303137"
+        },
+        "sub_ver": {
+          "register": 36,
+          "value": 52,
+          "raw_reply": "0700332434000000"
+        },
+        "PMAX": {
+          "register": 21,
+          "value": 12.5,
+          "raw_reply": "0700331500004841"
+        },
+        "VMAX": {
+          "register": 22,
+          "value": 30.0,
+          "raw_reply": "070033160000f041"
+        },
+        "TMAX": {
+          "register": 23,
+          "value": 10.0,
+          "raw_reply": "0700331700002041"
+        },
+        "I_BW": {
+          "register": 24,
+          "value": 1000.0,
+          "raw_reply": "0700331800007a44"
+        },
+        "KP_ASR": {
+          "register": 25,
+          "value": 0.003719999920576811,
+          "raw_reply": "070033193ecb733b"
+        },
+        "KI_ASR": {
+          "register": 26,
+          "value": 0.0020000000949949026,
+          "raw_reply": "0700331a6f12033b"
+        },
+        "KP_APR": {
+          "register": 27,
+          "value": 54.0,
+          "raw_reply": "0700331b00005842"
+        },
+        "KI_APR": {
+          "register": 28,
+          "value": 0.0,
+          "raw_reply": "0700331c00000000"
+        }
+      },
+      "read_errors": {}
+    }
+  ],
+  "complete": true,
+  "axes_matching_target": 0
+}

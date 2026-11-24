@@ -68,7 +68,7 @@ def test_each_stage_waits_for_measured_arrival_and_full_dwell(setup):
 
 
 @pytest.mark.parametrize('stalled_keys', [(('left', 4), ('right', 4)), (('right', 4),)])
-def test_stationary_three_degree_j4_or_one_arm_cannot_start_next_stage(setup, stalled_keys):
+def test_stationary_j4_or_one_arm_times_out_and_forces_next_stage(setup, stalled_keys):
     trajectory, mappings, transport, sequence, clock = setup
     original = transport.command
     def command(targets):
@@ -77,11 +77,13 @@ def test_stationary_three_degree_j4_or_one_arm_cannot_start_next_stage(setup, st
             transport.position[key] = mappings[key].to_motor(0.)
     transport.command = command
     records = []
-    with pytest.raises(RuntimeError, match='settling timeout: J4'):
-        run(setup, records.append, hold_after=False)
-    assert [r['stage'] for r in records if r['type'] == 'stage_start'] == ['J4']
-    assert not any(r['type'] == 'stage_complete' for r in records)
-    assert all(r['target'][2:] == (0., 0.) for r in records if r['type'] == 'sample')
+    assert run(setup, records.append, hold_after=False) == 'COMPLETED'
+    starts = [r['stage'] for r in records if r['type'] == 'stage_start']
+    assert starts == ['J4', 'J3']
+    j4 = next(r for r in records if r['type'] == 'stage_complete' and r['stage'] == 'J4')
+    assert j4['forced'] is True
+    assert all(r['target'][2:] == (0., 0.) for r in records
+               if r['type'] == 'sample' and r['stage'] == 'J4')
     assert any(r['type'] == 'stage_timeout' for r in records)
     assert records[-1]['state'] == 'STOPPED'
     assert not transport.enabled
@@ -106,7 +108,7 @@ def test_speed_above_settle_threshold_resets_continuous_dwell(setup):
     assert first_done['dwell_s'] >= 1.5
 
 
-def test_already_completed_joint_must_remain_settled_for_later_gate(setup):
+def test_already_completed_joint_hold_error_is_logged_not_raised(setup):
     trajectory, mappings, transport, sequence, clock = setup
     original = transport.command
     def command(targets):
@@ -115,13 +117,13 @@ def test_already_completed_joint_must_remain_settled_for_later_gate(setup):
             transport.position['left', 4] = mappings['left', 4].to_motor(0.)
     transport.command = command
     records = []
-    with pytest.raises(RuntimeError, match='Holding error exceeded'):
-        run(setup, records.append, hold_after=False)
-    assert [r['stage'] for r in records if r['type'] == 'stage_complete'] == ['J4']
+    assert run(setup, records.append, hold_after=False) == 'COMPLETED'
+    assert [r['stage'] for r in records if r['type'] == 'stage_complete'] == ['J4', 'J3']
+    assert any(r['type'] == 'hold_tolerance_exceeded' for r in records)
     assert not transport.enabled
 
 
-def test_final_hold_enforces_global_position_tolerance_and_logs_dispatch(setup):
+def test_final_hold_logs_global_position_error_and_dispatch_until_cancel(setup):
     trajectory, mappings, transport, sequence, clock = setup
     sequence['endpoint_tolerances_rad'] = [math.radians(2)]*4
     transport.last_dispatch = dict(dispatch_mode='test', pair_send_skew_s={'J4': .0001})
@@ -133,13 +135,17 @@ def test_final_hold_enforces_global_position_tolerance_and_logs_dispatch(setup):
             transport.position['right', 4] += math.radians(2.1)
     transport.command = command
     records = []
+    held = 0
     def log(row):
-        nonlocal holding
+        nonlocal holding, held
         records.append(row)
         if row.get('state') == 'HOLDING_TARGET':
             holding = True
-    with pytest.raises(RuntimeError, match='Holding error exceeded'):
-        run(setup, log)
+        if row['type'] == 'sample' and row['phase'] == 'holding_target':
+            held += 1
+            if held == 3:
+                clock.cancelled = True
+    assert run(setup, log) == 'CANCELLED'
     assert any(row['type'] == 'hold_tolerance_exceeded' for row in records)
     assert all(row['dispatch']['pair_send_skew_s']['J4'] == .0001
                for row in records if row['type'] == 'sample')
@@ -221,7 +227,7 @@ def test_stage_specific_j4_tolerance_relaxes_only_after_its_own_acceptance(setup
     assert abs(done[1]['error'][0]) == pytest.approx(math.radians(1.))
 
 
-def test_stage_specific_j4_tolerance_still_rejects_insufficient_motion(setup):
+def test_stage_specific_j4_tolerance_timeout_still_advances(setup):
     trajectory, mappings, transport, sequence, clock = setup
     sequence['endpoint_tolerances_rad'] = [math.radians(2)]*4
     sequence['stages'][0]['endpoint_tolerances_rad'] = [math.radians(.5)]*2+[math.radians(2)]*2
@@ -232,9 +238,10 @@ def test_stage_specific_j4_tolerance_still_rejects_insufficient_motion(setup):
             transport.position['left', 4] -= math.radians(1.)
     transport.command = command
     records = []
-    with pytest.raises(RuntimeError, match='settling timeout: J4'):
-        run(setup, records.append, hold_after=False)
-    assert not any(r['type'] == 'stage_complete' for r in records)
+    assert run(setup, records.append, hold_after=False) == 'COMPLETED'
+    j4 = next(r for r in records if r['type'] == 'stage_complete' and r['stage'] == 'J4')
+    assert j4['forced'] is True
+    assert any(r['type'] == 'stage_timeout' for r in records)
 
 
 def test_full_14_axis_sequence_preserves_every_completed_target(setup):

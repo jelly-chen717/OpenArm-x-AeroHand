@@ -1,0 +1,159 @@
+{
+  "name": "槿（60 BPM 完整钢琴版）",
+  "bar_count": 77,
+  "tempo_bpm": 60,
+  "duration_us": 312000000,
+  "setup_us": 4000000,
+  "lead_notes_verified": 441,
+  "intro_notes_verified": 67,
+  "vocal_accompaniment_strokes_verified": 252,
+  "lead_notes_sound_with_harmony": 329,
+  "notes": 1469,
+  "left_notes": 688,
+  "right_notes": 781,
+  "arm_moves": 55,
+  "pitch_range": [
+    "A2",
+    "D5"
+  ],
+  "source_archive": "backups\\20261124_钢琴白键最终资料.zip",
+  "source_sha256": {
+    "原始资料/openarm/skills/paino_skill/scores/槿（60 BPM 含前奏）.txt": "a41975cb2e1378562d9a0c9d4e78aca3146f781ad91cecd1a631d37b49abdabb",
+    "原始资料/openarm/skills/paino_skill/scores/槿（60 BPM 主旋律）.txt": "5a68c893fff5756d6b9628388f9c22fe9e16bfe03ebd4b4148957fb76f230c49",
+    "原始资料/openarm/skills/paino_skill/music_data/槿（60 BPM 纯和弦）.txt": "ec899d101644cb6ce32865ade277eaf1152d1b6a95ea047151810d5375a08e0e"
+  },
+  "tail_last_bar": [
+    {
+      "midi": 45,
+      "start_us": 308000000,
+      "end_us": 308470000
+    },
+    {
+      "midi": 62,
+      "start_us": 308000000,
+      "end_us": 308500000
+    },
+    {
+      "midi": 60,
+      "start_us": 308500000,
+      "end_us": 309000000
+    },
+    {
+      "midi": 55,
+      "start_us": 309000000,
+      "end_us": 309500000
+    },
+    {
+      "midi": 59,
+      "start_us": 309500000,
+      "end_us": 311000000
+    }
+  ],
+  "txt_sha256": "da16b0c39af9a8a3fda2d02910920c7dff78af0a616cf1f150a230e541fffc5c",
+  "mujoco_virtual_clock": {
+    "startup": {
+      "status": "COMPLETED",
+      "score_error": null,
+      "checked_through_us": 312000000,
+      "expected_on": 1469,
+      "actual_on": 1469,
+      "expected_off": 1469,
+      "actual_off": 1469,
+      "extra_event_count": 0,
+      "missing_event_count": 0,
+      "first_extra_events": [],
+      "first_missing_events": [],
+      "keys_released_at_end": true,
+      "automatic_motion": true,
+      "peak_velocity_rad_s": 11.796800692662083,
+      "peak_acceleration_rad_s2": 250.51534916725768,
+      "sample_midis": [
+        45,
+        48,
+        50,
+        52,
+        53,
+        55,
+        57,
+        59,
+        60,
+        62,
+        64,
+        65,
+        67,
+        69,
+        71,
+        72,
+        74
+      ]
+    },
+    "replay_start": {
+      "status": "RUNNING",
+      "score_error": null,
+      "checked_through_us": 9000000,
+      "expected_on": 15,
+      "actual_on": 15,
+      "expected_off": 14,
+      "actual_off": 14,
+      "extra_event_count": 0,
+      "missing_event_count": 0,
+      "first_extra_events": [],
+      "first_missing_events": [],
+      "keys_released_at_end": false,
+      "automatic_motion": true,
+      "peak_velocity_rad_s": 11.796800692662083,
+      "peak_acceleration_rad_s2": 250.51534916725768,
+      "sample_midis": [
+        45,
+        48,
+        50,
+        52,
+        53,
+        55,
+        57,
+        59,
+        60,
+        62,
+        64,
+        65,
+        67,
+        69,
+        71,
+        72,
+        74
+      ]
+    }
+  },
+  "score_path": "openarm/skills/paino_skill/music_data/槿（60 BPM 完整钢琴版）.txt",
+  "source_sheet_sha256": {
+    "resources/music_scores/jin/page-01.jpg": "409e4c12c5483054c3b522fd017c49e3fb5fe213657ca44a097540a08c28de9e",
+    "resources/music_scores/jin/page-02.jpg": "9d19f304eeccacf92b9664dcf473e7e064981f9f014583530f089fe69caaddc8",
+    "resources/music_scores/jin/page-03.jpg": "73493d173e505482126cee0d0022b50c785431122395677c1514c564c3fc1840"
+  },
+  "browser": {
+    "url": "http://127.0.0.1:8090/",
+    "song": "槿（60 BPM 完整钢琴版）",
+    "catalog_parsed_duration": "5:12",
+    "file_import_accepted": true,
+    "still_in_catalog_after_reload": true,
+    "elapsed_us": 37062000,
+    "played_note_ons_checked_in_clip": 75,
+    "first_chord_midi": [
+      53,
+      57,
+      60,
+      64
+    ],
+    "held_vocal_before_first_synced_chord_midi": [
+      60
+    ],
+    "first_vocal_measure_accompaniment_midi": [
+      53,
+      57
+    ],
+    "samples_loaded": 88,
+    "browser_errors": [],
+    "stop_status": "STOPPED",
+    "keys_released_after_stop": true
+  }
+}

@@ -15,6 +15,7 @@ class ScoreRunner:
     def __init__(self, engine, clock=time.monotonic_ns):
         self.engine, self.clock = engine, clock
         self.status, self.error = "EMPTY", None
+        self.stop_reason = None
         self.prepared = None
         self.position_cache = {}
         self.offset = self.elapsed_us = 0
@@ -30,7 +31,8 @@ class ScoreRunner:
         return self.status in ("RUNNING", "PAUSED")
 
     def snapshot(self):
-        return {"status": self.status, "error": self.error, "elapsed_us": self.elapsed_us, "rate": self.rate,
+        return {"status": self.status, "error": self.error, "stop_reason": self.stop_reason,
+                "elapsed_us": self.elapsed_us, "rate": self.rate,
                 "duration_us": self.prepared["score"].duration_us if self.prepared else 0,
                 "action_index": self.offset, "line": self.last_line,
                 "moving": sorted(self.motions), "indices": dict(self.indices),
@@ -222,6 +224,7 @@ class ScoreRunner:
                          "peak_velocity": peak_velocity, "peak_acceleration": peak_acceleration,
                          "velocity_limit": velocity, "acceleration_limit": acceleration}
         self.status, self.error, self.elapsed_us, self.offset = "READY", None, 0, 0
+        self.stop_reason = None
         return {"token": token, **score.summary(), "motion_check": "passed", "lateness_limit_us": self.lateness_us,
                 "automatic_motion": automatic_motion, "peak_velocity_rad_s": peak_velocity,
                 "peak_acceleration_rad_s2": peak_acceleration}
@@ -288,9 +291,19 @@ class ScoreRunner:
         if self.status == "RUNNING":
             self._move_positions(self.elapsed_us)
 
-    def stop(self, error=None):
+    def stop_if_current(self, token, reason):
+        if reason not in ("user_stop", "cancel_start", "page_closed"):
+            raise ValueError("无效的演奏停止原因")
+        if (not isinstance(token, str) or not token or self.status not in ("READY", "RUNNING", "PAUSED")
+                or not self.prepared or self.prepared["token"] != token):
+            return False
+        self.stop(reason=reason)
+        return True
+
+    def stop(self, error=None, *, reason="stop_request"):
         self.status = "ERROR" if error else "STOPPED"
         self.error = error
+        self.stop_reason = "scheduler_error" if error else reason
         if self.prepared:
             self.prepared["token"] = None
         self.motions.clear()

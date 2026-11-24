@@ -1,0 +1,153 @@
+{
+  "time": "2026-11-21T16:29:14+08:00",
+  "git_head": "9e0424e",
+  "workspace_dirty": true,
+  "dirty_summary": {"modified": 23, "untracked": 22, "total_porcelain_lines": 45},
+  "overall": "UNKNOWN",
+  "overall_detail": "P01～P19 全部 PASS（0 FAIL，未发现已删除防护被重新写入）；第一原则完整；测试 169 passed。总判定取 UNKNOWN 只因 1 项新增模式故障闩锁（mode_error）在 14 轴反馈正常且读回 MIT 时仍禁用一键使能与预览，需用户裁决；另有 3 项 K07/K08 边界门控与 1 项 K04 反馈完整性备案，不算 P 项回归。",
+  "first_principle_intact": true,
+  "first_principle_evidence": [
+    "AGENTS.md:3-19（第一原则完整，含 P 项清单与“新增阻断须当次授权”）",
+    "monitor-ui/README.md:26-40（“实验室模式：已删除的非必要防护”，明确永久禁止写回）",
+    "docs/project/OpenArm多模式写入_交接Prompt_20261119.md:47（禁止以模式切换为由重引入 WEB05 已删除项）",
+    "docs/project/仿真与实机联通_两日实施计划.md:27（第一原则已生效，不得以安全/防御性编程恢复）"
+  ],
+  "p_items": {
+    "P01": "PASS",
+    "P02": "PASS",
+    "P03": "PASS",
+    "P04": "PASS",
+    "P05": "PASS",
+    "P06": "PASS",
+    "P07": "PASS",
+    "P08": "PASS",
+    "P09": "PASS",
+    "P10": "PASS",
+    "P11": "PASS",
+    "P12": "PASS",
+    "P13": "PASS",
+    "P14": "PASS",
+    "P15": "PASS",
+    "P16": "PASS",
+    "P17": "PASS",
+    "P18": "PASS",
+    "P19": "PASS"
+  },
+  "p_evidence": {
+    "P01": "apps/openarm_monitor_motion.py:229-230 velocity=max(plan[\"velocity\"],1.875*peak/duration)；acceleration=max(MAX_ACCELERATION,...)，按目标所需放行",
+    "P02": "apps/openarm_monitor_motion.py:152-193 prepare 仅做输入/IK/限位校验，未调用接触或碰撞扫描",
+    "P03": "apps/openarm_monitor_motion.py:205-212 revalidate 将 plan[\"start\"] 设为实测 current 并重建轨迹，漂移被采纳",
+    "P04": "apps/drive_openarm_from_sim.py:123-124 仅 advisory/tracking_error；apps/openarm_monitor.py:563 网页 _move 传 max_error=None",
+    "P05": "apps/drive_openarm_from_sim.py:131-132 waypoint 与 136-138 endpoint_gap 仅 advisory；142-146 照常进入 HOLDING_TARGET",
+    "P06": "apps/drive_openarm_from_sim.py:104-105 advisory/deadline；114-115 advisory/cycle，均不抛错",
+    "P07": "apps/drive_openarm_from_sim.py:83-84 仅“使能前已过期”拒绝（P07 允许保留）；106-107 运行中 expired 仅 advisory",
+    "P08": "apps/openarm_execution.py:156-192 PcanTransport.check 对 nonfinite/stale/state/temperature/speed_torque/travel/limit 全部 _note 并返回 False，无 raise",
+    "P09": "apps/openarm_execution.py:201-213 enable 无 check_start 调用；226-241 command 无发送前整批行程预检",
+    "P10": "apps/openarm_driver.py:309-326 enable_motor 不读 CTRL_MODE、不要求 DISABLED、超时不自动 disable",
+    "P11": "apps/openarm_driver.py:343-352 command_mit 直接发送并返回后续反馈，无新鲜/使能前置与自动失能",
+    "P12": "apps/openarm_driver.py:180-196 encode_mit 端点饱和，非有限值取该字段下限，帧始终有效",
+    "P13": "apps/openarm_monitor.py:220-224 _idle 只要求反馈齐全/空闲，不查 _stable；369-387 enable_all 以当前角度进入保持",
+    "P14": "apps/openarm_monitor.py:526-565 _move 传 max_error=None，终点容差只进入 execute 的 advisory 分支",
+    "P15": "apps/openarm_monitor_motion.py:271-276 _sample 直接以实测姿态为起点，无静止/反馈年龄拒绝",
+    "P16": "apps/openarm_monitor_motion.py:324-335 非指令轴状态或相对起点偏移仅 _note，不中断本周期指令",
+    "P17": "apps/drive_openarm_from_sim.py:311-313 hold_tolerance_exceeded 记录；334-345 stage_timeout 后 forced 完成并继续，不抛错",
+    "P18": "apps/openarm_monitor_motion.py:32-34 常量注释为行程余量/记录；229-230 以 max 作为规划下限而非拒绝阈值",
+    "P19": "无 PREVIEW_TTL/expires_in_s/expiresAt/“60 秒内有效”；apps/openarm_monitor.py:300-307 start_motion 无 deadline；monitor-ui/app.js:102-108、208-213 无预览过期逻辑"
+  },
+  "new_blocking_checks": [
+    {
+      "id": "U1",
+      "classification": "UNKNOWN",
+      "file": "apps/openarm_monitor.py",
+      "line": "241-243, 265, 476, 619-621",
+      "behavior": "mode_error 闩锁：模式切换失败、或配置 drive_profile 时执行 FAULT/STOP_UNCONFIRMED 后，drive_mode 置 None 并写 mode_error；此后即使 14 轴反馈恢复、读回全部 MIT，can_enable_all 与 can_prepare 仍为 False。清除闩锁只能再次切换模式，而 switch_mode 还要求 14 轴静止失能（apps/openarm_monitor.py:327-328），因此故障后重新一键使能间接经过“静止失能”前提。",
+      "evidence": "apps/test_openarm_monitor.py:378-386 断言失败回退到 MIT 后 can_enable_all=false；apps/openarm_monitor.py:476 的 `and not self.mode_error` 明确阻止读回自动恢复；apps/openarm_monitor.py:327-328 切换需 _idle+_stable。",
+      "rejects_execution": "是（阻断使能与预览，直到模式重新确认）",
+      "needs_user_decision": true,
+      "minimal_fix_suggestion": "若判违规：在 _idle_feedback 得到 14 轴一致读回时清 mode_error 并恢复 drive_mode（去掉第 476 行的 not self.mode_error 条件），保留 mode_error 文案供界面显示；不恢复任何运动阈值。"
+    },
+    {
+      "id": "K07-a",
+      "classification": "K07",
+      "file": "apps/openarm_monitor_motion.py",
+      "line": "278-282",
+      "behavior": "每次硬件运动 start_pose 用 mode_registers 读 14 轴固件+CTRL_MODE，任一与所选模式不一致即 DriverError 中止（FAULT + 失能）。",
+      "evidence": "默认 hardware 会从 configs/openarm_position_mode.json:6 自动加载 inventory，使 mode_registers 非空；此前仅 --drive-profile 时检查，本工作区扩展到仅盘点启动。",
+      "rejects_execution": "是（仅在模式/固件回读不一致时）",
+      "needs_user_decision": false,
+      "note": "属 K07“固件/模式回读”保留项，但已作用于 MIT 运动起点；建议用户知悉。"
+    },
+    {
+      "id": "K07-b",
+      "classification": "K07/K08",
+      "file": "apps/openarm_monitor.py",
+      "line": "466-479, 804-808",
+      "behavior": "空闲反馈循环每 2 s 读 14 轴 CTRL_MODE 与固件版本；读回无效或版本与 C02 盘点不符时抛 DriverError，导致该侧反馈故障，全部使能/预览不可用。",
+      "evidence": "configs/openarm_position_mode.json:6 的 monitor_inventory 默认加载；ModeRegisters.read_arm_modes 在 openarm_monitor_modes.py:58-69 比对版本。",
+      "rejects_execution": "是（模式/固件读回失败时）",
+      "needs_user_decision": false,
+      "note": "K08“完整 C02 盘点与现场协议配置准入”保留项。"
+    },
+    {
+      "id": "K08-a",
+      "classification": "K08",
+      "file": "apps/openarm_monitor_motion.py",
+      "line": "263-264（配合 apps/openarm_monitor.py:241-243）",
+      "behavior": "非 MIT 模式缺少已核验 drive_profile 时，MonitorTransport 构造即 DriverError；_motion_supported 提前把 can_enable_all/can_prepare 置 False。只加载盘点时可切换模式，但只能以 MIT 运动。",
+      "evidence": "monitor-ui/README.md:51 已说明“运动执行沿用 MIT，其他模式需完整运动协议配置”；apps/test_openarm_monitor.py:389-411 断言 POS_VEL + 仅盘点时 can_enable_all/can_prepare=false。",
+      "rejects_execution": "是（非 MIT 且无现场运动协议配置时）",
+      "needs_user_decision": false,
+      "note": "现场协议配置准入；MIT 且反馈正常时不受影响。"
+    },
+    {
+      "id": "P12-adj",
+      "classification": "UNKNOWN",
+      "file": "apps/openarm_monitor_modes.py:15-30；apps/openarm_position_mode.py:51-67",
+      "line": "openarm_monitor_modes.py:20-29；openarm_position_mode.py:54-66",
+      "behavior": "POS_VEL/POS_FORCE 目标帧在速度或位置超出协议量程时 raise ValueError，非饱和编码；运动中途触发会进入 FAULT。",
+      "evidence": "encode_target 对 speed_range/position_range 抛 “Position or speed outside POS_VEL encoding range”；仅非 MIT 模式使用，需完整 drive_profile 才可达。",
+      "rejects_execution": "是（仅非 MIT 模式，超协议量程时）",
+      "needs_user_decision": true,
+      "minimal_fix_suggestion": "若要求与 MIT 一致：非 MIT 帧按协议端点裁剪并记录 advisory（或在规划阶段把速度限制到 VMAX），不改变 MIT 路径。"
+    },
+    {
+      "id": "K04-a",
+      "classification": "K04",
+      "file": "apps/openarm_monitor.py",
+      "line": "548-549",
+      "behavior": "接续执行时若 14 轴反馈不齐全/过期，抛 DriverError 中止接续。",
+      "evidence": "set(measured) != set(KEYS) → “接续执行时反馈已过期”。",
+      "rejects_execution": "是（反馈缺失时）",
+      "needs_user_decision": false,
+      "note": "反馈完整性/新鲜度属 K04 保留项。"
+    }
+  ],
+  "tests": {
+    "command": ".\\.openarm\\venv\\Scripts\\python.exe -B -m pytest -q -p no:cacheprovider apps/test_openarm_monitor.py apps/test_openarm_driver.py apps/test_openarm_execution.py apps/test_openarm_execution_hardware.py apps/test_openarm_position_mode.py apps/test_openarm_dual_sequence.py apps/test_prepare_openarm_dual_sequence.py apps/test_openarm_sequence_dynamics.py",
+    "passed": 169,
+    "failed": 0,
+    "skipped": 0,
+    "duration_s": 56.75,
+    "failed_names": [],
+    "notes": [
+      "测试语义符合第一原则：跟踪/终点/迟到/温度/力矩/行程/阶段超时均为 advisory 或 notes，未新增 FAULT/DriverError/自动失能断言。",
+      "放行/advisory/HOLDING_TARGET 用例保留：test_tracking_and_lateness_are_advisory、test_stationary_motor_logs_checkpoint_advisory_and_completes、test_hardware_tracking_lag_is_advisory_and_holds、test_enable_all_and_retarget_without_disabling、test_batch_bad_feedback_is_advisory_and_execution_completes。",
+      "仍断言 DriverError 的用例仅覆盖 K 项：CAN/超时、停止失能回读、模式写读回/版本、非 MIT 协议编码、CLI preflight 重复/过期；无 P 项阈值回归。",
+      "docs/project/仿真与实机联通_两日实施计划.md 的 WEB06 记录称 168/169 且 deadline 用例失败；本次全量 169/169，该单测连跑 3 次均通过，判断为历史偶发/环境抖动。"
+    ]
+  },
+  "violations": [],
+  "unknowns": [
+    "U1：mode_error 闩锁在 14 轴反馈正常、读回 MIT 时仍禁用一键使能与预览（apps/openarm_monitor.py:241-243/476/619-621）。",
+    "P12-adj：非 MIT 目标帧超协议量程时拒绝而非饱和（apps/openarm_monitor_modes.py:15-30；apps/openarm_position_mode.py:51-67），仅影响 POS_VEL/POS_FORCE。"
+  ],
+  "scope_notes": {
+    "openarm_trajectory_preflight": "openarm_monitor_motion.py:28 只导入 Trajectory；网页路径不导入/调用 preflight。drive_openarm_from_sim 仅在模块级 import preflight 供 CLI 使用（K12）。",
+    "out_of_scope": "openarm/skills/paino_skill 的演奏停止改动（stop_if_current/stop_reason/standalone-sim stop）属纯仿真演奏入口，未见控制链路阈值阻断；记录为“范围外但相关”。",
+    "expires_at": "request/trajectory 的 expires_at 仍用于“使能前已过期”拒绝（P07 明确允许），不是预览有效期。"
+  },
+  "boundaries": [
+    "未启动 8092/8091，未连接实机，未读写 CAN，未使能、未运动、未写模式。",
+    "只审计，未修改任何代码、测试、配置或文档；仅新增本审计 JSON 与审计记录表一行摘要。"
+  ]
+}

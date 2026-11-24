@@ -1,0 +1,88 @@
+{
+  "posts": [
+    "/api/piano/fingering",
+    "/api/enable-all",
+    "/api/start/piano-origin",
+    "/api/prepare",
+    "/api/execute",
+    "/api/prepare",
+    "/api/execute",
+    "/api/prepare",
+    "/api/stop"
+  ],
+  "errors": [],
+  "first_row": "0.000\tF3 A3 C4 E4\t小指 F3、中指 A3、食指 C4\n食指对位 C4 · 实琴 15\n\t食指 E4\n食指对位 E4 · 实琴 17\n\t2.27 mm",
+  "mode": "virtual",
+  "journal": "virtual-a8513912db704f0bbd7289acde065a72.jsonl",
+  "new_group_preview_rows": 347,
+  "hand_score_frames": 0,
+  "motions": [
+    {
+      "event": "motion.piano_origin",
+      "request_id": "66f2fde29aac43548622fdb5ac406cd6",
+      "trial": null
+    },
+    {
+      "event": "motion.preview",
+      "request_id": "984ef2902a4d4cb8949fe2f27d868f84",
+      "trial": {
+        "anchor_run": 3,
+        "scope": "start",
+        "side": "left",
+        "physical_key": 15,
+        "note": "C4",
+        "target_key": 24,
+        "start_key": 23,
+        "points_sha256": "f8aaf99b0613950199a423c77ca385636052b89ae2298d83200e322c59e6a7ea",
+        "wrist_keys": [
+          24
+        ],
+        "from_score_start": false,
+        "prepare_s": 3.0,
+        "note_count": 0
+      }
+    },
+    {
+      "event": "motion.preview",
+      "request_id": "e030439015414f05948f95f698b46e03",
+      "trial": {
+        "anchor_run": 3,
+        "scope": "start",
+        "side": "right",
+        "physical_key": 22,
+        "note": "C5",
+        "target_key": 31,
+        "start_key": 30,
+        "points_sha256": "f8aaf99b0613950199a423c77ca385636052b89ae2298d83200e322c59e6a7ea",
+        "wrist_keys": [
+          31
+        ],
+        "from_score_start": false,
+        "prepare_s": 3.0,
+        "note_count": 0
+      }
+    },
+    {
+      "event": "motion.preview",
+      "request_id": "4c8c55f09c194e209bc8ed0ca74e2b52",
+      "trial": {
+        "anchor_run": 1,
+        "scope": "full",
+        "speed": 0.35,
+        "points_sha256": "0b681ea1e573eb82e70883b2fac17a779e64efa9777024236570291acf568f77",
+        "score_sha256": "ec899d101644cb6ce32865ade277eaf1152d1b6a95ea047151810d5375a08e0e",
+        "start_key": 24,
+        "from_score_start": false,
+        "held_key": null,
+        "target_key": 24,
+        "prepare_s": 6.0,
+        "note_count": 694,
+        "wrist_keys": [
+          24,
+          29,
+          26
+        ]
+      }
+    }
+  ]
+}

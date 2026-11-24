@@ -8,7 +8,7 @@ from pathlib import Path
 import struct
 
 from openarm_driver import DriverError, LIMITS, OpenArmDriver, ROOT, motor_type
-from openarm_joint_mapping import finite, load_mapping
+from openarm_joint_mapping import LIMIT_TOLERANCE, finite, load_mapping
 
 
 DEFAULT_CONFIG = ROOT / "configs/openarm_position_mode.json"
@@ -51,7 +51,9 @@ def load_config(path=DEFAULT_CONFIG):
 def encode_target(mapping, position_rad, speed_rad_s):
     """Encode a POS_VEL target using a positive upper speed in model coordinates."""
     position_rad, speed_rad_s = finite(position_rad), finite(speed_rad_s)
-    if not mapping.limits[0] <= position_rad <= mapping.limits[1]:
+    lower, upper = mapping.limits
+    lower, upper = lower - LIMIT_TOLERANCE, upper + LIMIT_TOLERANCE
+    if not lower <= position_rad <= upper:
         raise ValueError("Position outside mapped joint range")
     position = mapping.to_motor(position_rad)
     speed = abs(mapping.velocity_to_motor(speed_rad_s))
@@ -60,7 +62,7 @@ def encode_target(mapping, position_rad, speed_rad_s):
         raise ValueError("Position or speed outside POS_VEL encoding range")
     payload = struct.pack("<ff", position, speed)
     encoded_position, encoded_speed = struct.unpack("<ff", payload)
-    if not mapping.limits[0] <= mapping.to_model(encoded_position) <= mapping.limits[1]:
+    if not lower <= mapping.to_model(encoded_position) <= upper:
         raise ValueError("Encoded position outside mapped joint range")
     if encoded_speed == 0:
         raise ValueError("Speed rounds to zero in POS_VEL encoding")

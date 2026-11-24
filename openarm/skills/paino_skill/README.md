@@ -1,8 +1,10 @@
-# OpenArm · 88 键 Aero Hand 钢琴
+# OpenArm · 88 键 Aero Hand 钢琴仿真
 
 独立离线演奏：双击 `piano_standalone.html`，即可导入 TXT、观看键盘高亮并播放内嵌钢琴采样，无需启动服务或 MuJoCo。使用与打包说明见 [STANDALONE.md](STANDALONE.md)。此入口仅播放谱面，不控制机器人。
 
 OpenArm V1 双臂使用现有 Tetheria Aero Hand Open 左右手。琴键由指尖接触驱动下压，网页接收触键事件并播放用户提供的钢琴采样声音。
+
+现场钢琴为 C2–C7。实琴定位资料采用左食指 B3、右食指 C4 两处原位。[实琴编号与标定表](../../../monitor-ui/README.md#实琴琴键与食指原位)
 
 ## 启动与弹奏
 

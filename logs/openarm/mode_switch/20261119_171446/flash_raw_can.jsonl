@@ -1,0 +1,730 @@
+{"time_ns": 1795080430482645600, "direction": "rx", "channel": 81, "can_id": 1, "kind": 128, "data": ""}
+{"time_ns": 1795080430482645600, "direction": "tx_request", "channel": 81, "can_id": 2047, "data": "0100330300000000"}
+{"time_ns": 1795080430484648100, "direction": "rx", "channel": 81, "can_id": 17, "kind": 12, "data": "01003303cdcc4c3f"}
+{"time_ns": 1795080430484648100, "direction": "tx_request", "channel": 81, "can_id": 2047, "data": "0100330400000000"}
+{"time_ns": 1795080430486260300, "direction": "rx", "channel": 81, "can_id": 17, "kind": 12, "data": "0100330400000040"}
+{"time_ns": 1795080430486260300, "direction": "tx_request", "channel": 81, "can_id": 2047, "data": "0100330500000000"}
+{"time_ns": 1795080430487634700, "direction": "rx", "channel": 81, "can_id": 17, "kind": 12, "data": "01003305000000c0"}
+{"time_ns": 1795080430488664500, "direction": "tx_request", "channel": 81, "can_id": 2047, "data": "0100330600000000"}
+{"time_ns": 1795080430490452600, "direction": "rx", "channel": 81, "can_id": 17, "kind": 12, "data": "0100330600001644"}
+{"time_ns": 1795080430490452600, "direction": "tx_request", "channel": 81, "can_id": 2047, "data": "0100330700000000"}
+{"time_ns": 1795080430491996000, "direction": "rx", "channel": 81, "can_id": 17, "kind": 12, "data": "0100330711000000"}
+{"time_ns": 1795080430491996000, "direction": "tx_request", "channel": 81, "can_id": 2047, "data": "0100330800000000"}
+{"time_ns": 1795080430493535200, "direction": "rx", "channel": 81, "can_id": 17, "kind": 12, "data": "0100330801000000"}
+{"time_ns": 1795080430493535200, "direction": "tx_request", "channel": 81, "can_id": 2047, "data": "0100330900000000"}
+{"time_ns": 1795080430495039200, "direction": "rx", "channel": 81, "can_id": 17, "kind": 12, "data": "0100330900000000"}
+{"time_ns": 1795080430495039200, "direction": "tx_request", "channel": 81, "can_id": 2047, "data": "0100330a00000000"}
+{"time_ns": 1795080430496492200, "direction": "rx", "channel": 81, "can_id": 17, "kind": 12, "data": "0100330a02000000"}
+{"time_ns": 1795080430496492200, "direction": "tx_request", "channel": 81, "can_id": 2047, "data": "0100330d00000000"}
+{"time_ns": 1795080430498266900, "direction": "rx", "channel": 81, "can_id": 17, "kind": 12, "data": "0100330d00000000"}
+{"time_ns": 1795080430498266900, "direction": "tx_request", "channel": 81, "can_id": 2047, "data": "0100330e00000000"}
+{"time_ns": 1795080430499704600, "direction": "rx", "channel": 81, "can_id": 17, "kind": 12, "data": "0100330e36343137"}
+{"time_ns": 1795080430499704600, "direction": "tx_request", "channel": 81, "can_id": 2047, "data": "0100332400000000"}
+{"time_ns": 1795080430501513500, "direction": "rx", "channel": 81, "can_id": 17, "kind": 12, "data": "0100332434000000"}
+{"time_ns": 1795080430501513500, "direction": "tx_request", "channel": 81, "can_id": 2047, "data": "0100331500000000"}
+{"time_ns": 1795080430503019600, "direction": "rx", "channel": 81, "can_id": 17, "kind": 12, "data": "0100331500004841"}
+{"time_ns": 1795080430503019600, "direction": "tx_request", "channel": 81, "can_id": 2047, "data": "0100331600000000"}
+{"time_ns": 1795080430504477300, "direction": "rx", "channel": 81, "can_id": 17, "kind": 12, "data": "0100331600003442"}
+{"time_ns": 1795080430504477300, "direction": "tx_request", "channel": 81, "can_id": 2047, "data": "0100331700000000"}
+{"time_ns": 1795080430506011500, "direction": "rx", "channel": 81, "can_id": 17, "kind": 12, "data": "0100331700005842"}
+{"time_ns": 1795080430506011500, "direction": "tx_request", "channel": 81, "can_id": 2047, "data": "0100331800000000"}
+{"time_ns": 1795080430507695500, "direction": "rx", "channel": 81, "can_id": 17, "kind": 12, "data": "0100331800007a44"}
+{"time_ns": 1795080430507695500, "direction": "tx_request", "channel": 81, "can_id": 2047, "data": "0100331900000000"}
+{"time_ns": 1795080430509281300, "direction": "rx", "channel": 81, "can_id": 17, "kind": 12, "data": "0100331989d2de3b"}
+{"time_ns": 1795080430509281300, "direction": "tx_request", "channel": 81, "can_id": 2047, "data": "0100331a00000000"}
+{"time_ns": 1795080430511021000, "direction": "rx", "channel": 81, "can_id": 17, "kind": 12, "data": "0100331a6f12033b"}
+{"time_ns": 1795080430511021000, "direction": "tx_request", "channel": 81, "can_id": 2047, "data": "0100331b00000000"}
+{"time_ns": 1795080430512650000, "direction": "rx", "channel": 81, "can_id": 17, "kind": 12, "data": "0100331b00005842"}
+{"time_ns": 1795080430512650000, "direction": "tx_request", "channel": 81, "can_id": 2047, "data": "0100331c00000000"}
+{"time_ns": 1795080430514866300, "direction": "rx", "channel": 81, "can_id": 17, "kind": 12, "data": "0100331c00000000"}
+{"time_ns": 1795080430514866300, "direction": "tx_request", "channel": 81, "can_id": 2047, "data": "0200330300000000"}
+{"time_ns": 1795080430516989700, "direction": "rx", "channel": 81, "can_id": 18, "kind": 12, "data": "02003303cdcc4c3f"}
+{"time_ns": 1795080430516989700, "direction": "tx_request", "channel": 81, "can_id": 2047, "data": "0200330400000000"}
+{"time_ns": 1795080430518463600, "direction": "rx", "channel": 81, "can_id": 18, "kind": 12, "data": "0200330400000040"}
+{"time_ns": 1795080430518463600, "direction": "tx_request", "channel": 81, "can_id": 2047, "data": "0200330500000000"}
+{"time_ns": 1795080430519920900, "direction": "rx", "channel": 81, "can_id": 18, "kind": 12, "data": "02003305000000c0"}
+{"time_ns": 1795080430519920900, "direction": "tx_request", "channel": 81, "can_id": 2047, "data": "0200330600000000"}
+{"time_ns": 1795080430521640300, "direction": "rx", "channel": 81, "can_id": 18, "kind": 12, "data": "0200330600001644"}
+{"time_ns": 1795080430521640300, "direction": "tx_request", "channel": 81, "can_id": 2047, "data": "0200330700000000"}
+{"time_ns": 1795080430523246100, "direction": "rx", "channel": 81, "can_id": 18, "kind": 12, "data": "0200330712000000"}
+{"time_ns": 1795080430523246100, "direction": "tx_request", "channel": 81, "can_id": 2047, "data": "0200330800000000"}
+{"time_ns": 1795080430524704800, "direction": "rx", "channel": 81, "can_id": 18, "kind": 12, "data": "0200330802000000"}
+{"time_ns": 1795080430524704800, "direction": "tx_request", "channel": 81, "can_id": 2047, "data": "0200330900000000"}
+{"time_ns": 1795080430526353100, "direction": "rx", "channel": 81, "can_id": 18, "kind": 12, "data": "0200330900000000"}
+{"time_ns": 1795080430526353100, "direction": "tx_request", "channel": 81, "can_id": 2047, "data": "0200330a00000000"}
+{"time_ns": 1795080430527754400, "direction": "rx", "channel": 81, "can_id": 18, "kind": 12, "data": "0200330a02000000"}
+{"time_ns": 1795080430527754400, "direction": "tx_request", "channel": 81, "can_id": 2047, "data": "0200330d00000000"}
+{"time_ns": 1795080430529368600, "direction": "rx", "channel": 81, "can_id": 18, "kind": 12, "data": "0200330d00000000"}
+{"time_ns": 1795080430529368600, "direction": "tx_request", "channel": 81, "can_id": 2047, "data": "0200330e00000000"}
+{"time_ns": 1795080430530847600, "direction": "rx", "channel": 81, "can_id": 18, "kind": 12, "data": "0200330e36343137"}
+{"time_ns": 1795080430530847600, "direction": "tx_request", "channel": 81, "can_id": 2047, "data": "0200332400000000"}
+{"time_ns": 1795080430532547100, "direction": "rx", "channel": 81, "can_id": 18, "kind": 12, "data": "0200332434000000"}
+{"time_ns": 1795080430532547100, "direction": "tx_request", "channel": 81, "can_id": 2047, "data": "0200331500000000"}
+{"time_ns": 1795080430534668900, "direction": "rx", "channel": 81, "can_id": 18, "kind": 12, "data": "0200331500004841"}
+{"time_ns": 1795080430534668900, "direction": "tx_request", "channel": 81, "can_id": 2047, "data": "0200331600000000"}
+{"time_ns": 1795080430536290200, "direction": "rx", "channel": 81, "can_id": 18, "kind": 12, "data": "0200331600003442"}
+{"time_ns": 1795080430536290200, "direction": "tx_request", "channel": 81, "can_id": 2047, "data": "0200331700000000"}
+{"time_ns": 1795080430538076000, "direction": "rx", "channel": 81, "can_id": 18, "kind": 12, "data": "0200331700005842"}
+{"time_ns": 1795080430538076000, "direction": "tx_request", "channel": 81, "can_id": 2047, "data": "0200331800000000"}
+{"time_ns": 1795080430540212500, "direction": "rx", "channel": 81, "can_id": 18, "kind": 12, "data": "0200331800007a44"}
+{"time_ns": 1795080430540212500, "direction": "tx_request", "channel": 81, "can_id": 2047, "data": "0200331900000000"}
+{"time_ns": 1795080430542373200, "direction": "rx", "channel": 81, "can_id": 18, "kind": 12, "data": "0200331989d2de3b"}
+{"time_ns": 1795080430542373200, "direction": "tx_request", "channel": 81, "can_id": 2047, "data": "0200331a00000000"}
+{"time_ns": 1795080430543967300, "direction": "rx", "channel": 81, "can_id": 18, "kind": 12, "data": "0200331a6f12033b"}
+{"time_ns": 1795080430543967300, "direction": "tx_request", "channel": 81, "can_id": 2047, "data": "0200331b00000000"}
+{"time_ns": 1795080430545733300, "direction": "rx", "channel": 81, "can_id": 18, "kind": 12, "data": "0200331b00005842"}
+{"time_ns": 1795080430545733300, "direction": "tx_request", "channel": 81, "can_id": 2047, "data": "0200331c00000000"}
+{"time_ns": 1795080430547327400, "direction": "rx", "channel": 81, "can_id": 18, "kind": 12, "data": "0200331c00000000"}
+{"time_ns": 1795080430547327400, "direction": "tx_request", "channel": 81, "can_id": 2047, "data": "0300330300000000"}
+{"time_ns": 1795080430549346300, "direction": "rx", "channel": 81, "can_id": 19, "kind": 12, "data": "03003303cdcc4c3f"}
+{"time_ns": 1795080430549346300, "direction": "tx_request", "channel": 81, "can_id": 2047, "data": "0300330400000000"}
+{"time_ns": 1795080430550832900, "direction": "rx", "channel": 81, "can_id": 19, "kind": 12, "data": "0300330400000040"}
+{"time_ns": 1795080430550832900, "direction": "tx_request", "channel": 81, "can_id": 2047, "data": "0300330500000000"}
+{"time_ns": 1795080430552534200, "direction": "rx", "channel": 81, "can_id": 19, "kind": 12, "data": "03003305000000c0"}
+{"time_ns": 1795080430552534200, "direction": "tx_request", "channel": 81, "can_id": 2047, "data": "0300330600000000"}
+{"time_ns": 1795080430554052900, "direction": "rx", "channel": 81, "can_id": 19, "kind": 12, "data": "0300330600001644"}
+{"time_ns": 1795080430554052900, "direction": "tx_request", "channel": 81, "can_id": 2047, "data": "0300330700000000"}
+{"time_ns": 1795080430555699100, "direction": "rx", "channel": 81, "can_id": 19, "kind": 12, "data": "0300330713000000"}
+{"time_ns": 1795080430555699100, "direction": "tx_request", "channel": 81, "can_id": 2047, "data": "0300330800000000"}
+{"time_ns": 1795080430557334400, "direction": "rx", "channel": 81, "can_id": 19, "kind": 12, "data": "0300330803000000"}
+{"time_ns": 1795080430557334400, "direction": "tx_request", "channel": 81, "can_id": 2047, "data": "0300330900000000"}
+{"time_ns": 1795080430558763600, "direction": "rx", "channel": 81, "can_id": 19, "kind": 12, "data": "0300330900000000"}
+{"time_ns": 1795080430558763600, "direction": "tx_request", "channel": 81, "can_id": 2047, "data": "0300330a00000000"}
+{"time_ns": 1795080430560588200, "direction": "rx", "channel": 81, "can_id": 19, "kind": 12, "data": "0300330a02000000"}
+{"time_ns": 1795080430560588200, "direction": "tx_request", "channel": 81, "can_id": 2047, "data": "0300330d00000000"}
+{"time_ns": 1795080430562976300, "direction": "rx", "channel": 81, "can_id": 19, "kind": 12, "data": "0300330d00000000"}
+{"time_ns": 1795080430562976300, "direction": "tx_request", "channel": 81, "can_id": 2047, "data": "0300330e00000000"}
+{"time_ns": 1795080430564525400, "direction": "rx", "channel": 81, "can_id": 19, "kind": 12, "data": "0300330e35313137"}
+{"time_ns": 1795080430564525400, "direction": "tx_request", "channel": 81, "can_id": 2047, "data": "0300332400000000"}
+{"time_ns": 1795080430566120200, "direction": "rx", "channel": 81, "can_id": 19, "kind": 12, "data": "0300332434000000"}
+{"time_ns": 1795080430566120200, "direction": "tx_request", "channel": 81, "can_id": 2047, "data": "0300331500000000"}
+{"time_ns": 1795080430568284900, "direction": "rx", "channel": 81, "can_id": 19, "kind": 12, "data": "0300331500004841"}
+{"time_ns": 1795080430568284900, "direction": "tx_request", "channel": 81, "can_id": 2047, "data": "0300331600000000"}
+{"time_ns": 1795080430570003100, "direction": "rx", "channel": 81, "can_id": 19, "kind": 12, "data": "0300331600002041"}
+{"time_ns": 1795080430570003100, "direction": "tx_request", "channel": 81, "can_id": 2047, "data": "0300331700000000"}
+{"time_ns": 1795080430571709600, "direction": "rx", "channel": 81, "can_id": 19, "kind": 12, "data": "030033170000e041"}
+{"time_ns": 1795080430571709600, "direction": "tx_request", "channel": 81, "can_id": 2047, "data": "0300331800000000"}
+{"time_ns": 1795080430573257700, "direction": "rx", "channel": 81, "can_id": 19, "kind": 12, "data": "0300331800007a44"}
+{"time_ns": 1795080430573257700, "direction": "tx_request", "channel": 81, "can_id": 2047, "data": "0300331900000000"}
+{"time_ns": 1795080430574725100, "direction": "rx", "channel": 81, "can_id": 19, "kind": 12, "data": "0300331982a87b3b"}
+{"time_ns": 1795080430574725100, "direction": "tx_request", "channel": 81, "can_id": 2047, "data": "0300331a00000000"}
+{"time_ns": 1795080430576210700, "direction": "rx", "channel": 81, "can_id": 19, "kind": 12, "data": "0300331a6f12033b"}
+{"time_ns": 1795080430576210700, "direction": "tx_request", "channel": 81, "can_id": 2047, "data": "0300331b00000000"}
+{"time_ns": 1795080430578046100, "direction": "rx", "channel": 81, "can_id": 19, "kind": 12, "data": "0300331b00005842"}
+{"time_ns": 1795080430578046100, "direction": "tx_request", "channel": 81, "can_id": 2047, "data": "0300331c00000000"}
+{"time_ns": 1795080430579972200, "direction": "rx", "channel": 81, "can_id": 19, "kind": 12, "data": "0300331c00000000"}
+{"time_ns": 1795080430579972200, "direction": "tx_request", "channel": 81, "can_id": 2047, "data": "0400330300000000"}
+{"time_ns": 1795080430582144900, "direction": "rx", "channel": 81, "can_id": 20, "kind": 12, "data": "04003303cdcc4c3f"}
+{"time_ns": 1795080430582144900, "direction": "tx_request", "channel": 81, "can_id": 2047, "data": "0400330400000000"}
+{"time_ns": 1795080430583699500, "direction": "rx", "channel": 81, "can_id": 20, "kind": 12, "data": "0400330400000040"}
+{"time_ns": 1795080430583699500, "direction": "tx_request", "channel": 81, "can_id": 2047, "data": "0400330500000000"}
+{"time_ns": 1795080430585193700, "direction": "rx", "channel": 81, "can_id": 20, "kind": 12, "data": "04003305000000c0"}
+{"time_ns": 1795080430585193700, "direction": "tx_request", "channel": 81, "can_id": 2047, "data": "0400330600000000"}
+{"time_ns": 1795080430586749800, "direction": "rx", "channel": 81, "can_id": 20, "kind": 12, "data": "0400330600001644"}
+{"time_ns": 1795080430586749800, "direction": "tx_request", "channel": 81, "can_id": 2047, "data": "0400330700000000"}
+{"time_ns": 1795080430588879400, "direction": "rx", "channel": 81, "can_id": 20, "kind": 12, "data": "0400330714000000"}
+{"time_ns": 1795080430588879400, "direction": "tx_request", "channel": 81, "can_id": 2047, "data": "0400330800000000"}
+{"time_ns": 1795080430590337600, "direction": "rx", "channel": 81, "can_id": 20, "kind": 12, "data": "0400330804000000"}
+{"time_ns": 1795080430591350900, "direction": "tx_request", "channel": 81, "can_id": 2047, "data": "0400330900000000"}
+{"time_ns": 1795080430592863600, "direction": "rx", "channel": 81, "can_id": 20, "kind": 12, "data": "0400330900000000"}
+{"time_ns": 1795080430592863600, "direction": "tx_request", "channel": 81, "can_id": 2047, "data": "0400330a00000000"}
+{"time_ns": 1795080430594280800, "direction": "rx", "channel": 81, "can_id": 20, "kind": 12, "data": "0400330a02000000"}
+{"time_ns": 1795080430594280800, "direction": "tx_request", "channel": 81, "can_id": 2047, "data": "0400330d00000000"}
+{"time_ns": 1795080430596147400, "direction": "rx", "channel": 81, "can_id": 20, "kind": 12, "data": "0400330d00000000"}
+{"time_ns": 1795080430596147400, "direction": "tx_request", "channel": 81, "can_id": 2047, "data": "0400330e00000000"}
+{"time_ns": 1795080430597843800, "direction": "rx", "channel": 81, "can_id": 20, "kind": 12, "data": "0400330e35313137"}
+{"time_ns": 1795080430597843800, "direction": "tx_request", "channel": 81, "can_id": 2047, "data": "0400332400000000"}
+{"time_ns": 1795080430599492500, "direction": "rx", "channel": 81, "can_id": 20, "kind": 12, "data": "0400332434000000"}
+{"time_ns": 1795080430599492500, "direction": "tx_request", "channel": 81, "can_id": 2047, "data": "0400331500000000"}
+{"time_ns": 1795080430601676700, "direction": "rx", "channel": 81, "can_id": 20, "kind": 12, "data": "0400331500004841"}
+{"time_ns": 1795080430601676700, "direction": "tx_request", "channel": 81, "can_id": 2047, "data": "0400331600000000"}
+{"time_ns": 1795080430603845800, "direction": "rx", "channel": 81, "can_id": 20, "kind": 12, "data": "0400331600002041"}
+{"time_ns": 1795080430603845800, "direction": "tx_request", "channel": 81, "can_id": 2047, "data": "0400331700000000"}
+{"time_ns": 1795080430605941400, "direction": "rx", "channel": 81, "can_id": 20, "kind": 12, "data": "040033170000e041"}
+{"time_ns": 1795080430605941400, "direction": "tx_request", "channel": 81, "can_id": 2047, "data": "0400331800000000"}
+{"time_ns": 1795080430607680600, "direction": "rx", "channel": 81, "can_id": 20, "kind": 12, "data": "0400331800007a44"}
+{"time_ns": 1795080430607680600, "direction": "tx_request", "channel": 81, "can_id": 2047, "data": "0400331900000000"}
+{"time_ns": 1795080430609115600, "direction": "rx", "channel": 81, "can_id": 20, "kind": 12, "data": "0400331982a87b3b"}
+{"time_ns": 1795080430609115600, "direction": "tx_request", "channel": 81, "can_id": 2047, "data": "0400331a00000000"}
+{"time_ns": 1795080430610741600, "direction": "rx", "channel": 81, "can_id": 20, "kind": 12, "data": "0400331a6f12033b"}
+{"time_ns": 1795080430610741600, "direction": "tx_request", "channel": 81, "can_id": 2047, "data": "0400331b00000000"}
+{"time_ns": 1795080430612380400, "direction": "rx", "channel": 81, "can_id": 20, "kind": 12, "data": "0400331b00005842"}
+{"time_ns": 1795080430612380400, "direction": "tx_request", "channel": 81, "can_id": 2047, "data": "0400331c00000000"}
+{"time_ns": 1795080430614280900, "direction": "rx", "channel": 81, "can_id": 20, "kind": 12, "data": "0400331c00000000"}
+{"time_ns": 1795080430614280900, "direction": "tx_request", "channel": 81, "can_id": 2047, "data": "0500330300000000"}
+{"time_ns": 1795080430616024100, "direction": "rx", "channel": 81, "can_id": 21, "kind": 12, "data": "05003303cdcc4c3f"}
+{"time_ns": 1795080430616024100, "direction": "tx_request", "channel": 81, "can_id": 2047, "data": "0500330400000000"}
+{"time_ns": 1795080430618101600, "direction": "rx", "channel": 81, "can_id": 21, "kind": 12, "data": "0500330400000040"}
+{"time_ns": 1795080430618681100, "direction": "tx_request", "channel": 81, "can_id": 2047, "data": "0500330500000000"}
+{"time_ns": 1795080430620593500, "direction": "rx", "channel": 81, "can_id": 21, "kind": 12, "data": "05003305000000c0"}
+{"time_ns": 1795080430620593500, "direction": "tx_request", "channel": 81, "can_id": 2047, "data": "0500330600000000"}
+{"time_ns": 1795080430622637700, "direction": "rx", "channel": 81, "can_id": 21, "kind": 12, "data": "0500330600001644"}
+{"time_ns": 1795080430622637700, "direction": "tx_request", "channel": 81, "can_id": 2047, "data": "0500330700000000"}
+{"time_ns": 1795080430624748800, "direction": "rx", "channel": 81, "can_id": 21, "kind": 12, "data": "0500330715000000"}
+{"time_ns": 1795080430624748800, "direction": "tx_request", "channel": 81, "can_id": 2047, "data": "0500330800000000"}
+{"time_ns": 1795080430627004600, "direction": "rx", "channel": 81, "can_id": 21, "kind": 12, "data": "0500330805000000"}
+{"time_ns": 1795080430627004600, "direction": "tx_request", "channel": 81, "can_id": 2047, "data": "0500330900000000"}
+{"time_ns": 1795080430628412600, "direction": "rx", "channel": 81, "can_id": 21, "kind": 12, "data": "0500330900000000"}
+{"time_ns": 1795080430628412600, "direction": "tx_request", "channel": 81, "can_id": 2047, "data": "0500330a00000000"}
+{"time_ns": 1795080430629976700, "direction": "rx", "channel": 81, "can_id": 21, "kind": 12, "data": "0500330a02000000"}
+{"time_ns": 1795080430629976700, "direction": "tx_request", "channel": 81, "can_id": 2047, "data": "0500330d00000000"}
+{"time_ns": 1795080430631688900, "direction": "rx", "channel": 81, "can_id": 21, "kind": 12, "data": "0500330d00000000"}
+{"time_ns": 1795080430631688900, "direction": "tx_request", "channel": 81, "can_id": 2047, "data": "0500330e00000000"}
+{"time_ns": 1795080430633047700, "direction": "rx", "channel": 81, "can_id": 21, "kind": 12, "data": "0500330e35303137"}
+{"time_ns": 1795080430633047700, "direction": "tx_request", "channel": 81, "can_id": 2047, "data": "0500332400000000"}
+{"time_ns": 1795080430635029700, "direction": "rx", "channel": 81, "can_id": 21, "kind": 12, "data": "0500332434000000"}
+{"time_ns": 1795080430635029700, "direction": "tx_request", "channel": 81, "can_id": 2047, "data": "0500331500000000"}
+{"time_ns": 1795080430636963000, "direction": "rx", "channel": 81, "can_id": 21, "kind": 12, "data": "0500331500004841"}
+{"time_ns": 1795080430636963000, "direction": "tx_request", "channel": 81, "can_id": 2047, "data": "0500331600000000"}
+{"time_ns": 1795080430638673000, "direction": "rx", "channel": 81, "can_id": 21, "kind": 12, "data": "050033160000f041"}
+{"time_ns": 1795080430638673000, "direction": "tx_request", "channel": 81, "can_id": 2047, "data": "0500331700000000"}
+{"time_ns": 1795080430640087400, "direction": "rx", "channel": 81, "can_id": 21, "kind": 12, "data": "0500331700002041"}
+{"time_ns": 1795080430640087400, "direction": "tx_request", "channel": 81, "can_id": 2047, "data": "0500331800000000"}
+{"time_ns": 1795080430641631100, "direction": "rx", "channel": 81, "can_id": 21, "kind": 12, "data": "0500331800007a44"}
+{"time_ns": 1795080430641631100, "direction": "tx_request", "channel": 81, "can_id": 2047, "data": "0500331900000000"}
+{"time_ns": 1795080430643270300, "direction": "rx", "channel": 81, "can_id": 21, "kind": 12, "data": "050033193ecb733b"}
+{"time_ns": 1795080430643270300, "direction": "tx_request", "channel": 81, "can_id": 2047, "data": "0500331a00000000"}
+{"time_ns": 1795080430644859400, "direction": "rx", "channel": 81, "can_id": 21, "kind": 12, "data": "0500331a6f12033b"}
+{"time_ns": 1795080430644859400, "direction": "tx_request", "channel": 81, "can_id": 2047, "data": "0500331b00000000"}
+{"time_ns": 1795080430646350300, "direction": "rx", "channel": 81, "can_id": 21, "kind": 12, "data": "0500331b00005842"}
+{"time_ns": 1795080430646350300, "direction": "tx_request", "channel": 81, "can_id": 2047, "data": "0500331c00000000"}
+{"time_ns": 1795080430647893800, "direction": "rx", "channel": 81, "can_id": 21, "kind": 12, "data": "0500331c00000000"}
+{"time_ns": 1795080430647893800, "direction": "tx_request", "channel": 81, "can_id": 2047, "data": "0600330300000000"}
+{"time_ns": 1795080430649653200, "direction": "rx", "channel": 81, "can_id": 22, "kind": 12, "data": "06003303cdcc4c3f"}
+{"time_ns": 1795080430649653200, "direction": "tx_request", "channel": 81, "can_id": 2047, "data": "0600330400000000"}
+{"time_ns": 1795080430651344600, "direction": "rx", "channel": 81, "can_id": 22, "kind": 12, "data": "0600330400000040"}
+{"time_ns": 1795080430651344600, "direction": "tx_request", "channel": 81, "can_id": 2047, "data": "0600330500000000"}
+{"time_ns": 1795080430652985000, "direction": "rx", "channel": 81, "can_id": 22, "kind": 12, "data": "06003305000000c0"}
+{"time_ns": 1795080430652985000, "direction": "tx_request", "channel": 81, "can_id": 2047, "data": "0600330600000000"}
+{"time_ns": 1795080430654908000, "direction": "rx", "channel": 81, "can_id": 22, "kind": 12, "data": "0600330600001644"}
+{"time_ns": 1795080430654908000, "direction": "tx_request", "channel": 81, "can_id": 2047, "data": "0600330700000000"}
+{"time_ns": 1795080430656429200, "direction": "rx", "channel": 81, "can_id": 22, "kind": 12, "data": "0600330716000000"}
+{"time_ns": 1795080430656429200, "direction": "tx_request", "channel": 81, "can_id": 2047, "data": "0600330800000000"}
+{"time_ns": 1795080430658128000, "direction": "rx", "channel": 81, "can_id": 22, "kind": 12, "data": "0600330806000000"}
+{"time_ns": 1795080430658128000, "direction": "tx_request", "channel": 81, "can_id": 2047, "data": "0600330900000000"}
+{"time_ns": 1795080430659553100, "direction": "rx", "channel": 81, "can_id": 22, "kind": 12, "data": "0600330900000000"}
+{"time_ns": 1795080430659553100, "direction": "tx_request", "channel": 81, "can_id": 2047, "data": "0600330a00000000"}
+{"time_ns": 1795080430661069400, "direction": "rx", "channel": 81, "can_id": 22, "kind": 12, "data": "0600330a02000000"}
+{"time_ns": 1795080430661069400, "direction": "tx_request", "channel": 81, "can_id": 2047, "data": "0600330d00000000"}
+{"time_ns": 1795080430662637300, "direction": "rx", "channel": 81, "can_id": 22, "kind": 12, "data": "0600330d00000000"}
+{"time_ns": 1795080430662637300, "direction": "tx_request", "channel": 81, "can_id": 2047, "data": "0600330e00000000"}
+{"time_ns": 1795080430664281500, "direction": "rx", "channel": 81, "can_id": 22, "kind": 12, "data": "0600330e35303137"}
+{"time_ns": 1795080430664281500, "direction": "tx_request", "channel": 81, "can_id": 2047, "data": "0600332400000000"}
+{"time_ns": 1795080430666184900, "direction": "rx", "channel": 81, "can_id": 22, "kind": 12, "data": "0600332434000000"}
+{"time_ns": 1795080430666184900, "direction": "tx_request", "channel": 81, "can_id": 2047, "data": "0600331500000000"}
+{"time_ns": 1795080430667678700, "direction": "rx", "channel": 81, "can_id": 22, "kind": 12, "data": "0600331500004841"}
+{"time_ns": 1795080430667678700, "direction": "tx_request", "channel": 81, "can_id": 2047, "data": "0600331600000000"}
+{"time_ns": 1795080430669266400, "direction": "rx", "channel": 81, "can_id": 22, "kind": 12, "data": "060033160000f041"}
+{"time_ns": 1795080430669266400, "direction": "tx_request", "channel": 81, "can_id": 2047, "data": "0600331700000000"}
+{"time_ns": 1795080430671177200, "direction": "rx", "channel": 81, "can_id": 22, "kind": 12, "data": "0600331700002041"}
+{"time_ns": 1795080430671177200, "direction": "tx_request", "channel": 81, "can_id": 2047, "data": "0600331800000000"}
+{"time_ns": 1795080430672881400, "direction": "rx", "channel": 81, "can_id": 22, "kind": 12, "data": "0600331800007a44"}
+{"time_ns": 1795080430672881400, "direction": "tx_request", "channel": 81, "can_id": 2047, "data": "0600331900000000"}
+{"time_ns": 1795080430674527900, "direction": "rx", "channel": 81, "can_id": 22, "kind": 12, "data": "060033193ecb733b"}
+{"time_ns": 1795080430674527900, "direction": "tx_request", "channel": 81, "can_id": 2047, "data": "0600331a00000000"}
+{"time_ns": 1795080430675918900, "direction": "rx", "channel": 81, "can_id": 22, "kind": 12, "data": "0600331a6f12033b"}
+{"time_ns": 1795080430675918900, "direction": "tx_request", "channel": 81, "can_id": 2047, "data": "0600331b00000000"}
+{"time_ns": 1795080430677472400, "direction": "rx", "channel": 81, "can_id": 22, "kind": 12, "data": "0600331b00005842"}
+{"time_ns": 1795080430677472400, "direction": "tx_request", "channel": 81, "can_id": 2047, "data": "0600331c00000000"}
+{"time_ns": 1795080430679121700, "direction": "rx", "channel": 81, "can_id": 22, "kind": 12, "data": "0600331c00000000"}
+{"time_ns": 1795080430679121700, "direction": "tx_request", "channel": 81, "can_id": 2047, "data": "0700330300000000"}
+{"time_ns": 1795080430681062700, "direction": "rx", "channel": 81, "can_id": 23, "kind": 12, "data": "07003303cdcc4c3f"}
+{"time_ns": 1795080430681062700, "direction": "tx_request", "channel": 81, "can_id": 2047, "data": "0700330400000000"}
+{"time_ns": 1795080430682847900, "direction": "rx", "channel": 81, "can_id": 23, "kind": 12, "data": "0700330400000040"}
+{"time_ns": 1795080430682847900, "direction": "tx_request", "channel": 81, "can_id": 2047, "data": "0700330500000000"}
+{"time_ns": 1795080430684932500, "direction": "rx", "channel": 81, "can_id": 23, "kind": 12, "data": "07003305000000c0"}
+{"time_ns": 1795080430684932500, "direction": "tx_request", "channel": 81, "can_id": 2047, "data": "0700330600000000"}
+{"time_ns": 1795080430686836700, "direction": "rx", "channel": 81, "can_id": 23, "kind": 12, "data": "0700330600001644"}
+{"time_ns": 1795080430686836700, "direction": "tx_request", "channel": 81, "can_id": 2047, "data": "0700330700000000"}
+{"time_ns": 1795080430688620100, "direction": "rx", "channel": 81, "can_id": 23, "kind": 12, "data": "0700330717000000"}
+{"time_ns": 1795080430688620100, "direction": "tx_request", "channel": 81, "can_id": 2047, "data": "0700330800000000"}
+{"time_ns": 1795080430690123800, "direction": "rx", "channel": 81, "can_id": 23, "kind": 12, "data": "0700330807000000"}
+{"time_ns": 1795080430690123800, "direction": "tx_request", "channel": 81, "can_id": 2047, "data": "0700330900000000"}
+{"time_ns": 1795080430691655700, "direction": "rx", "channel": 81, "can_id": 23, "kind": 12, "data": "0700330900000000"}
+{"time_ns": 1795080430691655700, "direction": "tx_request", "channel": 81, "can_id": 2047, "data": "0700330a00000000"}
+{"time_ns": 1795080430693650900, "direction": "rx", "channel": 81, "can_id": 23, "kind": 12, "data": "0700330a02000000"}
+{"time_ns": 1795080430693650900, "direction": "tx_request", "channel": 81, "can_id": 2047, "data": "0700330d00000000"}
+{"time_ns": 1795080430695172900, "direction": "rx", "channel": 81, "can_id": 23, "kind": 12, "data": "0700330d00000000"}
+{"time_ns": 1795080430695172900, "direction": "tx_request", "channel": 81, "can_id": 2047, "data": "0700330e00000000"}
+{"time_ns": 1795080430696724500, "direction": "rx", "channel": 81, "can_id": 23, "kind": 12, "data": "0700330e35303137"}
+{"time_ns": 1795080430696724500, "direction": "tx_request", "channel": 81, "can_id": 2047, "data": "0700332400000000"}
+{"time_ns": 1795080430698637700, "direction": "rx", "channel": 81, "can_id": 23, "kind": 12, "data": "0700332434000000"}
+{"time_ns": 1795080430698637700, "direction": "tx_request", "channel": 81, "can_id": 2047, "data": "0700331500000000"}
+{"time_ns": 1795080430700108500, "direction": "rx", "channel": 81, "can_id": 23, "kind": 12, "data": "0700331500004841"}
+{"time_ns": 1795080430700108500, "direction": "tx_request", "channel": 81, "can_id": 2047, "data": "0700331600000000"}
+{"time_ns": 1795080430701943900, "direction": "rx", "channel": 81, "can_id": 23, "kind": 12, "data": "070033160000f041"}
+{"time_ns": 1795080430701943900, "direction": "tx_request", "channel": 81, "can_id": 2047, "data": "0700331700000000"}
+{"time_ns": 1795080430703266700, "direction": "rx", "channel": 81, "can_id": 23, "kind": 12, "data": "0700331700002041"}
+{"time_ns": 1795080430703266700, "direction": "tx_request", "channel": 81, "can_id": 2047, "data": "0700331800000000"}
+{"time_ns": 1795080430704631700, "direction": "rx", "channel": 81, "can_id": 23, "kind": 12, "data": "0700331800007a44"}
+{"time_ns": 1795080430704631700, "direction": "tx_request", "channel": 81, "can_id": 2047, "data": "0700331900000000"}
+{"time_ns": 1795080430706008000, "direction": "rx", "channel": 81, "can_id": 23, "kind": 12, "data": "070033193ecb733b"}
+{"time_ns": 1795080430706008000, "direction": "tx_request", "channel": 81, "can_id": 2047, "data": "0700331a00000000"}
+{"time_ns": 1795080430707405100, "direction": "rx", "channel": 81, "can_id": 23, "kind": 12, "data": "0700331a6f12033b"}
+{"time_ns": 1795080430707405100, "direction": "tx_request", "channel": 81, "can_id": 2047, "data": "0700331b00000000"}
+{"time_ns": 1795080430708937100, "direction": "rx", "channel": 81, "can_id": 23, "kind": 12, "data": "0700331b00005842"}
+{"time_ns": 1795080430708937100, "direction": "tx_request", "channel": 81, "can_id": 2047, "data": "0700331c00000000"}
+{"time_ns": 1795080430710950200, "direction": "rx", "channel": 81, "can_id": 23, "kind": 12, "data": "0700331c00000000"}
+{"time_ns": 1795080430710950200, "direction": "rx", "channel": 82, "can_id": 1, "kind": 128, "data": ""}
+{"time_ns": 1795080430710950200, "direction": "tx_request", "channel": 82, "can_id": 2047, "data": "0100330300000000"}
+{"time_ns": 1795080430712473800, "direction": "rx", "channel": 82, "can_id": 17, "kind": 12, "data": "01003303cdcc4c3f"}
+{"time_ns": 1795080430712473800, "direction": "tx_request", "channel": 82, "can_id": 2047, "data": "0100330400000000"}
+{"time_ns": 1795080430714490500, "direction": "rx", "channel": 82, "can_id": 17, "kind": 12, "data": "0100330400000040"}
+{"time_ns": 1795080430714490500, "direction": "tx_request", "channel": 82, "can_id": 2047, "data": "0100330500000000"}
+{"time_ns": 1795080430716030600, "direction": "rx", "channel": 82, "can_id": 17, "kind": 12, "data": "01003305000000c0"}
+{"time_ns": 1795080430716030600, "direction": "tx_request", "channel": 82, "can_id": 2047, "data": "0100330600000000"}
+{"time_ns": 1795080430717445400, "direction": "rx", "channel": 82, "can_id": 17, "kind": 12, "data": "0100330600001644"}
+{"time_ns": 1795080430717445400, "direction": "tx_request", "channel": 82, "can_id": 2047, "data": "0100330700000000"}
+{"time_ns": 1795080430719005700, "direction": "rx", "channel": 82, "can_id": 17, "kind": 12, "data": "0100330711000000"}
+{"time_ns": 1795080430719005700, "direction": "tx_request", "channel": 82, "can_id": 2047, "data": "0100330800000000"}
+{"time_ns": 1795080430721118400, "direction": "rx", "channel": 82, "can_id": 17, "kind": 12, "data": "0100330801000000"}
+{"time_ns": 1795080430721118400, "direction": "tx_request", "channel": 82, "can_id": 2047, "data": "0100330900000000"}
+{"time_ns": 1795080430722790100, "direction": "rx", "channel": 82, "can_id": 17, "kind": 12, "data": "0100330900000000"}
+{"time_ns": 1795080430722790100, "direction": "tx_request", "channel": 82, "can_id": 2047, "data": "0100330a00000000"}
+{"time_ns": 1795080430725121900, "direction": "rx", "channel": 82, "can_id": 17, "kind": 12, "data": "0100330a02000000"}
+{"time_ns": 1795080430725121900, "direction": "tx_request", "channel": 82, "can_id": 2047, "data": "0100330d00000000"}
+{"time_ns": 1795080430726753400, "direction": "rx", "channel": 82, "can_id": 17, "kind": 12, "data": "0100330d00000000"}
+{"time_ns": 1795080430726753400, "direction": "tx_request", "channel": 82, "can_id": 2047, "data": "0100330e00000000"}
+{"time_ns": 1795080430728299800, "direction": "rx", "channel": 82, "can_id": 17, "kind": 12, "data": "0100330e36343137"}
+{"time_ns": 1795080430728299800, "direction": "tx_request", "channel": 82, "can_id": 2047, "data": "0100332400000000"}
+{"time_ns": 1795080430729789000, "direction": "rx", "channel": 82, "can_id": 17, "kind": 12, "data": "0100332434000000"}
+{"time_ns": 1795080430729789000, "direction": "tx_request", "channel": 82, "can_id": 2047, "data": "0100331500000000"}
+{"time_ns": 1795080430731304200, "direction": "rx", "channel": 82, "can_id": 17, "kind": 12, "data": "0100331500004841"}
+{"time_ns": 1795080430731304200, "direction": "tx_request", "channel": 82, "can_id": 2047, "data": "0100331600000000"}
+{"time_ns": 1795080430733096500, "direction": "rx", "channel": 82, "can_id": 17, "kind": 12, "data": "0100331600003442"}
+{"time_ns": 1795080430733096500, "direction": "tx_request", "channel": 82, "can_id": 2047, "data": "0100331700000000"}
+{"time_ns": 1795080430734610200, "direction": "rx", "channel": 82, "can_id": 17, "kind": 12, "data": "0100331700005842"}
+{"time_ns": 1795080430734610200, "direction": "tx_request", "channel": 82, "can_id": 2047, "data": "0100331800000000"}
+{"time_ns": 1795080430736881200, "direction": "rx", "channel": 82, "can_id": 17, "kind": 12, "data": "0100331800007a44"}
+{"time_ns": 1795080430736881200, "direction": "tx_request", "channel": 82, "can_id": 2047, "data": "0100331900000000"}
+{"time_ns": 1795080430738384100, "direction": "rx", "channel": 82, "can_id": 17, "kind": 12, "data": "0100331989d2de3b"}
+{"time_ns": 1795080430738384100, "direction": "tx_request", "channel": 82, "can_id": 2047, "data": "0100331a00000000"}
+{"time_ns": 1795080430739827600, "direction": "rx", "channel": 82, "can_id": 17, "kind": 12, "data": "0100331a6f12033b"}
+{"time_ns": 1795080430739827600, "direction": "tx_request", "channel": 82, "can_id": 2047, "data": "0100331b00000000"}
+{"time_ns": 1795080430741526000, "direction": "rx", "channel": 82, "can_id": 17, "kind": 12, "data": "0100331b00005842"}
+{"time_ns": 1795080430741526000, "direction": "tx_request", "channel": 82, "can_id": 2047, "data": "0100331c00000000"}
+{"time_ns": 1795080430743088300, "direction": "rx", "channel": 82, "can_id": 17, "kind": 12, "data": "0100331c00000000"}
+{"time_ns": 1795080430743088300, "direction": "tx_request", "channel": 82, "can_id": 2047, "data": "0200330300000000"}
+{"time_ns": 1795080430744711600, "direction": "rx", "channel": 82, "can_id": 18, "kind": 12, "data": "02003303cdcc4c3f"}
+{"time_ns": 1795080430744711600, "direction": "tx_request", "channel": 82, "can_id": 2047, "data": "0200330400000000"}
+{"time_ns": 1795080430746267700, "direction": "rx", "channel": 82, "can_id": 18, "kind": 12, "data": "0200330400000040"}
+{"time_ns": 1795080430746267700, "direction": "tx_request", "channel": 82, "can_id": 2047, "data": "0200330500000000"}
+{"time_ns": 1795080430747913500, "direction": "rx", "channel": 82, "can_id": 18, "kind": 12, "data": "02003305000000c0"}
+{"time_ns": 1795080430747913500, "direction": "tx_request", "channel": 82, "can_id": 2047, "data": "0200330600000000"}
+{"time_ns": 1795080430749461500, "direction": "rx", "channel": 82, "can_id": 18, "kind": 12, "data": "0200330600001644"}
+{"time_ns": 1795080430749461500, "direction": "tx_request", "channel": 82, "can_id": 2047, "data": "0200330700000000"}
+{"time_ns": 1795080430751452000, "direction": "rx", "channel": 82, "can_id": 18, "kind": 12, "data": "0200330712000000"}
+{"time_ns": 1795080430751452000, "direction": "tx_request", "channel": 82, "can_id": 2047, "data": "0200330800000000"}
+{"time_ns": 1795080430753713900, "direction": "rx", "channel": 82, "can_id": 18, "kind": 12, "data": "0200330802000000"}
+{"time_ns": 1795080430753713900, "direction": "tx_request", "channel": 82, "can_id": 2047, "data": "0200330900000000"}
+{"time_ns": 1795080430755775300, "direction": "rx", "channel": 82, "can_id": 18, "kind": 12, "data": "0200330900000000"}
+{"time_ns": 1795080430755775300, "direction": "tx_request", "channel": 82, "can_id": 2047, "data": "0200330a00000000"}
+{"time_ns": 1795080430757203400, "direction": "rx", "channel": 82, "can_id": 18, "kind": 12, "data": "0200330a02000000"}
+{"time_ns": 1795080430757203400, "direction": "tx_request", "channel": 82, "can_id": 2047, "data": "0200330d00000000"}
+{"time_ns": 1795080430758688700, "direction": "rx", "channel": 82, "can_id": 18, "kind": 12, "data": "0200330d00000000"}
+{"time_ns": 1795080430758688700, "direction": "tx_request", "channel": 82, "can_id": 2047, "data": "0200330e00000000"}
+{"time_ns": 1795080430760373500, "direction": "rx", "channel": 82, "can_id": 18, "kind": 12, "data": "0200330e36343137"}
+{"time_ns": 1795080430760373500, "direction": "tx_request", "channel": 82, "can_id": 2047, "data": "0200332400000000"}
+{"time_ns": 1795080430761991200, "direction": "rx", "channel": 82, "can_id": 18, "kind": 12, "data": "0200332434000000"}
+{"time_ns": 1795080430761991200, "direction": "tx_request", "channel": 82, "can_id": 2047, "data": "0200331500000000"}
+{"time_ns": 1795080430763592100, "direction": "rx", "channel": 82, "can_id": 18, "kind": 12, "data": "0200331500004841"}
+{"time_ns": 1795080430763592100, "direction": "tx_request", "channel": 82, "can_id": 2047, "data": "0200331600000000"}
+{"time_ns": 1795080430765231300, "direction": "rx", "channel": 82, "can_id": 18, "kind": 12, "data": "0200331600003442"}
+{"time_ns": 1795080430765231300, "direction": "tx_request", "channel": 82, "can_id": 2047, "data": "0200331700000000"}
+{"time_ns": 1795080430766892200, "direction": "rx", "channel": 82, "can_id": 18, "kind": 12, "data": "0200331700005842"}
+{"time_ns": 1795080430766892200, "direction": "tx_request", "channel": 82, "can_id": 2047, "data": "0200331800000000"}
+{"time_ns": 1795080430768652300, "direction": "rx", "channel": 82, "can_id": 18, "kind": 12, "data": "0200331800007a44"}
+{"time_ns": 1795080430768652300, "direction": "tx_request", "channel": 82, "can_id": 2047, "data": "0200331900000000"}
+{"time_ns": 1795080430770282100, "direction": "rx", "channel": 82, "can_id": 18, "kind": 12, "data": "0200331989d2de3b"}
+{"time_ns": 1795080430770282100, "direction": "tx_request", "channel": 82, "can_id": 2047, "data": "0200331a00000000"}
+{"time_ns": 1795080430772047100, "direction": "rx", "channel": 82, "can_id": 18, "kind": 12, "data": "0200331a6f12033b"}
+{"time_ns": 1795080430772047100, "direction": "tx_request", "channel": 82, "can_id": 2047, "data": "0200331b00000000"}
+{"time_ns": 1795080430774010500, "direction": "rx", "channel": 82, "can_id": 18, "kind": 12, "data": "0200331b00005842"}
+{"time_ns": 1795080430774010500, "direction": "tx_request", "channel": 82, "can_id": 2047, "data": "0200331c00000000"}
+{"time_ns": 1795080430775509100, "direction": "rx", "channel": 82, "can_id": 18, "kind": 12, "data": "0200331c00000000"}
+{"time_ns": 1795080430775509100, "direction": "tx_request", "channel": 82, "can_id": 2047, "data": "0300330300000000"}
+{"time_ns": 1795080430777080700, "direction": "rx", "channel": 82, "can_id": 19, "kind": 12, "data": "03003303cdcc4c3f"}
+{"time_ns": 1795080430777080700, "direction": "tx_request", "channel": 82, "can_id": 2047, "data": "0300330400000000"}
+{"time_ns": 1795080430778646100, "direction": "rx", "channel": 82, "can_id": 19, "kind": 12, "data": "0300330400000040"}
+{"time_ns": 1795080430778646100, "direction": "tx_request", "channel": 82, "can_id": 2047, "data": "0300330500000000"}
+{"time_ns": 1795080430780044100, "direction": "rx", "channel": 82, "can_id": 19, "kind": 12, "data": "03003305000000c0"}
+{"time_ns": 1795080430780044100, "direction": "tx_request", "channel": 82, "can_id": 2047, "data": "0300330600000000"}
+{"time_ns": 1795080430781620800, "direction": "rx", "channel": 82, "can_id": 19, "kind": 12, "data": "0300330600001644"}
+{"time_ns": 1795080430781620800, "direction": "tx_request", "channel": 82, "can_id": 2047, "data": "0300330700000000"}
+{"time_ns": 1795080430783190500, "direction": "rx", "channel": 82, "can_id": 19, "kind": 12, "data": "0300330713000000"}
+{"time_ns": 1795080430783190500, "direction": "tx_request", "channel": 82, "can_id": 2047, "data": "0300330800000000"}
+{"time_ns": 1795080430784769600, "direction": "rx", "channel": 82, "can_id": 19, "kind": 12, "data": "0300330803000000"}
+{"time_ns": 1795080430784769600, "direction": "tx_request", "channel": 82, "can_id": 2047, "data": "0300330900000000"}
+{"time_ns": 1795080430786380100, "direction": "rx", "channel": 82, "can_id": 19, "kind": 12, "data": "0300330900000000"}
+{"time_ns": 1795080430786380100, "direction": "tx_request", "channel": 82, "can_id": 2047, "data": "0300330a00000000"}
+{"time_ns": 1795080430788104300, "direction": "rx", "channel": 82, "can_id": 19, "kind": 12, "data": "0300330a02000000"}
+{"time_ns": 1795080430788104300, "direction": "tx_request", "channel": 82, "can_id": 2047, "data": "0300330d00000000"}
+{"time_ns": 1795080430789605700, "direction": "rx", "channel": 82, "can_id": 19, "kind": 12, "data": "0300330d00000000"}
+{"time_ns": 1795080430789605700, "direction": "tx_request", "channel": 82, "can_id": 2047, "data": "0300330e00000000"}
+{"time_ns": 1795080430791120000, "direction": "rx", "channel": 82, "can_id": 19, "kind": 12, "data": "0300330e35313137"}
+{"time_ns": 1795080430791120000, "direction": "tx_request", "channel": 82, "can_id": 2047, "data": "0300332400000000"}
+{"time_ns": 1795080430792670800, "direction": "rx", "channel": 82, "can_id": 19, "kind": 12, "data": "0300332434000000"}
+{"time_ns": 1795080430792670800, "direction": "tx_request", "channel": 82, "can_id": 2047, "data": "0300331500000000"}
+{"time_ns": 1795080430794185000, "direction": "rx", "channel": 82, "can_id": 19, "kind": 12, "data": "0300331500004841"}
+{"time_ns": 1795080430794185000, "direction": "tx_request", "channel": 82, "can_id": 2047, "data": "0300331600000000"}
+{"time_ns": 1795080430795786600, "direction": "rx", "channel": 82, "can_id": 19, "kind": 12, "data": "0300331600002041"}
+{"time_ns": 1795080430795786600, "direction": "tx_request", "channel": 82, "can_id": 2047, "data": "0300331700000000"}
+{"time_ns": 1795080430797315800, "direction": "rx", "channel": 82, "can_id": 19, "kind": 12, "data": "030033170000e041"}
+{"time_ns": 1795080430797315800, "direction": "tx_request", "channel": 82, "can_id": 2047, "data": "0300331800000000"}
+{"time_ns": 1795080430798664800, "direction": "rx", "channel": 82, "can_id": 19, "kind": 12, "data": "0300331800007a44"}
+{"time_ns": 1795080430798664800, "direction": "tx_request", "channel": 82, "can_id": 2047, "data": "0300331900000000"}
+{"time_ns": 1795080430800612700, "direction": "rx", "channel": 82, "can_id": 19, "kind": 12, "data": "0300331982a87b3b"}
+{"time_ns": 1795080430800612700, "direction": "tx_request", "channel": 82, "can_id": 2047, "data": "0300331a00000000"}
+{"time_ns": 1795080430802459600, "direction": "rx", "channel": 82, "can_id": 19, "kind": 12, "data": "0300331a6f12033b"}
+{"time_ns": 1795080430802459600, "direction": "tx_request", "channel": 82, "can_id": 2047, "data": "0300331b00000000"}
+{"time_ns": 1795080430803969100, "direction": "rx", "channel": 82, "can_id": 19, "kind": 12, "data": "0300331b00005842"}
+{"time_ns": 1795080430803969100, "direction": "tx_request", "channel": 82, "can_id": 2047, "data": "0300331c00000000"}
+{"time_ns": 1795080430806049300, "direction": "rx", "channel": 82, "can_id": 19, "kind": 12, "data": "0300331c00000000"}
+{"time_ns": 1795080430806566200, "direction": "tx_request", "channel": 82, "can_id": 2047, "data": "0400330300000000"}
+{"time_ns": 1795080430808341600, "direction": "rx", "channel": 82, "can_id": 20, "kind": 12, "data": "04003303cdcc4c3f"}
+{"time_ns": 1795080430808341600, "direction": "tx_request", "channel": 82, "can_id": 2047, "data": "0400330400000000"}
+{"time_ns": 1795080430809951800, "direction": "rx", "channel": 82, "can_id": 20, "kind": 12, "data": "0400330400000040"}
+{"time_ns": 1795080430809951800, "direction": "tx_request", "channel": 82, "can_id": 2047, "data": "0400330500000000"}
+{"time_ns": 1795080430811620000, "direction": "rx", "channel": 82, "can_id": 20, "kind": 12, "data": "04003305000000c0"}
+{"time_ns": 1795080430811620000, "direction": "tx_request", "channel": 82, "can_id": 2047, "data": "0400330600000000"}
+{"time_ns": 1795080430813096100, "direction": "rx", "channel": 82, "can_id": 20, "kind": 12, "data": "0400330600001644"}
+{"time_ns": 1795080430813096100, "direction": "tx_request", "channel": 82, "can_id": 2047, "data": "0400330700000000"}
+{"time_ns": 1795080430814586000, "direction": "rx", "channel": 82, "can_id": 20, "kind": 12, "data": "0400330714000000"}
+{"time_ns": 1795080430814586000, "direction": "tx_request", "channel": 82, "can_id": 2047, "data": "0400330800000000"}
+{"time_ns": 1795080430816656100, "direction": "rx", "channel": 82, "can_id": 20, "kind": 12, "data": "0400330804000000"}
+{"time_ns": 1795080430816656100, "direction": "tx_request", "channel": 82, "can_id": 2047, "data": "0400330900000000"}
+{"time_ns": 1795080430818218300, "direction": "rx", "channel": 82, "can_id": 20, "kind": 12, "data": "0400330900000000"}
+{"time_ns": 1795080430818218300, "direction": "tx_request", "channel": 82, "can_id": 2047, "data": "0400330a00000000"}
+{"time_ns": 1795080430819912800, "direction": "rx", "channel": 82, "can_id": 20, "kind": 12, "data": "0400330a02000000"}
+{"time_ns": 1795080430819912800, "direction": "tx_request", "channel": 82, "can_id": 2047, "data": "0400330d00000000"}
+{"time_ns": 1795080430821615700, "direction": "rx", "channel": 82, "can_id": 20, "kind": 12, "data": "0400330d00000000"}
+{"time_ns": 1795080430821615700, "direction": "tx_request", "channel": 82, "can_id": 2047, "data": "0400330e00000000"}
+{"time_ns": 1795080430823134600, "direction": "rx", "channel": 82, "can_id": 20, "kind": 12, "data": "0400330e35313137"}
+{"time_ns": 1795080430823134600, "direction": "tx_request", "channel": 82, "can_id": 2047, "data": "0400332400000000"}
+{"time_ns": 1795080430824510300, "direction": "rx", "channel": 82, "can_id": 20, "kind": 12, "data": "0400332434000000"}
+{"time_ns": 1795080430824510300, "direction": "tx_request", "channel": 82, "can_id": 2047, "data": "0400331500000000"}
+{"time_ns": 1795080430825871400, "direction": "rx", "channel": 82, "can_id": 20, "kind": 12, "data": "0400331500004841"}
+{"time_ns": 1795080430825871400, "direction": "tx_request", "channel": 82, "can_id": 2047, "data": "0400331600000000"}
+{"time_ns": 1795080430827501200, "direction": "rx", "channel": 82, "can_id": 20, "kind": 12, "data": "0400331600002041"}
+{"time_ns": 1795080430827501200, "direction": "tx_request", "channel": 82, "can_id": 2047, "data": "0400331700000000"}
+{"time_ns": 1795080430829062800, "direction": "rx", "channel": 82, "can_id": 20, "kind": 12, "data": "040033170000e041"}
+{"time_ns": 1795080430829062800, "direction": "tx_request", "channel": 82, "can_id": 2047, "data": "0400331800000000"}
+{"time_ns": 1795080430830692200, "direction": "rx", "channel": 82, "can_id": 20, "kind": 12, "data": "0400331800007a44"}
+{"time_ns": 1795080430830692200, "direction": "tx_request", "channel": 82, "can_id": 2047, "data": "0400331900000000"}
+{"time_ns": 1795080430832386800, "direction": "rx", "channel": 82, "can_id": 20, "kind": 12, "data": "0400331982a87b3b"}
+{"time_ns": 1795080430832386800, "direction": "tx_request", "channel": 82, "can_id": 2047, "data": "0400331a00000000"}
+{"time_ns": 1795080430834024400, "direction": "rx", "channel": 82, "can_id": 20, "kind": 12, "data": "0400331a6f12033b"}
+{"time_ns": 1795080430834024400, "direction": "tx_request", "channel": 82, "can_id": 2047, "data": "0400331b00000000"}
+{"time_ns": 1795080430835737500, "direction": "rx", "channel": 82, "can_id": 20, "kind": 12, "data": "0400331b00005842"}
+{"time_ns": 1795080430835737500, "direction": "tx_request", "channel": 82, "can_id": 2047, "data": "0400331c00000000"}
+{"time_ns": 1795080430837406400, "direction": "rx", "channel": 82, "can_id": 20, "kind": 12, "data": "0400331c00000000"}
+{"time_ns": 1795080430837406400, "direction": "tx_request", "channel": 82, "can_id": 2047, "data": "0500330300000000"}
+{"time_ns": 1795080430838851100, "direction": "rx", "channel": 82, "can_id": 21, "kind": 12, "data": "05003303cdcc4c3f"}
+{"time_ns": 1795080430838851100, "direction": "tx_request", "channel": 82, "can_id": 2047, "data": "0500330400000000"}
+{"time_ns": 1795080430840297400, "direction": "rx", "channel": 82, "can_id": 21, "kind": 12, "data": "0500330400000040"}
+{"time_ns": 1795080430840297400, "direction": "tx_request", "channel": 82, "can_id": 2047, "data": "0500330500000000"}
+{"time_ns": 1795080430841893500, "direction": "rx", "channel": 82, "can_id": 21, "kind": 12, "data": "05003305000000c0"}
+{"time_ns": 1795080430841893500, "direction": "tx_request", "channel": 82, "can_id": 2047, "data": "0500330600000000"}
+{"time_ns": 1795080430843727200, "direction": "rx", "channel": 82, "can_id": 21, "kind": 12, "data": "0500330600001644"}
+{"time_ns": 1795080430843727200, "direction": "tx_request", "channel": 82, "can_id": 2047, "data": "0500330700000000"}
+{"time_ns": 1795080430845095900, "direction": "rx", "channel": 82, "can_id": 21, "kind": 12, "data": "0500330715000000"}
+{"time_ns": 1795080430845095900, "direction": "tx_request", "channel": 82, "can_id": 2047, "data": "0500330800000000"}
+{"time_ns": 1795080430846444700, "direction": "rx", "channel": 82, "can_id": 21, "kind": 12, "data": "0500330805000000"}
+{"time_ns": 1795080430846444700, "direction": "tx_request", "channel": 82, "can_id": 2047, "data": "0500330900000000"}
+{"time_ns": 1795080430848108800, "direction": "rx", "channel": 82, "can_id": 21, "kind": 12, "data": "0500330900000000"}
+{"time_ns": 1795080430848108800, "direction": "tx_request", "channel": 82, "can_id": 2047, "data": "0500330a00000000"}
+{"time_ns": 1795080430849834800, "direction": "rx", "channel": 82, "can_id": 21, "kind": 12, "data": "0500330a02000000"}
+{"time_ns": 1795080430849834800, "direction": "tx_request", "channel": 82, "can_id": 2047, "data": "0500330d00000000"}
+{"time_ns": 1795080430851515700, "direction": "rx", "channel": 82, "can_id": 21, "kind": 12, "data": "0500330d00000000"}
+{"time_ns": 1795080430851515700, "direction": "tx_request", "channel": 82, "can_id": 2047, "data": "0500330e00000000"}
+{"time_ns": 1795080430852901300, "direction": "rx", "channel": 82, "can_id": 21, "kind": 12, "data": "0500330e35303137"}
+{"time_ns": 1795080430852901300, "direction": "tx_request", "channel": 82, "can_id": 2047, "data": "0500332400000000"}
+{"time_ns": 1795080430854415100, "direction": "rx", "channel": 82, "can_id": 21, "kind": 12, "data": "0500332434000000"}
+{"time_ns": 1795080430854415100, "direction": "tx_request", "channel": 82, "can_id": 2047, "data": "0500331500000000"}
+{"time_ns": 1795080430856007400, "direction": "rx", "channel": 82, "can_id": 21, "kind": 12, "data": "0500331500004841"}
+{"time_ns": 1795080430856007400, "direction": "tx_request", "channel": 82, "can_id": 2047, "data": "0500331600000000"}
+{"time_ns": 1795080430857452800, "direction": "rx", "channel": 82, "can_id": 21, "kind": 12, "data": "050033160000f041"}
+{"time_ns": 1795080430857452800, "direction": "tx_request", "channel": 82, "can_id": 2047, "data": "0500331700000000"}
+{"time_ns": 1795080430859212700, "direction": "rx", "channel": 82, "can_id": 21, "kind": 12, "data": "0500331700002041"}
+{"time_ns": 1795080430859212700, "direction": "tx_request", "channel": 82, "can_id": 2047, "data": "0500331800000000"}
+{"time_ns": 1795080430860643900, "direction": "rx", "channel": 82, "can_id": 21, "kind": 12, "data": "0500331800007a44"}
+{"time_ns": 1795080430860643900, "direction": "tx_request", "channel": 82, "can_id": 2047, "data": "0500331900000000"}
+{"time_ns": 1795080430862253700, "direction": "rx", "channel": 82, "can_id": 21, "kind": 12, "data": "050033193ecb733b"}
+{"time_ns": 1795080430862253700, "direction": "tx_request", "channel": 82, "can_id": 2047, "data": "0500331a00000000"}
+{"time_ns": 1795080430863934500, "direction": "rx", "channel": 82, "can_id": 21, "kind": 12, "data": "0500331a6f12033b"}
+{"time_ns": 1795080430863934500, "direction": "tx_request", "channel": 82, "can_id": 2047, "data": "0500331b00000000"}
+{"time_ns": 1795080430865824600, "direction": "rx", "channel": 82, "can_id": 21, "kind": 12, "data": "0500331b00005842"}
+{"time_ns": 1795080430865824600, "direction": "tx_request", "channel": 82, "can_id": 2047, "data": "0500331c00000000"}
+{"time_ns": 1795080430867357600, "direction": "rx", "channel": 82, "can_id": 21, "kind": 12, "data": "0500331c00000000"}
+{"time_ns": 1795080430867357600, "direction": "tx_request", "channel": 82, "can_id": 2047, "data": "0600330300000000"}
+{"time_ns": 1795080430868866800, "direction": "rx", "channel": 82, "can_id": 22, "kind": 12, "data": "06003303cdcc4c3f"}
+{"time_ns": 1795080430868866800, "direction": "tx_request", "channel": 82, "can_id": 2047, "data": "0600330400000000"}
+{"time_ns": 1795080430870362800, "direction": "rx", "channel": 82, "can_id": 22, "kind": 12, "data": "0600330400000040"}
+{"time_ns": 1795080430870362800, "direction": "tx_request", "channel": 82, "can_id": 2047, "data": "0600330500000000"}
+{"time_ns": 1795080430871903300, "direction": "rx", "channel": 82, "can_id": 22, "kind": 12, "data": "06003305000000c0"}
+{"time_ns": 1795080430871903300, "direction": "tx_request", "channel": 82, "can_id": 2047, "data": "0600330600000000"}
+{"time_ns": 1795080430874024900, "direction": "rx", "channel": 82, "can_id": 22, "kind": 12, "data": "0600330600001644"}
+{"time_ns": 1795080430874024900, "direction": "tx_request", "channel": 82, "can_id": 2047, "data": "0600330700000000"}
+{"time_ns": 1795080430875676200, "direction": "rx", "channel": 82, "can_id": 22, "kind": 12, "data": "0600330716000000"}
+{"time_ns": 1795080430875676200, "direction": "tx_request", "channel": 82, "can_id": 2047, "data": "0600330800000000"}
+{"time_ns": 1795080430877495900, "direction": "rx", "channel": 82, "can_id": 22, "kind": 12, "data": "0600330806000000"}
+{"time_ns": 1795080430877495900, "direction": "tx_request", "channel": 82, "can_id": 2047, "data": "0600330900000000"}
+{"time_ns": 1795080430879069300, "direction": "rx", "channel": 82, "can_id": 22, "kind": 12, "data": "0600330900000000"}
+{"time_ns": 1795080430879069300, "direction": "tx_request", "channel": 82, "can_id": 2047, "data": "0600330a00000000"}
+{"time_ns": 1795080430880542100, "direction": "rx", "channel": 82, "can_id": 22, "kind": 12, "data": "0600330a02000000"}
+{"time_ns": 1795080430880542100, "direction": "tx_request", "channel": 82, "can_id": 2047, "data": "0600330d00000000"}
+{"time_ns": 1795080430882071000, "direction": "rx", "channel": 82, "can_id": 22, "kind": 12, "data": "0600330d00000000"}
+{"time_ns": 1795080430882071000, "direction": "tx_request", "channel": 82, "can_id": 2047, "data": "0600330e00000000"}
+{"time_ns": 1795080430883530100, "direction": "rx", "channel": 82, "can_id": 22, "kind": 12, "data": "0600330e35303137"}
+{"time_ns": 1795080430883530100, "direction": "tx_request", "channel": 82, "can_id": 2047, "data": "0600332400000000"}
+{"time_ns": 1795080430884982300, "direction": "rx", "channel": 82, "can_id": 22, "kind": 12, "data": "0600332434000000"}
+{"time_ns": 1795080430884982300, "direction": "tx_request", "channel": 82, "can_id": 2047, "data": "0600331500000000"}
+{"time_ns": 1795080430886375200, "direction": "rx", "channel": 82, "can_id": 22, "kind": 12, "data": "0600331500004841"}
+{"time_ns": 1795080430886375200, "direction": "tx_request", "channel": 82, "can_id": 2047, "data": "0600331600000000"}
+{"time_ns": 1795080430887981700, "direction": "rx", "channel": 82, "can_id": 22, "kind": 12, "data": "060033160000f041"}
+{"time_ns": 1795080430887981700, "direction": "tx_request", "channel": 82, "can_id": 2047, "data": "0600331700000000"}
+{"time_ns": 1795080430889644800, "direction": "rx", "channel": 82, "can_id": 22, "kind": 12, "data": "0600331700002041"}
+{"time_ns": 1795080430889644800, "direction": "tx_request", "channel": 82, "can_id": 2047, "data": "0600331800000000"}
+{"time_ns": 1795080430891653700, "direction": "rx", "channel": 82, "can_id": 22, "kind": 12, "data": "0600331800007a44"}
+{"time_ns": 1795080430891653700, "direction": "tx_request", "channel": 82, "can_id": 2047, "data": "0600331900000000"}
+{"time_ns": 1795080430893168000, "direction": "rx", "channel": 82, "can_id": 22, "kind": 12, "data": "060033193ecb733b"}
+{"time_ns": 1795080430893168000, "direction": "tx_request", "channel": 82, "can_id": 2047, "data": "0600331a00000000"}
+{"time_ns": 1795080430894714600, "direction": "rx", "channel": 82, "can_id": 22, "kind": 12, "data": "0600331a6f12033b"}
+{"time_ns": 1795080430894714600, "direction": "tx_request", "channel": 82, "can_id": 2047, "data": "0600331b00000000"}
+{"time_ns": 1795080430896036200, "direction": "rx", "channel": 82, "can_id": 22, "kind": 12, "data": "0600331b00005842"}
+{"time_ns": 1795080430896036200, "direction": "tx_request", "channel": 82, "can_id": 2047, "data": "0600331c00000000"}
+{"time_ns": 1795080430897562400, "direction": "rx", "channel": 82, "can_id": 22, "kind": 12, "data": "0600331c00000000"}
+{"time_ns": 1795080430897562400, "direction": "tx_request", "channel": 82, "can_id": 2047, "data": "0700330300000000"}
+{"time_ns": 1795080430899075600, "direction": "rx", "channel": 82, "can_id": 23, "kind": 12, "data": "07003303cdcc4c3f"}
+{"time_ns": 1795080430899075600, "direction": "tx_request", "channel": 82, "can_id": 2047, "data": "0700330400000000"}
+{"time_ns": 1795080430900769900, "direction": "rx", "channel": 82, "can_id": 23, "kind": 12, "data": "0700330400000040"}
+{"time_ns": 1795080430900769900, "direction": "tx_request", "channel": 82, "can_id": 2047, "data": "0700330500000000"}
+{"time_ns": 1795080430902569000, "direction": "rx", "channel": 82, "can_id": 23, "kind": 12, "data": "07003305000000c0"}
+{"time_ns": 1795080430902569000, "direction": "tx_request", "channel": 82, "can_id": 2047, "data": "0700330600000000"}
+{"time_ns": 1795080430904242300, "direction": "rx", "channel": 82, "can_id": 23, "kind": 12, "data": "0700330600001644"}
+{"time_ns": 1795080430904242300, "direction": "tx_request", "channel": 82, "can_id": 2047, "data": "0700330700000000"}
+{"time_ns": 1795080430905654400, "direction": "rx", "channel": 82, "can_id": 23, "kind": 12, "data": "0700330717000000"}
+{"time_ns": 1795080430905654400, "direction": "tx_request", "channel": 82, "can_id": 2047, "data": "0700330800000000"}
+{"time_ns": 1795080430907416300, "direction": "rx", "channel": 82, "can_id": 23, "kind": 12, "data": "0700330807000000"}
+{"time_ns": 1795080430907416300, "direction": "tx_request", "channel": 82, "can_id": 2047, "data": "0700330900000000"}
+{"time_ns": 1795080430909147500, "direction": "rx", "channel": 82, "can_id": 23, "kind": 12, "data": "0700330900000000"}
+{"time_ns": 1795080430909147500, "direction": "tx_request", "channel": 82, "can_id": 2047, "data": "0700330a00000000"}
+{"time_ns": 1795080430911158700, "direction": "rx", "channel": 82, "can_id": 23, "kind": 12, "data": "0700330a02000000"}
+{"time_ns": 1795080430911158700, "direction": "tx_request", "channel": 82, "can_id": 2047, "data": "0700330d00000000"}
+{"time_ns": 1795080430912805800, "direction": "rx", "channel": 82, "can_id": 23, "kind": 12, "data": "0700330d00000000"}
+{"time_ns": 1795080430912805800, "direction": "tx_request", "channel": 82, "can_id": 2047, "data": "0700330e00000000"}
+{"time_ns": 1795080430914485700, "direction": "rx", "channel": 82, "can_id": 23, "kind": 12, "data": "0700330e35303137"}
+{"time_ns": 1795080430914485700, "direction": "tx_request", "channel": 82, "can_id": 2047, "data": "0700332400000000"}
+{"time_ns": 1795080430915936700, "direction": "rx", "channel": 82, "can_id": 23, "kind": 12, "data": "0700332434000000"}
+{"time_ns": 1795080430915936700, "direction": "tx_request", "channel": 82, "can_id": 2047, "data": "0700331500000000"}
+{"time_ns": 1795080430917429300, "direction": "rx", "channel": 82, "can_id": 23, "kind": 12, "data": "0700331500004841"}
+{"time_ns": 1795080430917429300, "direction": "tx_request", "channel": 82, "can_id": 2047, "data": "0700331600000000"}
+{"time_ns": 1795080430919017500, "direction": "rx", "channel": 82, "can_id": 23, "kind": 12, "data": "070033160000f041"}
+{"time_ns": 1795080430919017500, "direction": "tx_request", "channel": 82, "can_id": 2047, "data": "0700331700000000"}
+{"time_ns": 1795080430920512000, "direction": "rx", "channel": 82, "can_id": 23, "kind": 12, "data": "0700331700002041"}
+{"time_ns": 1795080430920512000, "direction": "tx_request", "channel": 82, "can_id": 2047, "data": "0700331800000000"}
+{"time_ns": 1795080430922086600, "direction": "rx", "channel": 82, "can_id": 23, "kind": 12, "data": "0700331800007a44"}
+{"time_ns": 1795080430922086600, "direction": "tx_request", "channel": 82, "can_id": 2047, "data": "0700331900000000"}
+{"time_ns": 1795080430923602800, "direction": "rx", "channel": 82, "can_id": 23, "kind": 12, "data": "070033193ecb733b"}
+{"time_ns": 1795080430923602800, "direction": "tx_request", "channel": 82, "can_id": 2047, "data": "0700331a00000000"}
+{"time_ns": 1795080430925195000, "direction": "rx", "channel": 82, "can_id": 23, "kind": 12, "data": "0700331a6f12033b"}
+{"time_ns": 1795080430925195000, "direction": "tx_request", "channel": 82, "can_id": 2047, "data": "0700331b00000000"}
+{"time_ns": 1795080430926628100, "direction": "rx", "channel": 82, "can_id": 23, "kind": 12, "data": "0700331b00005842"}
+{"time_ns": 1795080430926628100, "direction": "tx_request", "channel": 82, "can_id": 2047, "data": "0700331c00000000"}
+{"time_ns": 1795080430928116800, "direction": "rx", "channel": 82, "can_id": 23, "kind": 12, "data": "0700331c00000000"}
+{"time_ns": 1795080430928116800, "direction": "tx_request", "channel": 81, "can_id": 2047, "data": "0100cc0000000000"}
+{"time_ns": 1795080430929522800, "direction": "rx", "channel": 81, "can_id": 17, "kind": 12, "data": "017fce7ff7ff1c1a"}
+{"time_ns": 1795080430929522800, "direction": "tx_request", "channel": 81, "can_id": 2047, "data": "0200cc0000000000"}
+{"time_ns": 1795080430931547100, "direction": "rx", "channel": 81, "can_id": 18, "kind": 12, "data": "027fb88007ff1c1a"}
+{"time_ns": 1795080430931547100, "direction": "tx_request", "channel": 81, "can_id": 2047, "data": "0300cc0000000000"}
+{"time_ns": 1795080430933046900, "direction": "rx", "channel": 81, "can_id": 19, "kind": 12, "data": "037dd97ff8001d1b"}
+{"time_ns": 1795080430933046900, "direction": "tx_request", "channel": 81, "can_id": 2047, "data": "0400cc0000000000"}
+{"time_ns": 1795080430934567100, "direction": "rx", "channel": 81, "can_id": 20, "kind": 12, "data": "0480167ff7fe1c1b"}
+{"time_ns": 1795080430934567100, "direction": "tx_request", "channel": 81, "can_id": 2047, "data": "0500cc0000000000"}
+{"time_ns": 1795080430936135900, "direction": "rx", "channel": 81, "can_id": 21, "kind": 12, "data": "0581367ff7fe1e1a"}
+{"time_ns": 1795080430936135900, "direction": "tx_request", "channel": 81, "can_id": 2047, "data": "0600cc0000000000"}
+{"time_ns": 1795080430937541800, "direction": "rx", "channel": 81, "can_id": 22, "kind": 12, "data": "067f5b8007ff1e1b"}
+{"time_ns": 1795080430937541800, "direction": "tx_request", "channel": 81, "can_id": 2047, "data": "0700cc0000000000"}
+{"time_ns": 1795080430938995400, "direction": "rx", "channel": 81, "can_id": 23, "kind": 12, "data": "0780097fe8021c1b"}
+{"time_ns": 1795080430938995400, "direction": "tx_request", "channel": 82, "can_id": 2047, "data": "0100cc0000000000"}
+{"time_ns": 1795080430940678200, "direction": "rx", "channel": 82, "can_id": 17, "kind": 12, "data": "017e747ff7ff1c1a"}
+{"time_ns": 1795080430940678200, "direction": "tx_request", "channel": 82, "can_id": 2047, "data": "0200cc0000000000"}
+{"time_ns": 1795080430942710200, "direction": "rx", "channel": 82, "can_id": 18, "kind": 12, "data": "0280227ff7ff1d1b"}
+{"time_ns": 1795080430942710200, "direction": "tx_request", "channel": 82, "can_id": 2047, "data": "0300cc0000000000"}
+{"time_ns": 1795080430944203600, "direction": "rx", "channel": 82, "can_id": 19, "kind": 12, "data": "0382428008011d1a"}
+{"time_ns": 1795080430944203600, "direction": "tx_request", "channel": 82, "can_id": 2047, "data": "0400cc0000000000"}
+{"time_ns": 1795080430945836400, "direction": "rx", "channel": 82, "can_id": 20, "kind": 12, "data": "0483567ff8011c1b"}
+{"time_ns": 1795080430945836400, "direction": "tx_request", "channel": 82, "can_id": 2047, "data": "0500cc0000000000"}
+{"time_ns": 1795080430947857400, "direction": "rx", "channel": 82, "can_id": 21, "kind": 12, "data": "0580637ff7fe1e1b"}
+{"time_ns": 1795080430948376500, "direction": "tx_request", "channel": 82, "can_id": 2047, "data": "0600cc0000000000"}
+{"time_ns": 1795080430950185800, "direction": "rx", "channel": 82, "can_id": 22, "kind": 12, "data": "0680d28007fd1e1b"}
+{"time_ns": 1795080430950185800, "direction": "tx_request", "channel": 82, "can_id": 2047, "data": "0700cc0000000000"}
+{"time_ns": 1795080430951881100, "direction": "rx", "channel": 82, "can_id": 23, "kind": 12, "data": "077fa57ff7fe1d1b"}
+{"time_ns": 1795080430951881100, "direction": "tx_request", "channel": 81, "can_id": 2047, "data": "0100330a00000000"}
+{"time_ns": 1795080430953844300, "direction": "rx", "channel": 81, "can_id": 17, "kind": 12, "data": "0100330a02000000"}
+{"time_ns": 1795080430953844300, "direction": "tx_request", "channel": 81, "can_id": 2047, "data": "0100cc0000000000"}
+{"time_ns": 1795080430955712900, "direction": "rx", "channel": 81, "can_id": 17, "kind": 12, "data": "017fce7fe7ff1c1a"}
+{"time_ns": 1795080430955712900, "direction": "tx_request", "channel": 81, "can_id": 2047, "data": "0100aa0100000000"}
+{"time_ns": 1795080430957245700, "direction": "rx", "channel": 81, "can_id": 17, "kind": 12, "data": "0100aa01"}
+{"time_ns": 1795080431058061000, "direction": "tx_request", "channel": 81, "can_id": 2047, "data": "0100330a00000000"}
+{"time_ns": 1795080431059638300, "direction": "rx", "channel": 81, "can_id": 17, "kind": 12, "data": "0100330a02000000"}
+{"time_ns": 1795080431059638300, "direction": "tx_request", "channel": 81, "can_id": 2047, "data": "0100cc0000000000"}
+{"time_ns": 1795080431061275900, "direction": "rx", "channel": 81, "can_id": 17, "kind": 12, "data": "017fce7ff7ff1c1a"}
+{"time_ns": 1795080431061275900, "direction": "tx_request", "channel": 81, "can_id": 2047, "data": "0200330a00000000"}
+{"time_ns": 1795080431062770300, "direction": "rx", "channel": 81, "can_id": 18, "kind": 12, "data": "0200330a02000000"}
+{"time_ns": 1795080431062770300, "direction": "tx_request", "channel": 81, "can_id": 2047, "data": "0200cc0000000000"}
+{"time_ns": 1795080431064698100, "direction": "rx", "channel": 81, "can_id": 18, "kind": 12, "data": "027fb87ff7ff1c1a"}
+{"time_ns": 1795080431064698100, "direction": "tx_request", "channel": 81, "can_id": 2047, "data": "0200aa0100000000"}
+{"time_ns": 1795080431066659000, "direction": "rx", "channel": 81, "can_id": 18, "kind": 12, "data": "0200aa01"}
+{"time_ns": 1795080431167362100, "direction": "tx_request", "channel": 81, "can_id": 2047, "data": "0200330a00000000"}
+{"time_ns": 1795080431168966600, "direction": "rx", "channel": 81, "can_id": 18, "kind": 12, "data": "0200330a02000000"}
+{"time_ns": 1795080431168966600, "direction": "tx_request", "channel": 81, "can_id": 2047, "data": "0200cc0000000000"}
+{"time_ns": 1795080431170748500, "direction": "rx", "channel": 81, "can_id": 18, "kind": 12, "data": "027fb87ff7ff1c1a"}
+{"time_ns": 1795080431170748500, "direction": "tx_request", "channel": 81, "can_id": 2047, "data": "0300330a00000000"}
+{"time_ns": 1795080431172990800, "direction": "rx", "channel": 81, "can_id": 19, "kind": 12, "data": "0300330a02000000"}
+{"time_ns": 1795080431172990800, "direction": "tx_request", "channel": 81, "can_id": 2047, "data": "0300cc0000000000"}
+{"time_ns": 1795080431174497100, "direction": "rx", "channel": 81, "can_id": 19, "kind": 12, "data": "037dd97fe8001d1b"}
+{"time_ns": 1795080431174497100, "direction": "tx_request", "channel": 81, "can_id": 2047, "data": "0300aa0100000000"}
+{"time_ns": 1795080431176641500, "direction": "rx", "channel": 81, "can_id": 19, "kind": 12, "data": "0300aa01"}
+{"time_ns": 1795080431277247900, "direction": "tx_request", "channel": 81, "can_id": 2047, "data": "0300330a00000000"}
+{"time_ns": 1795080431279103800, "direction": "rx", "channel": 81, "can_id": 19, "kind": 12, "data": "0300330a02000000"}
+{"time_ns": 1795080431279103800, "direction": "tx_request", "channel": 81, "can_id": 2047, "data": "0300cc0000000000"}
+{"time_ns": 1795080431280742000, "direction": "rx", "channel": 81, "can_id": 19, "kind": 12, "data": "037dd97fe7ff1d1b"}
+{"time_ns": 1795080431281286300, "direction": "tx_request", "channel": 81, "can_id": 2047, "data": "0400330a00000000"}
+{"time_ns": 1795080431282678300, "direction": "rx", "channel": 81, "can_id": 20, "kind": 12, "data": "0400330a02000000"}
+{"time_ns": 1795080431282678300, "direction": "tx_request", "channel": 81, "can_id": 2047, "data": "0400cc0000000000"}
+{"time_ns": 1795080431284665700, "direction": "rx", "channel": 81, "can_id": 20, "kind": 12, "data": "0480168007fd1c1b"}
+{"time_ns": 1795080431284665700, "direction": "tx_request", "channel": 81, "can_id": 2047, "data": "0400aa0100000000"}
+{"time_ns": 1795080431286205800, "direction": "rx", "channel": 81, "can_id": 20, "kind": 12, "data": "0400aa01"}
+{"time_ns": 1795080431386926800, "direction": "tx_request", "channel": 81, "can_id": 2047, "data": "0400330a00000000"}
+{"time_ns": 1795080431388658200, "direction": "rx", "channel": 81, "can_id": 20, "kind": 12, "data": "0400330a02000000"}
+{"time_ns": 1795080431388658200, "direction": "tx_request", "channel": 81, "can_id": 2047, "data": "0400cc0000000000"}
+{"time_ns": 1795080431390184900, "direction": "rx", "channel": 81, "can_id": 20, "kind": 12, "data": "0480167ff7fd1c1b"}
+{"time_ns": 1795080431390184900, "direction": "tx_request", "channel": 81, "can_id": 2047, "data": "0500330a00000000"}
+{"time_ns": 1795080431392765700, "direction": "rx", "channel": 81, "can_id": 21, "kind": 12, "data": "0500330a02000000"}
+{"time_ns": 1795080431392765700, "direction": "tx_request", "channel": 81, "can_id": 2047, "data": "0500cc0000000000"}
+{"time_ns": 1795080431395054400, "direction": "rx", "channel": 81, "can_id": 21, "kind": 12, "data": "0581367fe7fe1e1a"}
+{"time_ns": 1795080431395054400, "direction": "tx_request", "channel": 81, "can_id": 2047, "data": "0500aa0100000000"}
+{"time_ns": 1795080431397766100, "direction": "rx", "channel": 81, "can_id": 21, "kind": 12, "data": "0500aa01"}
+{"time_ns": 1795080431498525200, "direction": "tx_request", "channel": 81, "can_id": 2047, "data": "0500330a00000000"}
+{"time_ns": 1795080431500610900, "direction": "rx", "channel": 81, "can_id": 21, "kind": 12, "data": "0500330a02000000"}
+{"time_ns": 1795080431500610900, "direction": "tx_request", "channel": 81, "can_id": 2047, "data": "0500cc0000000000"}
+{"time_ns": 1795080431502731900, "direction": "rx", "channel": 81, "can_id": 21, "kind": 12, "data": "0581367ff7fe1e1a"}
+{"time_ns": 1795080431502731900, "direction": "tx_request", "channel": 81, "can_id": 2047, "data": "0600330a00000000"}
+{"time_ns": 1795080431504180800, "direction": "rx", "channel": 81, "can_id": 22, "kind": 12, "data": "0600330a02000000"}
+{"time_ns": 1795080431504180800, "direction": "tx_request", "channel": 81, "can_id": 2047, "data": "0600cc0000000000"}
+{"time_ns": 1795080431505644900, "direction": "rx", "channel": 81, "can_id": 22, "kind": 12, "data": "067f5b7ff7fe1e1b"}
+{"time_ns": 1795080431505644900, "direction": "tx_request", "channel": 81, "can_id": 2047, "data": "0600aa0100000000"}
+{"time_ns": 1795080431507175300, "direction": "rx", "channel": 81, "can_id": 22, "kind": 12, "data": "0600aa01"}
+{"time_ns": 1795080431607822000, "direction": "tx_request", "channel": 81, "can_id": 2047, "data": "0600330a00000000"}
+{"time_ns": 1795080431610087500, "direction": "rx", "channel": 81, "can_id": 22, "kind": 12, "data": "0600330a02000000"}
+{"time_ns": 1795080431610087500, "direction": "tx_request", "channel": 81, "can_id": 2047, "data": "0600cc0000000000"}
+{"time_ns": 1795080431612185800, "direction": "rx", "channel": 81, "can_id": 22, "kind": 12, "data": "067f5b7ff7ff1e1b"}
+{"time_ns": 1795080431612185800, "direction": "tx_request", "channel": 81, "can_id": 2047, "data": "0700330a00000000"}
+{"time_ns": 1795080431613875900, "direction": "rx", "channel": 81, "can_id": 23, "kind": 12, "data": "0700330a02000000"}
+{"time_ns": 1795080431613875900, "direction": "tx_request", "channel": 81, "can_id": 2047, "data": "0700cc0000000000"}
+{"time_ns": 1795080431615528000, "direction": "rx", "channel": 81, "can_id": 23, "kind": 12, "data": "0780098008011c1b"}
+{"time_ns": 1795080431615528000, "direction": "tx_request", "channel": 81, "can_id": 2047, "data": "0700aa0100000000"}
+{"time_ns": 1795080431617002000, "direction": "rx", "channel": 81, "can_id": 23, "kind": 12, "data": "0700aa01"}
+{"time_ns": 1795080431717807700, "direction": "tx_request", "channel": 81, "can_id": 2047, "data": "0700330a00000000"}
+{"time_ns": 1795080431719966900, "direction": "rx", "channel": 81, "can_id": 23, "kind": 12, "data": "0700330a02000000"}
+{"time_ns": 1795080431719966900, "direction": "tx_request", "channel": 81, "can_id": 2047, "data": "0700cc0000000000"}
+{"time_ns": 1795080431722139600, "direction": "rx", "channel": 81, "can_id": 23, "kind": 12, "data": "0780097ff8011c1b"}
+{"time_ns": 1795080431722139600, "direction": "tx_request", "channel": 82, "can_id": 2047, "data": "0100330a00000000"}
+{"time_ns": 1795080431724154500, "direction": "rx", "channel": 82, "can_id": 17, "kind": 12, "data": "0100330a02000000"}
+{"time_ns": 1795080431724154500, "direction": "tx_request", "channel": 82, "can_id": 2047, "data": "0100cc0000000000"}
+{"time_ns": 1795080431725673000, "direction": "rx", "channel": 82, "can_id": 17, "kind": 12, "data": "017e737fe7fe1c1a"}
+{"time_ns": 1795080431725673000, "direction": "tx_request", "channel": 82, "can_id": 2047, "data": "0100aa0100000000"}
+{"time_ns": 1795080431727221900, "direction": "rx", "channel": 82, "can_id": 17, "kind": 12, "data": "0100aa01"}
+{"time_ns": 1795080431827923100, "direction": "tx_request", "channel": 82, "can_id": 2047, "data": "0100330a00000000"}
+{"time_ns": 1795080431829399700, "direction": "rx", "channel": 82, "can_id": 17, "kind": 12, "data": "0100330a02000000"}
+{"time_ns": 1795080431829399700, "direction": "tx_request", "channel": 82, "can_id": 2047, "data": "0100cc0000000000"}
+{"time_ns": 1795080431831614800, "direction": "rx", "channel": 82, "can_id": 17, "kind": 12, "data": "017e737ff7fe1c1a"}
+{"time_ns": 1795080431831614800, "direction": "tx_request", "channel": 82, "can_id": 2047, "data": "0200330a00000000"}
+{"time_ns": 1795080431833852600, "direction": "rx", "channel": 82, "can_id": 18, "kind": 12, "data": "0200330a02000000"}
+{"time_ns": 1795080431833852600, "direction": "tx_request", "channel": 82, "can_id": 2047, "data": "0200cc0000000000"}
+{"time_ns": 1795080431835574700, "direction": "rx", "channel": 82, "can_id": 18, "kind": 12, "data": "0280227ff7ff1d1b"}
+{"time_ns": 1795080431835574700, "direction": "tx_request", "channel": 82, "can_id": 2047, "data": "0200aa0100000000"}
+{"time_ns": 1795080431837719100, "direction": "rx", "channel": 82, "can_id": 18, "kind": 12, "data": "0200aa01"}
+{"time_ns": 1795080431938650200, "direction": "tx_request", "channel": 82, "can_id": 2047, "data": "0200330a00000000"}
+{"time_ns": 1795080431941171000, "direction": "rx", "channel": 82, "can_id": 18, "kind": 12, "data": "0200330a02000000"}
+{"time_ns": 1795080431941681300, "direction": "tx_request", "channel": 82, "can_id": 2047, "data": "0200cc0000000000"}
+{"time_ns": 1795080431943304900, "direction": "rx", "channel": 82, "can_id": 18, "kind": 12, "data": "0280227ff7ff1d1b"}
+{"time_ns": 1795080431943304900, "direction": "tx_request", "channel": 82, "can_id": 2047, "data": "0300330a00000000"}
+{"time_ns": 1795080431945101700, "direction": "rx", "channel": 82, "can_id": 19, "kind": 12, "data": "0300330a02000000"}
+{"time_ns": 1795080431945101700, "direction": "tx_request", "channel": 82, "can_id": 2047, "data": "0300cc0000000000"}
+{"time_ns": 1795080431947116100, "direction": "rx", "channel": 82, "can_id": 19, "kind": 12, "data": "0382427fe8011d1a"}
+{"time_ns": 1795080431947116100, "direction": "tx_request", "channel": 82, "can_id": 2047, "data": "0300aa0100000000"}
+{"time_ns": 1795080431949189000, "direction": "rx", "channel": 82, "can_id": 19, "kind": 12, "data": "0300aa01"}
+{"time_ns": 1795080432049763900, "direction": "tx_request", "channel": 82, "can_id": 2047, "data": "0300330a00000000"}
+{"time_ns": 1795080432051489500, "direction": "rx", "channel": 82, "can_id": 19, "kind": 12, "data": "0300330a02000000"}
+{"time_ns": 1795080432051489500, "direction": "tx_request", "channel": 82, "can_id": 2047, "data": "0300cc0000000000"}
+{"time_ns": 1795080432053277100, "direction": "rx", "channel": 82, "can_id": 19, "kind": 12, "data": "0382427fe8011d1a"}
+{"time_ns": 1795080432053277100, "direction": "tx_request", "channel": 82, "can_id": 2047, "data": "0400330a00000000"}
+{"time_ns": 1795080432055459000, "direction": "rx", "channel": 82, "can_id": 20, "kind": 12, "data": "0400330a02000000"}
+{"time_ns": 1795080432055459000, "direction": "tx_request", "channel": 82, "can_id": 2047, "data": "0400cc0000000000"}
+{"time_ns": 1795080432057524100, "direction": "rx", "channel": 82, "can_id": 20, "kind": 12, "data": "0483568008011c1b"}
+{"time_ns": 1795080432057524100, "direction": "tx_request", "channel": 82, "can_id": 2047, "data": "0400aa0100000000"}
+{"time_ns": 1795080432059285500, "direction": "rx", "channel": 82, "can_id": 20, "kind": 12, "data": "0400aa01"}
+{"time_ns": 1795080432159642400, "direction": "tx_request", "channel": 82, "can_id": 2047, "data": "0400330a00000000"}
+{"time_ns": 1795080432161676700, "direction": "rx", "channel": 82, "can_id": 20, "kind": 12, "data": "0400330a02000000"}
+{"time_ns": 1795080432161676700, "direction": "tx_request", "channel": 82, "can_id": 2047, "data": "0400cc0000000000"}
+{"time_ns": 1795080432163378000, "direction": "rx", "channel": 82, "can_id": 20, "kind": 12, "data": "0483567ff8011c1b"}
+{"time_ns": 1795080432163378000, "direction": "tx_request", "channel": 82, "can_id": 2047, "data": "0500330a00000000"}
+{"time_ns": 1795080432165022900, "direction": "rx", "channel": 82, "can_id": 21, "kind": 12, "data": "0500330a02000000"}
+{"time_ns": 1795080432165022900, "direction": "tx_request", "channel": 82, "can_id": 2047, "data": "0500cc0000000000"}
+{"time_ns": 1795080432166931900, "direction": "rx", "channel": 82, "can_id": 21, "kind": 12, "data": "0580638007fe1e1b"}
+{"time_ns": 1795080432166931900, "direction": "tx_request", "channel": 82, "can_id": 2047, "data": "0500aa0100000000"}
+{"time_ns": 1795080432169104100, "direction": "rx", "channel": 82, "can_id": 21, "kind": 12, "data": "0500aa01"}
+{"time_ns": 1795080432269792700, "direction": "tx_request", "channel": 82, "can_id": 2047, "data": "0500330a00000000"}
+{"time_ns": 1795080432271439100, "direction": "rx", "channel": 82, "can_id": 21, "kind": 12, "data": "0500330a02000000"}
+{"time_ns": 1795080432271439100, "direction": "tx_request", "channel": 82, "can_id": 2047, "data": "0500cc0000000000"}
+{"time_ns": 1795080432273454200, "direction": "rx", "channel": 82, "can_id": 21, "kind": 12, "data": "0580637ff7fe1e1b"}
+{"time_ns": 1795080432273454200, "direction": "tx_request", "channel": 82, "can_id": 2047, "data": "0600330a00000000"}
+{"time_ns": 1795080432274975500, "direction": "rx", "channel": 82, "can_id": 22, "kind": 12, "data": "0600330a02000000"}
+{"time_ns": 1795080432274975500, "direction": "tx_request", "channel": 82, "can_id": 2047, "data": "0600cc0000000000"}
+{"time_ns": 1795080432277452400, "direction": "rx", "channel": 82, "can_id": 22, "kind": 12, "data": "0680d28007fd1e1b"}
+{"time_ns": 1795080432277964900, "direction": "tx_request", "channel": 82, "can_id": 2047, "data": "0600aa0100000000"}
+{"time_ns": 1795080432279638800, "direction": "rx", "channel": 82, "can_id": 22, "kind": 12, "data": "0600aa01"}
+{"time_ns": 1795080432380217200, "direction": "tx_request", "channel": 82, "can_id": 2047, "data": "0600330a00000000"}
+{"time_ns": 1795080432382502100, "direction": "rx", "channel": 82, "can_id": 22, "kind": 12, "data": "0600330a02000000"}
+{"time_ns": 1795080432382502100, "direction": "tx_request", "channel": 82, "can_id": 2047, "data": "0600cc0000000000"}
+{"time_ns": 1795080432384116200, "direction": "rx", "channel": 82, "can_id": 22, "kind": 12, "data": "0680d27ff7fd1e1b"}
+{"time_ns": 1795080432384116200, "direction": "tx_request", "channel": 82, "can_id": 2047, "data": "0700330a00000000"}
+{"time_ns": 1795080432386279500, "direction": "rx", "channel": 82, "can_id": 23, "kind": 12, "data": "0700330a02000000"}
+{"time_ns": 1795080432386279500, "direction": "tx_request", "channel": 82, "can_id": 2047, "data": "0700cc0000000000"}
+{"time_ns": 1795080432389836500, "direction": "rx", "channel": 82, "can_id": 23, "kind": 12, "data": "077fa57fe7fe1d1b"}
+{"time_ns": 1795080432389836500, "direction": "tx_request", "channel": 82, "can_id": 2047, "data": "0700aa0100000000"}
+{"time_ns": 1795080432391897500, "direction": "rx", "channel": 82, "can_id": 23, "kind": 12, "data": "0700aa01"}
+{"time_ns": 1795080432493029800, "direction": "tx_request", "channel": 82, "can_id": 2047, "data": "0700330a00000000"}
+{"time_ns": 1795080432494857200, "direction": "rx", "channel": 82, "can_id": 23, "kind": 12, "data": "0700330a02000000"}
+{"time_ns": 1795080432494857200, "direction": "tx_request", "channel": 82, "can_id": 2047, "data": "0700cc0000000000"}
+{"time_ns": 1795080432496516800, "direction": "rx", "channel": 82, "can_id": 23, "kind": 12, "data": "077fa57ff7fe1d1b"}
+{"time_ns": 1795080432496516800, "direction": "tx_request", "channel": 81, "can_id": 2047, "data": "0100cc0000000000"}
+{"time_ns": 1795080432498780600, "direction": "rx", "channel": 81, "can_id": 17, "kind": 12, "data": "017fce7ff7ff1c1a"}
+{"time_ns": 1795080432498780600, "direction": "tx_request", "channel": 81, "can_id": 2047, "data": "0200cc0000000000"}
+{"time_ns": 1795080432500504700, "direction": "rx", "channel": 81, "can_id": 18, "kind": 12, "data": "027fb87ff7ff1c1a"}
+{"time_ns": 1795080432500504700, "direction": "tx_request", "channel": 81, "can_id": 2047, "data": "0300cc0000000000"}
+{"time_ns": 1795080432502177300, "direction": "rx", "channel": 81, "can_id": 19, "kind": 12, "data": "037dd97ff8001d1b"}
+{"time_ns": 1795080432502177300, "direction": "tx_request", "channel": 81, "can_id": 2047, "data": "0400cc0000000000"}
+{"time_ns": 1795080432503770200, "direction": "rx", "channel": 81, "can_id": 20, "kind": 12, "data": "0480167ff7fe1c1b"}
+{"time_ns": 1795080432503770200, "direction": "tx_request", "channel": 81, "can_id": 2047, "data": "0500cc0000000000"}
+{"time_ns": 1795080432505345300, "direction": "rx", "channel": 81, "can_id": 21, "kind": 12, "data": "0581367ff7fe1e1a"}
+{"time_ns": 1795080432505345300, "direction": "tx_request", "channel": 81, "can_id": 2047, "data": "0600cc0000000000"}
+{"time_ns": 1795080432507106100, "direction": "rx", "channel": 81, "can_id": 22, "kind": 12, "data": "067f5b8007fe1e1b"}
+{"time_ns": 1795080432508129700, "direction": "tx_request", "channel": 81, "can_id": 2047, "data": "0700cc0000000000"}
+{"time_ns": 1795080432509869200, "direction": "rx", "channel": 81, "can_id": 23, "kind": 12, "data": "0780097ff8021c1b"}
+{"time_ns": 1795080432509869200, "direction": "tx_request", "channel": 82, "can_id": 2047, "data": "0100cc0000000000"}
+{"time_ns": 1795080432512047000, "direction": "rx", "channel": 82, "can_id": 17, "kind": 12, "data": "017e737ff7fe1c1a"}
+{"time_ns": 1795080432512047000, "direction": "tx_request", "channel": 82, "can_id": 2047, "data": "0200cc0000000000"}
+{"time_ns": 1795080432513920500, "direction": "rx", "channel": 82, "can_id": 18, "kind": 12, "data": "0280227ff7ff1c1b"}
+{"time_ns": 1795080432513920500, "direction": "tx_request", "channel": 82, "can_id": 2047, "data": "0300cc0000000000"}
+{"time_ns": 1795080432516745400, "direction": "rx", "channel": 82, "can_id": 19, "kind": 12, "data": "0382427fe8011d1a"}
+{"time_ns": 1795080432516745400, "direction": "tx_request", "channel": 82, "can_id": 2047, "data": "0400cc0000000000"}
+{"time_ns": 1795080432518943500, "direction": "rx", "channel": 82, "can_id": 20, "kind": 12, "data": "0483568008011c1b"}
+{"time_ns": 1795080432518943500, "direction": "tx_request", "channel": 82, "can_id": 2047, "data": "0500cc0000000000"}
+{"time_ns": 1795080432520795600, "direction": "rx", "channel": 82, "can_id": 21, "kind": 12, "data": "0580637ff7fe1e1b"}
+{"time_ns": 1795080432520795600, "direction": "tx_request", "channel": 82, "can_id": 2047, "data": "0600cc0000000000"}
+{"time_ns": 1795080432522882500, "direction": "rx", "channel": 82, "can_id": 22, "kind": 12, "data": "0680d27ff7fe1e1b"}
+{"time_ns": 1795080432522882500, "direction": "tx_request", "channel": 82, "can_id": 2047, "data": "0700cc0000000000"}
+{"time_ns": 1795080432524905300, "direction": "rx", "channel": 82, "can_id": 23, "kind": 12, "data": "077fa57ff7fe1d1b"}

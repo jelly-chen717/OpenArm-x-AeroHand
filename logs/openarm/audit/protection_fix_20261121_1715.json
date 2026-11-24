@@ -1,0 +1,62 @@
+{
+  "time": "2026-11-21T17:15:00+08:00",
+  "stage": "WEB08",
+  "request": "控制台只有 MIT 能全部使能，POS_VEL 不行；检查并实现。",
+  "git_head": "9e0424e",
+  "workspace_dirty": true,
+  "root_cause": [
+    "apps/openarm_monitor.py: Monitor._motion_supported 要求实机非 MIT 模式必须加载 --drive-profile。",
+    "apps/openarm_monitor_motion.py: MonitorTransport.__init__ 在 mode != MIT 且无 profile 时抛 DriverError。",
+    "monitor-ui/app.js: 显示“使能与运动需要现场运动协议配置”，禁用全部使能/预览/执行。"
+  ],
+  "changes": [
+    {
+      "file": "apps/openarm_monitor.py",
+      "change": "_motion_supported 只要求 drive_mode 已确定且无 mode_error；14 轴一致读回即可使能/预览/执行。"
+    },
+    {
+      "file": "apps/openarm_monitor_motion.py",
+      "change": "去掉非 MIT 缺 profile 的拒绝；新增 special_id()，使能/失能特殊帧默认基础电机 ID；POS_FORCE 电流比例缺省 0.1；profile 仅覆盖寻址与电流比例。"
+    },
+    {
+      "file": "monitor-ui/app.js",
+      "change": "删除“需要现场运动协议配置”提示分支。"
+    }
+  ],
+  "protocol_evidence": {
+    "reference": "resources/openarm_control_extract/openarm_can/src/openarm/damiao_motor/dm_motor_control.cpp",
+    "enable_disable": "create_enable_command / create_disable_command 发往 motor.get_send_can_id()，所有模式一致（基础 ID）。",
+    "posvel_target": "create_posvel_control_command 使用 get_send_can_id() + 0x100，<ff 位置 rad、正速度上限 rad/s。",
+    "vel_target": "get_send_can_id() + 0x200, <f 速度。",
+    "posforce_target": "get_send_can_id() + 0x300, <fHH 位置、速度×100、电流标幺×10000。"
+  },
+  "new_blocking_checks": [],
+  "removed_blocking_checks": [
+    "P20：实机非 MIT 模式缺少 --drive-profile 时禁用全部使能/预览/执行。"
+  ],
+  "tests": {
+    "command": "openarm/.venv/Scripts/python.exe -B -m pytest -q -p no:cacheprovider apps/test_openarm_monitor.py apps/test_openarm_driver.py apps/test_openarm_execution.py apps/test_openarm_execution_hardware.py apps/test_openarm_position_mode.py apps/test_openarm_dual_sequence.py apps/test_prepare_openarm_dual_sequence.py apps/test_openarm_sequence_dynamics.py apps/test_openarm_monitor_hands.py",
+    "passed": 175,
+    "failed": 0,
+    "seconds": 55.21,
+    "new_cases": [
+      "apps/test_openarm_monitor.py::test_pos_vel_enable_and_hold_without_drive_profile"
+    ]
+  },
+  "virtual_smoke": {
+    "server": "apps/openarm_monitor.py --mode virtual --port 18091 --log-directory %TEMP%\\openarm-web08-smoke",
+    "initial": "drive_mode=MIT can_enable_all=true motion_supported=true",
+    "after_switch": "drive_mode=POS_VEL can_enable_all=true can_prepare=true motion_supported=true",
+    "enabled": "state=HOLDING_TARGET enabled=14/14",
+    "stopped": "state=CANCELLED stop_confirmed=true enabled=0/14"
+  },
+  "hardware": {
+    "connected": false,
+    "actions": "未启动 8092、未打开 CAN、未使能实物电机、未写模式或 Flash。"
+  },
+  "next": [
+    "现场启动 8092 --mode hardware，确认 14 轴读回 POS_VEL。",
+    "全部使能后先做单臂小幅空中目标，核对逐帧指令、实测角与使能计数，再停止并确认失能回读。",
+    "若某轴对基础 ID 特殊帧无响应，按该轴固件用 --drive-profile 的 mode 覆盖，不修改默认。"
+  ]
+}

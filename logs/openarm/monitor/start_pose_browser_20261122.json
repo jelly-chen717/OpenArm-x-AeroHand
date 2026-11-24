@@ -1,0 +1,88 @@
+{
+  "date": "2026-11-22",
+  "mode": "virtual",
+  "origin": "http://127.0.0.1:18091/",
+  "button_order": ["0位", "回0—起始位", "起始位", "钢琴原始点"],
+  "zero_definition": "J1..J6 = 0 deg, J7 = +15 deg, both arms",
+  "right_start_pose_deg": {
+    "J1": -30, "J2": 0, "J3": 0, "J4": 120,
+    "J5": 0, "J6": 0, "J7": 15
+  },
+  "buttons": {
+    "zero": {
+      "label": "0位",
+      "endpoint": "/api/start/zero",
+      "duration_s": 3,
+      "final_deg": {
+        "left": [0, 0, 0, 0, 0, 0, 15],
+        "right": [0, 0, 0, 0, 0, 0, 15]
+      }
+    },
+    "full": {
+      "label": "回0—起始位",
+      "endpoint": "/api/start/return",
+      "duration_s": 12,
+      "steps": [
+        "0位: J1..J6 0, J7 +15",
+        "J1 +15, J2 -45, 3 s",
+        "J1 -30, J2 -45, J4 +90, 3 s",
+        "J1 -30, J2 0, J4 +120, 3 s (start pose)"
+      ],
+      "final_deg": {
+        "left": [-30, 0, 0, 120, 0, 0, 15],
+        "right": [-30, 0, 0, 120, 0, 0, 15]
+      }
+    },
+    "quick": {
+      "label": "起始位",
+      "endpoint": "/api/start/pose",
+      "duration_s": 3,
+      "final_deg": {
+        "left": [-30, 0, 0, 120, 0, 0, 15],
+        "right": [-30, 0, 0, 120, 0, 0, 15]
+      }
+    },
+    "original": {
+      "label": "钢琴原始点",
+      "endpoint": null,
+      "disabled": true,
+      "note": "Entry reserved only; motion definition pending."
+    }
+  },
+  "layout": {
+    "zero": {"x": 220.06, "y": 345, "w": 40.47, "h": 28},
+    "full": {"x": 266.53, "y": 345, "w": 88.47, "h": 28},
+    "quick": {"x": 361, "y": 345, "w": 58, "h": 28},
+    "original": {"x": 425, "y": 345, "w": 82, "h": 28},
+    "ik_mode": {"x": 518, "y": 346, "w": 90, "h": 26},
+    "all_left_of_ik": true
+  },
+  "browser": {
+    "page_errors": [],
+    "zero_completed": true,
+    "full_sequence_completed": true,
+    "quick_return_completed": true,
+    "original_disabled": true,
+    "stop_disabled_all_14": true,
+    "screenshot": "logs/openarm/monitor/start_pose_browser_20261122.png"
+  },
+  "offline_tests": {
+    "apps/test_openarm_monitor.py": "37 passed",
+    "zero_and_start_pose_subset": "4 passed"
+  },
+  "hardware": {
+    "connected": true,
+    "service": "8092",
+    "action": "The old instance still held the previous start pose. The existing hold was stopped, 14/14 axes were confirmed disabled, old processes were cleared, and 8092 was restarted with the new J1/J2/J4 recipe.",
+    "post_restart": {
+      "instance": "e1f54c5a",
+      "drive_mode": "POS_VEL",
+      "left_fresh": true,
+      "right_fresh": true,
+      "all_axes_disabled": true,
+      "start_zero_route": "present (409 while axes disabled, not 404)"
+    },
+    "motion_sent_after_restart": false,
+    "note": "Refresh the page and press 全部使能 before trying the new start pose. Verify J1 -30 / J2 0 / J4 +120 / J7 +15 on the physical arm before loaded playback."
+  }
+}

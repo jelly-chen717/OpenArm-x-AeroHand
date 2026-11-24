@@ -1,0 +1,2 @@
+cd 'D:\桌面\open CyMon\弹钢琴'
+& '.\monitor-ui\启动监视控制台.cmd' --mode hardware --left-channel 0x51 --right-channel 0x52

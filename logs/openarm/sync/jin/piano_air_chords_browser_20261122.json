@@ -1,0 +1,11 @@
+{
+  "mode": "virtual",
+  "chromium": "149.0.7827.55",
+  "anchor": "起位保持中 · 左小指 18／食指 22 · 右食指 24",
+  "preview": "CSV 仿真坐标 · 0.35× · 29 音 · 45.7 s · 峰值 9.06 °/s · 从保持的起位接续",
+  "first_attack": "0.11 s · 白键 左臂中指 20、左臂食指 22、右臂食指 24、右臂无名指 26",
+  "stop_confirmed": true,
+  "both_arms_disabled": true,
+  "hands_connected": false,
+  "page_errors": []
+}

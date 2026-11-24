@@ -43,23 +43,23 @@
     },
     "right": {
       "demo": false,
-      "port": "COM8",
+      "port": "COM7",
       "real": {
         "3": {
-          "home": "8",
-          "press": "30"
+          "home": "7.797",
+          "press": "13.015"
         },
         "4": {
-          "home": "0",
-          "press": "20"
+          "home": "3.020",
+          "press": "11.312"
         },
         "5": {
-          "home": "10",
-          "press": "35"
+          "home": "6.947",
+          "press": "14.744"
         },
         "6": {
-          "home": "15",
-          "press": "40"
+          "home": "14.635",
+          "press": "29.628"
         }
       },
       "simulation": {
@@ -72,8 +72,8 @@
           "press": "20"
         },
         "5": {
-          "home": "10",
-          "press": "35"
+          "home": "8.001",
+          "press": "20"
         },
         "6": {
           "home": "15",

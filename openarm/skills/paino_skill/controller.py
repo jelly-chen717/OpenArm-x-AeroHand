@@ -113,7 +113,16 @@ def create_server(port=8089, sim_port=8769, *, score_only=False):
                     asset_end = html.index("</script>", asset_start)
                     bundled = json.loads(html[asset_start:asset_end])
                     bundled["samples"] = {}
-                    html = html[:asset_start] + json.dumps(bundled, ensure_ascii=False) + html[asset_end:]
+                    songs = {song["name"]: song for song in bundled["songs"]}
+                    for path in music_files():
+                        try:
+                            if path.stat().st_size <= 512000:
+                                songs[path.stem] = {"name": path.stem, "text": path.read_text(encoding="utf-8-sig")}
+                        except (OSError, UnicodeError):
+                            continue  # Other songs remain available during a partial library update.
+                    bundled["songs"] = list(songs.values())
+                    assets = json.dumps(bundled, ensure_ascii=False).replace("<", "\\u003c")
+                    html = html[:asset_start] + assets + html[asset_end:]
                     bridge = (PIANO / "web/standalone-sim.js").read_text(encoding="utf-8")
                     module_end = html.rfind("</script>")
                     if module_end < 0 or '<script type="module">' not in html:
@@ -205,6 +214,9 @@ def create_server(port=8089, sim_port=8769, *, score_only=False):
                         if "rate" in request:
                             options["rate"] = request["rate"]
                         return self.reply(200, client.command("piano_score_start", **options))
+                    if action == "stop":
+                        return self.reply(200, client.command("piano_score_stop", token=request.get("token"),
+                            reason=request.get("reason", "user_stop")))
                     if action in ("pause", "resume"):
                         return self.reply(200, client.command("piano_score_" + action))
                     if action == "rate":

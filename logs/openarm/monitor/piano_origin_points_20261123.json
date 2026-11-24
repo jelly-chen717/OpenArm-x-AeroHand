@@ -1,0 +1,37 @@
+{
+  "csv_rows": 72,
+  "coordinates": "arm_origin",
+  "arms": {
+    "left": {
+      "solved": 20,
+      "physical_keys": [
+        1,
+        20
+      ],
+      "origin_fk_error_mm": 0.3540163170339263,
+      "max_ik_fk_error_mm": 0.00949935610786044
+    },
+    "right": {
+      "solved": 20,
+      "physical_keys": [
+        17,
+        36
+      ],
+      "origin_fk_error_mm": 0.23424836786525832,
+      "max_ik_fk_error_mm": 0.0014359572082919565
+    }
+  },
+  "chord_onsets": 347,
+  "original_notes": 1300,
+  "assigned_chords": 343,
+  "missing_at_score_s": [
+    8.0,
+    10.0,
+    300.0,
+    302.0
+  ],
+  "first_wrist_distance_mm": 2.267156809750917,
+  "csv_sha256": "f8aaf99b0613950199a423c77ca385636052b89ae2298d83200e322c59e6a7ea",
+  "xlsx_sha256": "d46c0438e5a18c47a9857d1246eeb74f5476d650f3f37e056caa3dad2fc2776c",
+  "score_sha256": "ec899d101644cb6ce32865ade277eaf1152d1b6a95ea047151810d5375a08e0e"
+}

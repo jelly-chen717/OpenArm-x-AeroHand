@@ -12,7 +12,7 @@ import math
 import time
 
 from openarm_driver import DriverError, OpenArmDriver, encode_mit
-from openarm_joint_mapping import finite
+from openarm_joint_mapping import LIMIT_TOLERANCE, finite
 
 WARN_INTERVAL = 2.  # Seconds between repeats of the same advisory.
 
@@ -186,9 +186,10 @@ class PcanTransport:
             self._note('travel', f'{key[0]} J{key[1]} 相对起点 {state.position_rad-self.origins[key]:+.4f} rad，'
                                  f'阈值 {settings["max_travel"]:.4f}', key)
         mapping = self.mappings[key]
-        if not mapping.limits[0] <= mapping.to_model(state.position_rad) <= mapping.limits[1]:
+        q = mapping.to_model(state.position_rad)
+        if not mapping.limits[0] - LIMIT_TOLERANCE <= q <= mapping.limits[1] + LIMIT_TOLERANCE:
             clean = False
-            self._note('limit', f'{key[0]} J{key[1]} 反馈 {mapping.to_model(state.position_rad):+.4f} rad 超出模型限位', key)
+            self._note('limit', f'{key[0]} J{key[1]} 反馈 {q:+.4f} rad 超出模型限位', key)
         return clean
 
     def read(self, keys):

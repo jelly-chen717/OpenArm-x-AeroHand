@@ -191,6 +191,12 @@ class AeroTransport:
         if time.monotonic() - self.last["time"] > 1.0:
             self.fault = True
             raise OSError("反馈超过 1 秒未更新；停止发送")
+        self.write_position_frame(raw)
+
+    def write_position_frame(self, raw):
+        """Write one position packet using the transport's existing connection."""
+        if not self.connected or self.fault or self.last is None:
+            raise OSError("当前连接不可执行")
         if len(raw) != 7 or any(type(v) is not int or not 0 <= v <= 65535 for v in raw):
             raise ValueError("无效驱动目标")
         try:

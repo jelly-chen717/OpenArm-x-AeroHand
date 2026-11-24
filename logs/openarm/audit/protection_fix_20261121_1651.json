@@ -1,0 +1,94 @@
+{
+  "time": "2026-11-21T16:51:01+08:00",
+  "kind": "protection_fix",
+  "git_head": "9e0424e",
+  "workspace_dirty": true,
+  "authorized_request": "用户指令“执行修改”，范围为本审计提出的 U1 与 P12-adj 两项最小修复。",
+  "changes": [
+    {
+      "id": "U1",
+      "title": "14 轴一致读回时自动解除模式故障闩锁",
+      "file": "apps/openarm_monitor.py",
+      "line": "480-486",
+      "before": "mode_error 置位后，即使 14 轴反馈正常、读回全部 MIT，can_enable_all/can_prepare 仍为 False；必须重新切换模式（且要求 14 轴静止失能）才恢复。",
+      "after": "14 轴 CTRL_MODE 读回一致时恢复 drive_mode 并清 mode_error，使能/预览自动恢复；读回不一致或读回失败仍保持禁用。",
+      "tests": ["apps/test_openarm_monitor.py:456 test_mode_failure_restores_writes_and_recovers_uniform_readback"]
+    },
+    {
+      "id": "P12-adj",
+      "title": "非 MIT 目标帧超协议量程改为饱和",
+      "file": "apps/openarm_monitor_modes.py",
+      "line": "15-31",
+      "before": "POS_VEL 速度超 VMAX、POS_FORCE 速度/电流编码超范围时 raise ValueError；运动中途触发会 FAULT。",
+      "after": "POS_VEL 速度削到电机协议 VMAX（保留 1e-12 余量防止浮点回读越界）；POS_FORCE 速度码与电流码削到 1–10000；关节位置超限仍由 K01/编码检查拒绝。",
+      "tests": ["apps/test_openarm_position_mode.py:33 test_position_frames_saturate_speed_and_current_at_protocol_limits"]
+    },
+    {
+      "id": "P12-adj-note",
+      "title": "非 MIT 饱和记录提示",
+      "file": "apps/openarm_monitor_motion.py",
+      "line": "302-313",
+      "before": "饱和/拒绝无提示。",
+      "after": "请求速度超过协议上限时调用 _note('protocol_range', ...)，由既有 warn/journal 路径记录，不中断执行。",
+      "tests": []
+    },
+    {
+      "id": "TEST-deadline",
+      "title": "既有 deadline 用例稳定化（仅测试）",
+      "file": "apps/test_openarm_execution.py",
+      "line": "125-142",
+      "before": "用例依赖 threading.Event.wait 的过冲来制造迟到循环；当前计时精度下 6/6 失败，WEB06 已记录同名失败。",
+      "after": "tracking 用例不变；deadline 用例传入 LateWait，强制一次超过 max_lateness 的等待，稳定触发 advisory/deadline。生产 execute 未改。",
+      "tests": ["apps/test_openarm_execution.py::test_tracking_and_lateness_are_advisory 连跑 3 次均 2 passed"]
+    }
+  ],
+  "tests": {
+    "command": ".\\openarm\\.venv\\Scripts\\python.exe -B -m pytest -q -p no:cacheprovider apps/test_openarm_monitor.py apps/test_openarm_driver.py apps/test_openarm_execution.py apps/test_openarm_execution_hardware.py apps/test_openarm_position_mode.py apps/test_openarm_dual_sequence.py apps/test_prepare_openarm_dual_sequence.py apps/test_openarm_sequence_dynamics.py",
+    "passed": 172,
+    "failed": 0,
+    "skipped": 0,
+    "duration_s": 99.36,
+    "stabilization": {
+      "test": "apps/test_openarm_execution.py::test_tracking_and_lateness_are_advisory[deadline]",
+      "issue": "既有用例依赖 Event.wait 过冲；当前计时精度下单测 6/6 失败，首轮全量曾 172 passed。",
+      "change": "仅测试内加入 LateWait 强制迟到循环；生产 apps/drive_openarm_from_sim.py 未改。",
+      "result": "单测连跑 3 次均 2 passed；最终 8 文件 172 passed。"
+    },
+    "rerun": {
+      "passed": 171,
+      "failed": 1,
+      "skipped": 0,
+      "duration_s": 130.15,
+      "failed_names": [
+        "apps/test_openarm_execution.py::test_tracking_and_lateness_are_advisory[deadline]"
+      ],
+      "note": "该次复跑发生在测试稳定化前：既有用例依赖计时过冲；apps/drive_openarm_from_sim.py 未改；随后以 TEST-deadline 稳定化，最终 172 passed。"
+    },
+    "additional": {
+      "file": "apps/test_openarm_monitor_hands.py",
+      "passed": 2,
+      "failed": 0,
+      "duration_s": 0.84,
+      "note": "并行工作流新增的 hands 测试单独运行通过；本次修复未修改 hands 代码。"
+    }
+  },
+  "boundaries": [
+    "未启动 8092/8091，未连接实机，未读写 CAN，未使能、未运动、未写模式。",
+    "仅离线 pytest 与静态检查；POS_VEL/POS_FORCE 的实机饱和行为仍需现场窗口验收。"
+  ],
+  "concurrent_changes": [
+    "修复期间工作区出现并行 hands 功能改动：新增 apps/openarm_monitor_hands.py、apps/test_openarm_monitor_hands.py，并修改 openarm_monitor.py 的 hands 接线、monitor-ui/index.html、style.css、openarm/tools/aero_piano_test/core.py。",
+    "本次只对 openarm_monitor.py 的 _idle_feedback 做窄改，未触碰 hands 相关行；hands 测试 2 passed。",
+    "下一次完整防护审计应把 hands 路径纳入范围。"
+  ],
+  "docs_updated": [
+    "monitor-ui/README.md：补充 POS_VEL/POS_FORCE 超协议量程按上限发送并记录提示。",
+    "docs/project/OpenArm控制台防护项清单_20261119.md：§3 增加非 MIT 位置模式饱和说明。",
+    "docs/project/OpenArm防护删除_审计记录.md：追加 2026-11-21 16:51 修复行，历史行未改。"
+  ],
+  "notes": [
+    "U1 修复未改变模式一致性检查：混合模式、固件读回失败、读回无效仍禁用运动。",
+    "P12-adj 修复未改变 openarm_position_mode.encode_target 的配置校验路径，配置/CLI 仍拒绝非法值；饱和只发生在网页非 MIT 运动帧。",
+    "P01～P19 未新增任何拒绝执行、FAULT、退出、自动失能或取消保持的检查；本次为放行方向修改。"
+  ]
+}

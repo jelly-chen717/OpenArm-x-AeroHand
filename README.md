@@ -1,21 +1,24 @@
-当前仿真统一在 `openarm/`，原始备份为 `backups/OpenArm-original-20261115.zip`。
-
-- [关节详细资料](关节详细资料.md)：双臂 14 轴统一正方向、位置范围、官方力矩/速度、软件时序及逐轴运动保护。2026-11-16 起采用新逻辑坐标；旧轨迹需转换，运行中的服务需重启加载。
-
-- 双臂调试使用 `launchers/Start-OpenArm-Sim.cmd`。
-- 钢琴演奏使用 `launchers/Start-OpenArm-Piano.cmd`。
-- [合并核对与验证结果](docs/guides/仿真统一核对.md)。
-
-OpenArm 统一调试入口：`launchers/Start-OpenArm-Debug.cmd`；[控制资料与调试指南](openarm/调试指南.md)。
-
 # 项目工作区导航
+
+## 双击启动
+
+| 根目录入口 | 启动后 |
+| --- | --- |
+| [01-实机控制台.cmd](01-实机控制台.cmd) | 打开 [8092 控制台](http://127.0.0.1:8092/)，自动连接左臂 `0x51`、右臂 `0x52` 并读取反馈。再次双击会打开现有实机会话。使能由操作员在网页上选择。 |
+| [02-钢琴弹奏+MuJoCo.cmd](02-钢琴弹奏+MuJoCo.cmd) | 启动 MuJoCo 钢琴场景，自动打开 [8090 演奏网页](http://127.0.0.1:8090/)，可导入 TXT。演奏服务和配套仿真已运行时会打开现有演奏页。 |
+| [03-Aero Hand 调试.cmd](<03-Aero Hand 调试.cmd>) | 打开 Aero Hand 官方上位机。在列表中选手部实际 COM 口，再点 Connect。 |
+
+旧调试菜单和专用维护脚本位于 `launchers/`。根目录的 `piano_standalone.html` 是 8090 演奏网页加载的前端文件。
 
 Windows OpenArm 实机 CAN FD 接入使用 `apps/openarm_driver.py`，状态检查入口为 `launchers/Check-OpenArm.cmd`，配置和 API 见 [OpenArm驱动使用说明](docs/guides/OpenArm驱动使用说明.md)。
 
 当前统一状态见 [项目总进度](docs/project/项目总进度.md)，交接文档见 [文档索引](openarm/交接文档索引.md)，目录整理见 [工作区整理记录](docs/project/工作区整理记录.md)。
 
-- 负责人交接工程位于 `openarm/`，包含 V1 双臂、88 键、TXT 演奏与独立手指测试工具。环境状态详见各模块维护文档。
-- 目录分级为 `launchers/` 启动入口、`apps/` 应用、`docs/` 文档与截图，仿真与 MIDI 按模块维护。
+- 实琴为 **C2–C7（61 键）**，白键中心距 22.5 mm。左手食指原位 **B3（实琴白键 14）**，右手食指原位 **C4（实琴白键 15）**。[实琴编号与标定表](monitor-ui/README.md#实琴琴键与食指原位) · [最终点表与原始资料归档](backups/20261124_钢琴白键最终资料.zip)
+- 8092 的「运动控制」提供钢琴原位、左右食指逐键定位和《槿》双手分指预览。原位与单臂邻键已通过虚拟控制台验证，实琴对中待验。[控制台操作](monitor-ui/README.md#双臂快捷定位) · [实琴点位与验收记录](docs/project/仿真与实机联通_两日实施计划.md#piano-adjacent-origin)
+- 8090 仿真选歌页搜索「实琴分手」可打开《槿》的主旋律、纯和弦和副歌纯旋律。左手弹 C2–B3，右手弹 C4–C7。从相邻原位回放，三份谱的 1,815 音均与谱面对应。从仿真默认姿态入位时，准备段右小指会额外碰响 E4。[现行曲谱与起姿对照](docs/project/仿真与实机联通_两日实施计划.md#jin-score-library)
+- 负责人交接工程位于 `openarm/`，包含 V1 双臂、A0–C8 的 88 键 MuJoCo 仿真、TXT 演奏与独立手指测试工具。
+- 仿真位于 `openarm/`，原始备份为 `backups/OpenArm-original-20261115.zip`。双臂 14 轴从 2026-11-16 起采用统一逻辑坐标，旧轨迹需转换，运行中的服务需重启加载。[关节详细资料](关节详细资料.md) · [仿真合并验证](docs/guides/仿真统一核对.md) · [控制资料与调试指南](openarm/调试指南.md)
 
 以下为原固定手位与 MIDI 工程说明。
 
@@ -27,9 +30,8 @@ Windows OpenArm 实机 CAN FD 接入使用 `apps/openarm_driver.py`，状态检�
 
 新增 `midi文件/七音双琴位离线预览.cmd`：四指 A/B 两琴位计划预览、动作时间表导出和可停止的实时模拟。使用与实验室标定表见 `midi文件/七音双琴位使用与标定.md`。换位耗时为模拟假设，真实机械臂运行仍阻断。
 
-## 日常使用
+## 固定琴位与 MIDI 实验
 
-- 官方机械手调试：`launchers/Start-Aero-Hand.cmd`。
 - 四指固定循环：`midi文件/四指do rei mi fa.cmd`，默认三轮。
 - 七音 MIDI 模拟：`midi文件/midi_piano/Start-MIDI.cmd`。真实机械臂尚未接入，实物运行仍阻止。
 
@@ -50,7 +52,7 @@ Windows OpenArm 实机 CAN FD 接入使用 `apps/openarm_driver.py`，状态检�
 
 | 目录 | 内容 |
 | --- | --- |
-| `launchers/` | 官方手调试、固定手位弹奏与V2查看器启动脚本 |
+| `launchers/` | 旧调试菜单、状态检查和各模块启动脚本 |
 | `apps/fixed_position/` | 固定手位程序、配置与测试 |
 | `docs/project/` | 总进度、计划日志与整理记录 |
 | `docs/guides/` | 操作说明 |

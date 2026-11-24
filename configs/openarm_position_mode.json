@@ -3,6 +3,7 @@
   "mapping_version": "hardware-unified-forward-inward-v2-20261116",
   "target_control_mode": "POS_VEL",
   "ctrl_mode": 2,
+  "monitor_inventory": "../logs/openarm/mode_switch/20261119_171446/inventory.json",
   "arms": {
     "left": {
       "channel": 81,

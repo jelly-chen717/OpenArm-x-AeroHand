@@ -1,0 +1,49 @@
+{
+  "stayed_running_after_failures": true,
+  "explicit_stop": {
+    "status": "STOPPED",
+    "error": null,
+    "stop_reason": "user_stop",
+    "elapsed_us": 4531000,
+    "rate": 1,
+    "duration_us": 312000000,
+    "action_index": 4,
+    "line": 17,
+    "moving": [],
+    "indices": {
+      "left": 19,
+      "right": 24
+    },
+    "held": [],
+    "lateness_limit_us": 50000,
+    "max_tick_gap_us": 31000,
+    "max_lateness_us": 0
+  },
+  "close_before": "RUNNING",
+  "close_after": {
+    "status": "STOPPED",
+    "error": null,
+    "stop_reason": "page_closed",
+    "elapsed_us": 141000,
+    "rate": 1,
+    "duration_us": 312000000,
+    "action_index": 2,
+    "line": 11,
+    "moving": [],
+    "indices": {
+      "left": 19,
+      "right": 29
+    },
+    "held": [],
+    "lateness_limit_us": 50000,
+    "max_tick_gap_us": 16000,
+    "max_lateness_us": 0
+  },
+  "stop_requests": [
+    {
+      "page": "owner",
+      "path": "/api/score"
+    }
+  ],
+  "page_errors": []
+}

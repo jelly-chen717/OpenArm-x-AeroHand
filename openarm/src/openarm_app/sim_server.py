@@ -149,6 +149,10 @@ class ArmServerState:
         if not isinstance(request, dict):
             raise ValueError("Request must be an object")
         action = request.get("action")
+        if action == "piano_score_stop":
+            if not self.score:
+                raise ValueError("请启动钢琴仿真场景")
+            return {"stopped": self.score.stop_if_current(request.get("token"), request.get("reason", "user_stop"))}
         if self.score and self.score.active:
             if action == "stop":
                 self.score.stop()

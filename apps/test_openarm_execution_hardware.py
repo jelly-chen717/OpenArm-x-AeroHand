@@ -136,14 +136,14 @@ def test_partial_failures_disable_before_close(transport,fault):
     assert bus.stop_records[-1]['confirmed']
 
 
-def test_stale_feedback_and_travel_rejected(transport):
+def test_stale_feedback_and_travel_are_advisory(transport):
     version,mappings,bus = transport
     with bus:
         state = bus.states['right',7]
-        with pytest.raises(DriverError,match='stale'):
-            bus.check(('right',7),replace(state,received_at=time.monotonic()-1),expected_state=0)
-        with pytest.raises(DriverError,match='Travel'):
-            bus.check(('right',7),replace(state,position_rad=.2),expected_state=0)
+        assert bus.check(('right',7),replace(state,received_at=time.monotonic()-1),
+                         expected_state=0) is False
+        assert bus.check(('right',7),replace(state,position_rad=.2),expected_state=0) is False
+        assert {'stale','travel'} <= {row['kind'] for row in bus.notes}
 
 
 def test_unconfirmed_stop_keeps_fault_visible(transport):
@@ -241,21 +241,31 @@ def test_multijoint_partial_failure_stops_every_attempted_axis(multi_transport, 
     assert all(not arm.enabled_ids and arm.closed for arm in MultiJointDriver.instances)
 
 
-def test_multijoint_validates_entire_command_before_send(multi_transport):
+def test_nonfinite_feedback_is_a_note(transport):
+    _, _, bus = transport
+    with bus:
+        state = bus.states['right', 7]
+        assert bus.check(('right', 7), replace(state, torque_nm=math.nan),
+                         expected_state=0) is False
+        assert 'nonfinite' in {row['kind'] for row in bus.notes}
+
+
+def test_multijoint_command_no_longer_prevalidates_travel(multi_transport):
     _, _, bus = multi_transport
     with bus:
         bus.enable()
-        with pytest.raises(DriverError, match='protection'):
-            bus.command({('right', 6): (.01, 0), ('right', 7): (.05, 0)})
-        assert bus.arms['right'].commands == []
+        bus.command({('right', 6): (.01, 0), ('right', 7): (.05, 0)})
+        assert bus.arms['right'].commands == [6, 7]
+        assert 'travel' in {row['kind'] for row in bus.notes}
 
 
-def test_multijoint_per_axis_feedback_limits(multi_transport):
+def test_multijoint_per_axis_feedback_limits_are_notes(multi_transport):
     _, _, bus = multi_transport
     with bus:
         bus.joint_settings['right', 6]['max_torque'] = .1
-        with pytest.raises(DriverError, match='torque'):
-            bus.check(('right', 6), replace(bus.states['right', 6], torque_nm=.2), expected_state=0)
+        assert bus.check(('right', 6), replace(bus.states['right', 6], torque_nm=.2),
+                         expected_state=0) is False
+        assert 'speed_torque' in {row['kind'] for row in bus.notes}
         with pytest.raises(ValueError, match='all gain'):
             PcanTransport(bus.mappings, bus.keys, bus.channels,
                           joint_settings={key: dict(kp=20.) for key in bus.keys})
@@ -313,7 +323,7 @@ def test_multijoint_cli_entry(multi_transport, tmp_path, monkeypatch, action, pr
     (1, 100, 20), (2, 100, 20), (3, 36, 9), (4, 36, 9),
     (5, 120, 3), (6, 120, 3), (7, 120, 3),
 ])
-def test_rated_limits_allow_ratings_and_reject_excess_on_every_axis(side, motor_id, rpm, torque):
+def test_rated_limits_are_reported_not_enforced(side, motor_id, rpm, torque):
     FakeDriver.fail_enable = FakeDriver.fail_command = FakeDriver.fail_disable = False
     _, mappings = load_mapping(ROOT/'configs/openarm_joint_mapping.json', hardware=True)
     key = side, motor_id
@@ -323,27 +333,23 @@ def test_rated_limits_allow_ratings_and_reject_excess_on_every_axis(side, motor_
         assert bus.joint_settings[key]['max_speed'] == pytest.approx(speed)
         assert bus.joint_settings[key]['max_torque'] == torque
         state = bus.states[key]
-        # Above the old 0.3 rad/s and 1/2 Nm limits, up to the rating, is accepted.
-        bus.check(key, replace(state, velocity_rad_s=speed, torque_nm=torque), expected_state=0)
-        bus.check(key, replace(state, velocity_rad_s=-speed, torque_nm=-torque), expected_state=0)
+        assert bus.check(key, replace(state, velocity_rad_s=speed, torque_nm=torque),
+                         expected_state=0) is True
+        assert bus.check(key, replace(state, velocity_rad_s=-speed, torque_nm=-torque),
+                         expected_state=0) is True
         for field, value in [('velocity_rad_s', speed * 1.001), ('torque_nm', torque * 1.001)]:
-            with pytest.raises(DriverError, match='speed or torque'):
-                bus.check(key, replace(state, **{field: value}), expected_state=0)
-        with pytest.raises(DriverError, match='Temperature'):
-            bus.check(key, replace(state, mos_c=50), expected_state=0)
-        # The interpolant's peak, not just average speed, must fit the rating.
+            assert bus.check(key, replace(state, **{field: value}), expected_state=0) is False
+        assert 'speed_torque' in {row['kind'] for row in bus.notes}
+        assert bus.check(key, replace(state, mos_c=50), expected_state=0) is False
+        assert 'temperature' in {row['kind'] for row in bus.notes}
+        # The trajectory validator only checks joint identity now; no velocity cap.
         for ratio in (.99, 1.01):
             trajectory = Trajectory('rated', (key,), ((0., (0.,)),
                 (1.875 * .01 / (speed * ratio), (.01,))), time.time()+10)
-            if ratio < 1:
-                bus.validate_trajectory(trajectory)
-            else:
-                with pytest.raises(ValueError, match='velocity'):
-                    bus.validate_trajectory(trajectory)
+            bus.validate_trajectory(trajectory)
         bus.enable()
         bus.command({key: (0., speed)})
-        with pytest.raises(DriverError, match='protection'):
-            bus.command({key: (0., speed * 1.001)})
+        bus.command({key: (0., speed * 1.001)})
         assert bus.stop()
 
 
@@ -421,29 +427,19 @@ def test_batch_sends_all_pairs_before_queries_and_records_host_timings(batch_tra
         json.dumps(record, allow_nan=False)
 
 
-@pytest.mark.parametrize('problem', ['target', 'stale', 'disabled', 'mode'])
-def test_batch_checks_entire_batch_before_first_send(batch_transport, problem):
+def test_batch_sends_all_pairs_even_with_bad_feedback(batch_transport):
     with batch_transport as bus:
         bus.enable()
         BatchDriver.events.clear()
+        BatchDriver.bad_feedback_key = bus.keys[0]
         targets = {key: (.01, 0.) for key in bus.keys}
-        key = bus.keys[-1]
-        if problem == 'target':
-            targets[key] = (.5, 0.)
-        elif problem == 'stale':
-            # Within max_age=.15 but outside the driver's timeout=.1.
-            bus.states[key] = replace(bus.states[key], received_at=time.monotonic()-.12)
-        elif problem == 'disabled':
-            bus.states[key] = replace(bus.states[key], state=0)
-        else:
-            bus.verified_mode_keys.remove(key)
-        with pytest.raises(DriverError):
-            bus.command(targets)
-        assert BatchDriver.events == []
+        bus.command(targets)
+        assert BatchDriver.events == ([('send', key) for key in bus.keys]
+                                      + [('query', key) for key in bus.keys])
+        assert 'speed_torque' in {row['kind'] for row in bus.notes}
 
 
-@pytest.mark.parametrize('fault', ['feedback', 'send'])
-def test_batch_failure_execute_cleanup_disables_every_attempted_axis(batch_transport, fault):
+def test_batch_send_failure_execute_cleanup_disables_every_attempted_axis(batch_transport):
     with batch_transport as bus:
         trajectory = Trajectory('batch-fault', bus.keys,
                                 ((0., (0.,)*14), (.2, (.01,)*14)), time.time()+10)
@@ -451,10 +447,7 @@ def test_batch_failure_execute_cleanup_disables_every_attempted_axis(batch_trans
 
         def enable_then_inject():
             original_enable()
-            if fault == 'feedback':
-                BatchDriver.bad_feedback_key = bus.keys[0]
-            else:
-                BatchDriver.send_failure_key = bus.keys[3]
+            BatchDriver.send_failure_key = bus.keys[3]
 
         bus.enable = enable_then_inject
         with pytest.raises(DriverError):
@@ -462,4 +455,21 @@ def test_batch_failure_execute_cleanup_disables_every_attempted_axis(batch_trans
         assert not bus.attempted
         assert len([r for r in bus.stop_records if r['confirmed']]) == 14
         assert bus.last_dispatch['complete'] is False
+        assert all(not arm.enabled_ids for arm in bus.arms.values())
+
+
+def test_batch_bad_feedback_is_advisory_and_execution_completes(batch_transport):
+    with batch_transport as bus:
+        trajectory = Trajectory('batch-note', bus.keys,
+                                ((0., (0.,)*14), (.2, (.01,)*14)), time.time()+10)
+        original_enable = bus.enable
+
+        def enable_then_inject():
+            original_enable()
+            BatchDriver.bad_feedback_key = bus.keys[0]
+
+        bus.enable = enable_then_inject
+        assert execute(trajectory, bus.mappings, bus, lambda row: None, period=.01) == 'COMPLETED'
+        assert 'speed_torque' in {row['kind'] for row in bus.notes}
+        assert bus.last_dispatch['complete'] is True
         assert all(not arm.enabled_ids for arm in bus.arms.values())

@@ -1,0 +1,112 @@
+{
+  "time": "2026-11-23T21:12:00+08:00",
+  "auditor": "只读合规审计（未修改代码/测试/配置/文档，未启动 8092，未连接 CAN）",
+  "git_head": "9e0424e9a49d3130e1a0eb77ebdf862b8f4749a7",
+  "workspace_dirty": true,
+  "dirty_detail": "51 modified / 78 untracked / 1 deleted（git status --porcelain = 130 项）",
+  "overall": "UNKNOWN",
+  "overall_reason": "P01～P20 无回归、第一原则完整，测试 197 passed；但有 4 项新增/边界阻断不在 P/K 明文内，需用户裁决（起始位要求 14 轴已使能、试弹要求手部会话、start_pose 模式回读、接续执行反馈完整性）。",
+  "first_principle_intact": true,
+  "first_principle_evidence": "AGENTS.md:3-19 完整保留六条：默认放行、永久禁止重新引入的运动阈值清单、新增阻断需当次授权、P/K 边界、现场变化只按用户指示调整、适用范围。git diff 显示该节为本次新增（HEAD 无第一原则），未被弱化或加入未授权例外。",
+  "p_items": {
+    "P01": {"verdict": "PASS", "evidence": "apps/openarm_monitor_motion.py:285-291 逐段取 velocity=max(velocity,1.875*peak/span)、acceleration=max(acceleration,(10/sqrt3)*peak/span^2)，不再用 min 压回百分比或按 1 rad/s² 抛错"},
+    "P02": {"verdict": "PASS", "evidence": "apps/openarm_monitor_motion.py:187-233 prepare / :265-304 _validate 只做格式、限位与轨迹生成，无模型接触或碰撞扫描调用"},
+    "P03": {"verdict": "PASS", "evidence": "apps/openarm_monitor_motion.py:245-251 revalidate 以 current|hold_targets 重建轨迹；:268 start=current|hold_targets，无“起始姿态已变化”拒绝"},
+    "P04": {"verdict": "PASS", "evidence": "apps/openarm_monitor.py:723-727 execute(..., max_error=None)；apps/drive_openarm_from_sim.py:123-124 仅 advisory/tracking_error"},
+    "P05": {"verdict": "PASS", "evidence": "apps/drive_openarm_from_sim.py:131-138 waypoint/endpoint_gap advisory；:142-146 仍进入 HOLDING_TARGET"},
+    "P06": {"verdict": "PASS", "evidence": "apps/drive_openarm_from_sim.py:104-105、114-115 deadline/cycle 仅 advisory"},
+    "P07": {"verdict": "PASS", "evidence": "apps/drive_openarm_from_sim.py:83-84 仅使能前过期拒绝；:106-107 运行中 expired 记 advisory 后继续"},
+    "P08": {"verdict": "PASS", "evidence": "apps/openarm_execution.py:156-193 check() 全部改为 _note，非有限/age/state/温度/速度力矩/行程/限位均 notes 并返回 False，无 raise"},
+    "P09": {"verdict": "PASS", "evidence": "apps/openarm_monitor_motion.py:455-456 MonitorTransport.enable 只传 cancel（无 check_start）；apps/openarm_execution.py:227-242 command 无发送前整批行程拒绝"},
+    "P10": {"verdict": "PASS", "evidence": "apps/openarm_driver.py:309-326 enable_motor 直接“保持角→使能→保持角”，不读 CTRL_MODE、不要求 DISABLED、超时不自动失能"},
+    "P11": {"verdict": "PASS", "evidence": "apps/openarm_driver.py:343-352 command_mit 直接编码发送后查询反馈，无新鲜度/使能前置、无自动失能"},
+    "P12": {"verdict": "PASS", "evidence": "apps/openarm_driver.py:180-196 encode_mit 对位置/速度/kp/kd/力矩按协议端点饱和，非有限取下限，不抛 ValueError"},
+    "P13": {"verdict": "PASS", "evidence": "apps/openarm_monitor.py:236-240 _idle 不要求 disabled/静止；:513-531 enable_all 只要求 motion_supported + idle（14 轴反馈齐全）"},
+    "P14": {"verdict": "PASS", "evidence": "apps/openarm_monitor.py:696-698 endpoint_tolerance 仅记录、max_tracking_error_rad=None；:725 max_error=None"},
+    "P15": {"verdict": "PASS", "evidence": "apps/openarm_monitor_motion.py:432-437 _sample 直接取实测姿态，注释与实现均无静止/新鲜度拒绝"},
+    "P16": {"verdict": "PASS", "evidence": "apps/openarm_monitor_motion.py:499-510 非指令轴状态/偏移改为 _note('passive')，不中断"},
+    "P17": {"verdict": "PASS", "evidence": "apps/drive_openarm_from_sim.py:334-345 stage_timeout 记录后 forced 完成本阶段；:311-313 hold_tolerance_exceeded 仅记录"},
+    "P18": {"verdict": "PASS", "evidence": "apps/openarm_monitor_motion.py:34-36 常量注释为“只用于行程余量与记录”；:413-414 用于 max_travel；:450-451 用于接续行程；无拒绝分支"},
+    "P19": {"verdict": "PASS", "evidence": "全局无 PREVIEW_TTL/expires_in_s/expiresAt；apps/openarm_monitor_motion.py:293-294 expires_at=now+duration+10 为单次执行窗口；monitor-ui/app.js 无“60 秒/预览已过期”文案"},
+    "P20": {"verdict": "PASS", "evidence": "apps/openarm_monitor.py:257-263 _motion_supported 只要求 drive_mode 且无 mode_error；apps/openarm_monitor_motion.py:425 POS_FORCE 缺省电流 0.1、:458-466 special_id 默认基础 ID、:468-479 超协议速度记 protocol_range；apps/openarm_monitor_modes.py:16-32 速度/电流按端点饱和"}
+  },
+  "authorized_fixes_state": {
+    "U1": {"verdict": "PASS", "evidence": "apps/openarm_monitor.py:620-626 14 轴一致读回时 drive_mode 复原并清 mode_error；混合模式/读回无效/固件不符仍在 :613-617、openarm_monitor_modes.py:64-70 拒绝；测试 apps/test_openarm_monitor.py:860-874 存在"},
+    "P12-adj": {"verdict": "PASS", "evidence": "apps/openarm_monitor_modes.py:16-32 position_frame 先按协议端点饱和再编码；apps/openarm_monitor_motion.py:475-479 记 protocol_range；apps/openarm_position_mode.py:56-68 的 raise 仍服务限位与协议编码，网页路径已被上游饱和，不可达"},
+    "P20-fix": {"verdict": "PASS", "evidence": "见 P20 行；apps/test_openarm_monitor.py:752 test_pos_vel_enable_and_hold_without_drive_profile 存在"},
+    "deadline_test_stability": {"verdict": "PASS", "evidence": "仅测试改动（apps/test_openarm_execution.py:125-147 LateWait），生产 execute 未改"}
+  },
+  "new_blocking_checks": [
+    {
+      "id": "C1",
+      "file": "apps/openarm_monitor.py:265-279, 294-299",
+      "behavior": "POST /api/start/{zero,return,pose,piano-origin} 要求 14 轴全部 state==1、反馈新鲜无 reason，且同一客户端处于空闲或自身 HOLDING_TARGET；否则 Conflict“请先全部使能 14 轴并等待反馈就绪”。",
+      "class": "UNKNOWN",
+      "fails_motion": true,
+      "needs_user_decision": true,
+      "evidence": "apps/test_openarm_monitor.py:877-892 显式断言未使能时 start_pose_motion 抛 Conflict；monitor-ui/index.html:77-79 文案“需先全部使能”。正常“全部使能→起始位”流程未被挡住（使能后 can_start_pose=true）；但页面刷新后新客户端令牌在保持期间无法直接执行起始位，需先停止。"
+    },
+    {
+      "id": "C2",
+      "file": "apps/openarm_monitor.py:439-446; apps/openarm_monitor_hands.py:65-102, 111-188",
+      "behavior": "piano-trial 执行前要求右手（含左手的双手分指）已连接、会话匹配、按下/抬起位已标定，否则 schedule_score 抛 ValueError → /api/execute 400；手部运行中故障只写入 hand.fault 与 score.message 并抬起手指，不使机械臂 FAULT、不失能、不取消保持。",
+      "class": "UNKNOWN",
+      "fails_motion": true,
+      "needs_user_decision": true,
+      "evidence": "openarm_monitor_hands.py 无任何机械臂驱动调用；apps/openarm_monitor.py:769-770 仅 arm 自身异常才 FAULT；monitor-ui/app.js:213-214 在手未连接时禁用执行。"
+    },
+    {
+      "id": "C3",
+      "file": "apps/openarm_monitor_motion.py:439-443",
+      "behavior": "加载盘点/协议配置时，运动起点采样前逐轴复核实际 CTRL_MODE，不一致即 DriverError“14 轴实际模式与控制台选择不一致”，本次运动不执行。",
+      "class": "K07/K08 边界（模式/固件回读）",
+      "fails_motion": true,
+      "needs_user_decision": true,
+      "evidence": "monitor-ui/README.md:165 已声明“执行前 start_pose 仍按盘点逐轴核对固件版本与模式，与控制台显示不一致时拒绝该次运动”。属模式/协议一致性，不是运动阈值；但确在运动路径上触发拒绝。"
+    },
+    {
+      "id": "C4",
+      "file": "apps/openarm_monitor.py:702-712",
+      "behavior": "接续执行时若 _feedback_view 不能给出 14 轴完整实测，抛 DriverError“接续执行时反馈已过期” → 本次任务 FAULT。",
+      "class": "P15/K04 边界（规划起点完整性）",
+      "fails_motion": true,
+      "needs_user_decision": true,
+      "evidence": "阈值 FEEDBACK_AGE=.75 s 来自 K04（UI 缓存）；运行中每周期都会刷新 self.feedback（apps/openarm_monitor.py:655-663），实际触发概率低，但属可致 FAULT 的新鲜度门槛。"
+    },
+    {
+      "id": "C5",
+      "file": "apps/drive_openarm_from_sim.py:147-151",
+      "behavior": "接续轨迹在切换前若已过期或 request_id 重复，抛 ValueError 并使整次执行 FAULT。",
+      "class": "P07 边界（新轨迹的“使能前过期”+ 去重）",
+      "fails_motion": true,
+      "needs_user_decision": false,
+      "evidence": "monitor 在创建接续轨迹时设置 expires_at=now+duration+10（apps/openarm_monitor.py:719-721），正常路径不可达；保留原意是防止发送陈旧队列。"
+    }
+  ],
+  "non_blocking_input_checks": [
+    {"file": "apps/openarm_piano_air.py:238-243", "behavior": "scope 枚举与 speed 0.35–1 输入域校验", "class": "输入校验（非运动阈值）"},
+    {"file": "apps/openarm_piano_trial.py:25-29", "behavior": "anchor_run/scope/speed 输入域校验", "class": "输入校验（非运动阈值）"},
+    {"file": "apps/openarm_piano_air.py:268-269", "behavior": "琴谱起位 IK 无解时拒绝预览", "class": "几何可解性（K/输入）"},
+    {"file": "apps/openarm_piano_origin.py:72-73, 96-97", "behavior": "白键/范围不在点位表时拒绝", "class": "输入校验"},
+    {"file": "apps/openarm_monitor.py:290-292", "behavior": "接续轴集合与当前保持不一致时 Conflict", "class": "K09 接续完整性；README 已声明“需要增加参与轴时先停止”"}
+  ],
+  "tests": {
+    "command": "openarm/.venv/Scripts/python.exe -B -m pytest -q -p no:cacheprovider apps/test_openarm_monitor.py apps/test_openarm_monitor_hands.py apps/test_openarm_driver.py apps/test_openarm_execution.py apps/test_openarm_execution_hardware.py apps/test_openarm_position_mode.py apps/test_openarm_dual_sequence.py apps/test_prepare_openarm_dual_sequence.py apps/test_openarm_sequence_dynamics.py",
+    "passed": 197,
+    "failed": 0,
+    "skipped": 0,
+    "duration_s": 109.71,
+    "failed_names": [],
+    "warnings": "1 条 pytest 临时目录清理告警（sandbox 回收站不可用），不影响用例结果",
+    "semantics_review": "未恢复跟踪/终点/迟到/温度/速度力矩/行程/阶段超时的 pytest.raises 或 FAULT 断言；advisory 与 HOLDING_TARGET 断言保留（test_openarm_execution.py:110-147,196-226；test_openarm_monitor.py:483-510）；preflight 拒绝用例仅覆盖 CLI（test_openarm_execution.py:36-50）；手部测试只覆盖会话/端口/标定，不要求机械臂 FAULT 或失能"
+  },
+  "violations": [],
+  "notes": [
+    "openarm_trajectory.preflight 仅被 apps/drive_openarm_from_sim.py:467（CLI main）与 apps/prepare_openarm_dual_sequence.py:175 调用；openarm_monitor_motion.py:30 只导入 Trajectory，网页路径不调用 preflight（K12 保持）。",
+    "apps/openarm_start_pose.py:33 docstring 写“zero, J3 ±80, J3 ±60 with J4 +60”，实现为 J1/J2/J4 四步；文档与实现不一致（不涉及防护）。",
+    "apps/openarm_monitor.py:719-721 注释仍写“The 60 s preview lease was checked on submission”，为已删除机制的残留表述，建议下次维护时清理以免误导重新引入 P19。",
+    "docs/project/仿真与实机联通_两日实施计划.md:61,438 仍写“P01～P19”，清单已含 P20；属文档滞后。",
+    "monitor-ui/README.md:108-128 明确“永久禁止重新写回”“预览不再设 60 秒有效期”，未见恢复防护表述。",
+    "本次未启动 8092、未连接 CAN、未使能/运动/写模式；未运行 8091 冒烟（已有 197 项离线用例覆盖 virtual 全链路）。"
+  ]
+}

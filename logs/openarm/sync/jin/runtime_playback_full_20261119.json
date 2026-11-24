@@ -1,0 +1,29 @@
+{
+  "after_failed_poll_and_second_tab": "RUNNING",
+  "score": {
+    "status": "COMPLETED",
+    "error": null,
+    "stop_reason": null,
+    "elapsed_us": 312000000,
+    "rate": 1,
+    "duration_us": 312000000,
+    "action_index": 788,
+    "line": 1647,
+    "moving": [],
+    "indices": {
+      "left": 15,
+      "right": 26
+    },
+    "held": [],
+    "lateness_limit_us": 50000,
+    "max_tick_gap_us": 16000,
+    "max_lateness_us": 14000
+  },
+  "all_events_match": true,
+  "max_timing_error_us": 0,
+  "note_ons": 1300,
+  "note_offs": 1300,
+  "keys_released": true,
+  "browser_completed": true,
+  "page_errors": []
+}

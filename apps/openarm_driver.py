@@ -2,6 +2,11 @@
 
 Protocol references are under resources/openarm_control_extract/openarm_can.
 Units are motor radians, radians/second and Nm. Use one driver owner per bus.
+
+Laboratory profile (2026-11-19): MIT setpoints saturate instead of raising, and
+enable/command no longer pre-read the mode, require disabled feedback, or
+auto-disable after one missed reply. Frame/adapter/timeout checks remain because
+they detect an unusable transport, not a motion-threshold excursion.
 """
 
 from __future__ import annotations

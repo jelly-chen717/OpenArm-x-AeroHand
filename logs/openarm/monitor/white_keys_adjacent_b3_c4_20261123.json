@@ -1,0 +1,470 @@
+{
+  "frame": "arm_origin",
+  "quaternion_order": "wxyz",
+  "csv_sha256": "dc709ff72a2b9743d5c6a1f65848efcaf012d9ce25a84b89be0a3a9898cbd5cf",
+  "config_sha256": "7a24ea86d17c89231a31c3829dd19a8a41ad19d671af779c3c2daae7514a217f",
+  "physical_contact_tested": false,
+  "arms": {
+    "left": {
+      "anchor_note": "B3",
+      "anchor": 14,
+      "assigned": 14,
+      "solved_keys": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "unresolved": [],
+      "anchor_fk_mm": 0.3540163170339277,
+      "quaternion": [
+        0.6028455538275884,
+        -0.16023321562564014,
+        -0.780374830494758,
+        -0.04379130930736117
+      ],
+      "max_ik_fk_mm": 0.0019082065344856285,
+      "max_ik_angle_deg": 0.0010471358873293446,
+      "max_step": {
+        "keys": [
+          1,
+          2
+        ],
+        "axis": 4,
+        "deg": 5.34564755391048
+      },
+      "max_joint_interpolation_xz_mm": 0.34668921636258593,
+      "max_joint_interpolation_orientation_deg": 0.05513466567513401,
+      "interior_checks": 91,
+      "max_interior_fk_mm": 1.8588778219036243e-05,
+      "max_interior_angle_deg": 4.517745487845101e-06
+    },
+    "right": {
+      "anchor_note": "C4",
+      "anchor": 15,
+      "assigned": 22,
+      "solved_keys": [
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33
+      ],
+      "unresolved": [
+        "A6",
+        "B6",
+        "C7"
+      ],
+      "anchor_fk_mm": 0.23424836786525316,
+      "quaternion": [
+        0.6268667032776224,
+        -0.008072125789994401,
+        -0.7790471973724471,
+        0.007644695756618102
+      ],
+      "max_ik_fk_mm": 0.002632340364165891,
+      "max_ik_angle_deg": 7.493779018836989e-05,
+      "max_step": {
+        "keys": [
+          32,
+          33
+        ],
+        "axis": 4,
+        "deg": 24.75388792014288
+      },
+      "max_joint_interpolation_xz_mm": 3.4649440944224255,
+      "max_joint_interpolation_orientation_deg": 0.3311300816887495,
+      "interior_checks": 126,
+      "max_interior_fk_mm": 0.002415984333851426,
+      "max_interior_angle_deg": 0.00016958962216633589
+    }
+  },
+  "right_reach_bound": {
+    "axis_offsets_m": [
+      0.06,
+      0.0301,
+      0.0,
+      -0.0315,
+      0.0,
+      -0.0375,
+      0.0
+    ],
+    "shoulder_xyz_mm": [
+      0.0,
+      -152.49999999917358,
+      -0.0004499676251690232
+    ],
+    "upper_arm_forearm_mm": [
+      220.0,
+      215.99999999999994
+    ],
+    "keys": {
+      "33": {
+        "path_upper_bound_mm": 436.0,
+        "required_mm": 435.2503893655222,
+        "shortfall_mm": -0.7496106344778153
+      },
+      "34": {
+        "path_upper_bound_mm": 436.0,
+        "required_mm": 451.43731729097874,
+        "shortfall_mm": 15.437317290978747
+      },
+      "35": {
+        "path_upper_bound_mm": 436.0,
+        "required_mm": 468.1462393770915,
+        "shortfall_mm": 32.14623937709149
+      },
+      "36": {
+        "path_upper_bound_mm": 436.0,
+        "required_mm": 485.32324428462135,
+        "shortfall_mm": 49.32324428462137
+      }
+    }
+  },
+  "score_preview": {
+    "groups": 347,
+    "notes": 1300,
+    "pending_wrists": 0,
+    "score_sha256": "7d3ac6945e5ea7439b9ace200ede40f040b1fcaeb2da5da6d281fde78f8253d2",
+    "first_wrist_distance_mm": 132.90274639750677
+  },
+  "calibration_date": "2026-11-23",
+  "review_completed_date": "2026-11-24",
+  "workbook_validation": {
+    "worksheets": [
+      "钢琴原位",
+      "左食指",
+      "右食指",
+      "槿 · 双手分指预览"
+    ],
+    "rows_by_arm": {
+      "left": 14,
+      "right": 22
+    },
+    "key_rows": 36,
+    "solved_joint_rows": 33,
+    "chord_rows": 347,
+    "historic_numeric_cells_preserved": 672,
+    "xlsx_sha256": "ab5fbcc790d692655f70ce2f23dccbc79e80b70ec1c05775ef3a966abff5fa5e",
+    "historic_xlsx_sha256": "184bd35b376693b947a1995b1d545d0cce1a72504436bb9cd5a45bd86d087525"
+  },
+  "comparison_inputs": {
+    "two_earlier_right_C4_wrist_trials_xyz_mm": [
+      244.5,
+      -33.5,
+      -177.0
+    ],
+    "physical_white_key_pitch_mm": 22.5,
+    "independent_88_key_sim_pitch_mm": 23.5,
+    "physical_white_key_numbers_B3_C4": [
+      14,
+      15
+    ],
+    "score_white_key_numbers_B3_C4": [
+      23,
+      24
+    ],
+    "tool_control_point": "wrist ee_control_point relative to arm_origin"
+  },
+  "score_files": [
+    {
+      "file": "槿（实琴分手·主旋律）.txt",
+      "sha256": "a88c83fc357c3450ac05df4766c2e1260b49a6087fc323e9b574518521e6cb2c",
+      "duration_s": 236.0,
+      "notes": 441,
+      "hand_note_pitch_side_finger_on_off_unchanged": true,
+      "simulation": {
+        "adjacent": {
+          "sample_hz": 120,
+          "expected_events": 882,
+          "actual_events": 882,
+          "status": "COMPLETED",
+          "all_keys_released": true,
+          "max_score_event_error_us": 1,
+          "matching_score_events": 882,
+          "timed_events_differing_by_one_us": 28,
+          "extra_during_preparation": []
+        },
+        "default": {
+          "sample_hz": 120,
+          "expected_events": 882,
+          "actual_events": 884,
+          "status": "COMPLETED",
+          "all_keys_released": true,
+          "max_score_event_error_us": 1,
+          "matching_score_events": 882,
+          "timed_events_differing_by_one_us": 28,
+          "extra_during_preparation": [
+            {
+              "type": "on",
+              "midi": 64,
+              "time_us": 1333333,
+              "hand": "right",
+              "finger": "pinky",
+              "count": 1
+            },
+            {
+              "type": "off",
+              "midi": 64,
+              "time_us": 1441667,
+              "hand": null,
+              "finger": null,
+              "count": 1
+            }
+          ]
+        }
+      }
+    },
+    {
+      "file": "槿（实琴分手·副歌纯旋律）.txt",
+      "sha256": "b9105e1811cbd18283e1d19fb3be0ce3dbe6c5e023149cf16b468de7d14136d2",
+      "duration_s": 36.0,
+      "notes": 74,
+      "hand_note_pitch_side_finger_on_off_unchanged": true,
+      "simulation": {
+        "adjacent": {
+          "sample_hz": 120,
+          "expected_events": 148,
+          "actual_events": 148,
+          "status": "COMPLETED",
+          "all_keys_released": true,
+          "max_score_event_error_us": 0,
+          "matching_score_events": 148,
+          "timed_events_differing_by_one_us": 0,
+          "extra_during_preparation": []
+        },
+        "default": {
+          "sample_hz": 120,
+          "expected_events": 148,
+          "actual_events": 150,
+          "status": "COMPLETED",
+          "all_keys_released": true,
+          "max_score_event_error_us": 0,
+          "matching_score_events": 148,
+          "timed_events_differing_by_one_us": 0,
+          "extra_during_preparation": [
+            {
+              "type": "on",
+              "midi": 64,
+              "time_us": 1333333,
+              "hand": "right",
+              "finger": "pinky",
+              "count": 1
+            },
+            {
+              "type": "off",
+              "midi": 64,
+              "time_us": 1441667,
+              "hand": null,
+              "finger": null,
+              "count": 1
+            }
+          ]
+        }
+      }
+    },
+    {
+      "file": "槿（实琴分手·含前奏）.txt",
+      "sha256": "d7c7b4bbf186747f9fe018bc0a1a4f9214b01622505c4a18155a023de1941968",
+      "duration_s": 264.0,
+      "notes": 508,
+      "hand_note_pitch_side_finger_on_off_unchanged": true,
+      "simulation": {
+        "adjacent": {
+          "sample_hz": 120,
+          "expected_events": 1016,
+          "actual_events": 1016,
+          "status": "COMPLETED",
+          "all_keys_released": true,
+          "max_score_event_error_us": 1,
+          "matching_score_events": 1016,
+          "timed_events_differing_by_one_us": 28,
+          "extra_during_preparation": []
+        },
+        "default": {
+          "sample_hz": 120,
+          "expected_events": 1016,
+          "actual_events": 1018,
+          "status": "COMPLETED",
+          "all_keys_released": true,
+          "max_score_event_error_us": 1,
+          "matching_score_events": 1016,
+          "timed_events_differing_by_one_us": 28,
+          "extra_during_preparation": [
+            {
+              "type": "on",
+              "midi": 64,
+              "time_us": 1333333,
+              "hand": "right",
+              "finger": "pinky",
+              "count": 1
+            },
+            {
+              "type": "off",
+              "midi": 64,
+              "time_us": 1441667,
+              "hand": null,
+              "finger": null,
+              "count": 1
+            }
+          ]
+        }
+      }
+    },
+    {
+      "file": "槿（实琴分手·纯和弦）.txt",
+      "sha256": "7d3ac6945e5ea7439b9ace200ede40f040b1fcaeb2da5da6d281fde78f8253d2",
+      "duration_s": 312.0,
+      "notes": 1300,
+      "hand_note_pitch_side_finger_on_off_unchanged": true,
+      "simulation": {
+        "adjacent": {
+          "sample_hz": 120,
+          "expected_events": 2600,
+          "actual_events": 2600,
+          "status": "COMPLETED",
+          "all_keys_released": true,
+          "max_score_event_error_us": 1,
+          "matching_score_events": 2600,
+          "timed_events_differing_by_one_us": 240,
+          "extra_during_preparation": []
+        },
+        "default": {
+          "sample_hz": 120,
+          "expected_events": 2600,
+          "actual_events": 2602,
+          "status": "COMPLETED",
+          "all_keys_released": true,
+          "max_score_event_error_us": 1,
+          "matching_score_events": 2600,
+          "timed_events_differing_by_one_us": 240,
+          "extra_during_preparation": [
+            {
+              "type": "on",
+              "midi": 64,
+              "time_us": 1333333,
+              "hand": "right",
+              "finger": "pinky",
+              "count": 1
+            },
+            {
+              "type": "off",
+              "midi": 64,
+              "time_us": 1441667,
+              "hand": null,
+              "finger": null,
+              "count": 1
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "simulation_model_note": "Independent 88-key MuJoCo simulator. Adjacent starts at its calibrated B3/C4 hand positions; default starts at model home.",
+  "regression": {
+    "apps-results": {
+      "tests": 51,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "failing_tests": []
+    },
+    "sim-results": {
+      "tests": 186,
+      "failures": 6,
+      "errors": 0,
+      "skipped": 0,
+      "failing_tests": [
+        {
+          "name": "test_piano_and_ik_share_axes_and_migrated_points_preserve_targets",
+          "error": "ValueError: 点位 CSV 已改变，请重新解算"
+        },
+        {
+          "name": "test_exported_points_match_calibration_and_fk",
+          "error": "ValueError: 点位 CSV 已改变，请重新解算"
+        },
+        {
+          "name": "test_regions_and_unavailable_targets",
+          "error": "ValueError: 点位 CSV 已改变，请重新解算"
+        },
+        {
+          "name": "test_http_click_routing_busy_guard_and_stop",
+          "error": "urllib.error.HTTPError: HTTP Error 503: Service Unavailable"
+        },
+        {
+          "name": "test_score_service_is_independent_and_routes_are_separate",
+          "error": "ConnectionAbortedError: [WinError 10053] 你的主机中的软件中止了一个已建立的连接。"
+        },
+        {
+          "name": "test_high_speed_adjacent_key_minimum_uses_continuous_extrema",
+          "error": "ValueError: 点位 CSV 已改变，请重新解算"
+        }
+      ]
+    },
+    "sim-retry": {
+      "tests": 1,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "failing_tests": [],
+      "retested": "test_score_service_is_independent_and_routes_are_separate"
+    },
+    "final-tests": {
+      "tests": 51,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "failing_tests": []
+    }
+  },
+  "old_artifacts": [
+    {
+      "name": "双臂钢琴原位_B3_B4_白键点位_20261122.csv",
+      "directory": false,
+      "file_count": 1,
+      "sha256": "1628a1190543b024c20b1ea08b1262c2f09f6f1128851986ec26d1216407f4cb"
+    },
+    {
+      "name": "双臂钢琴原位_B3_B4_白键点位_20261122.xlsx",
+      "directory": false,
+      "file_count": 1,
+      "sha256": "854e615da14e0f397a293031c7ef9f9d5382a741ba63748e6e9c62b43a0e9611"
+    },
+    {
+      "name": "piano-b3-b4-20261122",
+      "directory": true,
+      "file_count": 251,
+      "sha256": null
+    },
+    {
+      "name": "piano-materials-20261122",
+      "directory": true,
+      "file_count": 140,
+      "sha256": null
+    }
+  ]
+}

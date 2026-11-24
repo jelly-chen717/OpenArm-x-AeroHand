@@ -67,7 +67,7 @@ class DriverTests(unittest.TestCase):
             self.assertEqual((1 + t1) / (1 + t1 + t2), 0.75)
             self.assertEqual(int(values[f"{prefix}_sjw"]), sjw)
 
-    def test_mode_write_requires_disabled_and_separate_readback(self):
+    def test_mode_write_requires_readback_not_disabled_state(self):
         with self.assertRaisesRegex(driver.DriverError, "readback"):
             self.arm.write_disabled_mode(6, 3)
         write = (0x7ff, bytes((6, 0, 0x55, 10, 3, 0, 0, 0)))
@@ -77,9 +77,11 @@ class DriverTests(unittest.TestCase):
         self.arm.write_disabled_mode(6, 3)
         self.bus.sent.clear()
         self.bus.enabled = True
-        with self.assertRaisesRegex(driver.DriverError, "disabled"):
+        # No disabled-state precheck remains; the write is attempted and its
+        # independent readback is the only thing that can reject it.
+        with self.assertRaisesRegex(driver.DriverError, "readback"):
             self.arm.write_disabled_mode(6, 2)
-        self.assertTrue(all(frame[1][2] == 0xcc for frame in self.bus.sent))
+        self.assertTrue(any(frame[1][2] == 0x55 for frame in self.bus.sent))
 
     def test_joint_models_and_separate_scales(self):
         self.assertEqual(driver.motor_type(1), "DM8009")
@@ -103,11 +105,13 @@ class DriverTests(unittest.TestCase):
         self.assertEqual(driver.encode_mit(1, 12.5, 45, 500, 5, 54), b"\xff" * 8)
         self.assertEqual(driver.encode_mit(1, 0, 0, 0, 0, 0).hex(), "7fff7ff0000007ff")
 
-    def test_invalid_mit_rejected(self):
-        for values in ((0, 11, 1, 1, 0), (float("nan"), 0, 1, 1, 0),
-                       (0, 0, 501, 1, 0)):
-            with self.assertRaises(ValueError):
-                driver.encode_mit(3, *values)
+    def test_out_of_range_mit_saturates_instead_of_raising(self):
+        self.assertEqual(driver.encode_mit(3, 0, 11, 1, 1, 0),
+                         driver.encode_mit(3, 0, 10, 1, 1, 0))
+        self.assertEqual(driver.encode_mit(3, float("nan"), 0, 1, 1, 0),
+                         driver.encode_mit(3, -12.5, 0, 1, 1, 0))
+        self.assertEqual(driver.encode_mit(3, 0, 0, 501, 1, 0),
+                         driver.encode_mit(3, 0, 0, 500, 1, 0))
 
     def test_snapshot_only_sends_reference_refresh(self):
         with self.arm:
@@ -166,15 +170,15 @@ class DriverTests(unittest.TestCase):
         with patch.object(self.arm, "query_motor", side_effect=[disabled, disabled, enabled]):
             self.assertEqual(self.arm.enable_motor(1, kp=1, kd=0.2).state, 1)
 
-    def test_mit_requires_fresh_enabled_feedback(self):
-        with self.assertRaises(driver.DriverError):
-            self.arm.command_mit(1, 0, 0, 1, 1)
+    def test_mit_command_has_no_fresh_enabled_precheck(self):
+        # The frame is sent and the resulting feedback is returned even when the
+        # motor reports disabled. Tracking decisions belong to the caller.
+        self.assertEqual(self.arm.command_mit(1, 0, 0, 1, 1).state, 0)
         self.arm.query_motor(1)
-        with self.assertRaises(driver.DriverError):
-            self.arm.command_mit(1, 0, 0, 1, 1)
-        self.assertTrue(all(cid == 0x7FF for cid, _ in self.bus.sent))
+        self.assertEqual(self.arm.command_mit(1, 0, 0, 1, 1).state, 0)
+        self.assertTrue(any(cid == 1 for cid, _ in self.bus.sent))
 
-    def test_enable_timeout_attempts_disable(self):
+    def test_enable_timeout_does_not_auto_disable(self):
         original_send = self.bus.send
 
         def send(can_id, payload):
@@ -185,14 +189,14 @@ class DriverTests(unittest.TestCase):
         self.bus.send = send
         with self.assertRaises(driver.DriverError):
             self.arm.enable_motor(1)
-        self.assertIn((1, b"\xff" * 7 + b"\xfd"), self.bus.sent)
-        self.assertFalse(self.bus.enabled)
+        self.assertNotIn((1, b"\xff" * 7 + b"\xfd"), self.bus.sent)
+        self.assertTrue(self.bus.enabled)
 
-    def test_wrong_mode_cannot_enable(self):
+    def test_wrong_mode_does_not_block_enable(self):
         self.bus.mode = 2
-        with self.assertRaisesRegex(driver.DriverError, "CTRL_MODE"):
-            self.arm.enable_motor(1)
-        self.assertTrue(all(cid == 0x7FF for cid, _ in self.bus.sent))
+        self.assertEqual(self.arm.enable_motor(1).state, 1)
+        self.assertFalse(any(cid == 0x7FF and payload[2] == 0x33
+                             for cid, payload in self.bus.sent))
 
     def test_parameter_reply_is_separate_from_motor_state(self):
         self.assertEqual(self.arm.read_parameter(1, 10), 1)

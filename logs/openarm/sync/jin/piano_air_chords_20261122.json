@@ -1,0 +1,785 @@
+{
+  "kind": "piano_air_chords_offline_trajectory",
+  "timestamp": "2026-11-22T07:54:28.004506+00:00",
+  "source_attacks": 347,
+  "source_notes": 1300,
+  "model": "OpenArm V1 with stock grippers",
+  "approach_start": "V1 home",
+  "checks": [
+    {
+      "scope": "start",
+      "rate": 0.35,
+      "duration_s": 4.0,
+      "notes": 0,
+      "attacks": 0,
+      "anchors": {
+        "left": {
+          "pinky": 18,
+          "index": 22
+        },
+        "right": {
+          "index": 24
+        }
+      },
+      "start_joints_deg": {
+        "left": [
+          31.314675633579288,
+          4.593784176159588,
+          17.350355622240144,
+          60.720081198950936,
+          -4.538486529661244,
+          -17.364495819553518,
+          -2.042651950012457
+        ],
+        "right": [
+          32.5831357808382,
+          8.121447562861368,
+          -18.78871849682752,
+          57.62345407611764,
+          3.1407827455686337,
+          -20.177625488004146,
+          -0.9935088167568475
+        ]
+      },
+      "first_attack": [],
+      "max_wrist_target_error_mm": 0.0,
+      "max_wrist_target_error_rad": 0.0,
+      "peak_speed": {
+        "axis": "right J1",
+        "from_s": 0.0,
+        "to_s": 4.0,
+        "rad_s": 0.26657015625,
+        "deg_s": 15.273344897267904,
+        "rad_s2": 0.2052058019584775,
+        "fraction_of_rated": 0.02545557482877984
+      },
+      "worst_rated_fraction": {
+        "axis": "right J4",
+        "from_s": 0.0,
+        "to_s": 4.0,
+        "rad_s": 0.26487984375,
+        "deg_s": 15.176497124959697,
+        "rad_s2": 0.20390459878929137,
+        "fraction_of_rated": 0.0702615607637023
+      },
+      "air_only_shift_count": 0,
+      "model_sample_count": 101,
+      "contacts": [
+        {
+          "bodies": [
+            "openarm_left_hand",
+            "openarm_right_hand"
+          ],
+          "samples": 39,
+          "first_s": 2.48,
+          "min_dist_m": -0.02391928694395284
+        },
+        {
+          "bodies": [
+            "openarm_left_hand",
+            "openarm_right_right_finger"
+          ],
+          "samples": 37,
+          "first_s": 2.56,
+          "min_dist_m": -0.009340520311399474
+        },
+        {
+          "bodies": [
+            "openarm_left_left_finger",
+            "openarm_right_hand"
+          ],
+          "samples": 37,
+          "first_s": 2.56,
+          "min_dist_m": -0.010438408289778933
+        },
+        {
+          "bodies": [
+            "openarm_left_left_finger",
+            "openarm_right_right_finger"
+          ],
+          "samples": 34,
+          "first_s": 2.68,
+          "min_dist_m": -0.033097876970711836
+        }
+      ],
+      "source": {
+        "points_sha256": "de9a8c554768ee6aa2706be24640ac919618cba30bc1ad5cf46a12eea82b573b",
+        "original_manifest_matches": false,
+        "site_calibration_sha256": null,
+        "key_step_m": [
+          0.0,
+          -0.0235,
+          0.0
+        ],
+        "score_sha256": "ec899d101644cb6ce32865ade277eaf1152d1b6a95ea047151810d5375a08e0e"
+      }
+    },
+    {
+      "scope": "prelude",
+      "rate": 0.35,
+      "duration_s": 49.714285714285715,
+      "notes": 29,
+      "attacks": 8,
+      "anchors": {
+        "left": {
+          "pinky": 18,
+          "index": 22
+        },
+        "right": {
+          "index": 24
+        }
+      },
+      "start_joints_deg": {
+        "left": [
+          31.314675633579288,
+          4.593784176159588,
+          17.350355622240144,
+          60.720081198950936,
+          -4.538486529661244,
+          -17.364495819553518,
+          -2.042651950012457
+        ],
+        "right": [
+          32.5831357808382,
+          8.121447562861368,
+          -18.78871849682752,
+          57.62345407611764,
+          3.1407827455686337,
+          -20.177625488004146,
+          -0.9935088167568475
+        ]
+      },
+      "first_attack": [
+        {
+          "on_us": 0,
+          "key": 20,
+          "midi": 53,
+          "line": 17,
+          "section": "01 | 第 1 页 · 前奏 1 | Fmaj7",
+          "side": "left",
+          "off_us": 1720000,
+          "anchor_key": 18,
+          "finger": "middle"
+        },
+        {
+          "on_us": 0,
+          "key": 22,
+          "midi": 57,
+          "line": 17,
+          "section": "01 | 第 1 页 · 前奏 1 | Fmaj7",
+          "side": "left",
+          "off_us": 1720000,
+          "anchor_key": 18,
+          "finger": "index"
+        },
+        {
+          "on_us": 0,
+          "key": 24,
+          "midi": 60,
+          "line": 17,
+          "section": "01 | 第 1 页 · 前奏 1 | Fmaj7",
+          "side": "right",
+          "off_us": 1720000,
+          "anchor_key": 24,
+          "finger": "index"
+        },
+        {
+          "on_us": 0,
+          "key": 26,
+          "midi": 64,
+          "line": 17,
+          "section": "01 | 第 1 页 · 前奏 1 | Fmaj7",
+          "side": "right",
+          "off_us": 1720000,
+          "anchor_key": 24,
+          "finger": "ring"
+        }
+      ],
+      "max_wrist_target_error_mm": 2.976543151841808e-05,
+      "max_wrist_target_error_rad": 1.7631291696726137e-07,
+      "peak_speed": {
+        "axis": "right J1",
+        "from_s": 0.0,
+        "to_s": 4.0,
+        "rad_s": 0.26657015625,
+        "deg_s": 15.273344897267904,
+        "rad_s2": 0.2052058019584775,
+        "fraction_of_rated": 0.02545557482877984
+      },
+      "worst_rated_fraction": {
+        "axis": "right J4",
+        "from_s": 0.0,
+        "to_s": 4.0,
+        "rad_s": 0.26487984375,
+        "deg_s": 15.176497124959697,
+        "rad_s2": 0.20390459878929137,
+        "fraction_of_rated": 0.0702615607637023
+      },
+      "air_only_shift_count": 2,
+      "model_sample_count": 1250,
+      "contacts": [
+        {
+          "bodies": [
+            "openarm_left_hand",
+            "openarm_right_hand"
+          ],
+          "samples": 844,
+          "first_s": 2.48,
+          "min_dist_m": -0.02391928694395284
+        },
+        {
+          "bodies": [
+            "openarm_left_hand",
+            "openarm_right_right_finger"
+          ],
+          "samples": 839,
+          "first_s": 2.56,
+          "min_dist_m": -0.009497222103650853
+        },
+        {
+          "bodies": [
+            "openarm_left_left_finger",
+            "openarm_right_hand"
+          ],
+          "samples": 839,
+          "first_s": 2.56,
+          "min_dist_m": -0.010438408289778933
+        },
+        {
+          "bodies": [
+            "openarm_left_left_finger",
+            "openarm_right_right_finger"
+          ],
+          "samples": 831,
+          "first_s": 2.68,
+          "min_dist_m": -0.03325980831542464
+        }
+      ],
+      "source": {
+        "points_sha256": "de9a8c554768ee6aa2706be24640ac919618cba30bc1ad5cf46a12eea82b573b",
+        "original_manifest_matches": false,
+        "site_calibration_sha256": null,
+        "key_step_m": [
+          0.0,
+          -0.0235,
+          0.0
+        ],
+        "score_sha256": "ec899d101644cb6ce32865ade277eaf1152d1b6a95ea047151810d5375a08e0e"
+      }
+    },
+    {
+      "scope": "prelude",
+      "rate": 1.0,
+      "duration_s": 20.0,
+      "notes": 29,
+      "attacks": 8,
+      "anchors": {
+        "left": {
+          "pinky": 18,
+          "index": 22
+        },
+        "right": {
+          "index": 24
+        }
+      },
+      "start_joints_deg": {
+        "left": [
+          31.314675633579288,
+          4.593784176159588,
+          17.350355622240144,
+          60.720081198950936,
+          -4.538486529661244,
+          -17.364495819553518,
+          -2.042651950012457
+        ],
+        "right": [
+          32.5831357808382,
+          8.121447562861368,
+          -18.78871849682752,
+          57.62345407611764,
+          3.1407827455686337,
+          -20.177625488004146,
+          -0.9935088167568475
+        ]
+      },
+      "first_attack": [
+        {
+          "on_us": 0,
+          "key": 20,
+          "midi": 53,
+          "line": 17,
+          "section": "01 | 第 1 页 · 前奏 1 | Fmaj7",
+          "side": "left",
+          "off_us": 1720000,
+          "anchor_key": 18,
+          "finger": "middle"
+        },
+        {
+          "on_us": 0,
+          "key": 22,
+          "midi": 57,
+          "line": 17,
+          "section": "01 | 第 1 页 · 前奏 1 | Fmaj7",
+          "side": "left",
+          "off_us": 1720000,
+          "anchor_key": 18,
+          "finger": "index"
+        },
+        {
+          "on_us": 0,
+          "key": 24,
+          "midi": 60,
+          "line": 17,
+          "section": "01 | 第 1 页 · 前奏 1 | Fmaj7",
+          "side": "right",
+          "off_us": 1720000,
+          "anchor_key": 24,
+          "finger": "index"
+        },
+        {
+          "on_us": 0,
+          "key": 26,
+          "midi": 64,
+          "line": 17,
+          "section": "01 | 第 1 页 · 前奏 1 | Fmaj7",
+          "side": "right",
+          "off_us": 1720000,
+          "anchor_key": 24,
+          "finger": "ring"
+        }
+      ],
+      "max_wrist_target_error_mm": 2.976543151841808e-05,
+      "max_wrist_target_error_rad": 1.7631291696726137e-07,
+      "peak_speed": {
+        "axis": "right J2",
+        "from_s": 14.8,
+        "to_s": 16.0,
+        "rad_s": 0.45184716718750023,
+        "deg_s": 25.88893566478586,
+        "rad_s2": 1.1594403715923256,
+        "fraction_of_rated": 0.04314822610797643
+      },
+      "worst_rated_fraction": {
+        "axis": "right J4",
+        "from_s": 0.0,
+        "to_s": 4.0,
+        "rad_s": 0.26487984375,
+        "deg_s": 15.176497124959697,
+        "rad_s2": 0.20390459878929137,
+        "fraction_of_rated": 0.0702615607637023
+      },
+      "air_only_shift_count": 2,
+      "model_sample_count": 501,
+      "contacts": [
+        {
+          "bodies": [
+            "openarm_left_hand",
+            "openarm_right_hand"
+          ],
+          "samples": 319,
+          "first_s": 2.48,
+          "min_dist_m": -0.02391928694395284
+        },
+        {
+          "bodies": [
+            "openarm_left_hand",
+            "openarm_right_right_finger"
+          ],
+          "samples": 316,
+          "first_s": 2.56,
+          "min_dist_m": -0.009497231276101836
+        },
+        {
+          "bodies": [
+            "openarm_left_left_finger",
+            "openarm_right_hand"
+          ],
+          "samples": 316,
+          "first_s": 2.56,
+          "min_dist_m": -0.010438408289778933
+        },
+        {
+          "bodies": [
+            "openarm_left_left_finger",
+            "openarm_right_right_finger"
+          ],
+          "samples": 311,
+          "first_s": 2.68,
+          "min_dist_m": -0.033097876970711836
+        }
+      ],
+      "source": {
+        "points_sha256": "de9a8c554768ee6aa2706be24640ac919618cba30bc1ad5cf46a12eea82b573b",
+        "original_manifest_matches": false,
+        "site_calibration_sha256": null,
+        "key_step_m": [
+          0.0,
+          -0.0235,
+          0.0
+        ],
+        "score_sha256": "ec899d101644cb6ce32865ade277eaf1152d1b6a95ea047151810d5375a08e0e"
+      }
+    },
+    {
+      "scope": "full",
+      "rate": 0.35,
+      "duration_s": 884.0,
+      "notes": 1300,
+      "attacks": 347,
+      "anchors": {
+        "left": {
+          "pinky": 18,
+          "index": 22
+        },
+        "right": {
+          "index": 24
+        }
+      },
+      "start_joints_deg": {
+        "left": [
+          31.314675633579288,
+          4.593784176159588,
+          17.350355622240144,
+          60.720081198950936,
+          -4.538486529661244,
+          -17.364495819553518,
+          -2.042651950012457
+        ],
+        "right": [
+          32.5831357808382,
+          8.121447562861368,
+          -18.78871849682752,
+          57.62345407611764,
+          3.1407827455686337,
+          -20.177625488004146,
+          -0.9935088167568475
+        ]
+      },
+      "first_attack": [
+        {
+          "on_us": 0,
+          "key": 20,
+          "midi": 53,
+          "line": 17,
+          "section": "01 | 第 1 页 · 前奏 1 | Fmaj7",
+          "side": "left",
+          "off_us": 1720000,
+          "anchor_key": 18,
+          "finger": "middle"
+        },
+        {
+          "on_us": 0,
+          "key": 22,
+          "midi": 57,
+          "line": 17,
+          "section": "01 | 第 1 页 · 前奏 1 | Fmaj7",
+          "side": "left",
+          "off_us": 1720000,
+          "anchor_key": 18,
+          "finger": "index"
+        },
+        {
+          "on_us": 0,
+          "key": 24,
+          "midi": 60,
+          "line": 17,
+          "section": "01 | 第 1 页 · 前奏 1 | Fmaj7",
+          "side": "right",
+          "off_us": 1720000,
+          "anchor_key": 24,
+          "finger": "index"
+        },
+        {
+          "on_us": 0,
+          "key": 26,
+          "midi": 64,
+          "line": 17,
+          "section": "01 | 第 1 页 · 前奏 1 | Fmaj7",
+          "side": "right",
+          "off_us": 1720000,
+          "anchor_key": 24,
+          "finger": "ring"
+        }
+      ],
+      "max_wrist_target_error_mm": 2.976543151841808e-05,
+      "max_wrist_target_error_rad": 1.7631291696726137e-07,
+      "peak_speed": {
+        "axis": "right J2",
+        "from_s": 677.8142857142858,
+        "to_s": 678.2857142857143,
+        "rad_s": 1.1501564255682768,
+        "deg_s": 65.89910896491487,
+        "rad_s2": 7.512407035772997,
+        "fraction_of_rated": 0.1098318482748581
+      },
+      "worst_rated_fraction": {
+        "axis": "right J3",
+        "from_s": 677.8142857142858,
+        "to_s": 678.2857142857143,
+        "rad_s": 0.6091555710227776,
+        "deg_s": 34.90204328648682,
+        "rad_s2": 3.978784533913099,
+        "fraction_of_rated": 0.1615835337337353
+      },
+      "air_only_shift_count": 77,
+      "model_sample_count": 22403,
+      "contacts": [
+        {
+          "bodies": [
+            "openarm_left_hand",
+            "openarm_right_hand"
+          ],
+          "samples": 11564,
+          "first_s": 2.48,
+          "min_dist_m": -0.02391928694395284
+        },
+        {
+          "bodies": [
+            "openarm_left_hand",
+            "openarm_right_right_finger"
+          ],
+          "samples": 11486,
+          "first_s": 2.56,
+          "min_dist_m": -0.010307152845381367
+        },
+        {
+          "bodies": [
+            "openarm_left_left_finger",
+            "openarm_right_hand"
+          ],
+          "samples": 11486,
+          "first_s": 2.56,
+          "min_dist_m": -0.01182202597865522
+        },
+        {
+          "bodies": [
+            "openarm_left_left_finger",
+            "openarm_right_right_finger"
+          ],
+          "samples": 11403,
+          "first_s": 2.68,
+          "min_dist_m": -0.033272014420093816
+        }
+      ],
+      "source": {
+        "points_sha256": "de9a8c554768ee6aa2706be24640ac919618cba30bc1ad5cf46a12eea82b573b",
+        "original_manifest_matches": false,
+        "site_calibration_sha256": null,
+        "key_step_m": [
+          0.0,
+          -0.0235,
+          0.0
+        ],
+        "score_sha256": "ec899d101644cb6ce32865ade277eaf1152d1b6a95ea047151810d5375a08e0e"
+      }
+    },
+    {
+      "scope": "full",
+      "rate": 1.0,
+      "duration_s": 312.0,
+      "notes": 1300,
+      "attacks": 347,
+      "anchors": {
+        "left": {
+          "pinky": 18,
+          "index": 22
+        },
+        "right": {
+          "index": 24
+        }
+      },
+      "start_joints_deg": {
+        "left": [
+          31.314675633579288,
+          4.593784176159588,
+          17.350355622240144,
+          60.720081198950936,
+          -4.538486529661244,
+          -17.364495819553518,
+          -2.042651950012457
+        ],
+        "right": [
+          32.5831357808382,
+          8.121447562861368,
+          -18.78871849682752,
+          57.62345407611764,
+          3.1407827455686337,
+          -20.177625488004146,
+          -0.9935088167568475
+        ]
+      },
+      "first_attack": [
+        {
+          "on_us": 0,
+          "key": 20,
+          "midi": 53,
+          "line": 17,
+          "section": "01 | 第 1 页 · 前奏 1 | Fmaj7",
+          "side": "left",
+          "off_us": 1720000,
+          "anchor_key": 18,
+          "finger": "middle"
+        },
+        {
+          "on_us": 0,
+          "key": 22,
+          "midi": 57,
+          "line": 17,
+          "section": "01 | 第 1 页 · 前奏 1 | Fmaj7",
+          "side": "left",
+          "off_us": 1720000,
+          "anchor_key": 18,
+          "finger": "index"
+        },
+        {
+          "on_us": 0,
+          "key": 24,
+          "midi": 60,
+          "line": 17,
+          "section": "01 | 第 1 页 · 前奏 1 | Fmaj7",
+          "side": "right",
+          "off_us": 1720000,
+          "anchor_key": 24,
+          "finger": "index"
+        },
+        {
+          "on_us": 0,
+          "key": 26,
+          "midi": 64,
+          "line": 17,
+          "section": "01 | 第 1 页 · 前奏 1 | Fmaj7",
+          "side": "right",
+          "off_us": 1720000,
+          "anchor_key": 24,
+          "finger": "ring"
+        }
+      ],
+      "max_wrist_target_error_mm": 2.976543151841808e-05,
+      "max_wrist_target_error_rad": 1.7631291696726137e-07,
+      "peak_speed": {
+        "axis": "right J2",
+        "from_s": 239.835,
+        "to_s": 240.0,
+        "rad_s": 3.2861612159092495,
+        "deg_s": 188.28316847117887,
+        "rad_s2": 61.32577172059167,
+        "fraction_of_rated": 0.3138052807852981
+      },
+      "worst_rated_fraction": {
+        "axis": "right J3",
+        "from_s": 239.835,
+        "to_s": 240.0,
+        "rad_s": 1.7404444886364476,
+        "deg_s": 99.72012367567322,
+        "rad_s2": 32.47987374622714,
+        "fraction_of_rated": 0.46166723923922787
+      },
+      "air_only_shift_count": 77,
+      "model_sample_count": 7897,
+      "contacts": [
+        {
+          "bodies": [
+            "openarm_left_hand",
+            "openarm_right_hand"
+          ],
+          "samples": 4066,
+          "first_s": 2.48,
+          "min_dist_m": -0.02391928694395284
+        },
+        {
+          "bodies": [
+            "openarm_left_hand",
+            "openarm_right_right_finger"
+          ],
+          "samples": 4035,
+          "first_s": 2.56,
+          "min_dist_m": -0.010299565283103093
+        },
+        {
+          "bodies": [
+            "openarm_left_left_finger",
+            "openarm_right_hand"
+          ],
+          "samples": 4035,
+          "first_s": 2.56,
+          "min_dist_m": -0.011774183458436189
+        },
+        {
+          "bodies": [
+            "openarm_left_left_finger",
+            "openarm_right_right_finger"
+          ],
+          "samples": 4006,
+          "first_s": 2.68,
+          "min_dist_m": -0.03319681251501043
+        }
+      ],
+      "source": {
+        "points_sha256": "de9a8c554768ee6aa2706be24640ac919618cba30bc1ad5cf46a12eea82b573b",
+        "original_manifest_matches": false,
+        "site_calibration_sha256": null,
+        "key_step_m": [
+          0.0,
+          -0.0235,
+          0.0
+        ],
+        "score_sha256": "ec899d101644cb6ce32865ade277eaf1152d1b6a95ea047151810d5375a08e0e"
+      }
+    }
+  ],
+  "aero_simulation": {
+    "model": "existing piano V1/Aero scene, fingers at configured rest; no upstream mounting bracket",
+    "contact_filter": "left side and right side; keyboard contacts excluded for arm-only clearance",
+    "sample_interval_s": 0.04,
+    "runs": [
+      {
+        "scope": "start",
+        "rate": 0.35,
+        "samples": 101,
+        "cross_side_contacts": [
+          {
+            "bodies": [
+              "aero_left_palm",
+              "aero_right_palm"
+            ],
+            "samples": 32,
+            "first_s": 2.7600000000000002,
+            "min_dist_m": -0.004027663537910707
+          }
+        ]
+      },
+      {
+        "scope": "full",
+        "rate": 0.35,
+        "samples": 22403,
+        "cross_side_contacts": [
+          {
+            "bodies": [
+              "aero_left_palm",
+              "aero_right_palm"
+            ],
+            "samples": 11370,
+            "first_s": 2.7600000000000002,
+            "min_dist_m": -0.004027663537910707
+          }
+        ]
+      },
+      {
+        "scope": "full",
+        "rate": 1.0,
+        "samples": 7897,
+        "cross_side_contacts": [
+          {
+            "bodies": [
+              "aero_left_palm",
+              "aero_right_palm"
+            ],
+            "samples": 3999,
+            "first_s": 2.7600000000000002,
+            "min_dist_m": -0.004027663537910707
+          }
+        ]
+      }
+    ]
+  }
+}

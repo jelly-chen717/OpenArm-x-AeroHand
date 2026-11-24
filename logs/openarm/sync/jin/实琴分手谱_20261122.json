@@ -1,0 +1,143 @@
+{
+  "points_file": "双臂钢琴原位_B3_B4_白键点位_20261122.csv",
+  "points_sha256": "f8aaf99b0613950199a423c77ca385636052b89ae2298d83200e322c59e6a7ea",
+  "origin": {
+    "left": {
+      "physical_white_key": 14,
+      "note": "B3",
+      "wrist_xyz_mm": [
+        245.1,
+        55.2,
+        -187.0
+      ]
+    },
+    "right": {
+      "physical_white_key": 21,
+      "note": "B4",
+      "wrist_xyz_mm": [
+        244.3,
+        -55.2,
+        -187.3
+      ]
+    }
+  },
+  "scores": [
+    {
+      "file": "openarm/skills/paino_skill/music_data/槿（实琴分手·主旋律）.txt",
+      "sha256": "a9cd6b426be488de43824b30c6b84cc4e486356bae299d6dba5c780c8355ec86",
+      "source": "openarm/skills/paino_skill/scores/槿（60 BPM 主旋律）.txt",
+      "source_sha256": "5a68c893fff5756d6b9628388f9c22fe9e16bfe03ebd4b4148957fb76f230c49",
+      "duration_s": 236.0,
+      "onsets": 441,
+      "left_notes": 66,
+      "right_notes": 375,
+      "index_wrist_notes": {
+        "left": [
+          "A3",
+          "B3"
+        ],
+        "right": [
+          "A4",
+          "C4",
+          "D4"
+        ]
+      },
+      "pending_wrist_note_counts": {
+        "C4": 145,
+        "D4": 4
+      },
+      "pending_fingering_note_counts": {
+        "A3": 13
+      },
+      "cross_hand_notes": 0,
+      "catalog_visible": true,
+      "mujoco_contact_events_matched": 882,
+      "all_keys_released": true
+    },
+    {
+      "file": "openarm/skills/paino_skill/music_data/槿（实琴分手·副歌纯旋律）.txt",
+      "sha256": "c3167dbab9b2154fd43d9701728316df8ea6bab346fee355e7e9ef47d1d099dc",
+      "source": "openarm/skills/paino_skill/music_data/槿（60 BPM 副歌纯旋律）.txt",
+      "source_sha256": "231109b3d87645e9d42d2d30a0c9effa1e096a15b3391c55c51c17b2dc8f7e98",
+      "duration_s": 36.0,
+      "onsets": 74,
+      "left_notes": 0,
+      "right_notes": 74,
+      "index_wrist_notes": {
+        "right": [
+          "B4"
+        ]
+      },
+      "pending_wrist_note_counts": {},
+      "pending_fingering_note_counts": {},
+      "cross_hand_notes": 0,
+      "catalog_visible": true,
+      "mujoco_contact_events_matched": 148,
+      "all_keys_released": true
+    },
+    {
+      "file": "openarm/skills/paino_skill/music_data/槿（实琴分手·含前奏）.txt",
+      "sha256": "72e5a1c0aaf0328d2cd14c864a846ddb608b5386cac0be0b432e1e31d00949c1",
+      "source": "openarm/skills/paino_skill/scores/槿（60 BPM 含前奏）.txt",
+      "source_sha256": "a41975cb2e1378562d9a0c9d4e78aca3146f781ad91cecd1a631d37b49abdabb",
+      "duration_s": 264.0,
+      "onsets": 489,
+      "left_notes": 94,
+      "right_notes": 414,
+      "index_wrist_notes": {
+        "left": [
+          "A3",
+          "B3"
+        ],
+        "right": [
+          "A4",
+          "C4",
+          "D4"
+        ]
+      },
+      "pending_wrist_note_counts": {
+        "C4": 177,
+        "D4": 11
+      },
+      "pending_fingering_note_counts": {
+        "A3": 14
+      },
+      "cross_hand_notes": 0,
+      "catalog_visible": true,
+      "mujoco_contact_events_matched": 1016,
+      "all_keys_released": true
+    },
+    {
+      "file": "openarm/skills/paino_skill/music_data/槿（实琴分手·纯和弦）.txt",
+      "sha256": "b6761f9ff57807d306985df82d96fe9abf7249e87f667a775235f392f4431b07",
+      "source": "openarm/skills/paino_skill/music_data/槿（60 BPM 纯和弦）.txt",
+      "source_sha256": "ec899d101644cb6ce32865ade277eaf1152d1b6a95ea047151810d5375a08e0e",
+      "duration_s": 312.0,
+      "onsets": 347,
+      "left_notes": 606,
+      "right_notes": 694,
+      "index_wrist_notes": {
+        "left": [
+          "A3",
+          "E3",
+          "G3"
+        ],
+        "right": [
+          "A4",
+          "C4",
+          "D4",
+          "E4"
+        ]
+      },
+      "pending_wrist_note_counts": {
+        "C4": 356,
+        "D4": 2
+      },
+      "pending_fingering_note_counts": {},
+      "cross_hand_notes": 0,
+      "catalog_visible": true,
+      "mujoco_contact_events_matched": 2600,
+      "all_keys_released": true
+    }
+  ]
+}

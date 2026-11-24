@@ -107,32 +107,55 @@ def test_coarse_feedback_clock_does_not_repeat_execution_time(monkeypatch):
     assert times[-1] >= trajectory.duration
 
 
-def test_stationary_motor_cannot_pass_outbound_checkpoint():
+def test_stationary_motor_logs_checkpoint_advisory_and_completes():
     request,version,mappings,current = fixture()
     trajectory = preflight(request,version,mappings,current,time.time(),set())
     transport = VirtualTransport(mappings,current)
     transport.command = lambda targets: None
     records = []
-    with pytest.raises(RuntimeError,match='Waypoint'):
-        execute(trajectory,mappings,transport,records.append,period=.005,endpoint_tolerance=.002)
+    assert execute(trajectory,mappings,transport,records.append,period=.005,
+                   endpoint_tolerance=.002) == 'COMPLETED'
     assert not transport.enabled
-    assert records[-1]['outcome'] == 'FAULT'
+    assert any(row['type'] == 'advisory' and row['kind'] in ('waypoint','endpoint_gap')
+               for row in records)
+    assert not any(row['type'] == 'fault' for row in records)
+    assert records[-1]['state'] == 'STOPPED'
 
 
-@pytest.mark.parametrize('fault',['tracking','deadline','expired'])
-def test_runtime_faults_stop_transport(fault):
+@pytest.mark.parametrize('fault',['tracking','deadline'])
+def test_tracking_and_lateness_are_advisory(fault):
     request,version,mappings,current = fixture()
-    if fault == 'expired':
-        request['expires_at'] = time.time()+.03
     trajectory = preflight(request,version,mappings,current,time.time(),set())
     transport = VirtualTransport(mappings,current)
+    cancel = None
     if fault == 'tracking':
         transport.command = lambda targets: None
-    if fault == 'deadline':
+    else:
+        # Force a deterministic late loop. A real Event.wait often returns early,
+        # so the deadline advisory would otherwise depend on OS timer overshoot.
+        class LateWait:
+            def is_set(self): return False
+            def wait(self, timeout):
+                time.sleep(timeout + .01)
+                return False
+        cancel = LateWait()
         transport.command = lambda targets: time.sleep(.03)
-    with pytest.raises(RuntimeError):
-        execute(trajectory,mappings,transport,lambda r:None,period=.005,
-                max_lateness=.005,max_error=.001)
+    records = []
+    assert execute(trajectory,mappings,transport,records.append,period=.005,
+                   max_lateness=.005,max_error=.001,cancel=cancel) == 'COMPLETED'
+    assert any(row['type'] == 'advisory' and row['kind'] ==
+               ('tracking_error' if fault == 'tracking' else 'deadline') for row in records)
+    assert not transport.enabled
+
+
+def test_expired_request_is_still_rejected_before_enable():
+    request,version,mappings,current = fixture()
+    request['expires_at'] = time.time()+.03
+    trajectory = preflight(request,version,mappings,current,time.time(),set())
+    time.sleep(.05)
+    transport = VirtualTransport(mappings,current)
+    with pytest.raises(ValueError, match='expired'):
+        execute(trajectory,mappings,transport,lambda r:None,period=.005)
     assert not transport.enabled
 
 
@@ -185,18 +208,21 @@ def test_hold_after_keeps_final_target_enabled_and_stops_on_exit(exit_kind, tmp_
             assert row['target_velocity'] == (0.,)
             held_samples.append(row)
             if len(held_samples) == 3:
-                if exit_kind == 'cancel':
-                    cancel_file.write_text('stop')
-                else:
+                if exit_kind == 'tracking':
+                    # Simulate a lagging axis; keep holding long enough for the
+                    # advisory to be logged, then ask the operator to stop.
                     transport.read = lambda keys: {k: 1. for k in keys}
-    if exit_kind == 'tracking':
-        with pytest.raises(RuntimeError, match='Tracking error'):
-            execute(trajectory, mappings, transport, log, period=.005,
-                    hold_after=True, cancel_file=cancel_file, endpoint_tolerance=.01)
-        assert records[-1]['outcome'] == 'FAULT'
-    else:
-        assert execute(trajectory, mappings, transport, log, period=.005,
-                       hold_after=True, cancel_file=cancel_file, endpoint_tolerance=.01) == 'CANCELLED'
+                else:
+                    cancel_file.write_text('stop')
+            elif len(held_samples) == 5 and exit_kind == 'tracking':
+                cancel_file.write_text('stop')
+    assert execute(trajectory, mappings, transport, log, period=.005,
+                   hold_after=True, cancel_file=cancel_file, endpoint_tolerance=.01,
+                   max_error=.001 if exit_kind == 'tracking' else None) == 'CANCELLED'
     assert len(held_samples) >= 3
     assert not transport.enabled
     assert records[-1]['state'] == 'STOPPED'
+    if exit_kind == 'tracking':
+        assert any(row['type'] == 'advisory' and row['kind'] == 'tracking_error'
+                   for row in records)
+        assert not any(row['type'] == 'fault' for row in records)

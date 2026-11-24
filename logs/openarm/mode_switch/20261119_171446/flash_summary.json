@@ -1,0 +1,775 @@
+{
+  "axes": [
+    {
+      "side": "left",
+      "channel": 81,
+      "motor_id": 1,
+      "status": "acknowledged",
+      "before": {
+        "mode": 2,
+        "state": 0,
+        "mode_reply": "0100330a02000000",
+        "state_reply": "017fce7fe7ff1c1a"
+      },
+      "ack_id": 17,
+      "ack": "0100aa01",
+      "after": {
+        "mode": 2,
+        "state": 0,
+        "mode_reply": "0100330a02000000",
+        "state_reply": "017fce7ff7ff1c1a"
+      }
+    },
+    {
+      "side": "left",
+      "channel": 81,
+      "motor_id": 2,
+      "status": "acknowledged",
+      "before": {
+        "mode": 2,
+        "state": 0,
+        "mode_reply": "0200330a02000000",
+        "state_reply": "027fb87ff7ff1c1a"
+      },
+      "ack_id": 18,
+      "ack": "0200aa01",
+      "after": {
+        "mode": 2,
+        "state": 0,
+        "mode_reply": "0200330a02000000",
+        "state_reply": "027fb87ff7ff1c1a"
+      }
+    },
+    {
+      "side": "left",
+      "channel": 81,
+      "motor_id": 3,
+      "status": "acknowledged",
+      "before": {
+        "mode": 2,
+        "state": 0,
+        "mode_reply": "0300330a02000000",
+        "state_reply": "037dd97fe8001d1b"
+      },
+      "ack_id": 19,
+      "ack": "0300aa01",
+      "after": {
+        "mode": 2,
+        "state": 0,
+        "mode_reply": "0300330a02000000",
+        "state_reply": "037dd97fe7ff1d1b"
+      }
+    },
+    {
+      "side": "left",
+      "channel": 81,
+      "motor_id": 4,
+      "status": "acknowledged",
+      "before": {
+        "mode": 2,
+        "state": 0,
+        "mode_reply": "0400330a02000000",
+        "state_reply": "0480168007fd1c1b"
+      },
+      "ack_id": 20,
+      "ack": "0400aa01",
+      "after": {
+        "mode": 2,
+        "state": 0,
+        "mode_reply": "0400330a02000000",
+        "state_reply": "0480167ff7fd1c1b"
+      }
+    },
+    {
+      "side": "left",
+      "channel": 81,
+      "motor_id": 5,
+      "status": "acknowledged",
+      "before": {
+        "mode": 2,
+        "state": 0,
+        "mode_reply": "0500330a02000000",
+        "state_reply": "0581367fe7fe1e1a"
+      },
+      "ack_id": 21,
+      "ack": "0500aa01",
+      "after": {
+        "mode": 2,
+        "state": 0,
+        "mode_reply": "0500330a02000000",
+        "state_reply": "0581367ff7fe1e1a"
+      }
+    },
+    {
+      "side": "left",
+      "channel": 81,
+      "motor_id": 6,
+      "status": "acknowledged",
+      "before": {
+        "mode": 2,
+        "state": 0,
+        "mode_reply": "0600330a02000000",
+        "state_reply": "067f5b7ff7fe1e1b"
+      },
+      "ack_id": 22,
+      "ack": "0600aa01",
+      "after": {
+        "mode": 2,
+        "state": 0,
+        "mode_reply": "0600330a02000000",
+        "state_reply": "067f5b7ff7ff1e1b"
+      }
+    },
+    {
+      "side": "left",
+      "channel": 81,
+      "motor_id": 7,
+      "status": "acknowledged",
+      "before": {
+        "mode": 2,
+        "state": 0,
+        "mode_reply": "0700330a02000000",
+        "state_reply": "0780098008011c1b"
+      },
+      "ack_id": 23,
+      "ack": "0700aa01",
+      "after": {
+        "mode": 2,
+        "state": 0,
+        "mode_reply": "0700330a02000000",
+        "state_reply": "0780097ff8011c1b"
+      }
+    },
+    {
+      "side": "right",
+      "channel": 82,
+      "motor_id": 1,
+      "status": "acknowledged",
+      "before": {
+        "mode": 2,
+        "state": 0,
+        "mode_reply": "0100330a02000000",
+        "state_reply": "017e737fe7fe1c1a"
+      },
+      "ack_id": 17,
+      "ack": "0100aa01",
+      "after": {
+        "mode": 2,
+        "state": 0,
+        "mode_reply": "0100330a02000000",
+        "state_reply": "017e737ff7fe1c1a"
+      }
+    },
+    {
+      "side": "right",
+      "channel": 82,
+      "motor_id": 2,
+      "status": "acknowledged",
+      "before": {
+        "mode": 2,
+        "state": 0,
+        "mode_reply": "0200330a02000000",
+        "state_reply": "0280227ff7ff1d1b"
+      },
+      "ack_id": 18,
+      "ack": "0200aa01",
+      "after": {
+        "mode": 2,
+        "state": 0,
+        "mode_reply": "0200330a02000000",
+        "state_reply": "0280227ff7ff1d1b"
+      }
+    },
+    {
+      "side": "right",
+      "channel": 82,
+      "motor_id": 3,
+      "status": "acknowledged",
+      "before": {
+        "mode": 2,
+        "state": 0,
+        "mode_reply": "0300330a02000000",
+        "state_reply": "0382427fe8011d1a"
+      },
+      "ack_id": 19,
+      "ack": "0300aa01",
+      "after": {
+        "mode": 2,
+        "state": 0,
+        "mode_reply": "0300330a02000000",
+        "state_reply": "0382427fe8011d1a"
+      }
+    },
+    {
+      "side": "right",
+      "channel": 82,
+      "motor_id": 4,
+      "status": "acknowledged",
+      "before": {
+        "mode": 2,
+        "state": 0,
+        "mode_reply": "0400330a02000000",
+        "state_reply": "0483568008011c1b"
+      },
+      "ack_id": 20,
+      "ack": "0400aa01",
+      "after": {
+        "mode": 2,
+        "state": 0,
+        "mode_reply": "0400330a02000000",
+        "state_reply": "0483567ff8011c1b"
+      }
+    },
+    {
+      "side": "right",
+      "channel": 82,
+      "motor_id": 5,
+      "status": "acknowledged",
+      "before": {
+        "mode": 2,
+        "state": 0,
+        "mode_reply": "0500330a02000000",
+        "state_reply": "0580638007fe1e1b"
+      },
+      "ack_id": 21,
+      "ack": "0500aa01",
+      "after": {
+        "mode": 2,
+        "state": 0,
+        "mode_reply": "0500330a02000000",
+        "state_reply": "0580637ff7fe1e1b"
+      }
+    },
+    {
+      "side": "right",
+      "channel": 82,
+      "motor_id": 6,
+      "status": "acknowledged",
+      "before": {
+        "mode": 2,
+        "state": 0,
+        "mode_reply": "0600330a02000000",
+        "state_reply": "0680d28007fd1e1b"
+      },
+      "ack_id": 22,
+      "ack": "0600aa01",
+      "after": {
+        "mode": 2,
+        "state": 0,
+        "mode_reply": "0600330a02000000",
+        "state_reply": "0680d27ff7fd1e1b"
+      }
+    },
+    {
+      "side": "right",
+      "channel": 82,
+      "motor_id": 7,
+      "status": "acknowledged",
+      "before": {
+        "mode": 2,
+        "state": 0,
+        "mode_reply": "0700330a02000000",
+        "state_reply": "077fa57fe7fe1d1b"
+      },
+      "ack_id": 23,
+      "ack": "0700aa01",
+      "after": {
+        "mode": 2,
+        "state": 0,
+        "mode_reply": "0700330a02000000",
+        "state_reply": "077fa57ff7fe1d1b"
+      }
+    }
+  ],
+  "power_cycle_verified": false,
+  "before": {
+    "left": {
+      "side": "left",
+      "channel": "0x51",
+      "bus_status": "0x0",
+      "motors": [
+        {
+          "motor_id": 1,
+          "motor_type": "DM8009",
+          "state": 0,
+          "position_rad": -0.018883039597161755,
+          "velocity_rad_s": -0.010989010989007397,
+          "torque_nm": -0.01318681318681314,
+          "mos_c": 28,
+          "rotor_c": 26,
+          "received_at": 32209.25,
+          "raw": "017fce7ff7ff1c1a",
+          "online": true,
+          "state_name": "DISABLED",
+          "age_s": 0.0,
+          "error": null
+        },
+        {
+          "motor_id": 2,
+          "motor_type": "DM8009",
+          "state": 0,
+          "position_rad": -0.027275501640344757,
+          "velocity_rad_s": 0.010989010989007397,
+          "torque_nm": -0.01318681318681314,
+          "mos_c": 28,
+          "rotor_c": 26,
+          "received_at": 32209.25,
+          "raw": "027fb88007ff1c1a",
+          "online": true,
+          "state_name": "DISABLED",
+          "age_s": 0.0,
+          "error": null
+        },
+        {
+          "motor_id": 3,
+          "motor_type": "DM4340",
+          "state": 0,
+          "position_rad": -0.21000228885328553,
+          "velocity_rad_s": -0.0024420024420024333,
+          "torque_nm": 0.006837606837606813,
+          "mos_c": 29,
+          "rotor_c": 27,
+          "received_at": 32209.265,
+          "raw": "037dd97ff8001d1b",
+          "online": true,
+          "state_name": "DISABLED",
+          "age_s": 0.0,
+          "error": null
+        },
+        {
+          "motor_id": 4,
+          "motor_type": "DM4340",
+          "state": 0,
+          "position_rad": 0.008583199816891707,
+          "velocity_rad_s": -0.0024420024420024333,
+          "torque_nm": -0.02051282051282044,
+          "mos_c": 28,
+          "rotor_c": 27,
+          "received_at": 32209.265,
+          "raw": "0480167ff7fe1c1b",
+          "online": true,
+          "state_name": "DISABLED",
+          "age_s": 0.0,
+          "error": null
+        },
+        {
+          "motor_id": 5,
+          "motor_type": "DM4310",
+          "state": 0,
+          "position_rad": 0.11844815747310555,
+          "velocity_rad_s": -0.0073260073260073,
+          "torque_nm": -0.0073260073260073,
+          "mos_c": 30,
+          "rotor_c": 26,
+          "received_at": 32209.265,
+          "raw": "0581367ff7fe1e1a",
+          "online": true,
+          "state_name": "DISABLED",
+          "age_s": 0.0,
+          "error": null
+        },
+        {
+          "motor_id": 6,
+          "motor_type": "DM4310",
+          "state": 0,
+          "position_rad": -0.06275272755016381,
+          "velocity_rad_s": 0.0073260073260073,
+          "torque_nm": -0.0024420024420024333,
+          "mos_c": 30,
+          "rotor_c": 27,
+          "received_at": 32209.265,
+          "raw": "067f5b8007ff1e1b",
+          "online": true,
+          "state_name": "DISABLED",
+          "age_s": 0.0,
+          "error": null
+        },
+        {
+          "motor_id": 7,
+          "motor_type": "DM4310",
+          "state": 0,
+          "position_rad": 0.0036240177004653873,
+          "velocity_rad_s": -0.0219780219780219,
+          "torque_nm": 0.012210012210012167,
+          "mos_c": 28,
+          "rotor_c": 27,
+          "received_at": 32209.265,
+          "raw": "0780097fe8021c1b",
+          "online": true,
+          "state_name": "DISABLED",
+          "age_s": 0.0,
+          "error": null
+        }
+      ],
+      "expected_motors": 7,
+      "online": 7
+    },
+    "right": {
+      "side": "right",
+      "channel": "0x52",
+      "bus_status": "0x0",
+      "motors": [
+        {
+          "motor_id": 1,
+          "motor_type": "DM8009",
+          "state": 0,
+          "position_rad": -0.15087357900358533,
+          "velocity_rad_s": -0.010989010989007397,
+          "torque_nm": -0.01318681318681314,
+          "mos_c": 28,
+          "rotor_c": 26,
+          "received_at": 32209.265,
+          "raw": "017e747ff7ff1c1a",
+          "online": true,
+          "state_name": "DISABLED",
+          "age_s": 0.0,
+          "error": null
+        },
+        {
+          "motor_id": 2,
+          "motor_type": "DM8009",
+          "state": 0,
+          "position_rad": 0.013160906385900617,
+          "velocity_rad_s": -0.010989010989007397,
+          "torque_nm": -0.01318681318681314,
+          "mos_c": 29,
+          "rotor_c": 27,
+          "received_at": 32209.265,
+          "raw": "0280227ff7ff1d1b",
+          "online": true,
+          "state_name": "DISABLED",
+          "age_s": 0.0,
+          "error": null
+        },
+        {
+          "motor_id": 3,
+          "motor_type": "DM4340",
+          "state": 0,
+          "position_rad": 0.22068360418097122,
+          "velocity_rad_s": 0.0024420024420024333,
+          "torque_nm": 0.02051282051282044,
+          "mos_c": 29,
+          "rotor_c": 26,
+          "received_at": 32209.265,
+          "raw": "0382428008011d1a",
+          "online": true,
+          "state_name": "DISABLED",
+          "age_s": 0.0,
+          "error": null
+        },
+        {
+          "motor_id": 4,
+          "motor_type": "DM4340",
+          "state": 0,
+          "position_rad": 0.32597085526817615,
+          "velocity_rad_s": -0.0024420024420024333,
+          "torque_nm": 0.02051282051282044,
+          "mos_c": 28,
+          "rotor_c": 27,
+          "received_at": 32209.265,
+          "raw": "0483567ff8011c1b",
+          "online": true,
+          "state_name": "DISABLED",
+          "age_s": 0.0,
+          "error": null
+        },
+        {
+          "motor_id": 5,
+          "motor_type": "DM4310",
+          "state": 0,
+          "position_rad": 0.037956816968032214,
+          "velocity_rad_s": -0.0073260073260073,
+          "torque_nm": -0.0073260073260073,
+          "mos_c": 30,
+          "rotor_c": 27,
+          "received_at": 32209.265,
+          "raw": "0580637ff7fe1e1b",
+          "online": true,
+          "state_name": "DISABLED",
+          "age_s": 0.0,
+          "error": null
+        },
+        {
+          "motor_id": 6,
+          "motor_type": "DM4310",
+          "state": 0,
+          "position_rad": 0.08030060273136463,
+          "velocity_rad_s": 0.0073260073260073,
+          "torque_nm": -0.012210012210012167,
+          "mos_c": 30,
+          "rotor_c": 27,
+          "received_at": 32209.281,
+          "raw": "0680d28007fd1e1b",
+          "online": true,
+          "state_name": "DISABLED",
+          "age_s": 0.0,
+          "error": null
+        },
+        {
+          "motor_id": 7,
+          "motor_type": "DM4310",
+          "state": 0,
+          "position_rad": -0.03452353704127553,
+          "velocity_rad_s": -0.0073260073260073,
+          "torque_nm": -0.0073260073260073,
+          "mos_c": 29,
+          "rotor_c": 27,
+          "received_at": 32209.281,
+          "raw": "077fa57ff7fe1d1b",
+          "online": true,
+          "state_name": "DISABLED",
+          "age_s": 0.0,
+          "error": null
+        }
+      ],
+      "expected_motors": 7,
+      "online": 7
+    }
+  },
+  "after": {
+    "left": {
+      "side": "left",
+      "channel": "0x51",
+      "bus_status": "0x0",
+      "motors": [
+        {
+          "motor_id": 1,
+          "motor_type": "DM8009",
+          "state": 0,
+          "position_rad": -0.018883039597161755,
+          "velocity_rad_s": -0.010989010989007397,
+          "torque_nm": -0.01318681318681314,
+          "mos_c": 28,
+          "rotor_c": 26,
+          "received_at": 32210.828,
+          "raw": "017fce7ff7ff1c1a",
+          "online": true,
+          "state_name": "DISABLED",
+          "age_s": 0.0,
+          "error": null
+        },
+        {
+          "motor_id": 2,
+          "motor_type": "DM8009",
+          "state": 0,
+          "position_rad": -0.027275501640344757,
+          "velocity_rad_s": -0.010989010989007397,
+          "torque_nm": -0.01318681318681314,
+          "mos_c": 28,
+          "rotor_c": 26,
+          "received_at": 32210.828,
+          "raw": "027fb87ff7ff1c1a",
+          "online": true,
+          "state_name": "DISABLED",
+          "age_s": 0.0,
+          "error": null
+        },
+        {
+          "motor_id": 3,
+          "motor_type": "DM4340",
+          "state": 0,
+          "position_rad": -0.21000228885328553,
+          "velocity_rad_s": -0.0024420024420024333,
+          "torque_nm": 0.006837606837606813,
+          "mos_c": 29,
+          "rotor_c": 27,
+          "received_at": 32210.828,
+          "raw": "037dd97ff8001d1b",
+          "online": true,
+          "state_name": "DISABLED",
+          "age_s": 0.0,
+          "error": null
+        },
+        {
+          "motor_id": 4,
+          "motor_type": "DM4340",
+          "state": 0,
+          "position_rad": 0.008583199816891707,
+          "velocity_rad_s": -0.0024420024420024333,
+          "torque_nm": -0.02051282051282044,
+          "mos_c": 28,
+          "rotor_c": 27,
+          "received_at": 32210.828,
+          "raw": "0480167ff7fe1c1b",
+          "online": true,
+          "state_name": "DISABLED",
+          "age_s": 0.0,
+          "error": null
+        },
+        {
+          "motor_id": 5,
+          "motor_type": "DM4310",
+          "state": 0,
+          "position_rad": 0.11844815747310555,
+          "velocity_rad_s": -0.0073260073260073,
+          "torque_nm": -0.0073260073260073,
+          "mos_c": 30,
+          "rotor_c": 26,
+          "received_at": 32210.828,
+          "raw": "0581367ff7fe1e1a",
+          "online": true,
+          "state_name": "DISABLED",
+          "age_s": 0.0,
+          "error": null
+        },
+        {
+          "motor_id": 6,
+          "motor_type": "DM4310",
+          "state": 0,
+          "position_rad": -0.06275272755016381,
+          "velocity_rad_s": 0.0073260073260073,
+          "torque_nm": -0.0073260073260073,
+          "mos_c": 30,
+          "rotor_c": 27,
+          "received_at": 32210.828,
+          "raw": "067f5b8007fe1e1b",
+          "online": true,
+          "state_name": "DISABLED",
+          "age_s": 0.0,
+          "error": null
+        },
+        {
+          "motor_id": 7,
+          "motor_type": "DM4310",
+          "state": 0,
+          "position_rad": 0.0036240177004653873,
+          "velocity_rad_s": -0.0073260073260073,
+          "torque_nm": 0.012210012210012167,
+          "mos_c": 28,
+          "rotor_c": 27,
+          "received_at": 32210.828,
+          "raw": "0780097ff8021c1b",
+          "online": true,
+          "state_name": "DISABLED",
+          "age_s": 0.0,
+          "error": null
+        }
+      ],
+      "expected_motors": 7,
+      "online": 7
+    },
+    "right": {
+      "side": "right",
+      "channel": "0x52",
+      "bus_status": "0x0",
+      "motors": [
+        {
+          "motor_id": 1,
+          "motor_type": "DM8009",
+          "state": 0,
+          "position_rad": -0.15125505455100274,
+          "velocity_rad_s": -0.010989010989007397,
+          "torque_nm": -0.03956043956043942,
+          "mos_c": 28,
+          "rotor_c": 26,
+          "received_at": 32210.843,
+          "raw": "017e737ff7fe1c1a",
+          "online": true,
+          "state_name": "DISABLED",
+          "age_s": 0.0,
+          "error": null
+        },
+        {
+          "motor_id": 2,
+          "motor_type": "DM8009",
+          "state": 0,
+          "position_rad": 0.013160906385900617,
+          "velocity_rad_s": -0.010989010989007397,
+          "torque_nm": -0.01318681318681314,
+          "mos_c": 28,
+          "rotor_c": 27,
+          "received_at": 32210.843,
+          "raw": "0280227ff7ff1c1b",
+          "online": true,
+          "state_name": "DISABLED",
+          "age_s": 0.0,
+          "error": null
+        },
+        {
+          "motor_id": 3,
+          "motor_type": "DM4340",
+          "state": 0,
+          "position_rad": 0.22068360418097122,
+          "velocity_rad_s": -0.0073260073260073,
+          "torque_nm": 0.02051282051282044,
+          "mos_c": 29,
+          "rotor_c": 26,
+          "received_at": 32210.843,
+          "raw": "0382427fe8011d1a",
+          "online": true,
+          "state_name": "DISABLED",
+          "age_s": 0.0,
+          "error": null
+        },
+        {
+          "motor_id": 4,
+          "motor_type": "DM4340",
+          "state": 0,
+          "position_rad": 0.32597085526817615,
+          "velocity_rad_s": 0.0024420024420024333,
+          "torque_nm": 0.02051282051282044,
+          "mos_c": 28,
+          "rotor_c": 27,
+          "received_at": 32210.843,
+          "raw": "0483568008011c1b",
+          "online": true,
+          "state_name": "DISABLED",
+          "age_s": 0.0,
+          "error": null
+        },
+        {
+          "motor_id": 5,
+          "motor_type": "DM4310",
+          "state": 0,
+          "position_rad": 0.037956816968032214,
+          "velocity_rad_s": -0.0073260073260073,
+          "torque_nm": -0.0073260073260073,
+          "mos_c": 30,
+          "rotor_c": 27,
+          "received_at": 32210.843,
+          "raw": "0580637ff7fe1e1b",
+          "online": true,
+          "state_name": "DISABLED",
+          "age_s": 0.0,
+          "error": null
+        },
+        {
+          "motor_id": 6,
+          "motor_type": "DM4310",
+          "state": 0,
+          "position_rad": 0.08030060273136463,
+          "velocity_rad_s": -0.0073260073260073,
+          "torque_nm": -0.0073260073260073,
+          "mos_c": 30,
+          "rotor_c": 27,
+          "received_at": 32210.843,
+          "raw": "0680d27ff7fe1e1b",
+          "online": true,
+          "state_name": "DISABLED",
+          "age_s": 0.0,
+          "error": null
+        },
+        {
+          "motor_id": 7,
+          "motor_type": "DM4310",
+          "state": 0,
+          "position_rad": -0.03452353704127553,
+          "velocity_rad_s": -0.0073260073260073,
+          "torque_nm": -0.0073260073260073,
+          "mos_c": 29,
+          "rotor_c": 27,
+          "received_at": 32210.843,
+          "raw": "077fa57ff7fe1d1b",
+          "online": true,
+          "state_name": "DISABLED",
+          "age_s": 0.0,
+          "error": null
+        }
+      ],
+      "expected_motors": 7,
+      "online": 7
+    }
+  },
+  "result": "14_acknowledged",
+  "timestamp": "2026-11-19T09:27:12.756949+00:00"
+}

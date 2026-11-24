@@ -1,0 +1,16 @@
+{
+  "browser": "149.0.7827.55 (chromium_headless_shell-1228)",
+  "session_log": "virtual-f48a62dc45ab48eda13c0a0d46bcb3b3.jsonl",
+  "screenshot": "web05_browser_20261119.png",
+  "mode": "virtual",
+  "drive_mode": "MIT",
+  "hold_request": "d1c2adf1c957402780dcefa04481857a",
+  "move_request": "21e3c9aab1b5464c85a87e6f81bb01ad",
+  "peak_speed_deg_s": 843.75,
+  "left_j7_after_move": "45.0",
+  "enabled_after_move": 14,
+  "enabled_after_stop": 0,
+  "enabled_after_reenable": 14,
+  "target_note": "左臂 J7 · 0.1 s · 峰值 843.75 °/s",
+  "page_errors": []
+}

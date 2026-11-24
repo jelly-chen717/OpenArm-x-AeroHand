@@ -1,0 +1,47 @@
+{
+  "instance": "e002ea597c174332ae429577c8cbf542",
+  "mode": "hardware",
+  "mapping_version": "hardware-unified-forward-inward-v2-20261116",
+  "drive_mode": "POS_VEL",
+  "axis_modes": {
+    "left": [
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2
+    ],
+    "right": [
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2
+    ]
+  },
+  "drive_modes": [
+    "MIT",
+    "POS_VEL",
+    "VEL",
+    "POS_FORCE"
+  ],
+  "can_switch_mode": true,
+  "can_enable_all": false,
+  "motion_supported": false,
+  "pending_mode": null,
+  "mode_error": null,
+  "left": {
+    "fresh": true,
+    "disabled": true,
+    "ready": true
+  },
+  "right": {
+    "fresh": true,
+    "disabled": true,
+    "ready": true
+  }
+}

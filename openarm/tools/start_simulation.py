@@ -125,18 +125,40 @@ def wait_ready(process, url, scene=None):
     raise TimeoutError(f'Service startup timed out: {url}')
 
 
+def running_piano(sim_port, web_port):
+    web_url = f'http://127.0.0.1:{web_port}'
+    try:
+        with HTTP.open(f'{web_url}/api/music', timeout=1) as response:
+            if not isinstance(json.load(response).get('songs'), list):
+                return False
+        with HTTP.open(f'{web_url}/api/piano', timeout=2) as response:
+            session = json.load(response).get('session')
+        with HTTP.open(f'http://127.0.0.1:{sim_port}/piano/state', timeout=1) as response:
+            simulation = json.load(response).get('result', {})
+    except (OSError, ValueError, AttributeError):
+        return False
+    return isinstance(simulation, dict) and bool(session) and simulation.get('session') == session
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--scene', choices=('default', 'piano'), default='default')
     parser.add_argument('--headless', action='store_true')
     parser.add_argument('--no-browser', action='store_true')
     parser.add_argument('--check', action='store_true', help='Check startup and close both services.')
+    parser.add_argument('--reuse-running', action='store_true', help='Reopen the running piano session if available.')
     parser.add_argument('--sim-port', type=int, default=8769)
     parser.add_argument('--web-port', type=int)
     args = parser.parse_args()
     port = args.web_port or (8090 if args.scene == 'piano' else 8088)
     if not 1 <= args.sim_port <= 65535 or not 1 <= port <= 65535 or port == args.sim_port:
         parser.error('Use two distinct ports in the range 1..65535.')
+    if args.reuse_running and args.scene == 'piano' and not args.check and running_piano(args.sim_port, port):
+        url = f'http://127.0.0.1:{port}/'
+        print(f'Piano and MuJoCo are already running: {url}', flush=True)
+        if not args.no_browser:
+            webbrowser.open(url)
+        return 0
     # Check both ports before opening either process.
     try:
         with ExitStack() as stack:

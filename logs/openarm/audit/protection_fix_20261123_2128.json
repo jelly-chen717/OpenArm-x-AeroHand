@@ -1,0 +1,70 @@
+{
+  "time": "2026-11-23T21:28:00+08:00",
+  "request": "四项全部扫清（C1 起始位使能前置、C2 试弹手部前置、C3 运动起点模式回读拒绝、C4 接续反馈完整性 FAULT）",
+  "git_head": "9e0424e",
+  "workspace_dirty": true,
+  "authorization": "用户在审计报告后明确指令“四项全部扫清”，按 AGENTS.md 第一原则第 2 条视为当次授权。",
+  "changes": [
+    {
+      "file": "apps/openarm_monitor.py",
+      "change": "_start_ready 删除“14 轴 state==1”要求，只保留模式可用、反馈新鲜、空闲或本客户端保持；Conflict 文案改为“等待 14 轴反馈就绪后再执行起始位”。计划自身使能全部 14 轴。"
+    },
+    {
+      "file": "apps/openarm_monitor.py",
+      "change": "start_motion 的手部调度改为非阻断：schedule_score 抛 ValueError 时取消时钟并记录 hand.score.skipped，机械臂任务照常创建。"
+    },
+    {
+      "file": "apps/openarm_monitor.py",
+      "change": "_move.continuation 删除 DriverError，改用缓存反馈（忽略年龄）+ 计划起点补齐缺失轴，记录 motion.continuation_adopted；同时清理“60 s preview lease”残留注释。"
+    },
+    {
+      "file": "apps/openarm_monitor_motion.py",
+      "change": "MonitorTransport.start_pose 的模式/固件回读改为 _note('mode_readback')，读回不一致或失败均不拒绝运动。"
+    },
+    {
+      "file": "monitor-ui/app.js",
+      "change": "试弹执行按钮不再因手部未连接/故障/排练中禁用；起始位提示去掉“请先全部使能”；未连接右手时提示“仅执行机械臂，指法不发送”。"
+    },
+    {
+      "file": "monitor-ui/index.html",
+      "change": "0位/回0—起始位/起始位 按钮 title 删除“（需先全部使能）”。"
+    },
+    {
+      "file": "monitor-ui/README.md",
+      "change": "快捷定位改为“反馈齐全即可、计划自行使能”；试弹说明补充手部不可用时跳过指法；已删除防护清单新增四项；多模式段改为模式不一致只记 mode_readback。"
+    },
+    {
+      "file": "docs/project/OpenArm控制台防护项清单_20261119.md",
+      "change": "新增 P21～P24 行与 2026-11-23 验证记录；网页效果补充起始位不要求先全部使能。"
+    },
+    {
+      "file": "apps/test_openarm_monitor.py",
+      "change": "test_start_pose_requires_enabled_axes_and_quick_returns 改写为 test_start_pose_enables_axes_and_quick_returns（未使能即可执行，执行后 14 轴 state==1）；新增 test_trial_without_hand_session_still_runs_the_arm；hardware 试弹用例移除 stale-session 的 pytest.raises。"
+    }
+  ],
+  "removed_blocking_checks": [
+    "P21：/api/start/* 的 14 轴已使能前置",
+    "P22：试弹的手部连接/会话/按抬位前置（改为只跳过指法）",
+    "P23：运动起点模式/固件读回不一致拒绝（改为提示）",
+    "P24：接续执行反馈不完整 FAULT（改为缓存反馈继续）"
+  ],
+  "new_blocking_checks": [],
+  "tests": {
+    "command": "openarm/.venv/Scripts/python.exe -B -m pytest -q -p no:cacheprovider apps/test_openarm_monitor.py apps/test_openarm_monitor_hands.py apps/test_openarm_piano_points.py apps/test_openarm_driver.py apps/test_openarm_execution.py apps/test_openarm_execution_hardware.py apps/test_openarm_position_mode.py apps/test_openarm_dual_sequence.py apps/test_prepare_openarm_dual_sequence.py apps/test_openarm_sequence_dynamics.py",
+    "passed": 199,
+    "failed": 1,
+    "skipped": 0,
+    "duration_s": 109.51,
+    "failed_names": ["apps/test_openarm_piano_points.py::test_all_physical_white_keys_match_their_fixed_wrist_pose"],
+    "failure_analysis": "与本轮改动无关：configs/openarm_piano_white_keys.json 于 21:18:15 被外部修改（source 字段写明“2026-11-23 用户更正…右 C4”，右锚点由 physical 21/B4 改为 physical 15/C4），而双臂钢琴原位点位 CSV 仍是 20:51 的 B4 版本，两者 Y 差 135 mm。21:16 的审计运行中该用例通过，说明差异来自 21:18 的外部数据修改。点位表需按新锚点重新生成后才可恢复，本轮未改动该数据。"
+  },
+  "verification": {
+    "targeted": "test_start_pose_enables_axes_and_quick_returns、test_trial_without_hand_session_still_runs_the_arm、test_calibrated_trial_held_start_and_stop_release、test_openarm_piano_points.py 四个用例单独复跑：前三个通过，piano_points 仍为上述数据问题。",
+    "hardware": "未启动 8092、未连接/读写 CAN、未使能/运动/写模式；所有验证均为离线 virtual 或替身 CAN。"
+  },
+  "notes": [
+    "P01～P20 与 K01～K12 的其余语义未改动；模式切换的静止失能前提、停止失能回读、C02 盘点准入保持不变。",
+    "接续反馈补齐优先用缓存反馈，缺失轴回落到计划起点，避免因单轴过期中断整段。",
+    "运动起点仍会读一轮模式（14 轴 × 固件/模式寄存器），只在异常时产生 advisory，不影响执行。"
+  ]
+}

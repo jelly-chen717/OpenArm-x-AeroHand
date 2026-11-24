@@ -1,0 +1,799 @@
+{
+  "score": "openarm/skills/paino_skill/music_data/槿（60 BPM 纯和弦）.txt",
+  "score_sha256": "ec899d101644cb6ce32865ade277eaf1152d1b6a95ea047151810d5375a08e0e",
+  "simulation": "OpenArm V1 dual-arm piano, default home, automatic motion, analytic quintic extrema",
+  "rate": 1,
+  "bpm": 60,
+  "duration_us": 312000000,
+  "arm_moves": 94,
+  "movement_counts": {
+    "left": 38,
+    "right": 56
+  },
+  "peaks": {
+    "velocity": {
+      "side": "right",
+      "joint": "J3",
+      "line": 1058,
+      "command": "right_arm_move(29, 0.145)",
+      "command_bar": 59,
+      "from_index": 24,
+      "to_index": 29,
+      "start_s": 239.835,
+      "end_s": 239.98,
+      "duration_s": 0.145,
+      "rad_s": 11.796800692662083,
+      "deg_s": 675.9068914465436,
+      "peaks_at_s": [
+        239.9075
+      ],
+      "same_peak_move_lines": [
+        1058,
+        1215,
+        1372,
+        1529
+      ],
+      "next_chord_bar": 60
+    },
+    "acceleration": {
+      "side": "right",
+      "joint": "J3",
+      "line": 1058,
+      "command": "right_arm_move(29, 0.145)",
+      "command_bar": 59,
+      "from_index": 24,
+      "to_index": 29,
+      "start_s": 239.835,
+      "end_s": 239.98,
+      "duration_s": 0.145,
+      "rad_s2": 250.51534916725768,
+      "deg_s2": 14353.472210530028,
+      "peaks_at_s": [
+        239.86564210548374,
+        239.94935789451625
+      ],
+      "same_peak_move_lines": [
+        1058,
+        1215,
+        1372,
+        1529
+      ],
+      "next_chord_bar": 60
+    }
+  },
+  "per_joint": {
+    "left": {
+      "J1": {
+        "velocity": {
+          "line": 10,
+          "command": "left_arm_move(19, 4)",
+          "command_bar": 0,
+          "from_index": null,
+          "to_index": 19,
+          "start_s": 0.0,
+          "end_s": 4.0,
+          "duration_s": 4.0,
+          "rad_s": 0.2387448213994503,
+          "deg_s": 13.679070646793123,
+          "peaks_at_s": [
+            2.0
+          ],
+          "same_peak_move_lines": [
+            10
+          ],
+          "next_chord_bar": 1
+        },
+        "acceleration": {
+          "line": 1097,
+          "command": "left_arm_move(15, 0.145)",
+          "command_bar": 60,
+          "from_index": 19,
+          "to_index": 15,
+          "start_s": 243.835,
+          "end_s": 243.98,
+          "duration_s": 0.145,
+          "rad_s2": 3.3379147409169865,
+          "deg_s2": 191.24842702904695,
+          "peaks_at_s": [
+            243.86564210548374,
+            243.94935789451625
+          ],
+          "same_peak_move_lines": [
+            1097,
+            1137,
+            1254,
+            1294,
+            1411,
+            1451,
+            1568,
+            1608
+          ],
+          "next_chord_bar": 61
+        }
+      },
+      "J2": {
+        "velocity": {
+          "line": 1097,
+          "command": "left_arm_move(15, 0.145)",
+          "command_bar": 60,
+          "from_index": 19,
+          "to_index": 15,
+          "start_s": 243.835,
+          "end_s": 243.98,
+          "duration_s": 0.145,
+          "rad_s": 2.776923075575253,
+          "deg_s": 159.10597226295016,
+          "peaks_at_s": [
+            243.9075
+          ],
+          "same_peak_move_lines": [
+            1097,
+            1137,
+            1254,
+            1294,
+            1411,
+            1451,
+            1568,
+            1608
+          ],
+          "next_chord_bar": 61
+        },
+        "acceleration": {
+          "line": 1097,
+          "command": "left_arm_move(15, 0.145)",
+          "command_bar": 60,
+          "from_index": 19,
+          "to_index": 15,
+          "start_s": 243.835,
+          "end_s": 243.98,
+          "duration_s": 0.145,
+          "rad_s2": 58.97038290399103,
+          "deg_s2": 3378.7540566691096,
+          "peaks_at_s": [
+            243.86564210548374,
+            243.94935789451625
+          ],
+          "same_peak_move_lines": [
+            1097,
+            1137,
+            1254,
+            1294,
+            1411,
+            1451,
+            1568,
+            1608
+          ],
+          "next_chord_bar": 61
+        }
+      },
+      "J3": {
+        "velocity": {
+          "line": 1097,
+          "command": "left_arm_move(15, 0.145)",
+          "command_bar": 60,
+          "from_index": 19,
+          "to_index": 15,
+          "start_s": 243.835,
+          "end_s": 243.98,
+          "duration_s": 0.145,
+          "rad_s": 1.2658623304089596,
+          "deg_s": 72.52856897702831,
+          "peaks_at_s": [
+            243.9075
+          ],
+          "same_peak_move_lines": [
+            1097,
+            1137,
+            1254,
+            1294,
+            1411,
+            1451,
+            1568,
+            1608
+          ],
+          "next_chord_bar": 61
+        },
+        "acceleration": {
+          "line": 1097,
+          "command": "left_arm_move(15, 0.145)",
+          "command_bar": 60,
+          "from_index": 19,
+          "to_index": 15,
+          "start_s": 243.835,
+          "end_s": 243.98,
+          "duration_s": 0.145,
+          "rad_s2": 26.881690380454987,
+          "deg_s2": 1540.2074049774951,
+          "peaks_at_s": [
+            243.86564210548374,
+            243.94935789451625
+          ],
+          "same_peak_move_lines": [
+            1097,
+            1137,
+            1254,
+            1294,
+            1411,
+            1451,
+            1568,
+            1608
+          ],
+          "next_chord_bar": 61
+        }
+      },
+      "J4": {
+        "velocity": {
+          "line": 1097,
+          "command": "left_arm_move(15, 0.145)",
+          "command_bar": 60,
+          "from_index": 19,
+          "to_index": 15,
+          "start_s": 243.835,
+          "end_s": 243.98,
+          "duration_s": 0.145,
+          "rad_s": 0.37609426112010563,
+          "deg_s": 21.548613861273182,
+          "peaks_at_s": [
+            243.9075
+          ],
+          "same_peak_move_lines": [
+            1097,
+            1137,
+            1254,
+            1294,
+            1411,
+            1451,
+            1568,
+            1608
+          ],
+          "next_chord_bar": 61
+        },
+        "acceleration": {
+          "line": 1097,
+          "command": "left_arm_move(15, 0.145)",
+          "command_bar": 60,
+          "from_index": 19,
+          "to_index": 15,
+          "start_s": 243.835,
+          "end_s": 243.98,
+          "duration_s": 0.145,
+          "rad_s2": 7.986689577870949,
+          "deg_s2": 457.6036050931264,
+          "peaks_at_s": [
+            243.86564210548374,
+            243.94935789451625
+          ],
+          "same_peak_move_lines": [
+            1097,
+            1137,
+            1254,
+            1294,
+            1411,
+            1451,
+            1568,
+            1608
+          ],
+          "next_chord_bar": 61
+        }
+      },
+      "J5": {
+        "velocity": {
+          "line": 1097,
+          "command": "left_arm_move(15, 0.145)",
+          "command_bar": 60,
+          "from_index": 19,
+          "to_index": 15,
+          "start_s": 243.835,
+          "end_s": 243.98,
+          "duration_s": 0.145,
+          "rad_s": 1.186365566762357,
+          "deg_s": 67.97373993512895,
+          "peaks_at_s": [
+            243.9075
+          ],
+          "same_peak_move_lines": [
+            1097,
+            1137,
+            1254,
+            1294,
+            1411,
+            1451,
+            1568,
+            1608
+          ],
+          "next_chord_bar": 61
+        },
+        "acceleration": {
+          "line": 1097,
+          "command": "left_arm_move(15, 0.145)",
+          "command_bar": 60,
+          "from_index": 19,
+          "to_index": 15,
+          "start_s": 243.835,
+          "end_s": 243.98,
+          "duration_s": 0.145,
+          "rad_s2": 25.19350728561103,
+          "deg_s2": 1443.4816385976028,
+          "peaks_at_s": [
+            243.86564210548374,
+            243.94935789451625
+          ],
+          "same_peak_move_lines": [
+            1097,
+            1137,
+            1254,
+            1294,
+            1411,
+            1451,
+            1568,
+            1608
+          ],
+          "next_chord_bar": 61
+        }
+      },
+      "J6": {
+        "velocity": {
+          "line": 1097,
+          "command": "left_arm_move(15, 0.145)",
+          "command_bar": 60,
+          "from_index": 19,
+          "to_index": 15,
+          "start_s": 243.835,
+          "end_s": 243.98,
+          "duration_s": 0.145,
+          "rad_s": 2.811649204071226,
+          "deg_s": 161.09563286459837,
+          "peaks_at_s": [
+            243.9075
+          ],
+          "same_peak_move_lines": [
+            1097,
+            1137,
+            1254,
+            1294,
+            1411,
+            1451,
+            1568,
+            1608
+          ],
+          "next_chord_bar": 61
+        },
+        "acceleration": {
+          "line": 1097,
+          "command": "left_arm_move(15, 0.145)",
+          "command_bar": 60,
+          "from_index": 19,
+          "to_index": 15,
+          "start_s": 243.835,
+          "end_s": 243.98,
+          "duration_s": 0.145,
+          "rad_s2": 59.70782252275198,
+          "deg_s2": 3421.0062344698486,
+          "peaks_at_s": [
+            243.86564210548374,
+            243.94935789451625
+          ],
+          "same_peak_move_lines": [
+            1097,
+            1137,
+            1254,
+            1294,
+            1411,
+            1451,
+            1568,
+            1608
+          ],
+          "next_chord_bar": 61
+        }
+      },
+      "J7": {
+        "velocity": {
+          "line": 1097,
+          "command": "left_arm_move(15, 0.145)",
+          "command_bar": 60,
+          "from_index": 19,
+          "to_index": 15,
+          "start_s": 243.835,
+          "end_s": 243.98,
+          "duration_s": 0.145,
+          "rad_s": 0.15958372888893918,
+          "deg_s": 9.143474144296166,
+          "peaks_at_s": [
+            243.9075
+          ],
+          "same_peak_move_lines": [
+            1097,
+            1137,
+            1254,
+            1294,
+            1411,
+            1451,
+            1568,
+            1608
+          ],
+          "next_chord_bar": 61
+        },
+        "acceleration": {
+          "line": 1097,
+          "command": "left_arm_move(15, 0.145)",
+          "command_bar": 60,
+          "from_index": 19,
+          "to_index": 15,
+          "start_s": 243.835,
+          "end_s": 243.98,
+          "duration_s": 0.145,
+          "rad_s2": 3.388899635211524,
+          "deg_s2": 194.16964629104461,
+          "peaks_at_s": [
+            243.86564210548374,
+            243.94935789451625
+          ],
+          "same_peak_move_lines": [
+            1097,
+            1137,
+            1254,
+            1294,
+            1411,
+            1451,
+            1568,
+            1608
+          ],
+          "next_chord_bar": 61
+        }
+      }
+    },
+    "right": {
+      "J1": {
+        "velocity": {
+          "line": 1058,
+          "command": "right_arm_move(29, 0.145)",
+          "command_bar": 59,
+          "from_index": 24,
+          "to_index": 29,
+          "start_s": 239.835,
+          "end_s": 239.98,
+          "duration_s": 0.145,
+          "rad_s": 3.5930640738585904,
+          "deg_s": 205.86740695217912,
+          "peaks_at_s": [
+            239.9075
+          ],
+          "same_peak_move_lines": [
+            1058,
+            1215,
+            1372,
+            1529
+          ],
+          "next_chord_bar": 60
+        },
+        "acceleration": {
+          "line": 1058,
+          "command": "right_arm_move(29, 0.145)",
+          "command_bar": 59,
+          "from_index": 24,
+          "to_index": 29,
+          "start_s": 239.835,
+          "end_s": 239.98,
+          "duration_s": 0.145,
+          "rad_s2": 76.30184865316158,
+          "deg_s2": 4371.773896872123,
+          "peaks_at_s": [
+            239.86564210548374,
+            239.94935789451625
+          ],
+          "same_peak_move_lines": [
+            1058,
+            1215,
+            1372,
+            1529
+          ],
+          "next_chord_bar": 60
+        }
+      },
+      "J2": {
+        "velocity": {
+          "line": 1058,
+          "command": "right_arm_move(29, 0.145)",
+          "command_bar": 59,
+          "from_index": 24,
+          "to_index": 29,
+          "start_s": 239.835,
+          "end_s": 239.98,
+          "duration_s": 0.145,
+          "rad_s": 0.9815935045480729,
+          "deg_s": 56.24116500806016,
+          "peaks_at_s": [
+            239.9075
+          ],
+          "same_peak_move_lines": [
+            1058,
+            1098,
+            1215,
+            1255,
+            1372,
+            1412,
+            1529,
+            1569
+          ],
+          "next_chord_bar": 60
+        },
+        "acceleration": {
+          "line": 1058,
+          "command": "right_arm_move(29, 0.145)",
+          "command_bar": 59,
+          "from_index": 24,
+          "to_index": 29,
+          "start_s": 239.835,
+          "end_s": 239.98,
+          "duration_s": 0.145,
+          "rad_s2": 20.844993989356066,
+          "deg_s2": 1194.3301795656714,
+          "peaks_at_s": [
+            239.86564210548374,
+            239.94935789451625
+          ],
+          "same_peak_move_lines": [
+            1058,
+            1098,
+            1215,
+            1255,
+            1372,
+            1412,
+            1529,
+            1569
+          ],
+          "next_chord_bar": 60
+        }
+      },
+      "J3": {
+        "velocity": {
+          "line": 1058,
+          "command": "right_arm_move(29, 0.145)",
+          "command_bar": 59,
+          "from_index": 24,
+          "to_index": 29,
+          "start_s": 239.835,
+          "end_s": 239.98,
+          "duration_s": 0.145,
+          "rad_s": 11.796800692662083,
+          "deg_s": 675.9068914465436,
+          "peaks_at_s": [
+            239.9075
+          ],
+          "same_peak_move_lines": [
+            1058,
+            1215,
+            1372,
+            1529
+          ],
+          "next_chord_bar": 60
+        },
+        "acceleration": {
+          "line": 1058,
+          "command": "right_arm_move(29, 0.145)",
+          "command_bar": 59,
+          "from_index": 24,
+          "to_index": 29,
+          "start_s": 239.835,
+          "end_s": 239.98,
+          "duration_s": 0.145,
+          "rad_s2": 250.51534916725768,
+          "deg_s2": 14353.472210530028,
+          "peaks_at_s": [
+            239.86564210548374,
+            239.94935789451625
+          ],
+          "same_peak_move_lines": [
+            1058,
+            1215,
+            1372,
+            1529
+          ],
+          "next_chord_bar": 60
+        }
+      },
+      "J4": {
+        "velocity": {
+          "line": 1058,
+          "command": "right_arm_move(29, 0.145)",
+          "command_bar": 59,
+          "from_index": 24,
+          "to_index": 29,
+          "start_s": 239.835,
+          "end_s": 239.98,
+          "duration_s": 0.145,
+          "rad_s": 4.822837253069056,
+          "deg_s": 276.32821987932425,
+          "peaks_at_s": [
+            239.9075
+          ],
+          "same_peak_move_lines": [
+            1058,
+            1215,
+            1372,
+            1529
+          ],
+          "next_chord_bar": 60
+        },
+        "acceleration": {
+          "line": 1058,
+          "command": "right_arm_move(29, 0.145)",
+          "command_bar": 59,
+          "from_index": 24,
+          "to_index": 29,
+          "start_s": 239.835,
+          "end_s": 239.98,
+          "duration_s": 0.145,
+          "rad_s2": 102.41715443925241,
+          "deg_s2": 5868.070699108706,
+          "peaks_at_s": [
+            239.86564210548374,
+            239.94935789451625
+          ],
+          "same_peak_move_lines": [
+            1058,
+            1215,
+            1372,
+            1529
+          ],
+          "next_chord_bar": 60
+        }
+      },
+      "J5": {
+        "velocity": {
+          "line": 1058,
+          "command": "right_arm_move(29, 0.145)",
+          "command_bar": 59,
+          "from_index": 24,
+          "to_index": 29,
+          "start_s": 239.835,
+          "end_s": 239.98,
+          "duration_s": 0.145,
+          "rad_s": 11.253905691334914,
+          "deg_s": 644.8012991517476,
+          "peaks_at_s": [
+            239.9075
+          ],
+          "same_peak_move_lines": [
+            1058,
+            1215,
+            1372,
+            1529
+          ],
+          "next_chord_bar": 60
+        },
+        "acceleration": {
+          "line": 1058,
+          "command": "right_arm_move(29, 0.145)",
+          "command_bar": 59,
+          "from_index": 24,
+          "to_index": 29,
+          "start_s": 239.835,
+          "end_s": 239.98,
+          "duration_s": 0.145,
+          "rad_s2": 238.98650042581608,
+          "deg_s2": 13692.917835000713,
+          "peaks_at_s": [
+            239.86564210548374,
+            239.94935789451625
+          ],
+          "same_peak_move_lines": [
+            1058,
+            1215,
+            1372,
+            1529
+          ],
+          "next_chord_bar": 60
+        }
+      },
+      "J6": {
+        "velocity": {
+          "line": 1058,
+          "command": "right_arm_move(29, 0.145)",
+          "command_bar": 59,
+          "from_index": 24,
+          "to_index": 29,
+          "start_s": 239.835,
+          "end_s": 239.98,
+          "duration_s": 0.145,
+          "rad_s": 5.225489911591185,
+          "deg_s": 299.39851782236457,
+          "peaks_at_s": [
+            239.9075
+          ],
+          "same_peak_move_lines": [
+            1058,
+            1215,
+            1372,
+            1529
+          ],
+          "next_chord_bar": 60
+        },
+        "acceleration": {
+          "line": 1058,
+          "command": "right_arm_move(29, 0.145)",
+          "command_bar": 59,
+          "from_index": 24,
+          "to_index": 29,
+          "start_s": 239.835,
+          "end_s": 239.98,
+          "duration_s": 0.145,
+          "rad_s2": 110.96783474408625,
+          "deg_s2": 6357.988592541322,
+          "peaks_at_s": [
+            239.86564210548374,
+            239.94935789451625
+          ],
+          "same_peak_move_lines": [
+            1058,
+            1215,
+            1372,
+            1529
+          ],
+          "next_chord_bar": 60
+        }
+      },
+      "J7": {
+        "velocity": {
+          "line": 1058,
+          "command": "right_arm_move(29, 0.145)",
+          "command_bar": 59,
+          "from_index": 24,
+          "to_index": 29,
+          "start_s": 239.835,
+          "end_s": 239.98,
+          "duration_s": 0.145,
+          "rad_s": 3.1857741033208784,
+          "deg_s": 182.53141060236058,
+          "peaks_at_s": [
+            239.9075
+          ],
+          "same_peak_move_lines": [
+            1058,
+            1215,
+            1372,
+            1529
+          ],
+          "next_chord_bar": 60
+        },
+        "acceleration": {
+          "line": 1058,
+          "command": "right_arm_move(29, 0.145)",
+          "command_bar": 59,
+          "from_index": 24,
+          "to_index": 29,
+          "start_s": 239.835,
+          "end_s": 239.98,
+          "duration_s": 0.145,
+          "rad_s2": 67.652690984079,
+          "deg_s2": 3876.213666090483,
+          "peaks_at_s": [
+            239.86564210548374,
+            239.94935789451625
+          ],
+          "same_peak_move_lines": [
+            1058,
+            1215,
+            1372,
+            1529
+          ],
+          "next_chord_bar": 60
+        }
+      }
+    }
+  },
+  "through_18_344_s_from_default_home": {
+    "velocity": {
+      "side": "right",
+      "joint": "J3",
+      "rad_s": 6.578985001676931,
+      "line": 45
+    },
+    "acceleration": {
+      "side": "right",
+      "joint": "J3",
+      "rad_s2": 77.91546177872178,
+      "line": 45
+    }
+  }
+}

@@ -1,0 +1,86 @@
+[
+  {
+    "side": "left",
+    "motor_id": 1,
+    "mode": 1,
+    "raw_reply": "0100330a01000000"
+  },
+  {
+    "side": "left",
+    "motor_id": 2,
+    "mode": 1,
+    "raw_reply": "0200330a01000000"
+  },
+  {
+    "side": "left",
+    "motor_id": 3,
+    "mode": 1,
+    "raw_reply": "0300330a01000000"
+  },
+  {
+    "side": "left",
+    "motor_id": 4,
+    "mode": 1,
+    "raw_reply": "0400330a01000000"
+  },
+  {
+    "side": "left",
+    "motor_id": 5,
+    "mode": 1,
+    "raw_reply": "0500330a01000000"
+  },
+  {
+    "side": "left",
+    "motor_id": 6,
+    "mode": 1,
+    "raw_reply": "0600330a01000000"
+  },
+  {
+    "side": "left",
+    "motor_id": 7,
+    "mode": 1,
+    "raw_reply": "0700330a01000000"
+  },
+  {
+    "side": "right",
+    "motor_id": 1,
+    "mode": 1,
+    "raw_reply": "0100330a01000000"
+  },
+  {
+    "side": "right",
+    "motor_id": 2,
+    "mode": 1,
+    "raw_reply": "0200330a01000000"
+  },
+  {
+    "side": "right",
+    "motor_id": 3,
+    "mode": 1,
+    "raw_reply": "0300330a01000000"
+  },
+  {
+    "side": "right",
+    "motor_id": 4,
+    "mode": 1,
+    "raw_reply": "0400330a01000000"
+  },
+  {
+    "side": "right",
+    "motor_id": 5,
+    "mode": 1,
+    "raw_reply": "0500330a01000000"
+  },
+  {
+    "side": "right",
+    "motor_id": 6,
+    "mode": 1,
+    "raw_reply": "0600330a01000000"
+  },
+  {
+    "side": "right",
+    "motor_id": 7,
+    "mode": 1,
+    "raw_reply": "0700330a01000000"
+  }
+]

@@ -1,0 +1,53 @@
+{
+  "after_one_poll_error": {
+    "score": {
+      "status": "STOPPED",
+      "error": null,
+      "stop_reason": "stop_request",
+      "elapsed_us": 4468000,
+      "rate": 1,
+      "duration_us": 312000000,
+      "action_index": 4,
+      "line": 17,
+      "moving": [],
+      "indices": {
+        "left": 19,
+        "right": 24
+      },
+      "held": [],
+      "lateness_limit_us": 50000,
+      "max_tick_gap_us": 31000,
+      "max_lateness_us": 0
+    },
+    "notice": "仿真连接中断：Failed to fetch"
+  },
+  "after_other_tab_failed_preflight": {
+    "status": "STOPPED",
+    "error": null,
+    "stop_reason": "stop_request",
+    "elapsed_us": 250000,
+    "rate": 1,
+    "duration_us": 312000000,
+    "action_index": 2,
+    "line": 11,
+    "moving": [],
+    "indices": {
+      "left": 19,
+      "right": 29
+    },
+    "held": [],
+    "lateness_limit_us": 50000,
+    "max_tick_gap_us": 16000,
+    "max_lateness_us": 0
+  },
+  "stop_requests": [
+    {
+      "page": "owner",
+      "path": "/api/move"
+    },
+    {
+      "page": "other",
+      "path": "/api/move"
+    }
+  ]
+}
