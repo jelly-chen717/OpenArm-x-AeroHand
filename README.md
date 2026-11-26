@@ -8,7 +8,7 @@
 | [02-钢琴弹奏+MuJoCo.cmd](02-钢琴弹奏+MuJoCo.cmd) | 启动 MuJoCo 钢琴场景，自动打开 [8090 演奏网页](http://127.0.0.1:8090/)，可导入 TXT。演奏服务和配套仿真已运行时会打开现有演奏页。 |
 | [03-Aero Hand 调试.cmd](<03-Aero Hand 调试.cmd>) | 打开 Aero Hand 官方上位机。在列表中选手部实际 COM 口，再点 Connect。 |
 
-旧调试菜单和专用维护脚本位于 `launchers/`。[停止旧控制台](launchers/停止旧控制台-8092.cmd)根目录的 `piano_standalone.html` 是 8090 演奏网页加载的前端文件。
+关闭旧 8092 控制台可双击根目录的 [停止旧控制台-8092.cmd](停止旧控制台-8092.cmd)。其他维护脚本位于 `launchers/`。根目录的 `piano_standalone.html` 是 8090 演奏网页加载的前端文件。
 
 Windows OpenArm 实机 CAN FD 接入使用 `apps/openarm_driver.py`，状态检查入口为 `launchers/Check-OpenArm.cmd`，配置和 API 见 [OpenArm驱动使用说明](docs/guides/OpenArm驱动使用说明.md)。
 
