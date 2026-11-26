@@ -27,3 +27,10 @@
 # Rebuilt handoff project Python runtime and original environment backup
 /openarm/.python311/
 /backups/
+
+# Local assistant state and generated OpenArm session logs
+/.workbuddy/
+/debug.log
+/logs/openarm/monitor/ah02_pytest_01/
+/logs/openarm/monitor/hardware-*.jsonl
+/logs/openarm/monitor/virtual-*.jsonl

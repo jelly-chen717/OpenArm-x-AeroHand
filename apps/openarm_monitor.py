@@ -3,10 +3,9 @@
 Laboratory profile (2026-11-19): the console lets an operator enable, retarget and
 hold all 14 axes without stationary/tracking/travel thresholds aborting the run.
 Retained interlocks are correctness and stop-confirmation checks; the full list is
-in docs/project/OpenArm控制台防护项清单_20261119.md.
+in docs/project/OpenArm防护删除_总纲_20261125.md.
 """
 import argparse
-from bisect import bisect_right
 from collections import deque
 from concurrent.futures import Future
 from contextlib import closing
@@ -29,8 +28,10 @@ from openarm_driver import DriverError, OpenArmDriver
 from openarm_monitor_hands import ConsoleHands
 from openarm_joint_mapping import load_mapping
 from openarm_monitor_motion import KEYS, SIDES, MonitorTransport, MotionPlanner, VirtualDrive, grouped
-from openarm_piano_air import AIR_SCORES
-from openarm_piano_origin import FINGERING_SCORES, fingering_preview, load_origin
+from openarm_piano_origin import PianoFingerProjection, load_origin
+from openarm_piano_performance import SCOPES, fingering_preview, performance_options
+from openarm_piano_sync import PianoClock
+from openarm_piano_wrist import WristTrajectory
 from openarm_monitor_modes import DRIVE_MODES, MODE_CODES, DriveProfile, ModeRegisters
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -118,6 +119,8 @@ class Job:
     sample: dict | None = None
     message: str = ""
     stop_confirmed: bool = False
+    piano_exit_id: str | None = None
+    piano_exited: bool = False
 
     def __post_init__(self):
         self.session_id = self.id
@@ -131,7 +134,8 @@ class Job:
                     message=self.message, stop_confirmed=self.stop_confirmed,
                     stop_reason=self.watch.reason, duration_s=self.plan["duration"],
                     target_deg=grouped(self.plan["start"] | self.plan["goal"], math.degrees),
-                    sample=self.sample, piano_trial=self.plan.get("piano_trial"))
+                    sample=self.sample, piano_trial=self.plan.get("piano_trial"),
+                    piano_exiting=self.piano_exit_id == self.id, piano_exited=self.piano_exited)
 
 
 class Conflict(RuntimeError):
@@ -140,19 +144,22 @@ class Conflict(RuntimeError):
 
 class Monitor:
     def __init__(self, mode, channels, log_directory, *, driver_factory=OpenArmDriver, profile_path=None,
-                 inventory_path=None, piano_calibration=None):
+                 inventory_path=None):
         self.mode, self.channels = mode, channels
         self.hardware = mode == "hardware"
         self.driver_factory = driver_factory
         self.version, self.mappings = load_mapping(ROOT / "configs/openarm_joint_mapping.json",
                                                   hardware=self.hardware)
         self.planner = MotionPlanner(self.version, self.mappings, virtual=not self.hardware)
-        self.piano_calibration = piano_calibration
+        self.piano_performance_scores = performance_options()
         try:
             points, anchors, _ = load_origin()
-            self.piano_origin = {s: dict(anchor=anchors[s].key, keys=sorted(points[s])) for s in SIDES}
-        except (ValueError, KeyError, OSError):
+            self.piano_origin = {s: dict(anchor=anchors[s].key, note=anchors[s].note,
+                                        physical_key=anchors[s].physical_key, keys=sorted(points[s])) for s in SIDES}
+            self.piano_projection = PianoFingerProjection.load(anchors)
+        except (ValueError, KeyError, IndexError, TypeError, OSError):
             self.piano_origin = None
+            self.piano_projection = None
         self.limits_deg = {side: [[math.degrees(v) for v in self.mappings[side, j].limits]
                                   for j in range(1, 8)] for side in SIDES}
         self.journal = Journal(log_directory, mode)
@@ -250,7 +257,7 @@ class Monitor:
             return True
         job = self.job
         if (not job or not job.active or job.state != "HOLDING_TARGET" or job.client != client
-                or job.watch.is_set() or self.continuation or self.journal.error):
+                or job.watch.is_set() or job.piano_exit_id or self.continuation or self.journal.error):
             return False
         return all(arm["fresh"] for arm in arms.values())
 
@@ -277,7 +284,7 @@ class Monitor:
         job = self.job
         return bool(job and job.active and job.state == "HOLDING_TARGET"
                     and job.client == client and not job.watch.is_set()
-                    and self.continuation is None)
+                    and not job.piano_exit_id and self.continuation is None)
 
     def _start_plan(self, source, current, holding):
         if source == "piano-origin":
@@ -286,6 +293,8 @@ class Monitor:
             return self.planner.prepare_zero_pose(current, holding=holding)
         if source == "start-return":
             return self.planner.prepare_start_return(current, holding=holding)
+        if source == "zero-return":
+            return self.planner.prepare_zero_return(current, holding=holding)
         return self.planner.prepare_start_pose(current, holding=holding)
 
     def _check_continuation_axes(self, plan):
@@ -315,8 +324,11 @@ class Monitor:
                 event, message = "motion.zero_pose", "0位：双臂回到 J7 +15°，其余 0°"
             elif source == "start-return":
                 event, message = "motion.start_return", "回0—起始位：0位 → J1+15°/J2−45° → J1−30°/J4+90° → 起始位"
+            elif source == "zero-return":
+                event, message = "motion.zero_return", ("逆方向返回：当前位置 → 起始位 → J1−30°/J2−45°/J4+90° → "
+                                                        "J1+15°/J2−45° → 0位（到位后保持使能）")
             elif source == "piano-origin":
-                event, message = "motion.piano_origin", "钢琴原位：左食指 B3，右食指 C4"
+                event, message = "motion.piano_origin", plan["steps"][0][0]
             else:
                 event, message = "motion.start_pose", "起始位：双臂直接回起始位"
             self.journal.record(event, message, request_id=plan["request_id"], important=True,
@@ -360,17 +372,22 @@ class Monitor:
                               for arm in arms.values() for row in arm["joints"])
             mode_error = self.mode_error
             job = self.job.public() if self.job else None
-        points = self.planner.endpoints(positions)
+        points, wrist_rpy = self.planner.end_effector_feedback(positions)
         for side, arm in arms.items():
-            arm["endpoints_mm"] = points.get(side, {}) if not arm["reason"] else {}
+            endpoints = points.get(side, {}) if not arm["reason"] else {}
+            arm["endpoints_mm"] = endpoints
+            arm["wrist_rpy_deg"] = wrist_rpy.get(side) if endpoints else None
+            arm["piano_finger_keys"] = (self.piano_projection.keys_at(side, endpoints["wrist"][1])
+                                       if endpoints and self.piano_projection else {})
         return dict(instance=self.journal.id, mode=self.mode, mapping_version=self.version,
                     limits_deg=self.limits_deg, arms=arms, hands=self.hands.snapshot(),
                     hand_score=self.hands.score_status(client), can_prepare=ready, run=job,
                     drive_mode=drive_mode, revision=revision, can_enable_all=idle and motion_supported,
                     axis_modes=axis_modes, mode_error=mode_error, motion_supported=motion_supported,
-                    all_enabled=all_enabled, can_start_pose=start_ready, piano_air_available=True,
-                    piano_score_position_available=True, piano_trial_available=True, piano_origin=self.piano_origin,
-                    piano_air_scores=list(AIR_SCORES), piano_fingering_scores=list(FINGERING_SCORES),
+                    all_enabled=all_enabled, can_start_pose=start_ready,
+                    piano_trial_available=True, piano_origin=self.piano_origin,
+                     piano_fingering_scores=list(self.piano_performance_scores), piano_trial_scopes=SCOPES,
+                     piano_performance_scores=self.piano_performance_scores,
                     pending_mode=pending_mode,
                     can_switch_mode=switchable,
                     drive_modes=() if self.hardware and not self.mode_registers else DRIVE_MODES,
@@ -386,12 +403,8 @@ class Monitor:
             holding = held_plan["goal"] if held_plan else None
             if self.preview and self.preview[1] == client:
                 self.preview = None
-        is_air = payload.get("mode") == "piano-air"
-        if payload.get("mode") == "piano-trial":
+        if payload.get("mode") in ("piano-trial", "piano-performance"):
             plan, request = self.planner.prepare_piano_trial(payload, current, held_plan)
-        elif is_air:
-            plan, request = self.planner.prepare_piano_air(
-                payload, current, calibration_path=self.piano_calibration, held_plan=held_plan)
         else:
             plan, request = self.planner.prepare(payload, current, holding=holding)
         with self.lock:
@@ -399,8 +412,6 @@ class Monitor:
             if revision != self.revision or not self._can_prepare(arms, client):
                 raise Conflict("控制台状态已变化，请重新预览。")
             details = dict(input=payload, trajectory=request, notice=plan.get("notice"))
-            if is_air:
-                details["piano_air"] = plan["piano_air"]
             if "piano_trial" in plan:
                 details["piano_trial"] = plan["piano_trial"]
             self.journal.record("motion.preview", "目标已通过预检", request_id=plan["request_id"],
@@ -415,19 +426,33 @@ class Monitor:
                       revision=revision, command_joints=[f"{side} J{j}" for side, j in plan["commanded"]],
                       target_deg=grouped(current | plan["goal"], math.degrees),
                       peak_speed_deg_s=math.degrees(1.875 * peak / motion[1]["t"]))
-        if is_air:
-            air = plan["piano_air"]
-            result["piano_air"] = dict(scope=air["scope"], speed=air["speed"], anchors=air["anchors"],
-                                      score_id=air["score_id"], from_score_start=air["from_score_start"],
-                                      note_count=len(air["finger_events"]),
-                                      calibrated=bool(air["source"]["site_calibration_sha256"]))
         if "piano_trial" in plan:
             result["piano_trial"] = plan["piano_trial"]
-        if is_air or "piano_trial" in plan:
+            trajectory = plan["trajectory"]
+            tracks = getattr(trajectory, "arms", (trajectory,))
             result["peak_speed_deg_s"] = math.degrees(max(
-                1.875 * max(abs(a - b) for a, b in zip(before["q"], after["q"]))
-                / (after["t"] - before["t"]) for before, after in zip(motion, motion[1:])))
+                arm.peak_bounds(t0, q0, q1, t1-t0)[0] for arm in tracks
+                for (t0, q0), (t1, q1) in zip(arm.points, arm.points[1:])))
         return result
+
+    def play_piano(self, payload, client):
+        preview = self.prepare(dict(mode="piano-performance", score_id=payload.get("score_id")), client)
+        return self.start_motion(preview["request_id"], client, payload.get("sessions"))
+
+    def exit_piano(self, request_id):
+        with self.lock:
+            job = self.job
+            if not job or not job.active or job.watch.is_set():
+                raise Conflict("该次演奏已结束或已变更。")
+            plan = self.continuation or job.plan
+            if request_id != plan["request_id"] or not plan.get("piano_trial", {}).get("performance"):
+                raise Conflict("该次演奏已结束或已变更。")
+            if job.piano_exit_id != request_id and not (job.id == request_id and job.piano_exited):
+                job.piano_exit_id = request_id
+                self.hands.exit_score(request_id)
+                self.preview = None
+                self.revision += 1
+            return dict(request_id=request_id)
 
     def start_motion(self, request_id, client, sessions=None):
         with self.lock:
@@ -440,20 +465,26 @@ class Monitor:
             if "piano_trial" in plan:
                 self._check_continuation_axes(plan)
             watch = self.job.watch if self.job and self.job.active else OperatorWatch()
-            if plan.get("trial_fingers") is not None:
+            if plan.get("trial_fingers") and plan["trial_fingers"].sides:
                 clock = Future()
+                trial = plan["piano_trial"]
+                piano_clock = PianoClock(plan, self.planner.endpoints) if trial["performance"] else None
                 try:
                     self.hands.schedule_score(plan["trial_fingers"], sessions, client, watch,
-                                              run_id=request_id, arm_clock=clock)
+                                               run_id=request_id, arm_clock=clock, piano_clock=piano_clock,
+                                               title=trial.get("score_name"))
                 except ValueError as exc:
                     # Hand availability never blocks the arm: run the wrist motion
                     # only and record why the fingers were skipped.
                     clock.cancel()
+                    trial["finger_notice"] = str(exc)
                     self.journal.record("hand.score.skipped",
                                         f"指法未启动，仅执行机械臂：{exc}",
                                         level="WARN", request_id=request_id, important=True)
                 else:
                     plan["trial_clock"] = clock
+                    if piano_clock is not None:
+                        plan["piano_clock"] = piano_clock
             try:
                 self.journal.record("motion.accepted", "已提交执行，正在复核起点", request_id=request_id,
                                     important=True)
@@ -650,18 +681,9 @@ class Monitor:
                              for label, field in (("command_deg", "target"),
                                                   ("measured_deg", "measured"), ("error_deg", "error"))},
                           max_error_deg=math.degrees(max(map(abs, row["error"]))))
-            air = job.plan.get("piano_air")
-            if air:
-                elapsed = (row["t"] - air["prepare_s"]) * air["speed"]
-                index = bisect_right(job.plan["piano_onsets"], elapsed * 1e6) - 1
-                attack = job.plan["piano_attacks"][index] if index >= 0 else ()
-                notes = [note for note in attack if elapsed * 1e6 < note["off_us"]]
-                sample["piano_air"] = dict(scope=air["scope"], score_id=air["score_id"],
-                                           score_elapsed_s=max(0., elapsed), positioning=elapsed < 0,
-                                           notes=notes, note=notes[-1] if notes else None)
-                if air["scope"] == "start":
-                    sample["piano_air"]["anchors"] = air["anchors"]
-                row = dict(row, piano_air=sample["piano_air"])
+            if "wall_elapsed_s" in row:
+                sample.update(sync_delay_s=max(0., row["wall_elapsed_s"] - row["t"]),
+                              piano_sync=row.get("piano_sync"))
             if self.hardware:
                 feedback = transport.feedback.copy()
             else:
@@ -679,16 +701,28 @@ class Monitor:
             return
         if kind == "state":
             if row["state"] == "EXECUTING" and "trial_clock" in job.plan:
-                job.plan["trial_clock"].set_result(time.monotonic())
+                job.plan["trial_clock"].set_result(row["started_at"])
             with self.lock:
                 job.state = row["state"]
                 job.stop_confirmed = job.state == "STOPPED" and not self.hardware
+                exited = job.state == "HOLDING_TARGET" and row["outcome"] == "INTERRUPTED"
+                if exited:
+                    job.plan["goal"].update(zip(job.plan["keys"], row["target"]))
+                    job.piano_exit_id = None
+                    job.piano_exited = True
             if row["state"] == "HOLDING_TARGET":
-                self.journal.record("drive.holding", "已到位，关节持续使能保持位置",
+                event, message = (("motion.piano_exit", "已退出演奏，双臂保持当前位置") if exited else
+                                  ("drive.holding", "已到位，关节持续使能保持位置"))
+                self.journal.record(event, message,
                                     important=True, request_id=job.id, data=dict(drive_mode=self.drive_mode))
         if kind == "advisory":
             # Thresholds no longer stop the run; they are recorded for the operator.
             self.journal.record("motion.advisory", row["message"], level="WARN",
+                                request_id=job.id, data=row)
+            return
+        if kind == "piano_sync":
+            self.journal.record("piano.sync.wait" if row["waiting"] else "piano.sync.ready",
+                                "等待抬指或腕位反馈" if row["waiting"] else "同步条件已满足",
                                 request_id=job.id, data=row)
             return
         self.journal.record(f"motion.{kind}", row.get("state", row.get("error", "")),
@@ -716,6 +750,7 @@ class Monitor:
                     return None
                 self.continuation = None
                 job.plan = plan
+                job.piano_exited = False
                 _, measured = self._feedback_view()
                 if set(measured) != set(KEYS):
                     # Stale feedback is adopted instead of failing the continuation:
@@ -740,11 +775,17 @@ class Monitor:
                 # just as a cold start does.
                 return replace(upcoming, expires_at=time.time() + plan["duration"] + 10)
 
+        def configure_cycle(track, elapsed):
+            transport.speed_overrides = {key: speed for arm in getattr(track, "arms", ())
+                                         if isinstance(arm, WristTrajectory)
+                                         for key, speed in arm.speeds_at(elapsed).items()}
+
         return execute(trajectory, self.mappings, transport,
                        lambda row: self._update_run(job, transport, row), cancel=job.watch,
                        period=PERIOD, max_lateness=MAX_LATENESS, max_error=None,
                        endpoint_tolerance=ENDPOINT_TOLERANCE, hold_after=True,
-                       next_trajectory=continuation)
+                       next_trajectory=continuation, hold_requested=lambda: job.piano_exit_id == job.id,
+                       piano_clock=lambda: job.plan.get("piano_clock"), configure_cycle=configure_cycle)
 
     def _hardware_run(self, job):
         def warn(message):
@@ -946,10 +987,13 @@ def create_server(monitor, port):
                     result = monitor.prepare(payload, client)
                 elif self.path == "/api/execute":
                     result = monitor.start_motion(request_id, client, payload.get("sessions"))
+                elif self.path == "/api/piano/play":
+                    result = monitor.play_piano(payload, client)
+                elif self.path == "/api/piano/exit":
+                    result = monitor.exit_piano(request_id)
                 elif self.path == "/api/stop":
                     result = monitor.stop_motion(request_id)
-                    monitor.hands.disconnect_all()
-                    monitor.journal.record("hand.stop", "手部串口已全部关闭", request_id=request_id)
+                    monitor.hands.stop_active_score()
                 elif self.path == "/api/hand":
                     result = monitor.hands.action(payload)
                 elif self.path == "/api/hand-score/start":
@@ -962,12 +1006,15 @@ def create_server(monitor, port):
                     result = monitor.start_pose_motion("zero-pose", client)
                 elif self.path == "/api/start/return":
                     result = monitor.start_pose_motion("start-return", client)
+                elif self.path == "/api/start/zero-return":
+                    result = monitor.start_pose_motion("zero-return", client)
                 elif self.path == "/api/start/pose":
                     result = monitor.start_pose_motion("start-pose", client)
                 elif self.path == "/api/start/piano-origin":
                     result = monitor.start_pose_motion("piano-origin", client)
                 elif self.path == "/api/piano/fingering":
-                    result = fingering_preview(payload.get("scope"), payload.get("score_id", "jin-chords"))
+                    result = fingering_preview(payload.get("scope"), payload.get("score_id", "jin-chords"),
+                                               monitor.mappings)
                 elif self.path == "/api/drive-mode":
                     result = monitor.switch_mode(payload.get("drive_mode"), payload.get("original_modes"))
                 else:
@@ -1027,7 +1074,6 @@ def main():
                         help="With --open, reopen an existing console in the same mode")
     parser.add_argument("--drive-profile", type=Path, help="Commissioned hardware protocol profile tied to a C02 inventory")
     parser.add_argument("--mode-inventory", type=Path, help="C02 backup for disabled mode-register switching")
-    parser.add_argument("--piano-calibration", type=Path, help="Measured bilateral wrist anchors for piano air playback")
     parser.add_argument("--log-directory", type=Path, default=ROOT / "logs/openarm/monitor",
                         help="JSONL session directory (defaults to logs/openarm/monitor)")
     args = parser.parse_args()
@@ -1045,8 +1091,7 @@ def main():
         if reference and (config.parent / reference).is_file():
             inventory = config.parent / reference
     monitor = Monitor(args.mode, dict(left=args.left_channel, right=args.right_channel),
-                      args.log_directory, profile_path=args.drive_profile, inventory_path=inventory,
-                      piano_calibration=args.piano_calibration)
+                      args.log_directory, profile_path=args.drive_profile, inventory_path=inventory)
     try:
         server = create_server(monitor, port)
     except OSError:

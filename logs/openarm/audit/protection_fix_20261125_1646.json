@@ -1,0 +1,44 @@
+{
+  "time": "2026-11-25 16:46",
+  "git_head": "f86e10e",
+  "workspace_dirty": "yes: 18 modified / 38 untracked / 0 deleted",
+  "authorization": "用户 2026-11-25 16:46 明确指示：将 N1 和 N3 也放开。",
+  "scope": "放开实机完整钢琴版全曲与双手试弹 jin-full/full 的两个范围限制；未新增任何拒绝，未改动 P01～P24 语义。",
+  "changes": [
+    {
+      "id": "N1",
+      "file": "apps/openarm_piano_performance.py",
+      "function": "compile_performance / performance_options",
+      "before": "实机 score_id=jin-full 时 raise ValueError(FULL_SCORE_NOTICE)，前端按钮禁用",
+      "after": "四谱始终 available；compile_performance 统一使用实琴 OFFSETS，不再按 virtual 或谱名拒绝；不可覆盖音组按 P25 跳过并记 skipped_groups/skipped_notes",
+      "class": "P26"
+    },
+    {
+      "id": "N3",
+      "file": "apps/openarm_piano_trial.py",
+      "function": "DUAL_TRIAL_SCOPES",
+      "before": "jin-full 仅 first/prelude",
+      "after": "全部已接入谱支持 first/prelude/full，jin-full/full 走 fingering_preview 逐组求腕位，缺腕位音按 P22 跳过",
+      "class": "P26"
+    }
+  ],
+  "verification": {
+    "compile_full_performance": "虚拟模式 prepare_piano_trial(mode=piano-performance, score_id=jin-full) 可生成完整轨迹；note_count + skipped_notes == 谱面音数 1469",
+    "dual_trial_full": "test_openarm_monitor.py 参数化 jin-full/full 期望 1469 音，已通过",
+    "new_test": "test_full_performance_compiles_and_reports_skipped_notes"
+  },
+  "tests": {
+    "targeted": "test_full_performance_compiles_and_reports_skipped_notes: 1 passed / 5.20 s",
+    "full": "206 passed / 0 failed / 0 skipped / 130.97 s（10 文件）",
+    "note": "用户 16:25 已同步指距与测试；jin-full/full 参数化期望 1469 音。"
+  },
+  "docs": [
+    "docs/project/OpenArm控制台防护项清单_20261119.md：新增 P26，P25 记录移除“保留 N1/N3”表述",
+    "monitor-ui/README.md：完整钢琴版全曲改为可直接演奏，不可覆盖组跳过提示"
+  ],
+  "violations": [],
+  "notes": [
+    "未启动 8092、未连接实机、未读写 CAN、未使能/运动/写模式。",
+    "实机全曲的腕位可达性、双手净空和实际落键仍需现场核对；本次仅放开软件拒绝并验证离线编译。"
+  ]
+}

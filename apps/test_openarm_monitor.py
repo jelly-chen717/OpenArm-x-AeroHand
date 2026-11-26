@@ -1,20 +1,22 @@
 """Monitor integration tests. The PCAN-mode cases inject a driver fixture."""
 from dataclasses import asdict, replace
+from io import BytesIO
 import json
 import math
 import struct
 import time
+from unittest.mock import Mock
 
-import mujoco
 import pytest
 
 from openarm_app.kinematics import pose_error
 from openarm_driver import DriverError
 from openarm_joint_mapping import load_mapping
-from openarm_monitor import CHANNELS, ROOT, Conflict, Monitor
+from openarm_monitor import CHANNELS, ROOT, Conflict, Monitor, create_server
 from openarm_monitor_motion import MotionPlanner
 from openarm_monitor_modes import MODE_CODES
-from openarm_piano_air import AIR_SCORES, FINGERS, attacks, compile_air, load_notes
+from openarm_piano_air import attacks, compile_air, load_notes
+from openarm_piano_origin import load_origin
 from openarm_position_mode import REGISTERS
 from test_openarm_execution_hardware import BatchDriver
 
@@ -96,121 +98,17 @@ def records(monitor, request_id):
             if (row := json.loads(line))["request_id"] == request_id]
 
 
-@pytest.mark.parametrize(("score_id", "note_count", "right_start", "first_onset"), [
-    ("jin", 441, 24, 3_250_000),
-    ("jin-chorus", 74, 30, 250_000),
-])
-def test_piano_air_full_score_hits_every_planned_wrist_at_its_onset(
-        monitor_factory, score_id, note_count, right_start, first_onset):
-    monitor = monitor_factory("virtual")
-    snapshot = wait_for(monitor, lambda s: s["can_prepare"])
-    preview = monitor.prepare(dict(mode="piano-air", score_id=score_id, scope="full", speed=.35), OPERATOR)
-    plan, _ = monitor.preview
-    air = plan["piano_air"]
-    trajectory = plan["trajectory"]
-    notes, duration_us, digest, start_keys = load_notes(AIR_SCORES[score_id])
-    assert start_keys == {"left": 20, "right": right_start}
-    assert air["source"]["score_sha256"] == digest
-    assert preview["piano_air"]["note_count"] == note_count == len(notes)
-    assert air["finger_events"][0]["on_us"] == first_onset
-    assert (preview["piano_air"]["anchors"]["left"], preview["piano_air"]["anchors"]["right"]) == (
-        {"pinky": 19, "index": 23}, {"index": right_start})
-    assert trajectory.duration == pytest.approx(4 + duration_us / 350_000)
-    assert all(arm["fresh"] for arm in snapshot["arms"].values())
-    assert monitor.job is None
-    for side, indices in (("left", slice(0, 7)), ("right", slice(7, 14))):
-        key = 19 if side == "left" else right_start
-        assert trajectory.sample(4.)[0][indices] == pytest.approx(air["wrist_targets"][f"{side}:{key}"]["q"])
-    for planned, notation in zip(air["finger_events"], notes):
-        assert (planned["key"], planned["on_us"], planned["off_us"]) == (
-            notation["key"], notation["on_us"], notation["off_us"])
-        side, key, anchor = planned["side"], planned["key"], planned["anchor_key"]
-        assert FINGERS[side][key - anchor] == planned["finger"]
-        target = air["wrist_targets"][f"{side}:{anchor}"]
-        t = air["prepare_s"] + planned["on_us"] / 350_000
-        indices = slice(0, 7) if side == "left" else slice(7, 14)
-        assert trajectory.sample(t)[0][indices] == pytest.approx(target["q"])
-        assert target["position_error_m"] <= .001 and target["orientation_error_rad"] <= .003
-    bare = MotionPlanner(monitor.version, monitor.mappings, virtual=False)
-    for (start, _), (end, _) in zip(trajectory.points, trajectory.points[1:]):
-        for step in range(17):
-            q, _ = trajectory.sample(start + (end - start) * step / 16)
-            for key, value in zip(trajectory.keys, q):
-                bare.plan_data.qpos[bare.qindices[key]] = value
-            mujoco.mj_forward(bare.model, bare.plan_data)
-            for contact in bare.plan_data.contact:
-                bodies = [bare.model.body(int(bare.model.geom(geom).bodyid[0])).name
-                          for geom in (contact.geom1, contact.geom2)]
-                assert not all("_link" in name for name in bodies), bodies
-
-
 def test_piano_air_measured_wrist_anchor_is_used_instead_of_csv(monitor_factory, tmp_path):
     monitor = monitor_factory("virtual")
     calibration = tmp_path / "piano.json"
     calibration.write_text(json.dumps(dict(
         anchor_q_rad={side: arm.home.tolist() for side, arm in monitor.planner.arms.items()},
         key_step_m=[0., -.0235, 0.])), encoding="utf-8")
-    air = compile_air(monitor.planner.arms, scope="start", speed=.35, calibration_path=calibration)
+    air = compile_air(monitor.planner.arms, scope="start", speed=.35, score_id="jin-chords",
+                      calibration_path=calibration)
     assert air["source"]["site_calibration_sha256"]
     for side, arm in monitor.planner.arms.items():
         assert air["waypoints"][0][1][side] == pytest.approx(arm.home)
-
-
-def test_piano_air_chords_keep_each_attack_and_shared_wrist(monitor_factory):
-    monitor = monitor_factory("virtual")
-    status = wait_for(monitor, lambda s: s["can_prepare"])
-    assert "jin-chords" in status["piano_air_scores"]
-    payload = dict(mode="piano-air", score_id="jin-chords", speed=1.)
-    start = monitor.prepare(dict(payload, scope="start"), OPERATOR)
-    start_goal = monitor.preview[0]["goal"]
-    assert start["piano_air"]["anchors"] == {"left": {"pinky": 18, "index": 22}, "right": {"index": 24}}
-    preview = monitor.prepare(dict(payload, scope="full"), OPERATOR)
-    plan, _ = monitor.preview
-    air = plan["piano_air"]
-    trajectory = plan["trajectory"]
-    groups = list(attacks(air["finger_events"]))
-    assert preview["duration_s"] == pytest.approx(312.)
-    assert len(groups) == 347 and preview["piano_air"]["note_count"] == 1300
-    assert trajectory.sample(4.)[0] == pytest.approx([start_goal[key] for key in trajectory.keys])
-    assert [(note["key"], note["finger"], note["off_us"]) for note in groups[0][1]] == [
-        (20, "middle", 1_720_000), (22, "index", 1_720_000),
-        (24, "index", 1_720_000), (26, "ring", 1_720_000)]
-    for onset, notes in groups:
-        q, _ = trajectory.sample(4. + onset / 1e6)
-        for side, positions in (("left", q[:7]), ("right", q[7:])):
-            hand = [note for note in notes if note["side"] == side]
-            if not hand:
-                continue
-            anchor, = {note["anchor_key"] for note in hand}
-            assert positions == pytest.approx(air["wrist_targets"][f"{side}:{anchor}"]["q"])
-            assert all(FINGERS[side][note["key"] - anchor] == note["finger"] for note in hand)
-
-
-def test_piano_air_continues_from_held_score_start(monitor_factory):
-    monitor = monitor_factory("virtual")
-    wait_for(monitor, lambda status: status["can_prepare"])
-    payload = dict(mode="piano-air", scope="start", score_id="jin", speed=1.)
-    start = monitor.prepare(payload, OPERATOR)
-    assert start["duration_s"] == 4 and start["piano_air"]["note_count"] == 0
-    positioning = monitor.start_motion(start["request_id"], OPERATOR)
-    wait_for(monitor, holding)
-    held = dict(monitor.job.plan["goal"])
-
-    playing = monitor.prepare(dict(payload, scope="prelude"), OPERATOR)
-    assert playing["piano_air"]["from_score_start"] and playing["duration_s"] == pytest.approx(16.)
-    plan, _ = monitor.preview
-    trajectory, _ = monitor.planner.revalidate(plan, {key: value + .01 for key, value in held.items()})
-    assert trajectory.points[0] == (0., tuple(held[key] for key in trajectory.keys))
-    assert all(t1 > t0 for (t0, _), (t1, _) in zip(trajectory.points, trajectory.points[1:]))
-
-    playback = monitor.start_motion(playing["request_id"], OPERATOR)
-    assert playback["session_id"] == positioning["session_id"]
-    result = wait_for(monitor, lambda status: status["run"]["request_id"] == playback["request_id"]
-                      and bool((status["run"]["sample"] or {}).get("piano_air", {}).get("note")))
-    assert result["run"]["sample"]["piano_air"]["note"]["key"] == 22
-    assert 3.25 <= result["run"]["sample"]["piano_air"]["score_elapsed_s"] < 3.5
-    monitor.stop_motion(playback["session_id"])
-    assert wait_for(monitor, finished)["run"]["stop_confirmed"]
 
 
 def test_piano_air_reads_last_preparation_hand_positions_from_score(tmp_path):
@@ -259,45 +157,71 @@ def test_wrist_ik_preview_recovers_from_current_seed_failure(side, start_deg, of
     assert math.dist(seed, result) <= math.dist(seed, home_solution) + 1e-9
 
 
+def test_bilateral_wrist_pose_ik_uses_feedback_for_blank_axes():
+    version, mappings = load_mapping(ROOT / "configs/openarm_joint_mapping.json", hardware=True)
+    planner = MotionPlanner(version, mappings, virtual=False)
+    _, anchors, _ = load_origin()
+    current = {(side, joint): math.radians(angle) for side, anchor in anchors.items()
+               for joint, angle in enumerate(anchor.deg, 1)}
+    points, rpy = planner.end_effector_feedback(current)
+    right_y = points["right"]["wrist"][1] - 5
+    left_roll = rpy["left"][0] + 2.5
+    right_yaw = rpy["right"][2] + 2.5
+    plan, _ = planner.prepare(
+        dict(arm="both", mode="ik", endpoint="wrist", duration_s=1., speed_percent=20,
+             targets={"left": [None, None, None, left_roll, None, None],
+                      "right": [None, right_y, None, None, None, right_yaw]}),
+        current,
+    )
+    assert len(plan["commanded"]) == 14
+    final_points, final_rpy = planner.end_effector_feedback(plan["goal"])
+    assert final_points["left"]["wrist"] == pytest.approx(points["left"]["wrist"], abs=1.)
+    right_x, _, right_z = points["right"]["wrist"]
+    assert final_points["right"]["wrist"] == pytest.approx([right_x, right_y, right_z], abs=1.)
+    assert final_rpy["left"] == pytest.approx([left_roll, *rpy["left"][1:]], abs=.2)
+    assert final_rpy["right"] == pytest.approx([*rpy["right"][:2], right_yaw], abs=.2)
+
+
 @pytest.mark.parametrize("run", [1, 2])
-def test_calibrated_trial_preserves_all_right_chord_keys_and_timing(monitor_factory, run):
-    import csv
-    from openarm_piano_trial import CHORD_SCORE, POINTS, CHANNEL, parse_score
+def test_legacy_right_trial_uses_current_points_and_preserves_notes(monitor_factory, run):
+    from bisect import bisect_right
+    from collections import Counter
+    from openarm_piano_air import CHORD_SCORE
+    from paino_skill.score import WHITES
 
-    m = monitor_factory("virtual")
-    wait_for(m, lambda s: s["can_prepare"])
-    summary = m.prepare(dict(mode="piano-trial", anchor_run=run, scope="full", speed=.35), OPERATOR)
-    plan = m.preview[0]
-    trial, score, path = plan["piano_trial"], plan["trial_fingers"], plan["trajectory"]
+    monitor = monitor_factory("virtual")
+    wait_for(monitor, lambda snapshot: snapshot["can_prepare"])
+    speed = .35
+    monitor.prepare(dict(mode="piano-trial", anchor_run=run, scope="full", speed=speed), OPERATOR)
+    plan = monitor.preview[0]
+    info, score, path = plan["piano_trial"], plan["trial_fingers"], plan["trajectory"]
+    _, anchors, digest = load_origin()
+    assert info["points_sha256"] == digest
     assert set(path.keys) == {("right", j) for j in range(1, 8)}
-    assert trial["wrist_keys"] == [24, 29, 26, 25] and trial["note_count"] == 694
-    assert summary["duration_s"] == pytest.approx(6 + 308/.35)
-    with POINTS.open(encoding="utf-8-sig") as f:
-        table = {int(r["key"]): tuple(float(r[f"q{i}"]) for i in range(1, 8))
-                 for r in csv.DictReader(f) if int(r["anchor_run"]) == run and r["q1"]}
-    parsed = parse_score(CHORD_SCORE.read_text(encoding="utf-8-sig"), finger_count=4)
-    changes = []
-    for action in parsed.actions:
-        if action["kind"] == "move":
-            if action["side"] == "right":
-                wrist = action["index"]
-            continue
-        right = [f for f in action["fingers"] if f["side"] == "right"]
-        if not right:
-            continue
-        t = 6 + (action["time_us"]/1e6 - 4)/.35
-        down = action["direction"] == "D"
-        if down:
-            assert path.sample(t)[0] == pytest.approx(table[wrist], abs=1e-9)
-        changes.append((round(t*1e6), tuple((CHANNEL[f["finger"]], down) for f in right)))
-    assert [(e.time_us, e.changes) for e in score.events["right"][1:]] == changes
-    assert len(changes) == 694
+    assert info["note_count"] == 694
+    assert info["origin_targets"]["right"]["joints_deg"] == anchors["right"].deg
+    assert path.sample(3.25)[0] == pytest.approx(list(map(math.radians, anchors["right"].deg)))
+    notes, _, _, _ = load_notes(CHORD_SCORE)
+    intro = round(info["prepare_s"] * 1e6)
+    expected = Counter()
+    for note in (n for n in notes if n["side"] == "right"):
+        start = note["on_us"]
+        on = intro + round(start / speed) + bisect_right(info["pause_times_us"], start) * 1_000_000
+        expected[on, True, note["midi"]] += 1
+        expected[on + round((note["off_us"] - start) / speed), False, note["midi"]] += 1
+    actual = Counter()
+    for event in score.events["right"][1:]:
+        joints = dict(zip(path.keys, path.sample(event.time_us / 1e6)[0]))
+        y = monitor.planner.endpoints(joints)["right"]["wrist"][1]
+        wrist = anchors["right"].key + round((anchors["right"].xyz[1] - y) / 22.5)
+        for channel, down in event.changes:
+            actual[event.time_us, down, WHITES[wrist + channel - 4]] += 1
+    assert actual == expected
 
 
-def test_calibrated_trial_held_start_and_stop_release(monitor_factory, profile_path, monkeypatch):
+def test_calibrated_trial_held_start_and_stop_release(monitor_factory, profile_path):
     from test_openarm_monitor_hands import FixtureHand
 
-    monkeypatch.setattr("openarm_piano_trial.APPROACH_S", .12)
     m = monitor_factory("hardware", ProfileDriverFixture, profile_path=profile_path)
     m.hands.factory = FixtureHand
     wait_for(m, lambda s: s["can_enable_all"])
@@ -315,10 +239,10 @@ def test_calibrated_trial_held_start_and_stop_release(monitor_factory, profile_p
     wait_for(m, lambda s: holding(s) and s["run"]["request_id"] == start["request_id"])
     assert not bus.packets
     neighbour = m.prepare(dict(args, key=25), OPERATOR)
-    assert neighbour["piano_trial"]["wrist_keys"] == [24, 25]
+    assert neighbour["piano_trial"]["wrist_keys"] == [25]
     assert len(m.preview[0]["steps"]) == 1
     endpoint = m.planner.endpoints(m.preview[0]["goal"])["right"]["wrist"]
-    assert endpoint == pytest.approx([244.5, -56., -177.], abs=.02)
+    assert endpoint == pytest.approx([250.25, -77.5, -170.00], abs=.02)
     preview = m.prepare(dict(args, scope="first"), OPERATOR)
     assert preview["piano_trial"]["from_score_start"] and preview["duration_s"] == pytest.approx(2.25)
     m.start_motion(preview["request_id"], OPERATOR, {"right": session})
@@ -329,8 +253,7 @@ def test_calibrated_trial_held_start_and_stop_release(monitor_factory, profile_p
     assert bus.packets[-1] == bus.packets[0]
 
 
-def test_trial_without_hand_session_still_runs_the_arm(monitor_factory, monkeypatch):
-    monkeypatch.setattr("openarm_piano_trial.APPROACH_S", .12)
+def test_trial_without_hand_session_still_runs_the_arm(monitor_factory):
     m = monitor_factory("virtual")
     wait_for(m, lambda s: s["can_prepare"])
     m.enable_all(OPERATOR)
@@ -344,14 +267,319 @@ def test_trial_without_hand_session_still_runs_the_arm(monitor_factory, monkeypa
     m.start_motion(preview["request_id"], OPERATOR)
     done = wait_for(m, lambda s: holding(s) and s["run"]["request_id"] == preview["request_id"])
     assert not done["hand_score"]["active"]
+    assert done["run"]["piano_trial"]["finger_notice"]
     assert any(row["event"] == "hand.score.skipped" for row in m.journal.events)
     m.stop_motion(done["run"]["session_id"])
     wait_for(m, finished)
     assert not m.hands.snapshot()["left"]["connected"]
 
 
-def test_piano_origin_and_neighbour_use_feedback_angles(monitor_factory, profile_path):
-    from openarm_piano_origin import load_origin
+@pytest.mark.parametrize(("score_id", "scope", "count"), [("jin-chords", "full", 1300), ("jin-full", "prelude", 37),
+                                                        ("jin-full", "full", 1469)])
+def test_dual_trial_keeps_physical_keys_and_note_times(monitor_factory, score_id, scope, count):
+    from bisect import bisect_right
+    from collections import Counter
+    from openarm_piano_performance import CHANNEL, fingering_preview
+    from openarm_start_pose import START_DEG
+
+    monitor = monitor_factory("virtual")
+    speed = .35
+    current = {(side, j): math.radians(q) for side in ("left", "right") for j, q in enumerate(START_DEG, 1)}
+    plan, _ = monitor.planner.prepare_piano_trial(dict(anchor_run=3, score_id=score_id, scope=scope, speed=speed),
+                                                  current, {"goal": current})
+    score, trajectory = plan["trial_fingers"], plan["trajectory"]
+    source = fingering_preview(scope, score_id, monitor.mappings)
+    points, anchors, _ = load_origin()
+    assert score.note_count == count
+    assert plan["duration"] == pytest.approx(score.duration_us / 1e6, abs=1e-6)
+    assert trajectory.sample(3.25)[0] == pytest.approx(
+        [math.radians(anchors[side].deg[j-1]) for side, j in trajectory.keys])
+    intro_us = round(plan["piano_trial"]["prepare_s"] * 1e6)
+    pauses = plan["piano_trial"]["pause_times_us"]
+    first = source["rows"][0]["time_us"]
+    expected = Counter()
+    for row in source["rows"]:
+        relative = row["time_us"] - first
+        on = intro_us + round(relative / speed) + bisect_right(pauses, relative) * 1_000_000
+        for side, notes in row["fingers"].items():
+            for note in notes:
+                off = on + round((note["off_us"] - row["time_us"]) / speed)
+                channel = CHANNEL[note["finger"]]
+                expected[side, on, channel, True] += 1
+                expected[side, off, channel, False] += 1
+                q = [math.radians(deg) for deg in points[side][row["wrists"][side]].deg]
+                for stamp in (on, (on + off) // 2, off):
+                    actual = [value for key, value in zip(trajectory.keys, trajectory.sample(stamp / 1e6)[0])
+                              if key[0] == side]
+                    assert actual == pytest.approx(q, abs=1e-8)
+    assert Counter((side, e.time_us, ch, down) for side in score.sides
+                   for e in score.events[side][1:] for ch, down in e.changes) == expected
+
+
+def test_dual_trial_http_stop_lifts_fingers_and_keeps_hands_connected(monitor_factory):
+    from test_openarm_monitor_hands import FixtureHand
+
+    monitor = monitor_factory("virtual")
+    monitor.hands.factory = FixtureHand
+    sessions = {side: monitor.hands.action(dict(action="connect", side=side, demo=True))["session"]
+                for side in ("left", "right")}
+    buses = {side: monitor.hands.links[side].bus for side in sessions}
+    wait_for(monitor, lambda s: s["can_prepare"])
+    points, _, _ = load_origin()
+    first_pose = monitor.prepare(dict(arm="both", mode="joint", duration_s=.12, speed_percent=20,
+                                      targets={"left": list(points["left"][22].deg),
+                                               "right": list(points["right"][24].deg)}), OPERATOR)
+    monitor.start_motion(first_pose["request_id"], OPERATOR)
+    wait_for(monitor, holding)
+    trial = monitor.prepare(dict(mode="piano-trial", anchor_run=3, scope="first", speed=1.,
+                                 score_id="jin-chords"), OPERATOR)
+    assert trial["piano_trial"]["from_score_start"]
+    assert trial["piano_trial"]["prepare_s"] == .25
+    assert all(not bus.packets for bus in buses.values())
+    monitor.start_motion(trial["request_id"], OPERATOR, sessions)
+    wait_for(monitor, lambda s: all(len(bus.packets) >= 2 for bus in buses.values()) and
+             any(row["event"] == "hand.score.frame" and row["data"]["time_us"] == 250_000
+                 for row in monitor.journal.events))
+    for side, channels in (("left", [3, 5]), ("right", [3, 5])):
+        assert [ch for ch, (before, after) in enumerate(zip(*buses[side].packets[:2])) if before != after] == channels
+    with create_server(monitor, 0) as server:
+        host = f"127.0.0.1:{server.server_port}"
+        body = json.dumps({"request_id": trial["request_id"]}).encode()
+        headers = (f"POST /api/stop HTTP/1.0\r\nHost: {host}\r\nOrigin: http://{host}\r\n"
+                   f"X-OpenArm-Client: {OPERATOR}\r\nContent-Type: application/json\r\n"
+                   f"Content-Length: {len(body)}\r\n\r\n").encode()
+        request = Mock()
+        request.makefile.return_value = BytesIO(headers + body)
+        server.RequestHandlerClass(request, ("127.0.0.1", 0), server)
+        response = b"".join(call.args[0] for call in request.sendall.call_args_list)
+        assert response.startswith(b"HTTP/1.0 200"), response.decode()
+    stopped = wait_for(monitor, lambda s: finished(s) and not s["hand_score"]["active"])
+    assert stopped["run"]["stop_confirmed"]
+    assert all(arm["disabled"] for arm in stopped["arms"].values())
+    assert all(bus.packets[-1] == bus.packets[0] for bus in buses.values())
+    for side, session in sessions.items():
+        assert stopped["hands"][side]["connected"] and stopped["hands"][side]["session"] == session
+        previous_frames = len(buses[side].packets)
+        hand = monitor.hands.action(dict(side=side, session=session, action="move", channel=3, degrees=20))
+        assert len(buses[side].packets) == previous_frames + 1
+        assert hand["feedback"]["q"][3] == pytest.approx(20, abs=.1)
+
+
+def test_play_piano_linked_arms_and_hands_after_two_second_wait(monitor_factory):
+    from openarm_piano_performance import PRIORITY_SCORES, SCORES, performance_options
+    from test_openarm_monitor_hands import FixtureHand
+
+    monitor = monitor_factory("virtual")
+    monitor.hands.factory = FixtureHand
+    sessions = {side: monitor.hands.action(dict(action="connect", side=side, demo=True))["session"]
+                for side in ("left", "right")}
+    wait_for(monitor, lambda s: s["can_prepare"])
+    _, anchors, _ = load_origin()
+    targets = {side: list(point.deg) for side, point in anchors.items()}
+    home = monitor.prepare(dict(arm="both", mode="joint", targets=targets, duration_s=.12, speed_percent=20), OPERATOR)
+    monitor.start_motion(home["request_id"], OPERATOR)
+    snapshot = wait_for(monitor, holding)
+    assert list(snapshot["piano_performance_scores"]) == list(SCORES)
+    assert list(SCORES)[:5] == list(PRIORITY_SCORES)
+    assert "千本樱" in SCORES and "处理汇总" not in SCORES
+    assert snapshot["piano_performance_scores"]["jin-full"]["available"]
+    assert performance_options()["jin-full"]["available"]
+    assert performance_options()["little-apple"]["wait_s"] == 2.
+    # 控制台据此提示缺哪只手，必须与该谱面实际写出的左右手一致。
+    for score_id, option in performance_options().items():
+        notes = load_notes(SCORES[score_id])[0]
+        assert option["sides"] == [side for side in ("left", "right")
+                                   if any(note["side"] == side for note in notes)]
+
+    run = monitor.play_piano(dict(score_id="jin-chords", sessions=sessions), OPERATOR)
+    info = run["piano_trial"]
+    assert info["speed"] == 1 and info["wait_s"] == 2 and info["prepare_s"] == 5.25
+    expected = {"left": ((3, True), (5, True)), "right": ((3, True), (5, True))}
+    wait_for(monitor, lambda s: any(row["request_id"] == run["request_id"] and
+                                  row["event"] == "hand.score.frame" and row["data"]["changes"] == expected
+                                  for row in monitor.journal.events), timeout=8)
+    rows = [row["data"] for row in monitor.journal.events if row["request_id"] == run["request_id"]
+            and row["event"] == "hand.score.frame"]
+    assert [r["time_us"] for r in rows[:2]] == [0, 5_250_000]
+
+    buses = {side: monitor.hands.links[side].bus for side in sessions}
+    assert all(bus.packets[-1] != bus.packets[0] for bus in buses.values())
+    with create_server(monitor, 0) as server:
+        host = f"127.0.0.1:{server.server_port}"
+        body = json.dumps({"request_id": run["request_id"]}).encode()
+        headers = (f"POST /api/piano/exit HTTP/1.0\r\nHost: {host}\r\nOrigin: http://{host}\r\n"
+                   f"X-OpenArm-Client: {OPERATOR}\r\nContent-Type: application/json\r\n"
+                   f"Content-Length: {len(body)}\r\n\r\n").encode()
+        request = Mock()
+        request.makefile.return_value = BytesIO(headers + body)
+        server.RequestHandlerClass(request, ("127.0.0.1", 0), server)
+        response = b"".join(call.args[0] for call in request.sendall.call_args_list)
+        assert response.startswith(b"HTTP/1.0 200"), response.decode()
+    exited = wait_for(monitor, lambda s: s["run"]["piano_exited"] and not s["hand_score"]["active"])
+    assert holding(exited) and exited["all_enabled"] and exited["can_prepare"]
+    assert exited["run"]["stop_reason"] is None
+    assert all(bus.packets[-1] == bus.packets[0] for bus in buses.values())
+    assert {side: hand["session"] for side, hand in exited["hands"].items()} == sessions
+
+    for side, session in sessions.items():
+        monitor.hands.action(dict(side=side, session=session, action="press", channel=3))
+    replay = monitor.play_piano(dict(score_id="jin-chords", sessions=sessions), OPERATOR)
+    assert replay["session_id"] == run["session_id"]
+    with pytest.raises(Conflict):
+        monitor.exit_piano(run["request_id"])
+    monitor.exit_piano(replay["request_id"])
+    exited_again = wait_for(monitor, lambda s: s["run"]["request_id"] == replay["request_id"]
+                            and s["run"]["piano_exited"] and not s["hand_score"]["active"])
+    for side in sessions:
+        assert exited_again["run"]["target_deg"][side] == pytest.approx(exited["run"]["target_deg"][side], abs=1e-4)
+        assert buses[side].packets[-1] == buses[side].packets[0]
+    assert exited_again["all_enabled"]
+    monitor.stop_motion(replay["request_id"])
+    assert wait_for(monitor, finished)["run"]["stop_confirmed"]
+
+
+def test_piano_waits_for_fingers_and_late_wrist_without_failing_motion(monitor_factory, monkeypatch, tmp_path):
+    from threading import Event
+    from openarm_piano_performance import SCORES
+    from test_openarm_monitor_hands import FixtureHand
+
+    score = tmp_path / "two-chords.txt"
+    score.write_text("left_arm_move(19, .2)\nright_arm_move(24, .2)\nsleep(4)\n"
+                     "hand(D,1234789x)\nsleep(.25)\nhand(U,1234789x)\n"
+                     "right_arm_move(25, .16)\nsleep(.16)\n"
+                     "hand(D,1234789x)\nsleep(.25)\nhand(U,1234789x)\nsleep(.2)\n", encoding="ascii")
+    monkeypatch.setitem(SCORES, "little-apple", score)
+
+    wrist_lag, finger_lag = Event(), Event()
+    frozen = {}
+
+    class SlowWrist(BaseSpecialDriverFixture):
+        def query_motor(self, j):
+            state = super().query_motor(j)
+            if self.side == "right" and wrist_lag.is_set():
+                return replace(state, position_rad=frozen[j])
+            return state
+
+    class SlowFinger(FixtureHand):
+        def read(self, **kw):
+            result = super().read(**kw)
+            if finger_lag.is_set() and len(self.packets) >= 3:
+                result["q"][3] += 6.
+            return result
+
+    monitor = monitor_factory("hardware", SlowWrist)
+    monitor.hands.factory = SlowFinger
+    sessions = {s: monitor.hands.action(dict(action="connect", side=s, demo=True))["session"]
+                for s in ("left", "right")}
+    wait_for(monitor, lambda s: s["can_prepare"] and s["drive_mode"] == "POS_VEL")
+    run = monitor.play_piano(dict(score_id="little-apple", sessions=sessions), OPERATOR)
+    request_id = run["request_id"]
+    target = run["piano_trial"]["first_wrist_targets"]["right"]["joints_deg"]
+    frozen.update({j: monitor.mappings["right", j].to_motor(math.radians(q))
+                   for j, q in enumerate(target, 1)})
+
+    def frame_rows():
+        return [row["data"] for row in monitor.journal.events
+                if row["request_id"] == request_id and row["event"] == "hand.score.frame"]
+
+    def presses():
+        return [row for row in frame_rows() if any(d for changes in row["changes"].values() for _, d in changes)]
+
+    def wait_state(snapshot):
+        return (snapshot["run"]["sample"] or {}).get("piano_sync") or {}
+
+    wait_for(monitor, lambda s: presses(), timeout=9)
+    assert all(len(changes) == 4 and not any(d for _, d in changes)
+               for changes in frame_rows()[0]["changes"].values())
+    finger_lag.set()
+    wrist_lag.set()
+    lifting = wait_for(monitor, lambda s: wait_state(s).get("finger_error_deg", {}).get("right", 0) > 5)
+    assert lifting["run"]["sample"]["command_deg"]["right"] == pytest.approx(target)
+    assert lifting["all_enabled"] and len(presses()) == 1
+
+    finger_lag.clear()
+    arriving = wait_for(monitor, lambda s: wait_state(s).get("wrist_errors", {}).get("right", {}).get("distance_mm", 0) > 20)
+    assert arriving["all_enabled"] and len(presses()) == 1
+    right_driver = monitor.drivers["right"]
+    assert next(speed for joint, _, speed in reversed(right_driver.frames) if joint == 1) == pytest.approx(4.4)
+
+    wrist_lag.clear()
+    complete = wait_for(monitor, lambda s: holding(s) and not s["hand_score"]["active"])
+    assert complete["all_enabled"] and len(presses()) == 2
+    assert set(presses()[1]["changes"]) == {"left", "right"}
+    ready = next(row["data"] for row in monitor.journal.events if row["request_id"] == request_id
+                 and row["event"] == "piano.sync.ready" and row["data"]["time_us"] == presses()[1]["time_us"])
+    assert ready["wrist_errors"]["right"]["distance_mm"] <= 5.
+    assert ready["wall_elapsed_s"] <= presses()[1]["sent_s"]
+    monitor.stop_motion(request_id)
+    assert wait_for(monitor, finished)["run"]["stop_confirmed"]
+
+
+def test_little_apple_preparation_from_current_and_held_poses():
+    from openarm_piano_performance import PERFORMANCE_SPEED, compile_performance
+
+    version, mappings = load_mapping(ROOT / "configs/openarm_joint_mapping.json", hardware=True)
+    _, anchors, _ = load_origin()
+    current = {(side, j): math.radians(q) for side, point in anchors.items()
+               for j, q in enumerate(point.deg, 1)}
+    request = dict(mode="piano-performance", score_id="little-apple")
+    planner = MotionPlanner(version, mappings, virtual=False)
+    plan, _ = planner.prepare_piano_trial(request, current, None)
+    info = plan["piano_trial"]
+    assert info["approach_s"] == 3 and info["wait_s"] == 2 and info["prepare_s"] == 8.25
+    assert info["speed"] == PERFORMANCE_SPEED["little-apple"]
+    assert info["note_count"] == 259 and info["pause_times_us"] == []
+
+    first_pose = {(side, j): math.radians(q) for side, target in info["first_wrist_targets"].items()
+                  for j, q in enumerate(target["joints_deg"], 1)}
+    held, _ = planner.prepare_piano_trial(request, current, {"goal": first_pose})
+    assert not held["piano_trial"]["from_score_start"]
+    assert held["piano_trial"]["prepare_s"] == 8.25
+    path = held["trajectory"]
+    assert path.sample(3.25)[0] == pytest.approx([current[k] for k in path.keys])
+    assert path.sample(6.25)[0] == pytest.approx([first_pose[k] for k in path.keys])
+    assert held["trial_fingers"].duration_us - 8_250_000 == round(63_904_297 / info["speed"])
+    right_curve = next(arm for arm in path.arms if arm.keys[0][0] == "right")
+    adjacent = next(move for move in held["side_paths"]["right"].transfers if move.profile.speed_override)
+    begin, end = adjacent.start_us / 1e6, adjacent.finish_us / 1e6
+    start_q = right_curve.sample(begin)[0]
+    end_q = right_curve.sample(end)[0]
+    midpoint = right_curve.sample((begin + end) / 2)[0]
+    assert midpoint[-1] - (start_q[-1] + end_q[-1]) / 2 == pytest.approx(math.radians(2))
+    before_end = right_curve.sample(begin + (end - begin) * .95)[0]
+    axis = max(range(6), key=lambda j: abs(end_q[j] - start_q[j]))
+    progress = (before_end[axis] - start_q[axis]) / (end_q[axis] - start_q[axis])
+    assert before_end[-1] == pytest.approx(start_q[-1] + progress * (end_q[-1] - start_q[-1]))
+    assert progress < 1
+
+    # A slower joint must get extra approach time without changing the wait.
+    key = "left", 4
+    mappings[key] = replace(mappings[key], scale=.001)
+    steps, slow, _, _ = compile_performance("little-apple", None, mappings)
+    assert steps[2].duration_s == slow["approach_s"] > 3
+    assert slow["prepare_s"] == pytest.approx(.25 + 3 + slow["approach_s"] + 2, abs=1e-6)
+
+
+def test_full_performance_compiles_and_reports_skipped_notes(monitor_factory):
+    from openarm_piano_performance import SCORES
+    from openarm_start_pose import START_DEG
+
+    monitor = monitor_factory("virtual")
+    current = {(side, j): math.radians(q) for side in ("left", "right")
+               for j, q in enumerate(START_DEG, 1)}
+    score_id = "克罗地亚狂想曲"
+    notes, _, _, _ = load_notes(SCORES[score_id])
+    plan, _ = monitor.planner.prepare_piano_trial(
+        dict(mode="piano-performance", score_id=score_id), current, None)
+    info = plan["piano_trial"]
+    assert info["score_id"] == score_id
+    assert info["note_count"] + info["skipped_notes"] == len(notes)
+    assert info["note_count"] == 964 and info["skipped_notes"] == 8
+    assert {n["reason"] for n in info["skipped_details"]} == {"outside_physical_keyboard"}
+    assert "已跳过" in info["skip_notice"]
+
+
+def test_piano_origin_and_neighbour_reach_calibrated_targets(monitor_factory, profile_path):
     m = monitor_factory("hardware", ProfileDriverFixture, profile_path=profile_path)
     wait_for(m, lambda s: s["can_enable_all"])
     m.switch_mode("POS_VEL")
@@ -359,31 +587,34 @@ def test_piano_origin_and_neighbour_use_feedback_angles(monitor_factory, profile
     m.enable_all(OPERATOR)
     wait_for(m, holding)
     motion = m.start_pose_motion("piano-origin", OPERATOR)
-    wait_for(m, lambda s: holding(s) and s["run"]["request_id"] == motion["request_id"])
+    feedback = wait_for(m, lambda s: holding(s) and s["run"]["request_id"] == motion["request_id"])["arms"]
+    assert feedback["left"]["piano_finger_keys"] == {"1": 19, "2": 20, "3": 21, "4": 22}
+    assert feedback["right"]["piano_finger_keys"] == {"7": 24, "8": 25, "9": 26, "x": 27}
     points, anchors, _ = load_origin()
-    assert anchors["left"].deg == (10.5, 9.3, 15.9, 84.3, -1.3, .2, 8.7)
-    assert anchors["right"].deg == (11.5, 5.9, -19.8, 84.4, -5.6, -20.2, 4.2)
-    for side, ref, base in [("left", 23, (245.1, 55.2, -187.)), ("right", 24, (244.3, -55.2, -187.3))]:
+    for side, ref, base in [("left", 22, (250.19, 56.1, -170.00)), ("right", 24, (250.25, -55.0, -170.00))]:
         assert motion["target_deg"][side] == pytest.approx(anchors[side].deg)
         assert anchors[side].key == ref and anchors[side].xyz == base
+        assert feedback[side]["endpoints_mm"]["wrist"] == pytest.approx(base, abs=.02)
         other = "left" if side == "right" else "right"
-        adjacent = ref - 1 if side == "left" else ref + 1
+        adjacent = ref + 1
         args = dict(mode="piano-trial", anchor_run=3, side=side, key=adjacent, scope="start")
         p = m.prepare(args, OPERATOR)
         assert p["target_deg"][side] == pytest.approx(points[side][adjacent].deg)
         assert p["target_deg"][other] == pytest.approx(anchors[other].deg)
         assert p["piano_trial"]["physical_key"] == adjacent-9
         assert m.preview[0]["trial_fingers"] is None
-    with pytest.raises(ValueError, match="预览双手指法"):
-        m.prepare(dict(args, scope="full"), OPERATOR)
+    with pytest.raises(ValueError, match="有固定腕姿逆解"):
+        m.prepare(dict(args, key=45), OPERATOR)
     m.stop_motion(motion["request_id"])
     wait_for(m, finished)
 
 
 def test_bilateral_fingering_preview_respects_hand_split_and_pending_wrists():
-    from openarm_piano_origin import OFFSETS, fingering_preview, load_origin
+    from openarm_piano_origin import OFFSETS
     from openarm_piano_air import CHORD_SCORE
-    result = fingering_preview("full")
+    from openarm_piano_performance import fingering_preview
+    _, mappings = load_mapping(ROOT / "configs/openarm_joint_mapping.json", hardware=True)
+    result = fingering_preview("full", "jin-chords", mappings)
     notes, duration, _, _ = load_notes(CHORD_SCORE)
     assert len(result["rows"]) == 347 and result["duration_us"] == duration
     assert result["note_count"] == len(notes) == 1300
@@ -409,22 +640,24 @@ def test_bilateral_fingering_preview_respects_hand_split_and_pending_wrists():
     assert first["wrists"] == {"left": 22, "right": 24}
     assert first["pending_wrists"] == []
     assert [(f["midi"], f["finger"]) for f in first["fingers"]["right"]] == [(60, "index"), (64, "ring")]
-    assert fingering_preview("first")["rows"] == result["rows"][:1]
-    assert fingering_preview("prelude")["rows"] == [r for r in result["rows"] if r["time_us"] < 16_000_000]
+    assert fingering_preview("first", "jin-chords", mappings)["rows"] == result["rows"][:1]
+    assert fingering_preview("prelude", "jin-chords", mappings)["rows"] == [
+        r for r in result["rows"] if r["time_us"] < 16_000_000]
 
 
 def test_full_piano_score_preview_calculates_only_one_first_attack():
-    from openarm_piano_origin import FINGERING_SCORES, fingering_preview, load_origin
+    from openarm_piano_performance import SCORES, fingering_preview
 
-    notes, duration, digest, _ = load_notes(FINGERING_SCORES["jin-full"])
+    _, mappings = load_mapping(ROOT / "configs/openarm_joint_mapping.json", hardware=True)
+    notes, duration, digest, _ = load_notes(SCORES["jin-full"])
     assert notes[4]["on_us"] == 500_000
-    first = fingering_preview("first", "jin-full")
+    first = fingering_preview("first", "jin-full", mappings)
     assert first["score_sha256"] == digest
     assert len(first["rows"]) == 1 and first["note_count"] == 4
     row = first["rows"][0]
     assert row["time_us"] == 0 and row["wrists"] == {"left": 22, "right": 24}
     assert row["pending_wrists"] == [] and first["unassigned"] == 0
-    assert [(n["midi"], n["finger"]) for n in row["fingers"]["left"]] == [(53, "middle"), (57, "index")]
+    assert [(n["midi"], n["finger"]) for n in row["fingers"]["left"]] == [(53, "ring"), (57, "index")]
     assert [(n["midi"], n["finger"]) for n in row["fingers"]["right"]] == [(60, "index"), (64, "ring")]
     points, _, _ = load_origin()
     for side, key in row["wrists"].items():
@@ -432,7 +665,7 @@ def test_full_piano_score_preview_calculates_only_one_first_attack():
         assert target["xyz_mm"] == points[side][key].xyz
         assert target["joints_deg"] == points[side][key].deg
 
-    full = fingering_preview("full", "jin-full")
+    full = fingering_preview("full", "jin-full", mappings)
     assert full["duration_us"] == duration
     assert full["note_count"] == len(notes) == 1469
     assert full["rows"][0] == row
@@ -611,6 +844,7 @@ def test_missing_device_clears_feedback_and_disables_previews(monitor_factory):
                                            for arm in s["arms"].values()))
     assert not status["can_prepare"]
     assert all(arm["joints"] == [None] * 7 and not arm["endpoints_mm"] for arm in status["arms"].values())
+    assert all(arm["wrist_rpy_deg"] is None and not arm["piano_finger_keys"] for arm in status["arms"].values())
     with pytest.raises(Conflict):
         monitor.prepare(joint_target(), OPERATOR)
 
@@ -739,6 +973,40 @@ class BaseSpecialDriverFixture(ProfileDriverFixture):
         raise AssertionError("POS_VEL enable must not use the MIT frame path")
 
 
+def test_piano_exit_during_approach_holds_encoder_pose_with_pos_vel(monitor_factory):
+    encoders = {}
+    wrist = ("left", 7)
+
+    class LoadedDriver(BaseSpecialDriverFixture):
+        def query_motor(self, j):
+            state = super().query_motor(j)
+            return replace(state, position_rad=encoders.get((self.side, j), state.position_rad))
+
+    monitor = monitor_factory("hardware", LoadedDriver)
+    wait_for(monitor, lambda s: s["can_prepare"] and s["drive_mode"] == "POS_VEL")
+    run = monitor.play_piano(dict(score_id="jin-chords"), OPERATOR)
+    wait_for(monitor, lambda s: s["run"]["sample"] is not None)
+    encoders[wrist] = monitor.mappings[wrist].to_motor(math.radians(23.))
+    moving = wait_for(monitor, lambda s: s["arms"]["left"]["joints"][6]["position_deg"] == pytest.approx(23.))
+    assert moving["run"]["sample"]["elapsed_s"] < run["piano_trial"]["prepare_s"]
+    assert moving["run"]["sample"]["command_deg"]["left"][6] != pytest.approx(23.)
+
+    monitor.exit_piano(run["request_id"])
+    exited = wait_for(monitor, lambda s: s["run"]["piano_exited"])
+    assert exited["all_enabled"] and exited["can_prepare"]
+    assert exited["run"]["target_deg"]["left"][6] == pytest.approx(23.)
+    started_holding = exited["run"]["sample"]["elapsed_s"]
+    held = wait_for(monitor, lambda s: s["run"]["sample"]["elapsed_s"] >= started_holding + .15)
+    assert holding(held) and held["all_enabled"]
+    assert held["run"]["sample"]["command_deg"] == exited["run"]["target_deg"]
+    for driver in LoadedDriver.instances:
+        assert driver.enabled_ids == set(range(1, 8))
+        assert all(code == 0xfc for _, _, code in driver.specials)
+        assert len(driver.specials) == 7
+    monitor.stop_motion(run["request_id"])
+    assert wait_for(monitor, finished)["run"]["stop_confirmed"]
+
+
 @pytest.fixture
 def profile_path(tmp_path):
     sides = {s: dict(bus_status="0x0", motors=[dict(motor_id=j, online=True, state=0)
@@ -755,31 +1023,6 @@ def profile_path(tmp_path):
                                     volatile_mode_write_verified=True, pos_force_current_fraction=.1,
                                     special_frame_address=dict(left=["mode"]*7, right=["base"]*7))))
     return path
-
-
-@pytest.mark.parametrize("score_id,note_count,first_keys", [
-    ("jin", 23, [22]),
-    ("jin-chords", 29, [20, 22, 24, 26]),
-])
-def test_piano_air_prelude_sends_pos_vel_to_both_arms_and_stops(
-        monitor_factory, profile_path, score_id, note_count, first_keys):
-    monitor = monitor_factory("hardware", BaseSpecialDriverFixture,
-                              inventory_path=profile_path.parent / "inventory.json")
-    wait_for(monitor, lambda status: status["can_prepare"] and status["drive_mode"] == "POS_VEL")
-    preview = monitor.prepare(dict(mode="piano-air", scope="prelude", speed=1., score_id=score_id), OPERATOR)
-    assert preview["piano_air"]["note_count"] == note_count
-    assert all(not drive.frames for drive in monitor.drivers.values())
-    run = monitor.start_motion(preview["request_id"], OPERATOR)
-    arrived = wait_for(monitor, lambda status: bool(
-        (status["run"]["sample"] or {}).get("piano_air", {}).get("note")), timeout=10)
-    assert [note["key"] for note in arrived["run"]["sample"]["piano_air"]["notes"]] == first_keys
-    assert all({joint for joint, _, speed in drive.frames if speed > 0} == set(range(1, 8))
-               for drive in monitor.drivers.values())
-    assert not any(hand["connected"] for hand in arrived["hands"].values())
-    monitor.stop_motion(run["session_id"])
-    stopped = wait_for(monitor, finished)
-    assert stopped["run"]["stop_confirmed"]
-    assert all(arm["disabled"] for arm in stopped["arms"].values())
 
 
 @pytest.mark.parametrize("mode", ["VEL", "POS_FORCE", "POS_VEL"])
@@ -994,6 +1237,63 @@ def test_zero_pose_quick_returns_both_arms(monitor_factory, monkeypatch):
     assert monitor.job.plan["source"] == "zero-pose"
     assert monitor.job.plan["steps"][0][0] == "0位（J1～J6 为 0°，J7 +15°）"
     assert monitor.job.plan["duration"] == pytest.approx(.2)
+    monitor.stop_motion(done["run"]["session_id"])
+    assert wait_for(monitor, finished)["run"]["stop_confirmed"]
+
+
+def test_zero_return_mirrors_the_start_recipe():
+    """Each reversed segment withdraws exactly the travel of its forward counterpart."""
+    from openarm_start_pose import return_start_steps, return_zero_steps
+    forward, backward = return_start_steps(), return_zero_steps()
+    # The first reversed step starts at the measured pose; the waypoints after it are fixed.
+    assert backward[0].right_deg == forward[-1].right_deg == backward[0].left_deg
+    assert backward[-1].right_deg == forward[0].right_deg == backward[-1].left_deg
+    assert [step.right_deg for step in backward[1:]] == [step.right_deg for step in reversed(forward[:-1])]
+    assert [step.right_deg for step in backward] == [step.left_deg for step in backward]
+    assert [step.duration_s for step in backward] == [step.duration_s for step in reversed(forward)]
+
+    def moves(steps):
+        return [[round(b-a, 6) for a, b in zip(before.right_deg, after.right_deg)]
+                for before, after in zip(steps, steps[1:])]
+    assert moves(backward) == [[-delta for delta in row] for row in reversed(moves(forward))]
+
+
+def test_zero_return_quick_returns_to_zero_enabled(monitor_factory, monkeypatch):
+    for name in ("ZERO_SECONDS", "J1_J2_SECONDS", "J1_J4_SECONDS", "START_SECONDS"):
+        monkeypatch.setattr(f"openarm_start_pose.{name}", .2)
+    monitor = monitor_factory("virtual")
+    wait_for(monitor, lambda s: s["can_prepare"])
+    monitor.enable_all(OPERATOR)
+    wait_for(monitor, holding)
+    preview = monitor.prepare(dict(arm="both", mode="joint",
+                                   targets={"left": [5.]*7, "right": [5.]*7},
+                                   duration_s=.2, speed_percent=20), OPERATOR)
+    monitor.start_motion(preview["request_id"], OPERATOR)
+    wait_for(monitor, lambda s: holding(s) and s["run"]["request_id"] == preview["request_id"])
+
+    result = monitor.start_pose_motion("zero-return", OPERATOR)
+    done = wait_for(monitor, lambda s: holding(s) and s["run"]["request_id"] == result["request_id"])
+    for side in ("left", "right"):
+        assert [row["position_deg"] for row in done["arms"][side]["joints"]] == pytest.approx(
+            [0, 0, 0, 0, 0, 0, 15], abs=.03)
+        assert all(row["state"] == 1 for row in done["arms"][side]["joints"])
+
+    plan = monitor.job.plan
+    assert plan["source"] == "zero-return"
+    assert [name for name, _, _ in plan["steps"]] == [
+        "当前位置 → 起始位（J1 −30° / J2 0° / J4 +120° / J7 +15°）",
+        "J1 −30° / J2 −45° / J4 +90°",
+        "J1 +15° / J2 −45°",
+        "0位（J1～J6 为 0°，J7 +15°）"]
+    assert [t for t, _ in plan["trajectory"].points] == pytest.approx([0, .2, .4, .6, .8], abs=1e-6)
+    keys = plan["keys"]
+    right_index = [keys.index(("right", j)) for j in range(1, 8)]
+    expected = [[-30, 0, 0, 120, 0, 0, 15],
+                [-30, -45, 0, 90, 0, 0, 15],
+                [15, -45, 0, 0, 0, 0, 15],
+                [0, 0, 0, 0, 0, 0, 15]]
+    for point, right in zip(plan["trajectory"].points[1:], expected):
+        assert [math.degrees(point[1][i]) for i in right_index] == pytest.approx(right, abs=.01)
     monitor.stop_motion(done["run"]["session_id"])
     assert wait_for(monitor, finished)["run"]["stop_confirmed"]
 

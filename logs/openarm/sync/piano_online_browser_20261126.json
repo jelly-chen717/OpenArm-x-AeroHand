@@ -1,0 +1,19 @@
+{
+  "mode": "virtual",
+  "score_speed": {
+    "jin": 0.8,
+    "jin-chords": 1,
+    "little-apple": 0.8
+  },
+  "little_apple": {
+    "presses": 259,
+    "releases": 259,
+    "arrivals": 38,
+    "feedback_wait_s": 3.2109270000073593,
+    "wrist_gate_before_press": true,
+    "log": ".sim-temp\\piano_online_browser_20261126\\virtual-b40dd1428b65430182dbaf5e0b6cff12.jsonl"
+  },
+  "connected_hands_retained_after_exit": true,
+  "stop_confirmed": true,
+  "page_errors": []
+}

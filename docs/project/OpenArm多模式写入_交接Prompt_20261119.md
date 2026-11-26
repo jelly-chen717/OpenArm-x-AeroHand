@@ -14,7 +14,7 @@
 2. `docs/project/仿真与实机联通_两日实施计划.md` 的“快速接手”“阶段清单”“执行记录”，重点 C02～C05、WEB04/WEB05。
 3. `docs/project/OpenArm14关节位置模式切换方案_20261117.md` 全文，尤其第 1、2、4、5 节。
 4. `monitor-ui/README.md` 的“实机多模式的接入条件”。
-5. `docs/project/OpenArm控制台防护项清单_20261119.md`，确认哪些运动阈值已被删除、哪些检查仍保留。
+5. `docs/project/OpenArm防护删除_总纲_20261125.md`，确认哪些运动阈值已被删除、哪些检查仍保留。
 6. `git status`、相关 diff。工作区有未提交/未跟踪文件，**禁止 reset、clean、checkout 或整文件覆盖**。
 
 ## 2. 当前现场状态（2026-11-19 17:00 左右，只读）

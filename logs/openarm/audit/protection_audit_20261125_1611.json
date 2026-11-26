@@ -1,0 +1,149 @@
+{
+  "time": "2026-11-25 16:11",
+  "git_head": "f86e10e",
+  "workspace_dirty": "yes: 16 modified / 36 untracked / 0 deleted",
+  "overall": "UNKNOWN",
+  "first_principle_intact": true,
+  "baseline_note": "交接 Prompt 的 HEAD 9e0424e 已变为 f86e10e（2026-11-24 20:29 备份提交），P21～P24 修复已包含在该提交中；本轮审计以 f86e10e + 未提交改动为准。",
+  "new_blocking_checks": {
+    "scan_scope": [
+      "apps/openarm_monitor.py",
+      "apps/openarm_monitor_motion.py",
+      "apps/openarm_monitor_modes.py",
+      "apps/openarm_execution.py",
+      "apps/openarm_driver.py",
+      "apps/drive_openarm_from_sim.py",
+      "apps/openarm_trajectory.py",
+      "apps/openarm_position_mode.py",
+      "apps/openarm_joint_mapping.py",
+      "apps/openarm_start_pose.py",
+      "apps/openarm_piano_air.py",
+      "apps/openarm_piano_trial.py",
+      "apps/openarm_piano_origin.py",
+      "apps/openarm_piano_performance.py",
+      "apps/openarm_monitor_hands.py",
+      "apps/build_openarm_piano_points.py",
+      "apps/verify_openarm_piano_performance.py",
+      "monitor-ui/app.js / index.html / style.css",
+      "12 个 HTTP 入口：/api/enable-all /prepare /execute /piano/play /stop /start/zero /start/return /start/pose /start/piano-origin /hand /hand-score/start /hand-score/stop /drive-mode"
+    ],
+    "entries_checked": [
+      {"entry": "/api/enable-all", "blocking": "K07/K08 only (C02 inventory + uniform mode readback); no stationary requirement (P13 intact)", "class": "PASS"},
+      {"entry": "/api/prepare", "blocking": "K09 preview ownership/revision only; no speed/accel/contact threshold (P01/P02 intact)", "class": "PASS"},
+      {"entry": "/api/execute", "blocking": "K09 request ownership only; no tracking/endpoint/lateness refusal (P04-P06 intact)", "class": "PASS"},
+      {"entry": "/api/piano/play", "blocking": "Delegates to prepare + start_motion; inherits the five UNKNOWN geometry checks below", "class": "UNKNOWN"},
+      {"entry": "/api/stop", "blocking": "K06 stop confirmation only", "class": "PASS"},
+      {"entry": "/api/start/zero|return|pose|piano-origin", "blocking": "P21 intact: fresh feedback + no fault + idle/held; plan enables all 14 axes itself", "class": "PASS"},
+      {"entry": "/api/hand /hand-score/start|stop", "blocking": "Hand-only input/connection checks; P22 keeps these from blocking the arm in start_motion", "class": "PASS"},
+      {"entry": "/api/drive-mode", "blocking": "K07/K08: stationary + disabled + mode readback + rollback", "class": "PASS"}
+    ],
+    "candidates": [
+      {
+        "id": "N1",
+        "class": "UNKNOWN",
+        "file": "apps/openarm_piano_performance.py:136-137",
+        "behavior": "实机模式选择 jin-full（60 BPM 完整钢琴版）时 raise ValueError(FULL_SCORE_NOTICE)，拒绝 prepare/execute；前端 performance_options(virtual=False) 将 available 置 false，按钮禁用。",
+        "trigger": "hardware 服务 + score_id=jin-full",
+        "field": "score_id / virtual",
+        "impact": "实机无法演奏完整钢琴版全曲；纯主旋律、副歌、纯和弦、以及 jin-full 的首和弦/前奏仍可用。",
+        "note": "测试 test_openarm_monitor.py:359 显式断言该拒绝；README 说明因 77 组左手无法同时覆盖。属数据/几何限制，非运动阈值，但确为新增拒绝分支，未检索到用户当次授权记录。"
+      },
+      {
+        "id": "N2",
+        "class": "UNKNOWN",
+        "file": "apps/openarm_piano_performance.py:66-68",
+        "behavior": "_select_wrists 在某音组无任一腕位可同时覆盖时 raise ValueError(\"所选琴谱含当前实琴手型无法同时覆盖的音组。\")，拒绝整次演奏预览。",
+        "trigger": "所选曲谱 + 实琴指距偏移不足以覆盖某和弦",
+        "field": "score_id / OFFSETS",
+        "impact": "该曲谱无法预览/执行；其它曲谱不受影响。",
+        "note": "与 N1 同源（77 组未标定）。属几何可行性，不在 K01～K12 枚举内。"
+      },
+      {
+        "id": "N3",
+        "class": "UNKNOWN",
+        "file": "apps/openarm_piano_trial.py:120-121",
+        "behavior": "DUAL_TRIAL_SCOPES 限制 jin-full 只支持 first/prelude；其它组合 raise ValueError(\"请选择已接入的双手试弹范围\")。",
+        "trigger": "run=3 + (score_id, scope) 不在白名单",
+        "field": "score_id / scope",
+        "impact": "实机双手试弹不能直接跑 jin-full full；可改用「预览双手指法」。",
+        "note": "白名单为静态常量，属功能范围限制。"
+      },
+      {
+        "id": "N4",
+        "class": "UNKNOWN",
+        "file": "apps/openarm_piano_trial.py:123-124",
+        "behavior": "fingering_preview 返回 unassigned / pending_wrist_groups / 空 rows 时 raise ValueError，拒绝双手试弹。",
+        "trigger": "谱段缺实琴分指或腕位",
+        "field": "preview.unassigned / pending_wrist_groups / rows",
+        "impact": "该谱段不能双手试弹；机械臂也不执行（prepare 阶段拒绝）。",
+        "note": "发生在 prepare，不是运行时手部故障，故不直接违反 P22；但若按 P22 精神只跳过指法、机械臂照跑，则此条应收敛为提示。"
+      },
+      {
+        "id": "N5",
+        "class": "UNKNOWN",
+        "file": "apps/openarm_piano_trial.py:183-184",
+        "behavior": "_dual_track 在某音需要换腕但上一音仍按住（gap<=0）时 raise ValueError(\"所选谱段有手指按住琴键时需要换腕，请核对实琴分指。\")，拒绝整次试弹。",
+        "trigger": "谱段内换腕与按住时值重叠",
+        "field": "rows / wrist key change / gap",
+        "impact": "整次双手试弹不执行（含机械臂腕位路径）。",
+        "note": "与 P22「手部/指法问题不阻断机械臂」边界最近：建议改为跳过该指法并记 hand.score.skipped，或仅提示。请用户裁决。"
+      },
+      {
+        "id": "N6",
+        "class": "PASS",
+        "file": "apps/openarm_piano_origin.py:47-63",
+        "behavior": "PianoFingerProjection.load 对标定文件做 frame/convention/key-range/pitch/sign 校验，失败 raise ValueError。",
+        "trigger": "configs/openarm_piano_white_keys.json 缺失或字段非法",
+        "impact": "Monitor.__init__ 以 try/except 捕获，piano_projection=None，仅指法显示为空，不阻断使能/预览/执行。",
+        "note": "不构成控制链路阻断。"
+      }
+    ],
+    "result": "发现 5 项新的拒绝分支（N1～N5），均为钢琴演奏/双手试弹的数据与几何可行性校验，不是已删除的 P 类运动阈值，也不在 K01～K12 枚举内；需用户裁决。未发现恢复 P01～P24 的阻断。"
+  },
+  "p_items": {
+    "P01": "PASS - MotionPlanner._validate 使用 max(velocity, 目标所需)，短时高速目标放行",
+    "P02": "PASS - prepare/_validate 无模型接触扫描",
+    "P03": "PASS - revalidate 以当前实测重建轨迹（plan['start']=current|hold_targets）",
+    "P04": "PASS - _move 传 max_error=None，仅 advisory/tracking_error",
+    "P05": "PASS - advisory/waypoint、endpoint_gap，仍进入 HOLDING_TARGET",
+    "P06": "PASS - max_lateness 仅 advisory/deadline、cycle",
+    "P07": "PASS - 仅 time.time()>=trajectory.expires_at（使能前）拒绝；运行中过期只记录",
+    "P08": "PASS - PcanTransport.check 仅 _note 并返回 False，无 raise",
+    "P09": "PASS - enable 无 check_start；command 整批发送后记录反馈",
+    "P10": "PASS - enable_motor 不读 CTRL_MODE、不要求 DISABLED、不自动失能",
+    "P11": "PASS - command_mit 直接发送 MIT 帧",
+    "P12": "PASS - encode_mit 端点饱和，非有限值取下限",
+    "P13": "PASS - enable_all 只用 _idle，不要求 _stable",
+    "P14": "PASS - _move max_error=None",
+    "P15": "PASS - MonitorTransport._sample 直接采样，不因静止/age 拒绝",
+    "P16": "PASS - command 对被动轴用 _note('passive')",
+    "P17": "PASS - stage_timeout / hold_tolerance_exceeded 仅记录并推进",
+    "P18": "PASS - START_ERROR/TRAVEL_MARGIN/MAX_ACCELERATION 仅用于余量与记录",
+    "P19": "PASS - 无 PREVIEW_TTL / expires_in_s / 60 秒文案",
+    "P20": "PASS - _motion_supported 只要求 drive_mode 读回且无 mode_error；特殊帧默认基础 ID",
+    "P21": "PASS - _start_ready 无全轴 state==1 检查；计划自行使能 14 轴",
+    "P22": "PASS - schedule_score ValueError 被捕获，记 hand.score.skipped，机械臂继续",
+    "P23": "PASS - start_pose 用 _note('mode_readback')，无 DriverError",
+    "P24": "PASS - continuation 用缓存反馈 + 计划起点，记 motion.continuation_adopted"
+  },
+  "k_items": {
+    "K07": "PASS - _stable 仅在 switch_mode 使用（openarm_monitor.py:486），未扩展到 enable/prepare/execute/start_pose"
+  },
+  "tests": {
+    "command": "openarm/.venv/Scripts/python.exe -B -m pytest -q -p no:cacheprovider <10 files>",
+    "passed": 201,
+    "failed": 0,
+    "skipped": 0,
+    "duration_s": 124.75,
+    "semantics": "pytest.raises 仅覆盖 Conflict（预览归属/K09、模式切换/K07）与 DriverError（enable/command 通信失败/K03），无跟踪/终点/迟到/温度/速度力矩/行程/阶段超时的阈值断言；advisory、HOLDING_TARGET、stationary_advisory 放行用例仍在；删除的 4 个用例均为已下线的 piano-air 功能，不是放行用例；新增用例未依赖计时过冲。"
+  },
+  "violations": [],
+  "notes": [
+    "第一原则 AGENTS.md:3-19 完整，无未授权例外。",
+    "防护清单已更新为 P01～P24；审计记录表头仍为 P01～P19（历史遗留，本次按 P01～P24 输出）。",
+    "monitor-ui/README.md 的「实验室模式：已删除的非必要防护」已扩到 P21～P24，无恢复防护表述。",
+    "docs/project/仿真与实机联通_两日实施计划.md:67 仍写 P01～P19（已知文档滞后，非违规）。",
+    "本轮未启动 8092、未连接实机、未读写 CAN、未使能/运动/写模式。",
+    "审计期间未观察到底层文件变化（关键文件 mtime 均为 2026-11-24）。"
+  ]
+}

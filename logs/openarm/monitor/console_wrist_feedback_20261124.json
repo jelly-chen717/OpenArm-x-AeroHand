@@ -1,0 +1,31 @@
+{
+  "rotationErrorDeg": 0.000028319492855644057,
+  "positionErrorMm": 0.00003130833107199933,
+  "fingerNotes": [
+    "E3",
+    "F3",
+    "G3",
+    "B3",
+    "D4",
+    "E4",
+    "F4",
+    "G4"
+  ],
+  "viewport": {
+    "width": 390,
+    "document": 390,
+    "table": 371
+  },
+  "measurements": {
+    "clientHeight": 327,
+    "scrollHeight": 327,
+    "wristTableBottom": 348,
+    "fingerTableBottom": 417,
+    "contentBottom": 420.421875
+  },
+  "hardwareMeasurement": {
+    "fingerTableBottom": 333.25,
+    "contentBottom": 336.421875
+  },
+  "pageErrors": []
+}

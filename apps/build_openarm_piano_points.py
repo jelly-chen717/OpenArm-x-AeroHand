@@ -97,7 +97,7 @@ def posture_cost(q, anchor, limits):
 def candidates_for_key(arm, wrist, target, anchor, last, prediction):
     lower, upper = arm.limits.T
     swivel = np.array([0, 0, 1, 0, -1, 0, 0])
-    seeds = [prediction, last, anchor, arm.home, (lower + upper) / 2]
+    seeds = [last, prediction, anchor, arm.home, (lower + upper) / 2]
     seeds.extend(last + swivel * a for a in np.deg2rad([-55., -25., 25., 55.]))
     seeds.extend(lower + SEARCH_FRACTIONS * (upper - lower))
     candidates = []
@@ -155,30 +155,41 @@ def solve_side(config, side):
     first = config["white_key_first"]
     if note_name(first, base) != data["note"] or note_name(first, count) != config["white_key_last"]:
         raise ValueError("Inconsistent physical key numbering")
-    q0 = np.deg2rad(data["joints_deg"])
+    measured_angles = data.get("joints_deg")
+    reference_angles = measured_angles if measured_angles is not None else data["reference_joints_deg"]
+    reference_q = np.deg2rad(reference_angles)
     xyz0 = np.array(data["wrist_xyz_mm"])
-    rotation = arm.forward(q0)[3:]
+    rotation = wrist.forward(reference_q)[3:]
     pitch = config["higher_note_y_sign"] * config["white_key_pitch_mm"]
-    owned = range(1, base + 1) if side == "left" else range(base, count + 1)
+    split = config["right_first_physical_white_key"]
+    owned = range(1, split) if side == "left" else range(split, count + 1)
+    if base not in owned:
+        raise ValueError(f"{side} anchor outside its assigned range")
     targets = {i: np.r_[(xyz0 + [0., pitch * (i - base), 0.]) / 1000, rotation]
                for i in owned}
+    q0 = reference_q
+    if measured_angles is None:
+        q0 = solve_from(arm, targets[base], reference_q)
+        if q0 is None:
+            raise ValueError(f"{side} {data['note']}: fixed-orientation origin IK did not converge")
     layers = {base: q0[None, :]}
-    travel = range(base - 1, 0, -1) if side == "left" else range(base + 1, count + 1)
-    previous = last = q0
-    for key in travel:
-        layer = candidates_for_key(arm, wrist, targets[key], q0, last, 2 * last - previous)
-        layers[key] = layer
-        if len(layer):
-            previous, last = last, min(layer, key=lambda q: np.linalg.norm(q - last))
-    selected = {}
-    run = []
-    for key in range(owned.start, owned.stop + 1):
-        if key in layers and len(layers[key]):
-            run.append(key)
-        elif run:
+    selected = {base: q0}
+    for travel in (range(base - 1, owned.start - 1, -1), range(base + 1, owned.stop)):
+        previous = last = q0
+        run = [base]
+        for key in travel:
+            layer = candidates_for_key(arm, wrist, targets[key], q0, last, 2 * last - previous)
+            layers[key] = layer
+            if len(layer):
+                run.append(key)
+                previous, last = last, min(layer, key=lambda q: np.linalg.norm(q - last))
+            elif run:
+                path = smooth_path([layers[i] for i in run], q0, arm.limits)
+                selected.update(zip(run, path, strict=True))
+                run = []
+        if run:
             path = smooth_path([layers[i] for i in run], q0, arm.limits)
             selected.update(zip(run, path, strict=True))
-            run = []
 
     rows = []
     for key, target in targets.items():
@@ -186,12 +197,15 @@ def solve_side(config, side):
         q = selected.get(key)
         score_offset = config["score_key_at_first"] - 1
         status = "no_converged_ik" if q is None else "offline_ik"
+        if key == base and measured_angles is not None:
+            status = "screenshot_feedback"
+        direction = "anchor" if not offset else "outward" if (offset > 0) == (side == "right") else "inward"
         row = dict(arm=side, finger="index", key=key + score_offset, physical_white_key=key,
                    note=note_name(first, key), anchor_key=base + score_offset, anchor_run=3,
                    offset_steps=offset, delta_y_m=pitch * offset / 1000,
                    key_distance_from_c2_mm=(key - 1) * config["white_key_pitch_mm"],
-                   status="screenshot_feedback" if key == base else status,
-                   coordinate_convention=CONVENTION_VERSION, direction="outward" if offset else "anchor",
+                   status=status,
+                   coordinate_convention=CONVENTION_VERSION, direction=direction,
                    candidate_count=len(layers[key]), suggested_for_single_index=int(q is not None))
         for j, c in enumerate("xyz"):
             row[c + "_m"] = target[j]
@@ -202,16 +216,17 @@ def solve_side(config, side):
             pe, oe = pose_error(actual, target)
             if not np.all((q >= arm.limits[:, 0]) & (q <= arm.limits[:, 1])):
                 raise ValueError(f"{side} {key}: solution outside model limits")
-            if key != base and (pe > 1e-5 or oe > 1e-4):
+            if status == "offline_ik" and (pe > 1e-5 or oe > 1e-4):
                 raise ValueError(f"{side} {key}: independent FK disagrees with target")
             row.update(position_error_m=pe, orientation_error_rad=oe,
                        limit_margin_deg=np.rad2deg(np.min(np.minimum(
                            q - arm.limits[:, 0], arm.limits[:, 1] - q))))
-            angles = data["joints_deg"] if key == base else np.rad2deg(q)
+            angles = measured_angles if status == "screenshot_feedback" else np.rad2deg(q)
             for j, angle in enumerate(angles, 1):
                 row[f"q{j}"], row[f"J{j}_deg"] = q[j-1], angle
             for j, c in enumerate("xyz"):
                 row["fk_" + c + "_mm"] = 1000 * actual[j]
+                row["fk_d" + c + "_mm"] = 1000 * (actual[j] - target[j])
             neighbour = selected.get(key - int(np.sign(offset))) if offset else None
             if neighbour is not None:
                 row["step_max_deg"] = np.rad2deg(np.max(np.abs(q - neighbour)))
@@ -227,15 +242,14 @@ def main():
     config = json.loads(CALIBRATION.read_text(encoding="utf-8"))
     if config["frame"] != "arm_origin" or config["coordinate_convention"] != CONVENTION_VERSION:
         raise ValueError("Calibration frame or joint convention disagrees with the model")
-    if config["anchors"]["left"]["physical_white_key"] + 1 != config["anchors"]["right"]["physical_white_key"]:
-        raise ValueError("Outward-only point generation requires adjacent index anchors")
     rows = [row for side in ("left", "right") for row in solve_side(config, side)]
     fields = ["arm", "finger", "key", "physical_white_key", "note", "anchor_key", "anchor_run",
               "offset_steps", "delta_y_m", "status", "position_error_m", "orientation_error_rad",
               *(f"q{i}" for i in range(1, 8)), "x_m", "y_m", "z_m", "qw", "qx", "qy", "qz",
               *(f"J{i}_deg" for i in range(1, 8)), "x_mm", "y_mm", "z_mm", "coordinate_convention",
               "direction", "candidate_count", "step_max_deg", "limit_margin_deg",
-              "fk_x_mm", "fk_y_mm", "fk_z_mm", "suggested_for_single_index", "key_distance_from_c2_mm"]
+              "fk_x_mm", "fk_y_mm", "fk_z_mm", "fk_dx_mm", "fk_dy_mm", "fk_dz_mm",
+              "suggested_for_single_index", "key_distance_from_c2_mm"]
     output = tempfile.NamedTemporaryFile(dir=args.output.parent, delete=False, suffix=".tmp", mode="w",
                                          encoding="utf-8-sig", newline="")
     stage = Path(output.name)

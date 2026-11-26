@@ -1,0 +1,26 @@
+{
+  "source": "2026-11-25 实机反馈。手腕 XYZ 取截图上方读数，J1–J7 取本次关节反馈。",
+  "frame": "arm_origin",
+  "coordinate_convention": "unified-forward-inward-v1-20261116",
+  "white_key_first": "C2",
+  "white_key_last": "C7",
+  "white_key_count": 36,
+  "right_first_physical_white_key": 15,
+  "score_key_at_first": 10,
+  "white_key_pitch_mm": 22.5,
+  "higher_note_y_sign": -1,
+  "anchors": {
+    "left": {
+      "note": "A3",
+      "physical_white_key": 13,
+      "wrist_xyz_mm": [245.1, 56.1, -159.9],
+      "joints_deg": [11.70, 9.82, 16.08, 90.06, -1.02, -1.08, 1.74]
+    },
+    "right": {
+      "note": "C4",
+      "physical_white_key": 15,
+      "wrist_xyz_mm": [244.4, -55.0, -160.1],
+      "joints_deg": [12.95, 5.78, -20.53, 90.13, -7.60, -20.18, -3.53]
+    }
+  }
+}

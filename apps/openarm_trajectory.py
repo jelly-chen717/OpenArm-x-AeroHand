@@ -22,12 +22,29 @@ class Trajectory:
             raise ValueError('Negative trajectory time')
         for (t0, q0), (t1, q1) in zip(self.points, self.points[1:]):
             if elapsed < t1:
-                u = max(0., (elapsed-t0)/(t1-t0))
-                blend = 10*u**3 - 15*u**4 + 6*u**5
-                rate = 30*u*u*(1-u)**2/(t1-t0)
-                return (tuple(a+(b-a)*blend for a,b in zip(q0,q1)),
-                        tuple((b-a)*rate for a,b in zip(q0,q1)))
+                span = t1-t0
+                return self.interpolate(t0, q0, q1, max(0., (elapsed-t0)/span), span)
         return self.points[-1][1], (0.,)*len(self.keys)
+
+    def interpolate(self, start, q0, q1, u, span):
+        blend = 10*u**3 - 15*u**4 + 6*u**5
+        rate = 30*u*u*(1-u)**2/span
+        return (tuple(a+(b-a)*blend for a,b in zip(q0,q1)),
+                tuple((b-a)*rate for a,b in zip(q0,q1)))
+
+    def peak_bounds(self, start, q0, q1, span):
+        displacement = max(abs(b-a) for a, b in zip(q0, q1))
+        return 1.875*displacement/span, (10/math.sqrt(3))*displacement/span**2
+
+
+@dataclass(frozen=True)
+class CoordinatedTrajectory(Trajectory):
+    """Independent wrist curves evaluated at one elapsed time."""
+    arms: tuple
+
+    def sample(self, elapsed):
+        positions, velocities = zip(*(arm.sample(elapsed) for arm in self.arms))
+        return tuple(q for part in positions for q in part), tuple(v for part in velocities for v in part)
 
 
 def preflight(request, version, mappings, current, now, seen):

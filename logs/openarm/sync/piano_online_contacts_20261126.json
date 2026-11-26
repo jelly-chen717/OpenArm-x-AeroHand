@@ -1,0 +1,796 @@
+{
+  "points_sha256": "4ebb46b1ffa288369b918c5c7c3329a9030e7dd91106278d393b8d42afa7f61f",
+  "controller_tick_s": 0.04,
+  "simulation_config": {
+    "name": "openarm_aero_piano",
+    "size_m": [
+      1.24,
+      0.188,
+      0.055
+    ],
+    "center_world_m": [
+      0.67,
+      -0.02,
+      0.42
+    ],
+    "score_hover_clearance_m": 0.01,
+    "white_key_pitch_m": 0.0235,
+    "white_key_gap_m": 0.0008,
+    "first_midi": 21,
+    "key_count": 88,
+    "key_travel_m": 0.008,
+    "palm_pos_m": [
+      0.005,
+      0,
+      0.1065
+    ],
+    "palm_alignment_quat_wxyz": [
+      0.573576436351046,
+      0,
+      -0.8191520442889918,
+      0
+    ],
+    "assumptions": "88 keys A0-C8: 52 white + 36 black. Confirmed white-key center pitch 0.0235 m. Expanded case width 1.24 m; depth 0.188 m and height 0.055 m retained. Ideal contact-driven key travel; not a calibrated acoustic piano action.",
+    "thumb_rest_q_rad": {
+      "cmc_abd": 1.65244276,
+      "cmc_flex": 0.0,
+      "mcp": 0.0,
+      "ip": 0.0
+    }
+  },
+  "origin_notes": {
+    "left": "A3",
+    "right": "C4"
+  },
+  "non_score_files": [
+    "处理汇总.txt"
+  ],
+  "controller_failures": [],
+  "simulation_failures": [],
+  "scores": {
+    "jin": {
+      "score": "槿（实琴分手·主旋律）.txt",
+      "score_sha256": "9782202d4dfcc273c23a9df3d0007edf51e9da2a4e299326fd1acf0565b95569",
+      "source": {
+        "arm_moves": {
+          "left": 4,
+          "right": 6
+        },
+        "finger_codes": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "7",
+          "8",
+          "9",
+          "x"
+        ],
+        "source_first_press_us": 7250000,
+        "source_leading_rest_us": 3250000,
+        "score_duration_from_first_press_us": 228750000
+      },
+      "source_notes": 441,
+      "played_notes": 441,
+      "speed": 0.8,
+      "first_wrist_targets": {
+        "left": {
+          "note": "B3",
+          "physical_key": 14,
+          "xyz_mm": [
+            250.19,
+            33.6,
+            -170.0
+          ],
+          "joints_deg": [
+            14.387747382854963,
+            9.999985194940935,
+            21.222227619213776,
+            83.61087963030816,
+            -2.2746260962210236,
+            -6.527024393512565,
+            5.7822597126407285
+          ]
+        },
+        "right": {
+          "note": "C4",
+          "physical_key": 15,
+          "xyz_mm": [
+            250.25,
+            -55.0,
+            -170.0
+          ],
+          "joints_deg": [
+            13.755877191226974,
+            5.991614829098551,
+            -19.940344545974952,
+            86.39544530208481,
+            -6.456706315346814,
+            -20.030547439248725,
+            -0.3889270596376726
+          ]
+        }
+      },
+      "wait_s": 2.0,
+      "prepare_s": 8.25,
+      "pause_times_us": [
+        115750000,
+        128250000
+      ],
+      "first_attack": {
+        "time_us": 8250000,
+        "notes": [
+          {
+            "side": "left",
+            "midi": 57,
+            "note": "A3"
+          }
+        ]
+      },
+      "expected_first_attack": {
+        "time_us": 8250000,
+        "notes": [
+          {
+            "side": "left",
+            "midi": 57,
+            "note": "A3"
+          }
+        ]
+      },
+      "controller_matches": true,
+      "notes_at_unreachable_index_keys": [],
+      "skipped_notes": [],
+      "scheduled_replay": {
+        "wrist_moves": {
+          "left": 3,
+          "right": 5
+        },
+        "overlapping_notes": 88,
+        "same_hand_moves_during_hold": 0,
+        "opposite_hand_moves_during_hold": 3,
+        "incidents": [],
+        "wrong_notes": [],
+        "missing_notes": [],
+        "extra_notes": [],
+        "release_mismatches": []
+      },
+      "controller_tick_replay": {
+        "wrist_moves": {
+          "left": 3,
+          "right": 5
+        },
+        "overlapping_notes": 88,
+        "same_hand_moves_during_hold": 0,
+        "opposite_hand_moves_during_hold": 3,
+        "incidents": [],
+        "wrong_notes": [],
+        "missing_notes": [],
+        "extra_notes": [],
+        "release_mismatches": []
+      },
+      "mujoco_contacts": {
+        "passed": true,
+        "status": "COMPLETED",
+        "error": null,
+        "presses": 441,
+        "releases": 441,
+        "duration_us": 296187500,
+        "keys_released_at_end": true,
+        "wrong_notes": [],
+        "missing_notes": [],
+        "extra_notes": [],
+        "release_mismatches": []
+      }
+    },
+    "jin-chords": {
+      "score": "槿（实琴分手·纯和弦）.txt",
+      "score_sha256": "80c08f86735cb10408132ecabb166a9a0e049f03251234484ad9d4ba734ac369",
+      "source": {
+        "arm_moves": {
+          "left": 38,
+          "right": 55
+        },
+        "finger_codes": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "7",
+          "8",
+          "9",
+          "x"
+        ],
+        "source_first_press_us": 4000000,
+        "source_leading_rest_us": 0,
+        "score_duration_from_first_press_us": 308000000
+      },
+      "source_notes": 1300,
+      "played_notes": 1300,
+      "speed": 1.0,
+      "first_wrist_targets": {
+        "left": {
+          "note": "A3",
+          "physical_key": 13,
+          "xyz_mm": [
+            250.19,
+            56.1,
+            -170.0
+          ],
+          "joints_deg": [
+            12.458711569720247,
+            9.65832461850491,
+            15.640525312493068,
+            86.54241048245598,
+            -1.4146031470439855,
+            -0.6979248977303287,
+            4.575299118841891
+          ]
+        },
+        "right": {
+          "note": "C4",
+          "physical_key": 15,
+          "xyz_mm": [
+            250.25,
+            -55.0,
+            -170.0
+          ],
+          "joints_deg": [
+            13.755877191226974,
+            5.991614829098551,
+            -19.940344545974952,
+            86.39544530208481,
+            -6.456706315346814,
+            -20.030547439248725,
+            -0.3889270596376726
+          ]
+        }
+      },
+      "wait_s": 2.0,
+      "prepare_s": 5.25,
+      "pause_times_us": [
+        236000000,
+        240000000,
+        244000000,
+        252000000,
+        256000000,
+        260000000,
+        268000000,
+        272000000,
+        276000000,
+        284000000,
+        288000000,
+        292000000
+      ],
+      "first_attack": {
+        "time_us": 5250000,
+        "notes": [
+          {
+            "side": "left",
+            "midi": 53,
+            "note": "F3"
+          },
+          {
+            "side": "left",
+            "midi": 57,
+            "note": "A3"
+          },
+          {
+            "side": "right",
+            "midi": 60,
+            "note": "C4"
+          },
+          {
+            "side": "right",
+            "midi": 64,
+            "note": "E4"
+          }
+        ]
+      },
+      "expected_first_attack": {
+        "time_us": 5250000,
+        "notes": [
+          {
+            "side": "left",
+            "midi": 53,
+            "note": "F3"
+          },
+          {
+            "side": "left",
+            "midi": 57,
+            "note": "A3"
+          },
+          {
+            "side": "right",
+            "midi": 60,
+            "note": "C4"
+          },
+          {
+            "side": "right",
+            "midi": 64,
+            "note": "E4"
+          }
+        ]
+      },
+      "controller_matches": true,
+      "notes_at_unreachable_index_keys": [],
+      "skipped_notes": [],
+      "scheduled_replay": {
+        "wrist_moves": {
+          "left": 55,
+          "right": 54
+        },
+        "overlapping_notes": 606,
+        "same_hand_moves_during_hold": 0,
+        "opposite_hand_moves_during_hold": 0,
+        "incidents": [],
+        "wrong_notes": [],
+        "missing_notes": [],
+        "extra_notes": [],
+        "release_mismatches": []
+      },
+      "controller_tick_replay": {
+        "wrist_moves": {
+          "left": 55,
+          "right": 54
+        },
+        "overlapping_notes": 606,
+        "same_hand_moves_during_hold": 0,
+        "opposite_hand_moves_during_hold": 0,
+        "incidents": [],
+        "wrong_notes": [],
+        "missing_notes": [],
+        "extra_notes": [],
+        "release_mismatches": []
+      },
+      "mujoco_contacts": {
+        "passed": true,
+        "status": "COMPLETED",
+        "error": null,
+        "presses": 1300,
+        "releases": 1300,
+        "duration_us": 325250000,
+        "keys_released_at_end": true,
+        "wrong_notes": [],
+        "missing_notes": [],
+        "extra_notes": [],
+        "release_mismatches": []
+      }
+    },
+    "jin-chorus": {
+      "score": "槿（实琴分手·副歌纯旋律）.txt",
+      "score_sha256": "3596a6ff1d548a23433ff1d2d07f81ddc061475b933f5844af2b58f89545da37",
+      "source": {
+        "arm_moves": {
+          "left": 1,
+          "right": 2
+        },
+        "finger_codes": [
+          "8",
+          "9"
+        ],
+        "source_first_press_us": 4250000,
+        "source_leading_rest_us": 250000,
+        "score_duration_from_first_press_us": 31750000
+      },
+      "source_notes": 74,
+      "played_notes": 74,
+      "speed": 1.0,
+      "first_wrist_targets": {
+        "left": {
+          "note": "A3",
+          "physical_key": 13,
+          "xyz_mm": [
+            250.19,
+            56.1,
+            -170.0
+          ],
+          "joints_deg": [
+            12.458711569720247,
+            9.65832461850491,
+            15.640525312493068,
+            86.54241048245598,
+            -1.4146031470439855,
+            -0.6979248977303287,
+            4.575299118841891
+          ]
+        },
+        "right": {
+          "note": "A4",
+          "physical_key": 20,
+          "xyz_mm": [
+            250.25,
+            -167.5,
+            -170.0
+          ],
+          "joints_deg": [
+            10.569010816015636,
+            -9.732696840829886,
+            -5.642914888949183,
+            91.99350932696228,
+            8.265935914684452,
+            -5.7569956966744975,
+            0.4766747400286644
+          ]
+        }
+      },
+      "wait_s": 2.0,
+      "prepare_s": 8.25,
+      "pause_times_us": [],
+      "first_attack": {
+        "time_us": 8250000,
+        "notes": [
+          {
+            "side": "right",
+            "midi": 72,
+            "note": "C5"
+          }
+        ]
+      },
+      "expected_first_attack": {
+        "time_us": 8250000,
+        "notes": [
+          {
+            "side": "right",
+            "midi": 72,
+            "note": "C5"
+          }
+        ]
+      },
+      "controller_matches": true,
+      "notes_at_unreachable_index_keys": [],
+      "skipped_notes": [],
+      "scheduled_replay": {
+        "wrist_moves": {
+          "left": 0,
+          "right": 1
+        },
+        "overlapping_notes": 9,
+        "same_hand_moves_during_hold": 0,
+        "opposite_hand_moves_during_hold": 0,
+        "incidents": [],
+        "wrong_notes": [],
+        "missing_notes": [],
+        "extra_notes": [],
+        "release_mismatches": []
+      },
+      "controller_tick_replay": {
+        "wrist_moves": {
+          "left": 0,
+          "right": 1
+        },
+        "overlapping_notes": 9,
+        "same_hand_moves_during_hold": 0,
+        "opposite_hand_moves_during_hold": 0,
+        "incidents": [],
+        "wrong_notes": [],
+        "missing_notes": [],
+        "extra_notes": [],
+        "release_mismatches": []
+      },
+      "mujoco_contacts": {
+        "passed": true,
+        "status": "COMPLETED",
+        "error": null,
+        "presses": 74,
+        "releases": 74,
+        "duration_us": 40000000,
+        "keys_released_at_end": true,
+        "wrong_notes": [],
+        "missing_notes": [],
+        "extra_notes": [],
+        "release_mismatches": []
+      }
+    },
+    "jin-full": {
+      "score": "槿（60 BPM 完整钢琴版）.txt",
+      "score_sha256": "da16b0c39af9a8a3fda2d02910920c7dff78af0a616cf1f150a230e541fffc5c",
+      "source": {
+        "arm_moves": {
+          "right": 26,
+          "left": 29
+        },
+        "finger_codes": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "7",
+          "8",
+          "9",
+          "x"
+        ],
+        "source_first_press_us": 4000000,
+        "source_leading_rest_us": 0,
+        "score_duration_from_first_press_us": 308000000
+      },
+      "source_notes": 1469,
+      "played_notes": 1469,
+      "speed": 1.0,
+      "first_wrist_targets": {
+        "left": {
+          "note": "A3",
+          "physical_key": 13,
+          "xyz_mm": [
+            250.19,
+            56.1,
+            -170.0
+          ],
+          "joints_deg": [
+            12.458711569720247,
+            9.65832461850491,
+            15.640525312493068,
+            86.54241048245598,
+            -1.4146031470439855,
+            -0.6979248977303287,
+            4.575299118841891
+          ]
+        },
+        "right": {
+          "note": "C4",
+          "physical_key": 15,
+          "xyz_mm": [
+            250.25,
+            -55.0,
+            -170.0
+          ],
+          "joints_deg": [
+            13.755877191226974,
+            5.991614829098551,
+            -19.940344545974952,
+            86.39544530208481,
+            -6.456706315346814,
+            -20.030547439248725,
+            -0.3889270596376726
+          ]
+        }
+      },
+      "wait_s": 2.0,
+      "prepare_s": 5.25,
+      "pause_times_us": [
+        191250000,
+        268000000,
+        272000000,
+        276000000,
+        284000000,
+        288000000,
+        292000000
+      ],
+      "first_attack": {
+        "time_us": 5250000,
+        "notes": [
+          {
+            "side": "left",
+            "midi": 53,
+            "note": "F3"
+          },
+          {
+            "side": "left",
+            "midi": 57,
+            "note": "A3"
+          },
+          {
+            "side": "right",
+            "midi": 60,
+            "note": "C4"
+          },
+          {
+            "side": "right",
+            "midi": 64,
+            "note": "E4"
+          }
+        ]
+      },
+      "expected_first_attack": {
+        "time_us": 5250000,
+        "notes": [
+          {
+            "side": "left",
+            "midi": 53,
+            "note": "F3"
+          },
+          {
+            "side": "left",
+            "midi": 57,
+            "note": "A3"
+          },
+          {
+            "side": "right",
+            "midi": 60,
+            "note": "C4"
+          },
+          {
+            "side": "right",
+            "midi": 64,
+            "note": "E4"
+          }
+        ]
+      },
+      "controller_matches": true,
+      "notes_at_unreachable_index_keys": [],
+      "skipped_notes": [],
+      "scheduled_replay": {
+        "wrist_moves": {
+          "left": 30,
+          "right": 24
+        },
+        "overlapping_notes": 885,
+        "same_hand_moves_during_hold": 0,
+        "opposite_hand_moves_during_hold": 86,
+        "incidents": [],
+        "wrong_notes": [],
+        "missing_notes": [],
+        "extra_notes": [],
+        "release_mismatches": []
+      },
+      "controller_tick_replay": {
+        "wrist_moves": {
+          "left": 30,
+          "right": 24
+        },
+        "overlapping_notes": 885,
+        "same_hand_moves_during_hold": 0,
+        "opposite_hand_moves_during_hold": 86,
+        "incidents": [],
+        "wrong_notes": [],
+        "missing_notes": [],
+        "extra_notes": [],
+        "release_mismatches": []
+      },
+      "mujoco_contacts": {
+        "passed": true,
+        "status": "COMPLETED",
+        "error": null,
+        "presses": 1469,
+        "releases": 1469,
+        "duration_us": 320250000,
+        "keys_released_at_end": true,
+        "wrong_notes": [],
+        "missing_notes": [],
+        "extra_notes": [],
+        "release_mismatches": []
+      }
+    },
+    "little-apple": {
+      "score": "小苹果.txt",
+      "score_sha256": "bee12a59071fed5a570234ede22c3f20f7322ce0192bad5896f3ffd6d8cfcdf8",
+      "source": {
+        "arm_moves": {
+          "left": 7,
+          "right": 28
+        },
+        "finger_codes": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "7",
+          "8",
+          "9",
+          "x"
+        ],
+        "source_first_press_us": 6000000,
+        "source_leading_rest_us": 0,
+        "score_duration_from_first_press_us": 63904297
+      },
+      "source_notes": 259,
+      "played_notes": 259,
+      "speed": 0.8,
+      "first_wrist_targets": {
+        "left": {
+          "note": "A2",
+          "physical_key": 6,
+          "xyz_mm": [
+            250.19,
+            213.6,
+            -170.0
+          ],
+          "joints_deg": [
+            10.420977564813011,
+            -11.583108638881292,
+            -4.566950920128843,
+            89.89625193098567,
+            -22.630436748699275,
+            19.4990067501127,
+            1.0882984366877366
+          ]
+        },
+        "right": {
+          "note": "G4",
+          "physical_key": 19,
+          "xyz_mm": [
+            250.25,
+            -145.0,
+            -170.0
+          ],
+          "joints_deg": [
+            10.953521437983381,
+            -6.719320258744634,
+            -8.670355684309138,
+            92.09531329654132,
+            5.1530468914866985,
+            -8.70177113939661,
+            -0.04164117541980171
+          ]
+        }
+      },
+      "wait_s": 2.0,
+      "prepare_s": 8.25,
+      "pause_times_us": [],
+      "first_attack": {
+        "time_us": 8250000,
+        "notes": [
+          {
+            "side": "left",
+            "midi": 45,
+            "note": "A2"
+          },
+          {
+            "side": "right",
+            "midi": 72,
+            "note": "C5"
+          }
+        ]
+      },
+      "expected_first_attack": {
+        "time_us": 8250000,
+        "notes": [
+          {
+            "side": "left",
+            "midi": 45,
+            "note": "A2"
+          },
+          {
+            "side": "right",
+            "midi": 72,
+            "note": "C5"
+          }
+        ]
+      },
+      "controller_matches": true,
+      "notes_at_unreachable_index_keys": [],
+      "skipped_notes": [],
+      "scheduled_replay": {
+        "wrist_moves": {
+          "left": 7,
+          "right": 33
+        },
+        "overlapping_notes": 4,
+        "same_hand_moves_during_hold": 0,
+        "opposite_hand_moves_during_hold": 0,
+        "incidents": [],
+        "wrong_notes": [],
+        "missing_notes": [],
+        "extra_notes": [],
+        "release_mismatches": []
+      },
+      "controller_tick_replay": {
+        "wrist_moves": {
+          "left": 7,
+          "right": 33
+        },
+        "overlapping_notes": 4,
+        "same_hand_moves_during_hold": 0,
+        "opposite_hand_moves_during_hold": 0,
+        "incidents": [],
+        "wrong_notes": [],
+        "missing_notes": [],
+        "extra_notes": [],
+        "release_mismatches": []
+      },
+      "mujoco_contacts": {
+        "passed": true,
+        "status": "COMPLETED",
+        "error": null,
+        "presses": 259,
+        "releases": 259,
+        "duration_us": 88130371,
+        "keys_released_at_end": true,
+        "wrong_notes": [],
+        "missing_notes": [],
+        "extra_notes": [],
+        "release_mismatches": []
+      }
+    }
+  },
+  "failed": []
+}

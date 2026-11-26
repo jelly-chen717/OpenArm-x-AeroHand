@@ -55,6 +55,34 @@
             <tbody id="endpoint-status"></tbody>
           </table>
           <p id="endpoint-note" class="small muted"></p>
+          <div class="wrist-feedback">
+            <div class="subheading"><strong>腕部姿态</strong><span>基座坐标 · °</span></div>
+            <table aria-label="左右臂实时腕部姿态">
+              <thead><tr><th scope="col">手侧</th><th scope="col">Roll (X)</th><th scope="col">Pitch (Y)</th><th scope="col">Yaw (Z)</th></tr></thead>
+              <tbody id="wrist-pose-status"></tbody>
+            </table>
+          </div>
+          <div class="wrist-feedback">
+            <div class="subheading"><strong>指音关系</strong><span title="按实琴原位、实时腕部 Y 和固定指距估算">白键估算</span></div>
+            <table class="finger-note-table" aria-label="八指实时白键估算">
+              <thead>
+                <tr>
+                  <th scope="col" title="左手小指">1</th><th scope="col" title="左手无名指">2</th>
+                  <th scope="col" title="左手中指">3</th><th scope="col" title="左手食指">4</th>
+                  <th scope="col" title="右手食指">7</th><th scope="col" title="右手中指">8</th>
+                  <th scope="col" title="右手无名指">9</th><th scope="col" title="右手小指">x</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td data-hand-note="left" data-finger="1">—</td><td data-hand-note="left" data-finger="2">—</td>
+                  <td data-hand-note="left" data-finger="3">—</td><td data-hand-note="left" data-finger="4">—</td>
+                  <td data-hand-note="right" data-finger="7">—</td><td data-hand-note="right" data-finger="8">—</td>
+                  <td data-hand-note="right" data-finger="9">—</td><td data-hand-note="right" data-finger="x">—</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
         </div>
       </div>
     </section>
@@ -77,7 +105,8 @@
             <button type="button" id="start-zero" disabled title="双臂直接回到 J7 +15°、其余关节 0°">0位</button>
             <button type="button" id="start-return" disabled title="0位（J7+15°）→ J1+15°/J2-45° → J1-30°/J4+90° → J2回0/J4+120°">回0—起始位</button>
             <button type="button" id="start-pose" disabled title="跳过回零和中间步骤，双臂直接回到起始位 J1-30°/J2 0°/J4+120°/J7+15°">起始位</button>
-            <button type="button" id="start-original" disabled title="实琴 C2–C7。左食指 B3（白键 14），右食指 C4（白键 15）。">钢琴原位</button>
+            <button type="button" id="start-original" disabled>钢琴原位</button>
+            <button type="button" id="start-zero-return" disabled title="逆向执行回0—起始位：当前位置 → 起始位 → J1-30°/J2-45°/J4+90° → J1+15°/J2-45° → 0位，到位后保持使能">逆方向返回</button>
           </div>
           <div class="segmented modes" role="group" aria-label="控制模式">
             <button type="button" data-mode="ik" aria-pressed="false">IK 控制</button>
@@ -86,46 +115,37 @@
         </div>
       </div>
       <div class="control-scroll">
-        <details class="hand-panel" id="piano-trial-panel" open>
-          <summary>《槿》和弦试弹与分指预览</summary>
+        <details class="hand-panel" id="piano-performance" open hidden>
+          <summary>整曲弹奏</summary>
           <div class="hand-row">
-            <label>标定腕姿
-              <select id="trial-anchor"><option value="3" disabled>钢琴原位 · 左 B3 / 右 C4</option><option value="1" selected>右 C4 · 17:35 · J7 −0.35°</option><option value="2">右 C4 · 17:45 · J7 +5.06°</option></select>
-            </label>
-            <label id="trial-side-label" hidden>定位手侧 <select id="trial-side"><option value="left">左食指</option><option value="right">右食指</option></select></label>
+            <label>琴谱 <select id="performance-score"></select></label>
+            <button class="primary" type="button" id="performance-play" disabled>弹奏</button>
+            <button type="button" id="performance-exit" disabled>退出演奏</button>
+            <span class="finger-hint" id="performance-fingers" role="status" aria-live="polite"></span>
+          </div>
+          <p class="small muted" id="performance-links"></p>
+          <p class="small" id="performance-status" aria-live="polite"></p>
+        </details>
+        <details class="hand-panel" id="piano-trial-panel" open>
+          <summary>钢琴定位与试弹</summary>
+          <div class="hand-row">
+            <label>定位手侧 <select id="trial-side"><option value="left">左食指</option><option value="right">右食指</option></select></label>
             <label>食指白键 <select id="trial-key"></select></label>
             <button type="button" id="trial-position" disabled>预览白键定位</button>
           </div>
           <div class="hand-row">
-            <label id="trial-score-label" hidden>琴谱 <select id="trial-score"><option value="jin-chords">《槿》纯和弦</option><option value="jin-full" disabled>《槿》60 BPM 完整钢琴版</option></select></label>
-            <label>范围 <select id="trial-scope"><option value="first">首和弦</option><option value="prelude">前奏前四小节</option><option value="full">全曲</option></select></label>
-            <label id="trial-speed-label">倍率 <input id="trial-speed" type="number" min="0.35" max="1" step="0.01" value="0.35" required></label>
-            <button type="button" id="trial-preview" disabled>预览试弹</button>
+            <label>琴谱 <select id="trial-score"><option value="jin-chords">《槿》纯和弦</option></select></label>
+            <label>范围 <select id="trial-scope"><option value="first">首拍</option><option value="prelude">前奏（16 秒）</option><option value="full">全曲</option></select></label>
+            <label>试弹手侧 <select id="trial-hand"><option value="both">双手</option><option value="right">右手</option></select></label>
+            <label>倍率 <input id="trial-speed" type="number" min="0.35" max="1" step="0.01" value="0.35" required></label>
+            <button type="button" id="trial-preview" disabled>预览双手指法</button>
+            <button type="button" id="trial-dual-preview" disabled>预览试弹</button>
           </div>
           <p class="small muted" id="trial-status" aria-live="polite"></p>
           <section id="trial-fingering" hidden>
             <p class="small" id="fingering-summary" aria-live="polite"></p>
             <div class="table-wrap fingering-scroll"><table><thead><tr><th>谱面秒</th><th>原音高</th><th>左手</th><th>右手</th><th>两腕距离</th></tr></thead><tbody id="fingering-rows"></tbody></table></div>
           </section>
-        </details>
-        <details class="hand-panel" id="piano-air-panel">
-          <summary>《槿》双臂空弹</summary>
-          <div class="hand-row">
-            <label>琴谱
-              <select id="piano-air-score">
-                <option value="jin">《槿》主旋律</option>
-                <option value="jin-chords" disabled>《槿》纯和弦</option>
-                <option value="jin-chorus" disabled>《槿》副歌纯旋律</option>
-              </select>
-            </label>
-            <button type="button" id="piano-air-position-score" disabled>琴谱起位</button>
-          </div>
-          <div class="hand-row">
-            <label>范围 <select id="piano-air-scope"><option value="prelude">开头 16 秒</option><option value="full">整份琴谱</option></select></label>
-            <label>倍率（0.35×–1×） <input id="piano-air-speed" type="number" min="0.35" max="1" step="0.01" value="0.35" required></label>
-            <button type="button" id="piano-air-preview" disabled>预览空弹</button>
-          </div>
-          <p class="small muted" id="piano-air-position"></p>
         </details>
         <details class="hand-panel" id="hand-panel">
           <summary>Aero 手部控制 <span id="hand-summary" class="small muted">未连接</span></summary>
@@ -135,6 +155,7 @@
             <label>串口 <input id="hand-port" placeholder="COM 口" maxlength="20" disabled></label>
             <button type="button" id="hand-connect" disabled>连接并读取</button>
             <button type="button" id="hand-disconnect" disabled>停止并断开</button>
+            <button type="button" id="hand-piano_pose" disabled>弹琴指位</button>
           </div>
           <div class="hand-row">
             <label>手指 <select id="hand-finger"><option value="3">食指</option><option value="4">中指</option><option value="5">无名指</option><option value="6">小指</option></select></label>
@@ -192,7 +213,15 @@
                 <button id="use-current" type="button">填入当前位置</button>
               </div>
               <div id="ik-inputs"></div>
-              <p class="small muted">基座坐标，保持当前手腕朝向。</p>
+              <div id="wrist-fields" hidden>
+                <div class="form-row">
+                  <span class="field-label">腕姿目标</span>
+                  <button id="use-current-wrist" type="button">填入当前姿态</button>
+                </div>
+                <div id="wrist-inputs"></div>
+                <p class="small muted">角度按基座 X、Y、Z 固定轴定义。填写腕姿角后，留空分量沿用预览时的反馈。</p>
+              </div>
+              <p id="ik-position-note" class="small muted">基座坐标，保持当前手腕朝向。</p>
             </div>
             <div class="two-cols motion-settings">
               <label>运动时间<div class="input-unit"><input id="duration" type="number" value="3" min="0.1" max="600" step="any" required><span>s</span></div></label>
@@ -217,7 +246,7 @@
         </div>
         <div>
           <button class="primary" id="execute" type="button" disabled>执行目标</button>
-          <button id="stop" class="danger" type="button" title="停止机械臂并失能，同时断开已连接的机械手" disabled>停止并失能</button>
+          <button id="stop" class="danger" type="button" title="停止机械臂并失能，结束指法播放，保留机械手连接" disabled>停止并失能</button>
         </div>
       </footer>
     </section>

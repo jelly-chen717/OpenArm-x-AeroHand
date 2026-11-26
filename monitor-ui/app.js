@@ -3,11 +3,12 @@
 const $ = id => document.getElementById(id);
 const sides = ["left", "right"];
 const armName = {left: "左臂", right: "右臂"};
+const handName = {left: "左手", right: "右手"};
 const pianoFingers = {pinky: "小指", ring: "无名指", middle: "中指", index: "食指"};
-let trialKeySet = "", trialInstance = "";
+let trialKeySet = "";
 const whiteNote = key => ["A","B","C","D","E","F","G"][(key - 1) % 7] + Math.floor((key + 4) / 7);
-const originSelected = () => $("trial-anchor").value === "3";
 const endpoints = {wrist: "手腕", thumb: "拇指", index: "食指", middle: "中指", ring: "无名指", little: "小指"};
+const wristAxes = ["Roll", "Pitch", "Yaw"];
 const states = {
   QUEUED: "执行准备中", PREFLIGHT: "复核起点与保护参数", HOLDING: "正在使能",
   EXECUTING: "执行中", STOP_REQUESTED: "正在停止", STOPPED: "正在核对失能",
@@ -25,18 +26,22 @@ const labels = {
   "motion.completed": "运动完成", "motion.cancelled": "执行已停止",
   "motion.stop_unconfirmed": "失能未确认", "motion.rejected": "指令被拒绝",
   "motion.zero_pose": "0位", "motion.start_return": "回0—起始位", "motion.start_pose": "起始位",
-  "motion.piano_origin": "钢琴原位",
+  "motion.piano_origin": "钢琴原位", "motion.zero_return": "逆方向返回",
+  "motion.piano_exit": "退出演奏并保持",
   "motion.after": "完成失能回读", "motion.disable_evidence": "失能记录",
 };
 const state = {
   mode: "joint", arm: "left", status: null, run: null, target: null, pending: false,
-  stopping: false, instance: null, cursor: 0, logs: [], filter: "ALL", notice: null,
+  stopping: false, exitingPerformance: false, instance: null, cursor: 0, logs: [], filter: "ALL", notice: null,
 };
 const client = location.protocol === "file:" ? "" : crypto.randomUUID().replaceAll("-", "");
 const jointInputs = {};
 const ikInputs = {};
+const wristInputs = {};
 const jointCells = {};
 const endpointCells = {};
+const wristCells = {};
+const fingerNoteCells = document.querySelectorAll("[data-hand-note]");
 
 function create(tag, text, className) {
   const node = document.createElement(tag);
@@ -49,30 +54,41 @@ function selectedArms() {
   return state.arm === "both" ? sides : [state.arm];
 }
 
+function buildIkInputs(container, side, axes, suffix) {
+  const group = create("div", undefined, "ik-group");
+  group.dataset.ikArm = side;
+  group.append(create("strong", armName[side]));
+  const fields = create("div", undefined, "xyz");
+  const inputs = axes.map(axis => {
+    const label = create("label", axis);
+    const unit = create("div", undefined, "input-unit");
+    const input = create("input");
+    input.type = "number";
+    input.step = "any";
+    input.setAttribute("aria-label", armName[side] + " " + axis);
+    unit.append(input, create("span", suffix));
+    label.append(unit);
+    fields.append(label);
+    return input;
+  });
+  group.append(fields);
+  $(container).append(group);
+  return inputs;
+}
+
 function buildFields() {
   for (const side of sides) {
     jointInputs[side] = [];
     jointCells[side] = [];
     endpointCells[side] = {};
-    const group = create("div", undefined, "ik-group");
-    group.dataset.ikArm = side;
-    group.append(create("strong", armName[side]));
-    const xyz = create("div", undefined, "xyz");
-    ikInputs[side] = ["X", "Y", "Z"].map(axis => {
-      const label = create("label", axis);
-      const unit = create("div", undefined, "input-unit");
-      const input = create("input");
-      input.type = "number";
-      input.step = "any";
-      input.required = true;
-      input.setAttribute("aria-label", armName[side] + " " + axis);
-      unit.append(input, create("span", "mm"));
-      label.append(unit);
-      xyz.append(label);
-      return input;
-    });
-    group.append(xyz);
-    $("ik-inputs").append(group);
+    ikInputs[side] = buildIkInputs("ik-inputs", side, ["X", "Y", "Z"], "mm");
+    wristInputs[side] = buildIkInputs("wrist-inputs", side, wristAxes, "°");
+    wristCells[side] = wristAxes.map(() => create("td", "—"));
+    const row = create("tr");
+    const header = create("th", armName[side]);
+    header.scope = "row";
+    row.append(header, ...wristCells[side]);
+    $("wrist-pose-status").append(row);
   }
   for (let i = 1; i <= 7; i++) {
     const inputRow = create("div", undefined, "joint-input-row");
@@ -105,6 +121,14 @@ function buildFields() {
   }
 }
 
+function wristPoseEnabled() {
+  return $("endpoint").value === "wrist" && Object.hasOwn(state.status?.arms.left ?? {}, "wrist_rpy_deg");
+}
+
+function hasWristTarget(side) {
+  return wristPoseEnabled() && wristInputs[side].some(input => input.value !== "");
+}
+
 function invalidate(message = "填写目标后，先生成预览。") {
   state.target = null;
   $("target-angles").replaceChildren();
@@ -126,6 +150,7 @@ function updateControls() {
   const status = state.status;
   const holding = state.run?.active && state.run.state === "HOLDING_TARGET" && status?.can_prepare;
   const locked = state.pending || (state.run?.active && !holding);
+  renderPerformance(locked);
   const drive = $("drive-mode");
   drive.disabled = state.pending || !status?.can_switch_mode;
   drive.title = status?.mode === "hardware" && !status.drive_modes?.length ? "切换模式需要加载现场 C02 盘点" :
@@ -140,83 +165,75 @@ function updateControls() {
   $("enabled-count").textContent = "使能 " + (joints?.every(Boolean) ?
     joints.filter(joint => joint.state === 1).length : "—") + "/14";
   const ik = state.mode === "ik";
+  const wristPose = ik && wristPoseEnabled();
   const selected = selectedArms();
   $("control-fields").disabled = !status || locked;
   document.querySelectorAll("[data-mode]").forEach(button => { button.disabled = locked; });
   $("ik-fields").hidden = !ik;
+  $("wrist-fields").hidden = !wristPose;
+  $("ik-position-note").hidden = wristPose;
   $("joint-fields").hidden = ik;
   $("prepare").textContent = ik ? "求解与预检" : "预览关节目标";
   $("prepare").disabled = !status?.can_prepare || locked;
-  $("piano-air-preview").disabled = !status?.piano_air_available || !status.can_prepare || locked;
-  $("piano-air-preview").title = status && !status.piano_air_available ? "请在实机空闲后加载新版控制台服务" : "";
-  $("piano-air-position-score").disabled = $("piano-air-preview").disabled || !status?.piano_score_position_available;
-  $("piano-air-position-score").title = status && !status.piano_score_position_available ?
-    "请在实机空闲后加载新版控制台服务" : "";
-  const score = $("piano-air-score");
-  score.disabled = state.pending;
-  const availableScores = status?.piano_air_scores ?? ["jin"];
-  for (const option of score.options) option.disabled = !availableScores.includes(option.value);
-  $("piano-air-scope").disabled = state.pending;
-  $("piano-air-speed").disabled = state.pending;
   const trial = state.target?.piano_trial;
-  const needsHand = trial && trial.scope !== "start";
-  const rightHand = status?.hands?.right;
   const runningTrial = state.run?.piano_trial;
   const fingers = status?.hand_score;
-  $("trial-anchor").options[0].disabled = !status?.piano_origin;
-  if (status && trialInstance !== status.instance) {
-    trialInstance = status.instance;
-    $("trial-anchor").value = status.piano_origin ? "3" : "1";
-  }
-  const atOrigin = originSelected();
-  $("trial-side-label").hidden = !atOrigin;
-  $("trial-speed-label").hidden = atOrigin;
-  $("trial-score-label").hidden = !atOrigin;
-  const fingeringScores = status?.piano_fingering_scores ?? ["jin-chords"];
-  for (const option of $("trial-score").options) option.disabled = !fingeringScores.includes(option.value);
-  const selection = atOrigin ? status?.piano_origin?.[$("trial-side").value] : null;
-  const keys = selection?.keys ?? Array.from({length:18}, (_, i) => i + 21);
-  const signature = [atOrigin, $("trial-side").value, ...keys].join("/");
+  const pianoOrigin = status?.piano_origin;
+  const originLabel = pianoOrigin ? sides.map(side => {
+    const point = pianoOrigin[side];
+    return armName[side] + "食指 " + point.note + "（白键 " + point.physical_key + "）";
+  }).join("，") : "";
+  syncScoreOptions($("trial-score"), status?.piano_performance_scores ?? {});
+  const selection = pianoOrigin?.[$("trial-side").value];
+  const keys = selection?.keys ?? [];
+  const signature = [$("trial-side").value, selection?.anchor, ...keys].join("/");
   if (signature !== trialKeySet) {
     trialKeySet = signature;
     $("trial-key").replaceChildren(...keys.map(k => new Option(
-      `${whiteNote(k)} · 实琴 ${k - 9} / 谱 ${k}`, String(k))));
-    $("trial-key").value = String(selection?.anchor ?? 24);
+      whiteNote(k) + " · 实琴 " + (k - 9) + " / 谱 " + k, String(k))));
+    if (selection) $("trial-key").value = String(selection.anchor);
   }
-  $("trial-position").disabled = $("trial-preview").disabled = !status?.piano_trial_available || !status.can_prepare || locked;
-  if (atOrigin) $("trial-preview").disabled = !status?.piano_origin || state.pending;
-  $("trial-preview").textContent = atOrigin ? "预览双手指法" : "预览右手试弹";
-  for (const id of ["trial-anchor", "trial-key", "trial-side", "trial-score", "trial-scope", "trial-speed"]) $(id).disabled = state.pending;
-  let trialStatus = (rightHand?.connected ? `右手${rightHand.demo ? "模拟" : rightHand.port}在线` :
-    "未连接右手：仅执行机械臂，指法不发送") + " · C4 点位参考，实琴 15 / 曲谱 24";
-  if (atOrigin) trialStatus = "实琴 C2–C7，白键距 22.5 mm。食指原位相邻，左 B3（14），右 C4（15）。两手从原位向外定位。";
-  if (state.run?.active && runningTrial) {
-    const group = `第 ${runningTrial.anchor_run} 组`;
+  $("trial-position").disabled = !selection || !status?.can_prepare || locked;
+  $("trial-preview").disabled = !pianoOrigin || !$("trial-score").value || state.pending;
+  $("trial-dual-preview").disabled = $("trial-preview").disabled || !status?.can_prepare || locked;
+  for (const id of ["trial-key", "trial-side", "trial-score", "trial-scope", "trial-hand", "trial-speed"]) $(id).disabled = state.pending;
+  let trialStatus = pianoOrigin ? "实琴 C2–C7 · 白键距 22.5 mm · 原位 " + originLabel : "等待加载实琴点表";
+  if (state.run?.active && runningTrial && !runningTrial.performance) {
     if (runningTrial.scope === "start") {
-      const note = runningTrial.note ?? whiteNote(runningTrial.target_key);
-      const physicalKey = runningTrial.physical_key ?? runningTrial.target_key - 9;
-      const where = `${armName[runningTrial.side ?? "right"]} ${note} · 实琴白键 ${physicalKey}`;
-      trialStatus = `${group} · ${where} · ${state.run.state === "HOLDING_TARGET" ? "定位保持中" : "腕部定位中"}`;
+      const where = armName[runningTrial.side] + " " + runningTrial.note + " · 实琴白键 " + runningTrial.physical_key;
+      trialStatus = where + " · " + (state.run.state === "HOLDING_TARGET" ? "定位保持中" : "腕部定位中");
+    } else if (runningTrial.finger_notice) {
+      trialStatus = "指法未启动：" + runningTrial.finger_notice + " · 执行腕位轨迹";
     } else if (fingers?.id === state.run.request_id) {
-      trialStatus = fingers.active ? `${group} · 右手试弹中 · ${Math.floor(fingers.elapsed_s)} / ${Math.ceil(fingers.duration_s)} 秒` :
-        `${group} · 右手 · ${fingers.message}`;
+      const label = runningTrial.dual ? "双手试弹" : "右手试弹";
+      const phase = fingers.elapsed_s < runningTrial.prepare_s ? "首拍就位" : "试弹中";
+      trialStatus = label + " · " + (fingers.active ?
+        phase + " · " + Math.floor(fingers.elapsed_s) + " / " + Math.ceil(fingers.duration_s) + " 秒" : fingers.message);
     }
+    if (runningTrial.skip_notice) trialStatus += " · " + runningTrial.skip_notice;
   }
-  $("trial-status").textContent = status?.piano_trial_available ? trialStatus : "等待加载支持实机点位的控制台服务";
+  $("trial-status").textContent = trialStatus;
   $("use-current").disabled = !selected.every(side => status?.arms[side].endpoints_mm[$("endpoint").value]);
+  $("use-current-wrist").disabled = !wristPose || !selected.every(side => status.arms[side].wrist_rpy_deg);
   $("use-current-joints").disabled = ik || !selected.every(side =>
     status?.arms[side].joints?.every(row => row && Number.isFinite(row.position_deg)));
   for (const side of sides) {
-    document.querySelector(`[data-ik-arm="${side}"]`).hidden = !selected.includes(side);
-    ikInputs[side].forEach(input => { input.disabled = !ik || !selected.includes(side); });
-    jointInputs[side].forEach(input => { input.disabled = ik || !selected.includes(side); });
+    const selectedSide = selected.includes(side);
+    document.querySelectorAll(`[data-ik-arm="${side}"]`).forEach(group => { group.hidden = !selectedSide; });
+    const positionRequired = !hasWristTarget(side);
+    ikInputs[side].forEach(input => {
+      input.disabled = !ik || !selectedSide;
+      input.required = positionRequired;
+    });
+    wristInputs[side].forEach(input => { input.disabled = !wristPose || !selectedSide; });
+    jointInputs[side].forEach(input => { input.disabled = ik || !selectedSide; });
   }
-  $("execute").textContent = trial ? (needsHand ? "开始右手试弹" : `执行 ${whiteNote(trial.target_key)} 定位`) : state.target?.piano_air ? "开始空弹" :
-    status?.mode === "hardware" ? "执行实机目标" : "执行离线目标";
-  if (trial?.side) $("execute").textContent = `执行${armName[trial.side]} ${trial.note} 定位`;
+  $("execute").textContent = status?.mode === "hardware" ? "执行实机目标" : "执行离线目标";
+  if (trial?.scope === "start") $("execute").textContent = "执行" + armName[trial.side] + " " + trial.note + " 定位";
+  else if (trial) $("execute").textContent = trial.dual ? "开始双手试弹" : "开始右手试弹";
   $("execute").disabled = !status?.can_prepare || locked || !state.target;
   const startReady = Boolean(status?.can_start_pose) && !state.pending && !state.stopping;
-  for (const id of ["start-zero", "start-return", "start-pose"]) $(id).disabled = !startReady;
+  for (const id of ["start-zero", "start-return", "start-pose", "start-zero-return"]) $(id).disabled = !startReady;
   $("start-original").disabled = !startReady || !status?.piano_origin;
   const startReason = !status ? "等待本机服务" :
     !status.motion_supported ? "等待 14 轴电机模式就绪" :
@@ -225,8 +242,124 @@ function updateControls() {
   $("start-zero").title = `双臂直接回到 J7 +15°、其余 0°。${startReady ? "当前可用。" : startReason + "。"}`;
   $("start-return").title = `双臂：0位（J7+15°）→ J1+15°/J2-45° → J1-30°/J4+90° → J2回0/J4+120°。${startReady ? "当前可用。" : startReason + "。"}`;
   $("start-pose").title = `双臂直接回到起始位 J1-30°/J2 0°/J4+120°/J7+15°。${startReady ? "当前可用。" : startReason + "。"}`;
-  $("start-original").title = `实琴 C2–C7。左食指 B3（白键 14），右食指 C4（白键 15），3 秒定位。${startReady ? "" : startReason}`;
+  $("start-original").title = pianoOrigin ? originLabel + "，3 秒定位。" + (startReady ? "" : startReason) : "等待加载实琴点表";
+  $("start-zero-return").title = `逆向执行回0—起始位：当前位置 → 起始位 → J1-30°/J2-45°/J4+90° → J1+15°/J2-45° → 0位，到位后保持使能。${startReady ? "当前可用。" : startReason + "。"}`;
   $("stop").disabled = !state.run?.active || state.stopping || Boolean(state.run?.stop_reason);
+}
+
+function syncScoreOptions(select, scores) {
+  const entries = Object.entries(scores);
+  if (entries.length !== select.options.length || entries.some(([id, score], index) =>
+    select.options[index].value !== id || select.options[index].text !== score.title)) {
+    const selected = select.value;
+    select.replaceChildren(...entries.map(([id, score]) => new Option(score.title, id)));
+    if (Object.hasOwn(scores, selected)) select.value = selected;
+    else if (select.id === "trial-score" && Object.hasOwn(scores, "jin-chords")) select.value = "jin-chords";
+  }
+}
+
+const calibChannels = ["3", "4", "5", "6"];
+
+// Fingering readiness beside 弹奏. Paints a hint only; the service still decides
+// whether fingers run, and nothing here disables or rejects the button.
+function fingerReadiness(choice, status, run) {
+  const trial = run?.piano_trial;
+  if (run?.active && trial?.performance && trial.finger_notice) {
+    return {level: "bad", text: `指法未启动：${trial.finger_notice} · 本次只跑腕位轨迹`};
+  }
+  const required = choice?.sides?.length ? choice.sides : sides;
+  const blocked = [], cautious = [];
+  for (const side of required) {
+    const name = handName[side];
+    const hand = status?.hands?.[side];
+    if (!hand) { blocked.push(name + "状态未知"); continue; }
+    if (!hand.connected) blocked.push(name + "未连接");
+    else if (hand.fault) blocked.push(name + "反馈异常，需断开重连");
+    else if (hand.demo && status.mode === "hardware") cautious.push(name + "使用模拟手，不会驱动真手");
+    else {
+      const missing = calibChannels.filter(ch => {
+        const cal = hand.calibration?.[ch];
+        return [cal?.home, cal?.press].some(value => {
+          if (value == null || String(value).trim() === "") return true;
+          const degrees = Number(value);
+          return !Number.isFinite(degrees) || degrees < 0 || degrees > 90;
+        });
+      });
+      if (missing.length) cautious.push(`${name} ${missing.join("/")} 号指的按抬位需核对`);
+    }
+  }
+  if (blocked.length) return {level: "bad", text: "指法会跳过：" + blocked.join(" · ")};
+  if (cautious.length) return {level: "warn", text: "指法待确认：" + cautious.join(" · ")};
+  const detail = required.map(side => {
+    const hand = status.hands[side];
+    return `${handName[side]} ${hand.demo ? "模拟" : hand.port || "已连接"}`;
+  }).join(" · ");
+  return {level: "ok", text: "指法就绪 · " + detail};
+}
+
+function renderFingerHint(choice, status, run) {
+  const box = $("performance-fingers");
+  if (!box) return;
+  const ready = fingerReadiness(choice, status, run);
+  if (box.textContent !== ready.text) box.textContent = ready.text;
+  if (box.dataset.state !== ready.level) box.dataset.state = ready.level;
+}
+
+function renderPerformance(locked) {
+  const status = state.status;
+  const scores = status?.piano_performance_scores;
+  $("piano-performance").hidden = !scores;
+  if (!scores) return;
+  const select = $("performance-score");
+  syncScoreOptions(select, scores);
+  const choice = scores[select.value];
+  const run = state.run;
+  const trial = run?.piano_trial;
+  const playing = run?.active && trial?.performance;
+  const fingers = status.hand_score?.id === run?.request_id ? status.hand_score : null;
+  select.disabled = state.pending;
+  $("performance-play").disabled = !choice?.available || !status.piano_origin || !status.can_prepare || locked ||
+    state.exitingPerformance || Boolean(run?.piano_exiting || (run?.piano_exited && fingers?.active));
+  $("performance-exit").disabled = !playing || Boolean(run?.piano_exiting || run?.piano_exited || run?.stop_reason) ||
+    state.exitingPerformance || state.stopping;
+  const count = sides.flatMap(side => status.arms[side].fresh ? status.arms[side].joints : []).filter(Boolean).length;
+  const hands = sides.map(side => {
+    const hand = status.hands[side];
+    const connection = hand.connected ? (hand.demo ? "模拟" : hand.port) : "未连接";
+    return `${handName[side]} ${connection}${hand.fault ? " · 反馈异常" : ""}`;
+  });
+  $("performance-links").textContent = `臂反馈 ${count}/14 · ${hands.join(" · ")}`;
+  renderFingerHint(choice, status, run);
+
+  let message = choice?.notice || (choice ?
+    `${choice.title} · 定位至首个手位 · 入位后等待 ${choice.wait_s ?? 2} 秒 · ${choice.speed ?? 1}×` : "");
+  if (playing) {
+    const elapsed = run.sample?.elapsed_s || 0;
+    let phase = "演奏中";
+    if (elapsed < trial.prepare_s - trial.wait_s) phase = "正在定位首个手位";
+    else if (elapsed < trial.prepare_s) phase = "保持首腕位目标 · 等待起奏";
+    const sync = run.sample?.piano_sync;
+    if (sync?.waiting) {
+      if (sync.fingers.length) {
+        phase = `等待${sync.fingers.map(side => handName[side]).join("、")}抬指`;
+      } else {
+        const wrists = Object.entries(sync.wrist_errors).map(([side, error]) =>
+          `${handName[side]} ${error.note} 偏差 ${error.distance_mm.toFixed(1)} mm、J7 ${Math.abs(error.j7_deg).toFixed(1)}°`);
+        phase = `等待腕位 · ${wrists.join(" / ")}`;
+      }
+    }
+    if (run.state === "HOLDING_TARGET") phase = "演奏结束 · 双臂保持";
+    if (run.piano_exiting || state.exitingPerformance) phase = "正在退出演奏";
+    if (run.piano_exited) phase = "已退出演奏 · 双臂保持使能" + (fingers?.active ? " · 正在抬指" : "");
+    message = `${trial.score_name} · ${trial.speed}× · ${phase}`;
+    if (trial.pause_times_us.length) message += ` · 谱面延时 ${trial.pause_times_us.length} 秒`;
+    const feedbackDelay = run.sample?.sync_delay_s ?? 0;
+    if (feedbackDelay > 0) message += ` · 反馈等待 ${feedbackDelay.toFixed(1)} 秒`;
+    if (trial.skip_notice) message += " · " + trial.skip_notice;
+    if (trial.finger_notice) message += ` · 指法未启动：${trial.finger_notice}`;
+    if (run.piano_exited && fingers?.message?.includes("抬起未确认")) message += " · " + fingers.message;
+  }
+  $("performance-status").textContent = message;
 }
 
 function setConnection(type, title) {
@@ -263,8 +396,17 @@ function renderSensors() {
     }
     for (const [endpoint, cell] of Object.entries(endpointCells[side])) {
       const coords = arm?.endpoints_mm[endpoint];
-      cell.textContent = coords ? coords.map(value => value.toFixed(1)).join(" / ") : "—";
+      cell.textContent = coords ? coords.map(value => value.toFixed(2)).join(" / ") : "—";
     }
+    wristCells[side].forEach((cell, index) => {
+      const angle = arm?.wrist_rpy_deg?.[index];
+      cell.textContent = wristInputs[side][index].placeholder = angle?.toFixed(2) ?? "—";
+    });
+  }
+  for (const cell of fingerNoteCells) {
+    const {handNote, finger} = cell.dataset;
+    const key = status?.arms[handNote].piano_finger_keys?.[finger];
+    cell.textContent = key == null ? "—" : whiteNote(key);
   }
 }
 
@@ -287,23 +429,21 @@ function showTarget(target, arms) {
   $("target-angles").replaceChildren(...arms.map(side => angleStrip(side, target.target_deg[side])));
   $("target-state").textContent = "预检通过";
   const joints = target.command_joints.map(label => label.replace(/^left/, "左臂").replace(/^right/, "右臂"));
-  const air = target.piano_air;
   if (target.piano_trial) {
     const trial = target.piano_trial;
-    if (trial.side) {
+    if (trial.scope === "start") {
       $("target-note").textContent = `${armName[trial.side]}食指 ${trial.note} · 实琴白键 ${trial.physical_key} / 曲谱白键 ${trial.target_key} · ${target.duration_s} 秒`;
       return;
     }
-    const startNote = whiteNote(trial.start_key);
-    const approach = trial.held_key ? `从已保持的 ${whiteNote(trial.held_key)} 接续` : `粗定位 → ${startNote}`;
-    $("target-note").textContent = `第 ${trial.anchor_run} 组 · ${approach} · 食指腕位 ${trial.wrist_keys.map(whiteNote).join("、")}` +
-      (trial.scope === "start" ? "" : ` · 右手 ${trial.note_count} 音 · ${trial.speed}×`) +
-      ` · ${target.duration_s.toFixed(1)} 秒`;
+    const wrists = sides.filter(side => trial.first_wrist_targets[side]).map(side =>
+      armName[side] + " " + trial.first_wrist_targets[side].note).join(" / ");
+    const approach = trial.from_score_start ? "从已保持的首腕位接续" : "首腕位 " + wrists;
+    $("target-note").textContent = `${approach} · ${trial.note_count} 音 · ${trial.speed}× · ` +
+      `入位准备 ${trial.prepare_s.toFixed(2)} 秒 · 共 ${target.duration_s.toFixed(1)} 秒` +
+      (trial.skip_notice ? " · " + trial.skip_notice : "");
     return;
   }
-  $("target-note").textContent = air
-    ? `${air.calibrated ? "现场标定" : "CSV 仿真坐标"}${air.scope === "start" ? "" : ` · ${air.speed}× · ${air.note_count} 音`} · ${target.duration_s.toFixed(1)} s · 峰值 ${target.peak_speed_deg_s.toFixed(2)} °/s${air.from_score_start ? " · 从保持的起位接续" : ""}`
-    : `${joints.join("、")} · ${target.duration_s} s · 峰值 ${target.peak_speed_deg_s.toFixed(2)} °/s`;
+  $("target-note").textContent = `${joints.join("、")} · ${target.duration_s} s · 峰值 ${target.peak_speed_deg_s.toFixed(2)} °/s`;
 }
 
 function kindOf(level) {
@@ -380,7 +520,10 @@ function renderRun() {
   const id = state.target?.request_id || run?.request_id;
   $("request-label").textContent = id ? id.slice(0, 12) : "本机服务";
   $("request-label").title = id || "";
-  const activeLabel = run?.stop_reason || run?.state === "STOP_REQUESTED" ? "正在停止" : states[run?.state];
+  let activeLabel = states[run?.state];
+  if (run?.piano_exited) activeLabel = "已退出演奏 · 使能保持中";
+  if (run?.piano_exiting) activeLabel = "正在退出演奏";
+  if (run?.stop_reason || run?.state === "STOP_REQUESTED") activeLabel = "正在停止";
   $("execution-state").textContent = !state.status ?
     (run?.active ? "连接中断 · 等待停止回报" : "等待本机服务") :
     state.status.pending_mode ? "正在切换并读回 " + state.status.pending_mode :
@@ -390,26 +533,8 @@ function renderRun() {
         state.status.can_switch_mode && !state.status.drive_mode ? "请选择电机模式，核对 14 轴回读" :
         state.status.can_prepare ? "就绪" : "等待双臂静止与失能回读";
   const progress = $("progress");
-  progress.hidden = !state.status || !run?.active || !run?.sample;
+  progress.hidden = !state.status || !run?.active || !run?.sample || run.piano_exited;
   if (!progress.hidden) progress.value = Math.min(run.sample.elapsed_s / run.duration_s, 1);
-  const air = run?.active && run.sample?.piano_air;
-  const notes = air?.notes ?? (air?.note ? [air.note] : []);
-  let pianoStatus = state.status && !state.status.piano_score_position_available
-    ? (run?.active ? "旧版服务仍在执行或保持，结束后可加载「琴谱起位」" : "「琴谱起位」需要加载新版控制台服务")
-    : "";
-  if (air?.scope === "start" && air.anchors) {
-    const {left, right} = air.anchors;
-    const phase = run.state === "HOLDING_TARGET" ? "起位保持中" : "正在前往琴谱起位";
-    pianoStatus = `${phase} · 左小指 ${left.pinky}／食指 ${left.index} · 右食指 ${right.index}`;
-  } else if (notes.length) {
-    const targets = notes.map(note => `${armName[note.side]}${pianoFingers[note.finger]} ${note.key}`);
-    pianoStatus = `${air.score_elapsed_s.toFixed(2)} s · 曲谱白键 ${targets.join("、")}`;
-  } else if (air && !air.positioning && air.scope !== "start") {
-    pianoStatus = run.state === "HOLDING_TARGET" ? "空弹结束 · 保持最后手位" : `${air.score_elapsed_s.toFixed(2)} s · 休止`;
-  } else if (air?.positioning) {
-    pianoStatus = "正在前往琴谱起位";
-  }
-  $("piano-air-position").textContent = pianoStatus;
 }
 
 async function api(path, payload, timeout = 1500) {
@@ -492,6 +617,7 @@ function renderHand() {
   const score = status?.hand_score;
   const handsReady = sides.every(s => status?.hands?.[s]?.connected && !status.hands[s].fault);
   const ready = connected && !row.fault && !handBusy && !score?.active;
+  const pianoPoseAvailable = row?.piano_pose_available ?? (side === "left");
   $("hand-score-start").disabled = !score || !handsReady || handBusy || scorePending || score.active;
   $("hand-score-stop").disabled = !score?.active || scorePending;
   $("hand-score-status").textContent = scoreError || (score?.active ?
@@ -504,6 +630,7 @@ function renderHand() {
   $("hand-port").disabled = !row || connected || handBusy || demo;
   $("hand-connect").disabled = !row || connected || handBusy || (!demo && !$("hand-port").value.trim());
   $("hand-disconnect").disabled = !connected;
+  $("hand-piano_pose").disabled = !pianoPoseAvailable || !ready;
   $("hand-side").disabled = $("hand-finger").disabled = handBusy;
   for (const action of handActions) {
     $("hand-" + action).disabled = !ready ||
@@ -522,6 +649,7 @@ function renderHand() {
     temperatures.every(value => value === 0);
   $("hand-result").textContent = [row?.fault || handMessage, connected ?
     `当前 ${display(q)}　抬起位 ${display(cal.home)}　按下位 ${display(cal.press)}` : "",
+    row && !pianoPoseAvailable && "重启控制台后可使用右手弹琴指位",
     zeroTemperatures && "串口已回包，七路舵机温度均为 0°C。请检查手部独立供电和舵机总线。"
   ].filter(Boolean).join(" · ");
   $("hand-time").textContent = row?.feedback ? new Date(row.received_at * 1000).toLocaleTimeString() : "";
@@ -561,7 +689,7 @@ for (const action of ["start", "stop"]) {
     }
   });
 }
-for (const action of ["connect", "disconnect", ...handActions]) {
+for (const action of ["connect", "disconnect", "piano_pose", ...handActions]) {
   $("hand-" + action).addEventListener("click", async () => {
     const side = $("hand-side").value;
     const payload = {side, action, session: state.status?.hands?.[side]?.session,
@@ -574,6 +702,7 @@ for (const action of ["connect", "disconnect", ...handActions]) {
       const result = await api("/api/hand", payload, 10000);
       if (state.status?.hands) state.status.hands[side] = result;
       handMessage = {connect: "已读取七路位置", disconnect: "已停止发送并断开，舵机可保持末目标",
+        piano_pose: `已发送${side === "left" ? "左手" : "右手"}弹琴指位`,
         save_home: "抬起位已保存", save_press: "按下位已保存"}[action] || "位置目标已写入串口";
     } catch (error) {
       handMessage = error.message;
@@ -592,8 +721,10 @@ function controlsChanged() {
 function targetPayload() {
   const isIK = state.mode === "ik";
   const inputs = isIK ? ikInputs : jointInputs;
-  const targets = Object.fromEntries(selectedArms().map(side => [side, inputs[side].map(input =>
-    input.value === "" ? null : input.valueAsNumber)]));
+  const targets = Object.fromEntries(selectedArms().map(side => {
+    const fields = isIK && hasWristTarget(side) ? [...inputs[side], ...wristInputs[side]] : inputs[side];
+    return [side, fields.map(input => input.value === "" ? null : input.valueAsNumber)];
+  }));
   return {mode: state.mode, arm: state.arm, targets, endpoint: $("endpoint").value,
           duration_s: $("duration").valueAsNumber, speed_percent: $("speed").valueAsNumber};
 }
@@ -655,14 +786,24 @@ $("control-form").addEventListener("invalid", event => {
   actionError("请检查输入", new Error(event.target.validationMessage));
 }, true);
 $("endpoint").addEventListener("change", () => {
-  sides.forEach(side => ikInputs[side].forEach(input => { input.value = ""; }));
+  sides.forEach(side => [...ikInputs[side], ...wristInputs[side]].forEach(input => { input.value = ""; }));
   controlsChanged();
 });
-$("reset").addEventListener("click", () => { $("control-form").reset(); controlsChanged(); });
+$("reset").addEventListener("click", () => {
+  HTMLFormElement.prototype.reset.call($("control-form"));
+  controlsChanged();
+});
 $("use-current").addEventListener("click", () => {
   for (const side of selectedArms()) {
     const point = state.status?.arms[side].endpoints_mm[$("endpoint").value];
     if (point) ikInputs[side].forEach((input, index) => { input.value = point[index].toFixed(2); });
+  }
+  controlsChanged();
+});
+$("use-current-wrist").addEventListener("click", () => {
+  for (const side of selectedArms()) {
+    const rpy = state.status?.arms[side].wrist_rpy_deg;
+    if (rpy) wristInputs[side].forEach((input, index) => { input.value = rpy[index].toFixed(2); });
   }
   controlsChanged();
 });
@@ -696,70 +837,35 @@ $("control-form").addEventListener("submit", async event => {
     updateControls();
   }
 });
-for (const id of ["piano-air-score", "piano-air-scope", "piano-air-speed"]) {
-  $(id).addEventListener("input", () => {
-    if (state.target?.piano_air) invalidate("空弹设置已变化，请重新预览。");
-  });
-}
-async function submitPianoAir(positionOnly) {
-  const scope = positionOnly ? "start" : $("piano-air-scope").value;
-  const input = $("piano-air-speed");
-  if (!positionOnly && !input.reportValidity()) return;
-  state.notice = null;
-  invalidate(positionOnly ? "正在读取琴谱起位。" : "正在计算双臂腕位与换位。");
-  state.pending = true;
-  updateControls();
-  try {
-    const target = await api("/api/prepare", {mode: "piano-air", scope,
-      score_id: $("piano-air-score").value, speed: positionOnly ? .35 : input.valueAsNumber}, 15000);
-    showTarget(target, sides);
-    if (positionOnly) {
-      state.run = await api("/api/execute", {request_id: target.request_id});
-      $("target-state").textContent = "琴谱起位已提交";
-    } else {
-      state.target = target;
-    }
-  } catch (error) {
-    invalidate("请重新生成空弹预览。");
-    actionError(positionOnly ? "琴谱起位未受理" : "空弹预览未就绪", error);
-  } finally {
-    state.pending = false;
-    updateControls();
-    renderRun();
-  }
-}
-$("piano-air-position-score").addEventListener("click", () => submitPianoAir(true));
-$("piano-air-preview").addEventListener("click", () => submitPianoAir(false));
-for (const id of ["trial-anchor", "trial-side", "trial-key", "trial-score", "trial-scope", "trial-speed"]) {
+for (const id of ["trial-side", "trial-key", "trial-score", "trial-scope", "trial-hand", "trial-speed"]) {
   $(id).addEventListener("input", () => {
     if (state.target?.piano_trial) invalidate("试弹设置已变化，请重新预览。");
     $("trial-fingering").hidden = true;
     updateControls();
   });
 }
-async function previewTrial(positionOnly) {
+async function previewTrial(action) {
   const speed = $("trial-speed");
-  const diagram = originSelected() && !positionOnly;
-  if (!positionOnly && !diagram && !speed.reportValidity()) return;
+  const positionOnly = action === "position";
+  const scope = positionOnly ? "start" : $("trial-scope").value;
+  const scoreId = $("trial-score").value;
+  if (action === "play" && !speed.reportValidity()) return;
   state.notice = null;
   invalidate("正在读取钢琴点位与曲谱。");
   state.pending = true;
   updateControls();
   try {
-    if (diagram) {
-      const result = await api("/api/piano/fingering", {
-        scope: $("trial-scope").value, score_id: $("trial-score").value,
-      }, 15000);
+    if (action === "fingering") {
+      const result = await api("/api/piano/fingering", {scope, score_id: scoreId}, 15000);
       showFingering(result);
       $("target-state").textContent = "双手分指预览";
       return;
     }
-    const target = await api("/api/prepare", {mode: "piano-trial", anchor_run: Number($("trial-anchor").value),
-      side: $("trial-side").value,
-      key: Number($("trial-key").value), scope: positionOnly ? "start" : $("trial-scope").value,
+    const target = await api("/api/prepare", {mode: "piano-trial", side: $("trial-side").value,
+      key: Number($("trial-key").value), scope, score_id: scoreId, trial_hand: $("trial-hand").value,
       speed: positionOnly ? .35 : speed.valueAsNumber}, 15000);
     state.target = target;
-    showTarget(target, [target.piano_trial.side ?? "right"]);
+    showTarget(target, target.piano_trial.dual ? sides : [target.piano_trial.side ?? "right"]);
   } catch (error) {
     actionError("试弹预览未就绪", error);
   } finally {
@@ -769,24 +875,25 @@ async function previewTrial(positionOnly) {
   }
 }
 function showFingering(result) {
-  const fullScore = result.score_id === "jin-full";
-  $("fingering-rows").replaceChildren(...result.rows.map((row, index) => {
+  const skipReason = {outside_physical_keyboard: "超出实琴", no_common_wrist: "无共同腕位",
+    no_finger_at_solved_wrist: "无可用手指"};
+  const firstShown = new Set();
+  $("fingering-rows").replaceChildren(...result.rows.map(row => {
     const tr = create("tr");
     tr.append(create("td", (row.time_us/1e6).toFixed(3)), create("td", row.notes.map(n => whiteNote(n.key)).join(" ")));
     if (row.fingers) {
       for (const side of sides) {
         const key = row.wrists[side];
-        const fingers = row.fingers[side].map(n => (pianoFingers[n.finger] ?? "用指待标定") + " " + whiteNote(n.key));
+        const fingers = row.fingers[side].map(n =>
+          (pianoFingers[n.finger] ?? skipReason[n.skip_reason] ?? "跳过") + " " + whiteNote(n.key));
         const cell = create("td", fingers.join("、") || (key == null ? "休止" : "延音"));
         if (key != null) {
-          const pending = row.pending_wrists?.includes(side) ? " · 腕位待标定" : "";
-          cell.append(create("div", `食指对位 ${whiteNote(key)} · 实琴 ${key - 9}${pending}`, "muted"));
-        } else if (row.fingers[side].length) {
-          cell.append(create("div", fullScore ? "当前指距无共同腕位" : "腕位待标定", "muted"));
+          cell.append(create("div", `食指对位 ${whiteNote(key)} · 实琴 ${key - 9}`, "muted"));
         }
-        const target = index === 0 && result.first_wrist_targets?.[side];
+        const target = key != null && !firstShown.has(side) && result.first_wrist_targets?.[side];
         if (target) {
-          cell.append(create("div", `XYZ（mm） ${target.xyz_mm.map(mm => mm.toFixed(1)).join("，")}`, "small muted"));
+          firstShown.add(side);
+          cell.append(create("div", `XYZ（mm） ${target.xyz_mm.map(mm => mm.toFixed(2)).join("，")}`, "small muted"));
           const joints = create("div", undefined, "fingering-wrist-joints small muted");
           joints.append(...target.joints_deg.map((deg, j) => create("span", `J${j + 1} ${deg.toFixed(2)}°`)));
           cell.append(joints);
@@ -802,13 +909,52 @@ function showFingering(result) {
     return tr;
   }));
   const firstDistance = result.rows[0]?.wrist_distance_mm;
-  $("fingering-summary").textContent = `原谱 ${result.rows.length} 组、${result.note_count} 音，${result.unassigned} 组待补指法。` +
-    (fullScore || result.pending_wrist_groups == null ? "" : `${result.pending_wrist_groups} 组腕位待标定。`) +
+  $("fingering-summary").textContent = `原谱 ${result.rows.length} 组、${result.note_count} 音，${result.unassigned} 组含跳过音。` +
     (firstDistance == null ? "" : `首和弦两腕相距 ${firstDistance.toFixed(2)} mm。`);
   $("trial-fingering").hidden = false;
 }
-$("trial-position").addEventListener("click", () => previewTrial(true));
-$("trial-preview").addEventListener("click", () => previewTrial(false));
+$("trial-position").addEventListener("click", () => previewTrial("position"));
+$("trial-preview").addEventListener("click", () => previewTrial("fingering"));
+$("trial-dual-preview").addEventListener("click", () => previewTrial("play"));
+$("performance-score").addEventListener("input", updateControls);
+$("performance-play").addEventListener("click", async () => {
+  if ($("performance-play").disabled) return;
+  const scoreId = $("performance-score").value;
+  const sessions = Object.fromEntries(sides.map(side => [side, state.status.hands[side].session]));
+  state.notice = null;
+  state.pending = true;
+  invalidate("正在准备双臂与双手演奏…");
+  updateControls();
+  try {
+    state.run = await api("/api/piano/play", {score_id: scoreId, sessions}, 15000);
+    $("target-state").textContent = "双臂与双手演奏已提交";
+  } catch (error) {
+    actionError("演奏未受理", error);
+  } finally {
+    state.pending = false;
+    updateControls();
+    renderRun();
+  }
+});
+$("performance-exit").addEventListener("click", async () => {
+  if ($("performance-exit").disabled) return;
+  const requestId = state.run.request_id;
+  state.notice = null;
+  state.exitingPerformance = true;
+  updateControls();
+  try {
+    await api("/api/piano/exit", {request_id: requestId});
+    if (state.run?.request_id === requestId && state.run.active && !state.run.piano_exited) {
+      state.run = {...state.run, piano_exiting: true};
+    }
+  } catch (error) {
+    actionError("退出演奏未受理", error);
+  } finally {
+    state.exitingPerformance = false;
+    updateControls();
+    renderRun();
+  }
+});
 $("execute").addEventListener("click", async () => {
   if ($("execute").disabled) return;
   const requestId = state.target.request_id;
@@ -817,7 +963,11 @@ $("execute").addEventListener("click", async () => {
   updateControls();
   try {
     const request = {request_id: requestId};
-    if (state.target?.piano_trial) request.sessions = {right: state.status?.hands?.right?.session};
+    const trial = state.target?.piano_trial;
+    if (trial && trial.scope !== "start") {
+      const trialSides = trial.dual ? sides : ["right"];
+      request.sessions = Object.fromEntries(trialSides.map(side => [side, state.status?.hands?.[side]?.session]));
+    }
     state.run = await api("/api/execute", request);
     // Retain the preview for reference while it runs. The ID has been consumed.
     state.target = null;
@@ -849,6 +999,7 @@ for (const [id, path, label] of [
   ["start-return", "/api/start/return", "回0—起始位"],
   ["start-pose", "/api/start/pose", "起始位"],
   ["start-original", "/api/start/piano-origin", "钢琴原位"],
+  ["start-zero-return", "/api/start/zero-return", "逆方向返回"],
 ]) {
   $(id).addEventListener("click", async () => {
     if ($(id).disabled) return;

@@ -12,8 +12,16 @@ import uuid
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "openarm"))
 from tools.aero_piano_test.core import AeroTransport, FINGERS, number
-from tools.aero_score.core import CHANNEL, Event, FingerScore, HandLink, LABELS, compile_score, validate_ports
+from tools.aero_score.core import Event, FingerScore, HandLink, LABELS, compile_score, validate_ports
 from openarm_piano_air import CHORD_SCORE as JIN_SCORE
+from openarm_piano_wrist import US_PER_S
+
+PIANO_THUMB_SLIDERS = (1.000, 0.964, 0.397)
+# Compact finger angles in index, middle, ring, pinky order.
+PIANO_FINGER_DEG = {
+    "left": (16.0, 14.0, 17.5, 10.0),
+    "right": (10.845, 5.107, 6.947, 10.0),
+}
 
 
 class ConsoleHands:
@@ -31,11 +39,13 @@ class ConsoleHands:
         self.score = dict(active=False, message="等待排练")
         self.score_watch = None
         self.score_client = None
+        self.score_exit = None
         self.rows = {}
         for side, item in self.defaults.items():
-            real_default = hardware and side == "right"
+            real_default = hardware and not item.get("demo", side != "right")
             self.rows[side] = dict(connected=False, session=None, fault=None, feedback=None,
-                                   demo=not real_default, port=item["port"] if real_default else "")
+                                   demo=not real_default, port=item["port"] if real_default else "",
+                                   piano_pose_available=side in PIANO_FINGER_DEG)
             self.rows[side]["calibration"] = {}
 
     def _path(self, side, demo):
@@ -61,7 +71,9 @@ class ConsoleHands:
         score = compile_score(JIN_SCORE.read_text(encoding="utf-8-sig"))
         return self.schedule_score(score, payload.get("sessions"), client, watch)
 
-    def schedule_score(self, score, sessions, client, watch, *, run_id=None, arm_clock=None):
+    def schedule_score(self, score, sessions, client, watch, *, run_id=None, arm_clock=None,
+                       piano_clock=None, title=None):
+        title = title or JIN_SCORE.stem
         reserved = []
         positions = {}
         with self.lock:
@@ -77,19 +89,25 @@ class ConsoleHands:
                             or not isinstance(sessions, dict) or sessions.get(side) != row["session"]):
                         raise ValueError(f"请先连接{LABELS[side]}并确认连接状态。")
                     positions[side] = {}
-                    for ch in score.used[side]:
+                    used = score.used[side]
+                    channels = FINGERS if piano_clock is not None else used
+                    for ch in channels:
                         cal = row["calibration"].get(str(ch), {})
+                        names = ("press", "home") if ch in used else ("home",)
                         try:
                             positions[side][ch] = {key: number(cal.get(key), key, 0, 90)
-                                                   for key in ("press", "home")}
+                                                   for key in names}
                         except (TypeError, ValueError) as exc:
-                            raise ValueError(f"请先记录{LABELS[side]}{FINGERS[ch]}的按下位和抬起位。") from exc
+                            label = "按下位和抬起位" if ch in used else "抬起位"
+                            raise ValueError(f"请先记录{LABELS[side]}{FINGERS[ch]}的{label}。") from exc
                 run_id = run_id or uuid.uuid4().hex
-                self.journal.record("hand.score.start", JIN_SCORE.stem, request_id=run_id,
+                self.journal.record("hand.score.start", title, request_id=run_id,
                                     data=dict(notes=score.note_count, ignored_moves=score.ignored_moves,
                                               demo={s: self.rows[s]["demo"] for s in score.sides}))
                 self.score_client, self.score_watch = client, watch
-                threading.Thread(target=self._play_score, args=(score, positions, watch, run_id, arm_clock),
+                self.score_exit = threading.Event()
+                threading.Thread(target=self._play_score,
+                                 args=(score, positions, watch, run_id, arm_clock, piano_clock, title, self.score_exit),
                                  daemon=True, name="console-hand-score").start()
                 self.score = dict(active=True, id=run_id, message="排练中", elapsed_s=0,
                                   sides=score.sides,
@@ -107,19 +125,35 @@ class ConsoleHands:
             self.score_watch.stop("已停止排练")
             return dict(self.score)
 
-    def _play_score(self, score, positions, watch, run_id, arm_clock=None):
+    def stop_active_score(self):
+        with self.lock:
+            if self.score["active"]:
+                self.score_watch.stop("控制台停止")
+
+    def exit_score(self, run_id):
+        with self.lock:
+            if self.score["active"] and self.score["id"] == run_id:
+                self.score_exit.set()
+
+    def _play_score(self, score, positions, watch, run_id, arm_clock, piano_clock, title, exit_requested):
         held = {s: set() for s in score.sides}
         timeline = {}
         for side in score.sides:
             for event in score.events[side]:
                 timeline.setdefault(event.time_us, {})[side] = event
+        if piano_clock is not None:
+            for stamp in piano_clock.lift_times:
+                timeline.setdefault(stamp, {})
+
+        def stopped():
+            return exit_requested.is_set() or watch.is_set()
 
         def send(link, changes, releasing=False):
             side = link.side
             raw = list(self.targets[side])
             for ch, down in changes:
                 raw[ch] = link.bus.target(ch, positions[side][ch]["press" if down else "home"])
-            if not releasing and watch.is_set():
+            if not releasing and stopped():
                 return
             held[side].update(ch for ch, down in changes if down)
             link.bus.write_position_frame(raw)
@@ -131,27 +165,41 @@ class ConsoleHands:
         message = "排练完成"
         try:
             if arm_clock is not None:
-                while not arm_clock.done() and not watch.wait(.01):
-                    pass
+                while not arm_clock.done() and not stopped():
+                    watch.wait(.01)
                 if arm_clock.cancelled():
                     message = "试弹未提交"
                     return
-            start = arm_clock.result() if arm_clock is not None and arm_clock.done() else time.monotonic()
+            start = arm_clock.result() if arm_clock is not None and arm_clock.done() else time.perf_counter()
             timeline.setdefault(score.duration_us, {})
             for time_us, events in sorted(timeline.items()):
-                while not watch.is_set():
-                    elapsed = time.monotonic() - start
+                while not stopped():
+                    now = time.perf_counter()
+                    elapsed, blocked, probe = (piano_clock.hand_state(time_us, now) if piano_clock is not None
+                                               else (now - start, False, ()))
                     with self.lock:
                         self.score["elapsed_s"] = min(elapsed, score.duration_us / 1e6)
                         faults = [self.rows[s]["fault"] for s in score.sides if self.rows[s]["fault"]]
                     if faults:
                         raise OSError("、".join(faults))
-                    remaining = time_us / 1e6 - elapsed
-                    if remaining <= 0:
+                    remaining = time_us / US_PER_S - elapsed
+                    if not blocked and remaining <= 0:
                         break
-                    watch.event.wait(min(remaining, .1))
-                if watch.is_set():
-                    message = watch.reason
+                    if probe:
+                        reads = {}
+                        try:
+                            for side in probe:
+                                reads[side] = self.links[side].submit(lambda link: link.feedback(telemetry=False))
+                        finally:
+                            wait(reads.values())
+                        errors = {}
+                        for side, reading in reads.items():
+                            q = reading.result()["q"]
+                            errors[side] = max(abs(q[ch] - cal["home"]) for ch, cal in positions[side].items())
+                        piano_clock.report_home(time_us, errors)
+                    watch.event.wait(.02 if blocked else min(remaining, .02 if arm_clock is not None else .1))
+                if stopped():
+                    message = watch.reason or "已退出演奏"
                     break
                 futures = []
                 try:
@@ -163,16 +211,20 @@ class ConsoleHands:
                     wait(futures)
                 for future in futures:
                     future.result()
-                if watch.is_set():
-                    message = watch.reason
+                if stopped():
+                    message = watch.reason or "已退出演奏"
                     break
                 if events:
-                    self.journal.record("hand.score.frame", JIN_SCORE.stem, request_id=run_id,
-                                        data=dict(time_us=time_us, sent_s=time.monotonic() - start,
+                    self.journal.record("hand.score.frame", title, request_id=run_id,
+                                         data=dict(time_us=time_us, sent_s=time.perf_counter() - start,
                                                   changes={s: e.changes for s, e in events.items()}))
         except Exception as exc:
             message = str(exc)
         finally:
+            if exit_requested.is_set():
+                # Include fingers whose opening lift had not been sent yet.
+                for side, fingers in positions.items():
+                    held[side].update(fingers)
             for side, channels in held.items():
                 if channels:
                     changes = tuple((ch, False) for ch in channels)
@@ -184,6 +236,8 @@ class ConsoleHands:
                 self.score.update(active=False, message=message)
                 for side in score.sides:
                     self.operations[side].release()
+                if piano_clock is not None:
+                    piano_clock.hand_finished(time.perf_counter())
                 self.journal.record("hand.score.end", message, request_id=run_id)
 
     def _event(self, kind, payload):
@@ -237,8 +291,29 @@ class ConsoleHands:
         with self.lock:
             self.rows[side].update(connected=True, session=uuid.uuid4().hex)
 
-    def _finger(self, worker, action, ch, payload):
+    def _write_position(self, worker, raw):
         side, bus = worker.side, worker.bus
+        if self.stopping[side].is_set():
+            raise ValueError("手部操作已取消。")
+        bus.write_position_frame(raw)
+        self.targets[side] = raw
+        worker.feedback()
+
+    def _piano_pose(self, worker):
+        worker.feedback(telemetry=False)
+        bus = worker.bus
+        thumb_deg = [low + (high - low) * slider for slider, low, high in zip(
+            PIANO_THUMB_SLIDERS, bus.constants.joint_lower_limits, bus.constants.joint_upper_limits)]
+        # Match the Aero GUI's compact pose, where thumb MCP/IP share one angle.
+        joint_deg = [*thumb_deg, thumb_deg[2]]
+        for degrees in PIANO_FINGER_DEG[worker.side]:
+            joint_deg.extend([degrees] * 3)
+        raw = bus.encode(bus.forward.hand_actuations(joint_deg))
+        self._write_position(worker, raw)
+        return raw
+
+    def _finger(self, worker, action, ch, payload):
+        side = worker.side
         feedback = worker.feedback(telemetry=False)
         row = self.rows[side]
         key = str(ch)
@@ -261,12 +336,8 @@ class ConsoleHands:
             raise ValueError("请先填写目标角度或记录该指位置。")
         degrees = number(degrees, "目标角度", 0, 90)
         raw = list(self.targets[side])
-        raw[ch] = bus.target(ch, degrees)
-        if self.stopping[side].is_set():
-            raise ValueError("手部操作已取消。")
-        bus.write_position_frame(raw)
-        self.targets[side] = raw
-        worker.feedback()
+        raw[ch] = worker.bus.target(ch, degrees)
+        self._write_position(worker, raw)
         return degrees
 
     def action(self, payload):
@@ -294,6 +365,10 @@ class ConsoleHands:
                     raise ValueError("手部连接已变更，请刷新状态。")
                 if action == "disconnect":
                     self._disconnect(side)
+                elif action == "piano_pose":
+                    frame = self.links[side].submit(self._piano_pose).result()
+                    details.update(thumb_sliders=PIANO_THUMB_SLIDERS,
+                                   degrees=dict(zip(FINGERS, PIANO_FINGER_DEG[side])), target_u16=frame)
                 elif action in ("move", "home", "press", "save_home", "save_press"):
                     ch = payload.get("channel")
                     if type(ch) is not int or ch not in FINGERS:
@@ -317,8 +392,7 @@ class ConsoleHands:
         with self.lock:
             for signal in self.stopping.values():
                 signal.set()
-            if self.score["active"]:
-                self.score_watch.stop("控制台停止")
+            self.stop_active_score()
         for side in LABELS:
             with self.operations[side]:
                 self._disconnect(side)

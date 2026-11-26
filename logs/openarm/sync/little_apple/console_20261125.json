@@ -1,0 +1,58 @@
+{
+  "mode": "virtual",
+  "scores": [
+    [
+      "jin",
+      "槿（实琴分手·主旋律）"
+    ],
+    [
+      "jin-chorus",
+      "槿（实琴分手·副歌纯旋律）"
+    ],
+    [
+      "jin-chords",
+      "槿（实琴分手·纯和弦）"
+    ],
+    [
+      "jin-full",
+      "槿（60 BPM 完整钢琴版）"
+    ],
+    [
+      "little-apple",
+      "小苹果"
+    ]
+  ],
+  "complete_request_id": "a404dbbdf51b4ad6af8506cd59e34098",
+  "stopped_request_id": "e0eecff26e154c6ca19bee2e017e4d12",
+  "first_press": {
+    "time_us": 8250000,
+    "sent_s": 8.251556999995955,
+    "changes": {
+      "left": [
+        [
+          3,
+          true
+        ]
+      ],
+      "right": [
+        [
+          6,
+          true
+        ]
+      ]
+    }
+  },
+  "presses": 259,
+  "releases": 259,
+  "duration_s": 72.154297,
+  "phases_observed": [
+    "定位",
+    "等待",
+    "演奏",
+    "曲终保持",
+    "停止"
+  ],
+  "complete_journal": "browser/virtual-6e97fdb533aa4fa184a2f3fe1494540d.jsonl",
+  "stop_journal": "browser/virtual-cbfc8adee3c74e5884e700725d56da42.jsonl",
+  "page_errors_during_stop_test": []
+}

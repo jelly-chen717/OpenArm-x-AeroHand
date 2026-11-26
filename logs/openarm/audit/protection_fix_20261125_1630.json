@@ -1,0 +1,75 @@
+{
+  "time": "2026-11-25 16:30",
+  "git_head": "f86e10e",
+  "workspace_dirty": "yes: 18 modified / 38 untracked / 0 deleted",
+  "authorization": "用户 2026-11-25 16:13 明确指示：跳过指法、机械臂继续；N2 也跳过；N1 保持。N3 按建议保持。",
+  "scope": "仅删除 N2/N4/N5 三处新增拒绝分支；未改动 P01～P24 的放行语义，未新增任何拒绝。",
+  "changes": [
+    {
+      "id": "N2",
+      "file": "apps/openarm_piano_performance.py",
+      "function": "_select_wrists",
+      "before": "无共同腕位音组 raise ValueError，整份琴谱不可演奏",
+      "after": "跳过该音组，返回 (kept, skipped)；compile_performance 记录 skipped_groups/skipped_notes 与 finger_notice，其余谱面继续",
+      "class": "P25"
+    },
+    {
+      "id": "N4",
+      "file": "apps/openarm_piano_trial.py",
+      "function": "_compile_dual_trial",
+      "before": "preview.unassigned / pending_wrist_groups / 空 rows 时 raise ValueError",
+      "after": "缺腕位/分指的行只跳过对应音；完全没有可用腕位时执行钢琴原位并跳过全部指法，机械臂仍运行",
+      "class": "P22 扩展"
+    },
+    {
+      "id": "N5",
+      "file": "apps/openarm_piano_trial.py",
+      "function": "_dual_track",
+      "before": "换腕时上一音仍按住（gap<=0）raise ValueError，整次试弹失败",
+      "after": "跳过该组指法并计数，腕位保持，后续谱面继续",
+      "class": "P22 扩展"
+    },
+    {
+      "id": "N3",
+      "file": "apps/openarm_piano_trial.py",
+      "function": "DUAL_TRIAL_SCOPES",
+      "before": "jin-full 仅 first/prelude",
+      "after": "保持；与 N1 同源，全曲需先补 77 组左手标定",
+      "class": "KEEP"
+    },
+    {
+      "id": "N1",
+      "file": "apps/openarm_piano_performance.py",
+      "function": "compile_performance / performance_options",
+      "before": "实机 jin-full 拒绝",
+      "after": "保持；前端按钮禁用并提示先补标定",
+      "class": "KEEP"
+    }
+  ],
+  "ui": [
+    "monitor-ui/app.js：预览说明追加“已跳过 N 音”，并在无首和弦目标时回退为“钢琴原位”，避免空 first_wrist_targets 报错"
+  ],
+  "docs": [
+    "docs/project/OpenArm控制台防护项清单_20261119.md：新增 P25，扩展 P22，第 3/4 节补充",
+    "monitor-ui/README.md：实验室模式列表与双手联动试弹说明补充跳过语义",
+    "docs/project/仿真与实机联通_两日实施计划.md：快速接手追加本次记录"
+  ],
+  "tests": {
+    "command": "openarm/.venv/Scripts/python.exe -B -m pytest -q -p no:cacheprovider <10 files>",
+    "passed": 205,
+    "failed": 0,
+    "skipped": 0,
+    "duration_s": 123.4,
+    "new": [
+      "test_uncoverable_group_is_skipped_not_refused",
+      "test_wrist_change_while_key_held_is_skipped",
+      "test_dual_trial_without_wrist_groups_holds_origin"
+    ],
+    "note": "16:24 一次运行出现 6 个失败，原因是用户 16:25 并行将左手指距由 -4/-3/-2/0 改为 -3/-2/-1/0 并同步测试；16:30 以最新文件复跑 205 项全部通过。"
+  },
+  "violations": [],
+  "notes": [
+    "未启动 8092、未连接实机、未读写 CAN、未使能/运动/写模式。",
+    "保留仍然有效的拒绝：实机 jin-full 全曲（N1）、双手试弹范围白名单（N3）、IK 无收敛解、关节限位（K01）。"
+  ]
+}

@@ -2,24 +2,24 @@
   "version": 1,
   "sides": {
     "left": {
-      "demo": true,
-      "port": "COM1",
+      "demo": false,
+      "port": "COM10",
       "real": {
         "3": {
-          "home": "",
-          "press": ""
+          "home": "16",
+          "press": "24.5"
         },
         "4": {
-          "home": "",
-          "press": ""
+          "home": "14",
+          "press": "21.5"
         },
         "5": {
-          "home": "",
-          "press": ""
+          "home": "17.5",
+          "press": "27.5"
         },
         "6": {
-          "home": "",
-          "press": ""
+          "home": "10",
+          "press": "22"
         }
       },
       "simulation": {
@@ -46,20 +46,20 @@
       "port": "COM7",
       "real": {
         "3": {
-          "home": "7.797",
-          "press": "13.015"
+          "home": "10.845",
+          "press": "20"
         },
         "4": {
-          "home": "3.020",
-          "press": "11.312"
+          "home": "5.107",
+          "press": "17"
         },
         "5": {
           "home": "6.947",
-          "press": "14.744"
+          "press": "17"
         },
         "6": {
-          "home": "14.635",
-          "press": "29.628"
+          "home": "10",
+          "press": "19"
         }
       },
       "simulation": {

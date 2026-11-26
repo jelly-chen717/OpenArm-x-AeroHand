@@ -8,7 +8,8 @@ opposite; J3/J5 are zero here, so both arms use the same values):
 3. J1 -30 (absolute), J2 stays -45, J4 +90, 3 s;
 4. J1 stays -30, J2 back to 0, J4 +120, 3 s -- the start pose.
 
-The quick buttons go directly to step 1 or step 4.
+The quick buttons go directly to step 1 or step 4. ``return_zero_steps`` replays
+this recipe backwards, so the arms leave the piano along the path they entered it.
 """
 from dataclasses import dataclass
 
@@ -39,6 +40,31 @@ def return_start_steps():
                  (-30., -45., 0., 90., 0., 0., 15.), J1_J4_SECONDS),
         PoseStep("起始位（J1 −30° / J2 0° / J4 +120° / J7 +15°）",
                  START_DEG, START_DEG, START_SECONDS),
+    )
+
+
+def return_zero_steps():
+    """Reverse of return_start_steps: start pose first, then the approach in reverse order.
+
+    Every waypoint is the previous recipe's waypoint, and every joint delta is
+    the negative of the forward delta, so the arms leave the piano along the
+    exact path they entered it:
+
+    1. current pose → start pose (J1 -30, J2 0, J4 +120);
+    2. J1 -30 / J2 -45 / J4 +90 (J2 -45 and J4 -30 back from step 1);
+    3. J1 +15 / J2 -45 (J1 +45 and J4 -90 back from step 2);
+    4. 0位 (J1 -15 and J2 +45 back from step 3).
+
+    The console holds the last target enabled, so the arms stop at 0位 live.
+    """
+    return (
+        PoseStep("当前位置 → 起始位（J1 −30° / J2 0° / J4 +120° / J7 +15°）",
+                 START_DEG, START_DEG, START_SECONDS),
+        PoseStep("J1 −30° / J2 −45° / J4 +90°", (-30., -45., 0., 90., 0., 0., 15.),
+                 (-30., -45., 0., 90., 0., 0., 15.), J1_J4_SECONDS),
+        PoseStep("J1 +15° / J2 −45°", (15., -45., 0., 0., 0., 0., 15.),
+                 (15., -45., 0., 0., 0., 0., 15.), J1_J2_SECONDS),
+        PoseStep("0位（J1～J6 为 0°，J7 +15°）", ZERO_DEG, ZERO_DEG, ZERO_SECONDS),
     )
 
 

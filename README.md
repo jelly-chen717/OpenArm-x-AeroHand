@@ -8,15 +8,15 @@
 | [02-钢琴弹奏+MuJoCo.cmd](02-钢琴弹奏+MuJoCo.cmd) | 启动 MuJoCo 钢琴场景，自动打开 [8090 演奏网页](http://127.0.0.1:8090/)，可导入 TXT。演奏服务和配套仿真已运行时会打开现有演奏页。 |
 | [03-Aero Hand 调试.cmd](<03-Aero Hand 调试.cmd>) | 打开 Aero Hand 官方上位机。在列表中选手部实际 COM 口，再点 Connect。 |
 
-旧调试菜单和专用维护脚本位于 `launchers/`。根目录的 `piano_standalone.html` 是 8090 演奏网页加载的前端文件。
+旧调试菜单和专用维护脚本位于 `launchers/`。[停止旧控制台](launchers/停止旧控制台-8092.cmd)根目录的 `piano_standalone.html` 是 8090 演奏网页加载的前端文件。
 
 Windows OpenArm 实机 CAN FD 接入使用 `apps/openarm_driver.py`，状态检查入口为 `launchers/Check-OpenArm.cmd`，配置和 API 见 [OpenArm驱动使用说明](docs/guides/OpenArm驱动使用说明.md)。
 
 当前统一状态见 [项目总进度](docs/project/项目总进度.md)，交接文档见 [文档索引](openarm/交接文档索引.md)，目录整理见 [工作区整理记录](docs/project/工作区整理记录.md)。
 
-- 实琴为 **C2–C7（61 键）**，白键中心距 22.5 mm。左手食指原位 **B3（实琴白键 14）**，右手食指原位 **C4（实琴白键 15）**。[实琴编号与标定表](monitor-ui/README.md#实琴琴键与食指原位) · [最终点表与原始资料归档](backups/20261124_钢琴白键最终资料.zip)
-- 8092 的「运动控制」提供钢琴原位、左右食指逐键定位和《槿》双手分指预览。原位与单臂邻键已通过虚拟控制台验证，实琴对中待验。[控制台操作](monitor-ui/README.md#双臂快捷定位) · [实琴点位与验收记录](docs/project/仿真与实机联通_两日实施计划.md#piano-adjacent-origin)
-- 8090 仿真选歌页搜索「实琴分手」可打开《槿》的主旋律、纯和弦和副歌纯旋律。左手弹 C2–B3，右手弹 C4–C7。从相邻原位回放，三份谱的 1,815 音均与谱面对应。从仿真默认姿态入位时，准备段右小指会额外碰响 E4。[现行曲谱与起姿对照](docs/project/仿真与实机联通_两日实施计划.md#jin-score-library)
+- 实琴为 **C2–C7（61 键）**，白键中心距 22.5 mm。左食指原位 **A3（实琴白键 13）**，基座系 XYZ 为 (250.19, 56.1, −170.00) mm。右食指原位 **C4（实琴白键 15）**，XYZ 为 (250.25, −55.0, −170.00) mm。左食指从 A3 向中央一格到 B3。[实琴编号与标定表](monitor-ui/README.md#实琴琴键与食指原位) · [末端位姿版本索引](docs/archive/piano-calibration/README.md)
+- 8092 控制台用同一张表定位、估算八指音名、预览并试弹曲库。整曲从 A3/C4 原位移至首腕位，等待 2 秒后按该曲倍率播放。[控制台操作](monitor-ui/README.md#钢琴定位与试弹) · [实琴点位与验收记录](docs/project/仿真与实机联通_两日实施计划.md#piano-a3-c4-xz)
+- 8090 选歌页搜索「实琴分手」可打开《槿》的主旋律、纯和弦和副歌纯旋律。这里使用 A0–C8 的 88 键 MuJoCo 场景和仿真触键坐标。[仿真操作](openarm/skills/paino_skill/README.md)
 - 负责人交接工程位于 `openarm/`，包含 V1 双臂、A0–C8 的 88 键 MuJoCo 仿真、TXT 演奏与独立手指测试工具。
 - 仿真位于 `openarm/`，原始备份为 `backups/OpenArm-original-20261115.zip`。双臂 14 轴从 2026-11-16 起采用统一逻辑坐标，旧轨迹需转换，运行中的服务需重启加载。[关节详细资料](关节详细资料.md) · [仿真合并验证](docs/guides/仿真统一核对.md) · [控制资料与调试指南](openarm/调试指南.md)
 

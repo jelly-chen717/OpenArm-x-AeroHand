@@ -1,25 +1,26 @@
 {
-  "source": "2026-11-23 用户更正，截图上方反馈对应相邻食指原位，左 B3、右 C4",
+  "source": "2026-11-25 用户更新双臂末端 X/Z。Y 和腕姿沿用实机反馈，原位七轴目标由 V1 固定腕姿逆解生成。",
   "frame": "arm_origin",
   "coordinate_convention": "unified-forward-inward-v1-20261116",
   "white_key_first": "C2",
   "white_key_last": "C7",
   "white_key_count": 36,
+  "right_first_physical_white_key": 15,
   "score_key_at_first": 10,
   "white_key_pitch_mm": 22.5,
   "higher_note_y_sign": -1,
   "anchors": {
     "left": {
-      "note": "B3",
-      "physical_white_key": 14,
-      "wrist_xyz_mm": [245.1, 55.2, -187.0],
-      "joints_deg": [10.5, 9.3, 15.9, 84.3, -1.3, 0.2, 8.7]
+      "note": "A3",
+      "physical_white_key": 13,
+      "wrist_xyz_mm": [250.19, 56.1, -170.00],
+      "reference_joints_deg": [11.70, 9.82, 16.08, 90.06, -1.02, -1.08, 1.74]
     },
     "right": {
       "note": "C4",
       "physical_white_key": 15,
-      "wrist_xyz_mm": [244.3, -55.2, -187.3],
-      "joints_deg": [11.5, 5.9, -19.8, 84.4, -5.6, -20.2, 4.2]
+      "wrist_xyz_mm": [250.25, -55.0, -170.00],
+      "reference_joints_deg": [12.95, 5.78, -20.53, 90.13, -7.60, -20.18, -3.53]
     }
   }
 }

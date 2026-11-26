@@ -4,7 +4,7 @@ Laboratory profile (2026-11-19): feedback thresholds, current-relative travel an
 protocol-range checks are recorded as notes instead of aborting the run. The
 disable path, the per-frame encoding and the request bookkeeping are unchanged.
 The removed and retained guards are listed in
-docs/project/OpenArm控制台防护项清单_20261119.md.
+docs/project/OpenArm防护删除_总纲_20261125.md.
 """
 from contextlib import ExitStack
 from dataclasses import asdict

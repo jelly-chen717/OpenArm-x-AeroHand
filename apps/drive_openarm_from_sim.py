@@ -50,9 +50,11 @@ def _checkpoints(trajectory, tolerance):
 
 def execute(trajectory, mappings, transport, log, *, period=.02, max_lateness=.1,
             max_error=None, cancel=None, seen=None, cancel_file=None, endpoint_tolerance=None,
-            hold_after=False, next_trajectory=None):
+            hold_after=False, next_trajectory=None, hold_requested=None,
+            piano_clock=None, configure_cycle=None):
     """Send the trajectory until its nominal end, then optionally hold the target.
 
+    A hold request replaces the active path with a fixed, measured pose.
     Thresholds (tracking error, waypoint/endpoint tolerance, cycle budget, expiry)
     are recorded as `advisory` rows. They no longer raise, so a lagging axis keeps
     receiving commands and the session stays enabled. Cancellation, transport
@@ -70,6 +72,7 @@ def execute(trajectory, mappings, transport, log, *, period=.02, max_lateness=.1
     checkpoints = _checkpoints(trajectory, endpoint_tolerance)
     checkpoint_index = 0
     holding_target = False
+    hold_q = None
     advised = {}
 
     def advisory(kind, message, **data):
@@ -92,7 +95,10 @@ def execute(trajectory, mappings, transport, log, *, period=.02, max_lateness=.1
             return state
         began = time.perf_counter()
         deadline = began
-        log(dict(type='state', state='EXECUTING'))
+        clock = piano_clock() if piano_clock is not None else None
+        if clock is not None:
+            clock.start(began)
+        log(dict(type='state', state='EXECUTING', started_at=began))
         while True:
             if cancel_file is not None and cancel_file.exists():
                 state = 'CANCELLED'
@@ -101,12 +107,23 @@ def execute(trajectory, mappings, transport, log, *, period=.02, max_lateness=.1
                 state = 'CANCELLED'
                 break
             now = time.perf_counter()
+            if hold_q is None and hold_requested is not None and hold_requested():
+                current = transport.read(trajectory.keys)
+                hold_q = tuple(current[key] for key in trajectory.keys)
+                checkpoints = []
+                holding_target = False
+                clock = None
             if now-deadline > max_lateness:
                 advisory('deadline', f'控制周期延迟 {now-deadline:.3f} s')
-            if not holding_target and time.time() >= trajectory.expires_at:
+            wall_elapsed = now-began
+            elapsed, cue = clock.sample(now) if clock is not None else (wall_elapsed, None)
+            if hold_q is None and not holding_target and time.time() - (wall_elapsed - elapsed) >= trajectory.expires_at:
                 advisory('expired', '请求有效期已过，继续执行当前目标')
-            elapsed = now-began
-            q, velocity = trajectory.sample(elapsed)
+            q, velocity = (hold_q, (0.,)*len(hold_q)) if hold_q is not None else trajectory.sample(elapsed)
+            if cue is not None:
+                velocity = (0.,) * len(q)
+            if configure_cycle is not None:
+                configure_cycle(trajectory if hold_q is None else None, elapsed)
             targets = {key: (mappings[key].to_motor(pos), mappings[key].velocity_to_motor(v))
                        for key, pos, v in zip(trajectory.keys, q, velocity)}
             transport.command(targets)
@@ -116,6 +133,15 @@ def execute(trajectory, mappings, transport, log, *, period=.02, max_lateness=.1
             error = [finite(measured[k])-target for k, target in zip(trajectory.keys, q)]
             sample_row = dict(type='sample', t=elapsed, target=q, target_velocity=velocity,
                               measured=[measured[k] for k in trajectory.keys], error=error)
+            if clock is not None:
+                sample_row['wall_elapsed_s'] = wall_elapsed
+                if cue is not None:
+                    read_at = time.perf_counter()
+                    sync, changed = clock.observe(cue, measured, read_at)
+                    if sync is not None:
+                        sample_row['piano_sync'] = sync
+                        if changed:
+                            log(dict(type='piano_sync', wall_elapsed_s=read_at-began, **sync))
             if getattr(transport, 'last_dispatch', None) is not None:
                 sample_row['dispatch'] = transport.last_dispatch
             log(sample_row)
@@ -131,17 +157,18 @@ def execute(trajectory, mappings, transport, log, *, period=.02, max_lateness=.1
                 if endpoint_tolerance is not None and worst > endpoint_tolerance:
                     advisory('waypoint', f'路径点偏差 {worst:.4f} rad 超过 {endpoint_tolerance}')
                 checkpoint_index += 1
-            if elapsed >= trajectory.duration:
+            if hold_q is not None or elapsed >= trajectory.duration:
                 residual = max(abs(e) for e in error)
-                if endpoint_tolerance is not None and residual > endpoint_tolerance:
+                if hold_q is None and endpoint_tolerance is not None and residual > endpoint_tolerance:
                     advisory('endpoint_gap', f'轨迹结束残差 {residual:.4f} rad 超过 {endpoint_tolerance}，'
                                              f'继续保持在目标角', error=residual)
-                if not hold_after:
+                if not hold_after and hold_q is None:
                     state = 'COMPLETED'
                     break
                 if not holding_target:
                     holding_target = True
-                    log(dict(type='state', state='HOLDING_TARGET', outcome='COMPLETED',
+                    log(dict(type='state', state='HOLDING_TARGET',
+                             outcome='INTERRUPTED' if hold_q is not None else 'COMPLETED',
                              t=elapsed, target=q, measured=[measured[k] for k in trajectory.keys],
                              residual=residual))
                 if next_trajectory is not None:
@@ -154,8 +181,12 @@ def execute(trajectory, mappings, transport, log, *, period=.02, max_lateness=.1
                         checkpoints = _checkpoints(trajectory, endpoint_tolerance)
                         checkpoint_index = 0
                         holding_target = False
+                        hold_q = None
                         began = deadline = time.perf_counter()
-                        log(dict(type='state', state='EXECUTING'))
+                        clock = piano_clock() if piano_clock is not None else None
+                        if clock is not None:
+                            clock.start(began)
+                        log(dict(type='state', state='EXECUTING', started_at=began))
                         continue
             # Skip elapsed deadlines. Never burst-send old commands.
             deadline = began + (int((time.perf_counter()-began)/period)+1)*period

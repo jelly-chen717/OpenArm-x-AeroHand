@@ -1,0 +1,25 @@
+{
+  "source": "2026-11-23 用户更正，截图上方反馈对应相邻食指原位，左 B3、右 C4",
+  "frame": "arm_origin",
+  "coordinate_convention": "unified-forward-inward-v1-20261116",
+  "white_key_first": "C2",
+  "white_key_last": "C7",
+  "white_key_count": 36,
+  "score_key_at_first": 10,
+  "white_key_pitch_mm": 22.5,
+  "higher_note_y_sign": -1,
+  "anchors": {
+    "left": {
+      "note": "B3",
+      "physical_white_key": 14,
+      "wrist_xyz_mm": [245.1, 55.2, -187.0],
+      "joints_deg": [10.5, 9.3, 15.9, 84.3, -1.3, 0.2, 8.7]
+    },
+    "right": {
+      "note": "C4",
+      "physical_white_key": 15,
+      "wrist_xyz_mm": [244.3, -55.2, -187.3],
+      "joints_deg": [11.5, 5.9, -19.8, 84.4, -5.6, -20.2, 4.2]
+    }
+  }
+}

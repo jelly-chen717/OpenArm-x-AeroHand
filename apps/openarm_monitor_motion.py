@@ -5,7 +5,7 @@ velocity/acceleration percentage, a model-contact scan or a measured start drift
 and the hardware transport no longer aborts on feedback thresholds. Joint position
 limits from the V1 model are still applied to the requested target. The removed
 and retained guards are listed in
-docs/project/OpenArm控制台防护项清单_20261119.md.
+docs/project/OpenArm防护删除_总纲_20261125.md.
 """
 from contextlib import nullcontext
 from dataclasses import asdict
@@ -25,9 +25,9 @@ from openarm_driver import DEFAULT_KD, DEFAULT_KP, DriverError, LIMITS, motor_ty
 from openarm_execution import PcanTransport, rated_limits
 from openarm_joint_mapping import CONVENTION_VERSION, LIMIT_TOLERANCE, finite
 from openarm_monitor_modes import MODE_CODES, position_frame, velocity_frame
-from openarm_start_pose import return_start_steps, start_pose_step, zero_step
-from openarm_piano_air import attacks, compile_air
-from openarm_trajectory import Trajectory
+from openarm_piano_wrist import US_PER_S, WristTrajectory
+from openarm_start_pose import return_start_steps, return_zero_steps, start_pose_step, zero_step
+from openarm_trajectory import CoordinatedTrajectory, Trajectory
 
 SIDES = ("left", "right")
 KEYS = tuple((side, joint) for side in SIDES for joint in range(1, 8))
@@ -44,12 +44,27 @@ def grouped(values, convert=lambda value: value):
     return {side: [convert(values.get((side, j))) for j in range(1, 8)] for side in SIDES}
 
 
+def roll_pitch_yaw_deg(rotation):
+    """Fixed-base XYZ angles, with R = Rz(yaw) @ Ry(pitch) @ Rx(roll)."""
+    horizontal = math.hypot(rotation[0, 0], rotation[1, 0])
+    pitch = math.atan2(-rotation[2, 0], horizontal)
+    if horizontal > 1e-9:
+        roll = math.atan2(rotation[2, 1], rotation[2, 2])
+        yaw = math.atan2(rotation[1, 0], rotation[0, 0])
+    else:
+        # At pitch ±90° the two remaining angles share one degree of freedom.
+        roll = math.atan2(-rotation[1, 2], rotation[1, 1])
+        yaw = 0.
+    return [math.degrees(angle) for angle in (roll, pitch, yaw)]
+
+
 class VirtualDrive(VirtualTransport):
     """Ideal unloaded axes, with mode-specific setpoints and motor-space speed limits."""
     def __init__(self, mappings, initial, mode, speed):
         super().__init__(mappings, initial)
         self.mode = mode
         self.speed = speed
+        self.speed_overrides = {}
         self.previous = time.monotonic()
         self.last_dispatch = None
 
@@ -64,14 +79,15 @@ class VirtualDrive(VirtualTransport):
         frames = {}
         for key, (p, v) in targets.items():
             mapping = self.mappings[key]
-            limit = abs(mapping.velocity_to_motor(self.speed))
+            speed = self.speed_overrides.get(key, self.speed)
+            limit = abs(mapping.velocity_to_motor(speed))
             current = self.position[key]
             if self.mode == "VEL":
                 # Outer position loop on the host. The simulated drive receives velocity only.
                 can_id, payload = velocity_frame(key[1], p - current, v, limit)
                 step = struct.unpack("<f", payload)[0] * dt
             else:
-                can_id, payload = position_frame(self.mode, mapping, p, self.speed, .1)
+                can_id, payload = position_frame(self.mode, mapping, p, speed, .1)
                 if self.mode == "POS_VEL":
                     target, limit = struct.unpack("<ff", payload)
                 else:
@@ -117,30 +133,37 @@ class MotionPlanner:
         self.feedback_lock = Lock()
 
     def endpoints(self, positions):
-        with self.feedback_lock:
-            return self._endpoints(self.feedback_data, positions)
+        points, _ = self.end_effector_feedback(positions)
+        return points
 
-    def _endpoints(self, data, positions):
+    def end_effector_feedback(self, positions):
+        with self.feedback_lock:
+            return self._end_effector_feedback(self.feedback_data, positions)
+
+    def _end_effector_feedback(self, data, positions):
         for key, q in positions.items():
             data.qpos[self.qindices[key]] = q
         mujoco.mj_kinematics(self.model, data)
         base = data.site_xpos[self.base_site]
-        rotation = data.site_xmat[self.base_site].reshape(3, 3)
-        result = {}
+        into_base = data.site_xmat[self.base_site].reshape(3, 3).T
+        result, wrist_rpy = {}, {}
         for side in SIDES:
             if all((side, j) in positions for j in range(1, 8)):
-                points = {"wrist": data.site_xpos[self.wrists[side]]}
+                wrist = self.wrists[side]
+                points = {"wrist": data.site_xpos[wrist]}
                 points.update({name: data.geom_xpos[geom] for name, geom in self.tips.get(side, {}).items()})
-                result[side] = {name: (1000 * rotation.T @ (point - base)).tolist()
+                result[side] = {name: (1000 * (into_base @ (point - base))).tolist()
                                 for name, point in points.items()}
-        return result
+                wrist_rpy[side] = roll_pitch_yaw_deg(into_base @ data.site_xmat[wrist].reshape(3, 3))
+        return result, wrist_rpy
 
     def _ik(self, side, current, endpoint, target):
         if endpoint != "wrist" and endpoint not in self.tips.get(side, {}):
             raise ValueError("实机 IK 使用手腕控制点。指尖需要实测的手指姿态和安装标定。")
-        if not isinstance(target, list) or len(target) != 3:
-            raise ValueError("每只臂需要填写 X、Y、Z 三个坐标。")
-        desired_mm = np.asarray([finite(coord) for coord in target])
+        sizes = (3, 6) if endpoint == "wrist" else (3,)
+        if not isinstance(target, list) or len(target) not in sizes:
+            raise ValueError("每只臂需要三个 XYZ 坐标。手腕目标也可填写 XYZ 与 Roll、Pitch、Yaw。")
+        wrist_pose = len(target) == 6
         keys = [(side, j) for j in range(1, 8)]
         measured = {key: current[key] for key in keys}
         self._check_pose(measured)
@@ -150,11 +173,20 @@ class MotionPlanner:
         # Project encoder roundoff at a hard stop using the monitor's existing limit check.
         seed = np.clip(reference, lower, upper)
         pose = arm.forward(seed)
-        pose[:3] = desired_mm / 1000
+        desired_mm = [1000 * current_m if wrist_pose and coord is None else finite(coord)
+                      for coord, current_m in zip(target[:3], pose[:3])]
+        pose[:3] = np.asarray(desired_mm) / 1000
+        if wrist_pose:
+            rotation = np.empty((3, 3))
+            mujoco.mju_quat2Mat(rotation.ravel(), pose[3:])
+            rpy = [current_deg if angle is None else finite(angle)
+                   for angle, current_deg in zip(target[3:], roll_pitch_yaw_deg(rotation))]
+            mujoco.mju_euler2Quat(pose[3:], np.deg2rad(rpy), "XYZ")
         if endpoint != "wrist":
             # The fixed virtual fingers keep their offset as the wrist translates.
             model_current = current | dict(zip(keys, seed))
-            initial = self._endpoints(self.plan_data, model_current)[side]
+            points, _ = self._end_effector_feedback(self.plan_data, model_current)
+            initial = points[side]
             pose[:3] += (np.asarray(initial["wrist"]) - initial[endpoint]) / 1000
 
         seeds = [seed, arm.home, (lower + upper) / 2]
@@ -179,7 +211,8 @@ class MotionPlanner:
         if not candidates:
             name = "左臂" if side == "left" else "右臂"
             xyz = ", ".join(f"{value:.2f}" for value in desired_mm)
-            raise ValueError(f"{name} IK 尝试了 {len(tried)} 个初始姿态，保持当前手腕朝向时未找到收敛解。"
+            orientation = "按目标腕姿" if wrist_pose else "保持当前手腕朝向时"
+            raise ValueError(f"{name} IK 尝试了 {len(tried)} 个初始姿态，{orientation}未找到收敛解。"
                              f"目标 XYZ 为 ({xyz}) mm。")
         q = min(candidates, key=lambda candidate: np.linalg.norm(candidate - reference))
         return dict(zip(keys, map(float, q)))
@@ -278,32 +311,72 @@ class MotionPlanner:
             finish = start | goal
             points = [(0., tuple(start[key] for key in keys)),
                       (plan["duration"], tuple(finish[key] for key in keys))]
+        arms = ()
+        if plan.get("side_paths"):
+            arms = self._wrist_curves(plan, points)
+            times = sorted({stamp for arm in arms for stamp, _ in arm.points})
+            points = [(stamp, tuple(value for arm in arms for value in arm.sample(stamp)[0])) for stamp in times]
         for _, point in points:
             self._check_pose(dict(zip(keys, point)))
-        # Every segment is rest-to-rest. The plan takes the largest requirement
-        # of any segment, so a short requested time is never refused here.
-        velocity, acceleration = plan["velocity"], MAX_ACCELERATION
-        for (t0, q0), (t1, q1) in zip(points, points[1:]):
-            span = t1-t0
-            peak = max((abs(b-a) for a, b in zip(q0, q1)), default=0.)
-            velocity = max(velocity, 1.875*peak/span*1.000001)
-            acceleration = max(acceleration, (10/math.sqrt(3))*peak/span**2*1.000001)
-        plan["velocity"], plan["acceleration"] = velocity, acceleration
         plan["duration"] = points[-1][0]
+        expires_at = time.time()+plan["duration"]+10
+        trajectory_args = (plan["request_id"], keys, tuple(points), expires_at)
+        trajectory = CoordinatedTrajectory(*trajectory_args, arms) if arms else Trajectory(*trajectory_args)
+        velocity, acceleration = plan["velocity"], MAX_ACCELERATION
+        for track in arms or (trajectory,):
+            for (t0, q0), (t1, q1) in zip(track.points, track.points[1:]):
+                peak, accel = track.peak_bounds(t0, q0, q1, t1-t0)
+                velocity = max(velocity, peak*1.000001)
+                acceleration = max(acceleration, accel*1.000001)
+        plan["velocity"], plan["acceleration"] = velocity, acceleration
         request = dict(request_id=plan["request_id"], mapping_version=self.version,
-                       expires_at=time.time()+plan["duration"]+10, source="monitor-ui",
+                       expires_at=expires_at, source="monitor-ui",
                        joints=[dict(side=side, motor_id=j) for side, j in keys],
                        initial_model_position=[start[key] for key in keys],
                        points=[dict(t=t, q=list(q)) for t, q in points],
                        limits=dict(velocity_rad_s=velocity, acceleration_rad_s2=acceleration,
                                    start_error_rad=0.))
-        trajectory = Trajectory(plan["request_id"], keys, points, request["expires_at"])
+        if arms:
+            request["arm_points"] = {arm.keys[0][0]: [dict(t=t, q=list(q)) for t, q in arm.points]
+                                     for arm in arms}
+            request["wrist_profiles"] = {
+                arm.keys[0][0]: [dict(start_s=t, **asdict(profile)) for t, profile in arm.profiles.items()]
+                for arm in arms if isinstance(arm, WristTrajectory) and arm.profiles}
         plan["trajectory"] = trajectory
         plan["travel"] = {key: max(abs(point[index]-start[key]) for _, point in points)
                           for index, key in enumerate(keys)}
         return trajectory, request
 
-    def _prepare_steps(self, steps, current, *, holding, source):
+    def _wrist_curves(self, plan, approach):
+        duration = approach[-1][0]
+        intro_us = round(duration * US_PER_S)
+        arms = []
+        for side in SIDES:
+            indices = [i for i, key in enumerate(plan["keys"]) if key[0] == side]
+            if not indices:
+                continue
+            points = [(t, tuple(q[i] for i in indices)) for t, q in approach]
+            keys = tuple(plan["keys"][i] for i in indices)
+            path = plan["side_paths"].get(side)
+            if path is None:
+                arms.append(Trajectory(plan["request_id"], keys, tuple(points), 0.))
+                continue
+            points.extend((duration + t, tuple(math.radians(deg) for deg in q)) for t, q in path.points[1:])
+            profiles = {}
+            if path.approach is not None:
+                profiles[approach[-3][0]] = path.approach
+            faster = []
+            for move in path.transfers:
+                if move.profile is None:
+                    continue
+                start = duration + (move.start_us - intro_us) / US_PER_S
+                profiles[start] = move.profile
+                if move.profile.speed_override:
+                    faster.append((start, move.press_us / US_PER_S, move.profile.speed_override))
+            arms.append(WristTrajectory(plan["request_id"], keys, tuple(points), 0., profiles, tuple(faster)))
+        return tuple(arms)
+
+    def _prepare_steps(self, steps, current, *, holding, source, side_paths=None):
         """Plan one or more absolute waypoints, then hold the final pose."""
         with self.plan_lock:
             full_steps = []
@@ -314,6 +387,9 @@ class MotionPlanner:
                                    for j, q in enumerate(degrees, 1) if q is not None})
                 full_steps.append((step.name, step.duration_s, target))
             goal = dict(full_steps[-1][2])
+            if side_paths:
+                goal.update({(side, j): math.radians(deg) for side, path in side_paths.items()
+                             for j, deg in enumerate(path.points[-1][1], 1)})
             if holding is not None:
                 goal = dict(holding) | goal
             keys = tuple(key for key in KEYS if key in goal
@@ -336,7 +412,7 @@ class MotionPlanner:
             plan = dict(request_id=uuid.uuid4().hex, goal=goal, keys=keys,
                         duration=sum(seconds for _, seconds, _ in full_steps),
                         velocity=speed, hold_targets=hold_targets, steps=full_steps,
-                        commanded=commanded, notice=notice, source=source)
+                        commanded=commanded, notice=notice, source=source, side_paths=side_paths)
             plan["trajectory"], request = self._validate(plan, current)
         return plan, request
 
@@ -344,6 +420,11 @@ class MotionPlanner:
         """Both arms: zero, J3 +/-80, J3 +/-60 with J4 +60, then the start pose."""
         return self._prepare_steps(return_start_steps(), current, holding=holding,
                                    source="start-return")
+
+    def prepare_zero_return(self, current, *, holding=None):
+        """Reverse of the start recipe: start pose first, then back to 0位, held enabled."""
+        return self._prepare_steps(return_zero_steps(), current, holding=holding,
+                                   source="zero-return")
 
     def prepare_start_pose(self, current, *, holding=None):
         """Shortcut: both arms straight to J4 +90 and J3 0 without the approach."""
@@ -356,53 +437,21 @@ class MotionPlanner:
                                    source="zero-pose")
 
     def prepare_piano_trial(self, payload, current, held_plan):
-        from openarm_piano_trial import compile_trial
-        steps, info, fingers = compile_trial(payload, held_plan)
+        if payload.get("mode") == "piano-performance":
+            from openarm_piano_performance import compile_performance
+            steps, info, fingers, side_paths = compile_performance(
+                payload.get("score_id"), held_plan, self.mappings)
+        else:
+            from openarm_piano_trial import compile_trial
+            steps, info, fingers, side_paths = compile_trial(payload, held_plan, self.mappings)
         holding = held_plan["goal"] if held_plan else None
-        plan, request = self._prepare_steps(steps, current, holding=holding, source="piano-trial")
+        plan, request = self._prepare_steps(steps, current, holding=holding, source="piano-trial", side_paths=side_paths)
         plan.update(piano_trial=info, trial_fingers=fingers)
         return plan, request
 
     def prepare_piano_origin(self, current, *, holding):
         from openarm_piano_origin import origin_step
         return self._prepare_steps((origin_step(),), current, holding=holding, source="piano-origin")
-
-    def prepare_piano_air(self, payload, current, *, calibration_path=None, held_plan=None):
-        with self.kinematics_lock:
-            air = compile_air(self.arms, scope=payload.get("scope"), speed=payload.get("speed"),
-                              score_id=payload.get("score_id", "jin"),
-                              calibration_path=calibration_path)
-        with self.plan_lock:
-            steps = []
-            previous = 0.
-            for stamp, wrists in air.pop("waypoints"):
-                target = {(side, joint): q for side, values in wrists.items()
-                          for joint, q in enumerate(values, 1)}
-                steps.append(("起位" if not steps else "《槿》空弹", stamp - previous, target))
-                previous = stamp
-            held_air = (held_plan or {}).get("piano_air", {})
-            start_target = steps[0][2]
-            from_score_start = (air["scope"] != "start" and held_air.get("scope") == "start"
-                                and held_air["score_id"] == air["score_id"]
-                                and held_air["source"] == air["source"]
-                                and held_plan["goal"] == start_target)
-            if from_score_start:
-                steps.pop(0)
-                air["prepare_s"] = 0.
-                previous = air["score_us"] / 1e6 / air["speed"]
-                air["duration_s"] = previous
-            air["from_score_start"] = from_score_start
-            score_attacks = tuple(attacks(air["finger_events"]))
-            speed = min(rated_limits(key[1])["max_speed"] * self.mappings[key].scale
-                        for key in KEYS) * .2
-            plan = dict(request_id=uuid.uuid4().hex, goal=steps[-1][2], keys=KEYS,
-                        duration=previous, velocity=speed,
-                        hold_targets=start_target if from_score_start else {}, steps=steps,
-                        commanded=KEYS, source="piano-air", piano_air=air,
-                        piano_onsets=tuple(onset for onset, _ in score_attacks),
-                        piano_attacks=tuple(notes for _, notes in score_attacks))
-            _, request = self._validate(plan, current)
-            return plan, request
 
 
 class MonitorTransport(PcanTransport):
@@ -424,6 +473,7 @@ class MonitorTransport(PcanTransport):
         self.mode, self.mode_code = mode, MODE_CODES[mode]
         self.current_fraction = profile.current if profile is not None else POS_FORCE_CURRENT_FRACTION
         self.speed = plan["velocity"]
+        self.speed_overrides = {}
         self.dispatch_mode = f"batch_{mode.lower()}_send_then_query"
         self.passive_keys = [key for key in KEYS if key not in keys]
         self.passive_index = 0
@@ -478,14 +528,15 @@ class MonitorTransport(PcanTransport):
         if self.mode == "MIT":
             return super()._command_frame(key, p, v)
         mapping = self.mappings[key]
+        speed = self.speed_overrides.get(key, self.speed)
         if self.mode == "VEL":
             return velocity_frame(key[1], p - self.states[key].position_rad, v,
-                                  abs(mapping.velocity_to_motor(self.speed)))
+                                  abs(mapping.velocity_to_motor(speed)))
         _, speed_range, _ = LIMITS[motor_type(key[1])]
-        if abs(mapping.velocity_to_motor(self.speed)) > speed_range:
+        if abs(mapping.velocity_to_motor(speed)) > speed_range:
             self._note("protocol_range", f"{key[0]} J{key[1]} 目标速度超过协议上限，"
                                          f"按 {abs(mapping.velocity_to_model(speed_range)):.4f} rad/s 发送", key)
-        return position_frame(self.mode, mapping, p, self.speed, self.current_fraction)
+        return position_frame(self.mode, mapping, p, speed, self.current_fraction)
 
     def _enable_axis(self, key, state):
         if self.mode == "MIT":

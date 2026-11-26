@@ -1,0 +1,64 @@
+{
+  "time": "2026-11-25 20:48",
+  "git_head": "f86e10e",
+  "workspace_dirty": "yes: 36 modified / 43 untracked / 0 deleted",
+  "overall": "PASS",
+  "first_principle_intact": true,
+  "scope": "检查 2026-11-25 17:42～20:36 新写入的逆方向返回与 hand 弹琴指位接口，并回归 P01～P26。",
+  "new_interfaces": [
+    {
+      "name": "逆方向返回 /api/start/zero-return",
+      "files": ["apps/openarm_start_pose.py:46-68", "apps/openarm_monitor_motion.py:406-409", "apps/openarm_monitor.py:959-960"],
+      "behavior": "return_zero_steps 四步反向路径（当前位置→起始位→J1−30/J2−45/J4+90→J1+15/J2−45→0位），到位后保持使能。",
+      "checks": "沿用 start_pose_motion 的 _start_ready（P21：14 轴反馈新鲜、无故障、空闲或本客户端保持，不要求已使能）；路径点只受 _check_pose 关节限位（K01）；_validate 按目标所需速度/加速度放行（P01）。",
+      "blocking": "无新增拒绝、FAULT、自动失能或阈值；前端按钮与其它起始位共用 startReady。",
+      "class": "PASS"
+    },
+    {
+      "name": "hand 弹琴指位 /api/hand action=piano_pose",
+      "files": ["apps/openarm_monitor_hands.py:18-24,257-268,323-328", "monitor-ui/index.html:156", "monitor-ui/app.js:559,630"],
+      "behavior": "左手四指固定 16/14/17.5/10°，拇指三个滑块 1.000/0.964/0.397 映射到关节上下限，一次写入后读回。",
+      "checks": "无运动阈值、无自动失能、无 FAULT；_write_position 只检查停止信号。右手请求被 ValueError 拒绝，但该路由只操作 Aero 手，不进入机械臂 start_motion，不影响 P22 的机械臂放行。",
+      "blocking": "仅手部输入范围限制（右手未配置该指位），属输入类，不是控制链路阻断。",
+      "class": "PASS"
+    }
+  ],
+  "regression": {
+    "P01": "PASS - _validate 仍按所需速度/加速度放行",
+    "P02": "PASS - 无模型接触扫描",
+    "P03": "PASS - revalidate 以当前实测重建",
+    "P04/P14": "PASS - _move 仍 max_error=None（openarm_monitor.py:739）",
+    "P05/P06": "PASS - 仅 advisory",
+    "P07": "PASS - 仅使能前过期拒绝",
+    "P08": "PASS - PcanTransport.check 仅 notes 并返回 False",
+    "P09/P10/P11": "PASS - enable/command 无新增前置",
+    "P12": "PASS - encode_mit 仍端点饱和",
+    "P13/P21": "PASS - enable_all 只用 _idle；_start_ready 无全轴 state==1",
+    "P15/P16/P23": "PASS - _sample 不因静止/age 拒绝；被动轴 _note；mode_readback 只提示",
+    "P17/P18/P19": "PASS - 阶段超时/保持误差只记录；无常量拒绝；无预览有效期",
+    "P20": "PASS - _motion_supported 只要求统一模式读回",
+    "P22": "PASS - 手部异常只跳过指法并记 hand.score.skipped",
+    "P24": "PASS - 接续反馈不完整用缓存反馈继续",
+    "P25/P26": "PASS - arrange_score 将 outside_physical_keyboard / no_finger_at_solved_wrist / no_common_wrist 全部记入 skipped；compile_performance 只演奏 playable，skip_notice 提示；performance_options() 全部 available；SCOPES 含 first/prelude/full",
+    "K07": "PASS - _stable 仍只在 switch_mode 使用（openarm_monitor.py:487）"
+  },
+  "tests": {
+    "passed": 206,
+    "failed": 5,
+    "failed_items": [
+      "test_openarm_driver.py::NativeTransportTests::test_close_failure_releases_channel_lease",
+      "test_openarm_driver.py::NativeTransportTests::test_error_status_prevents_transmit",
+      "test_openarm_driver.py::NativeTransportTests::test_native_open_uses_exact_timing_and_closes",
+      "test_openarm_driver.py::NativeTransportTests::test_native_send_uses_fd_brs",
+      "test_openarm_driver.py::NativeTransportTests::test_status_failure_after_open_closes_channel"
+    ],
+    "failure_reason": "PermissionError: [Errno 13] / DriverError: PCAN 0x51 owned by another OpenArm process。现场已有 python 进程占用 CAN 0x51（ps 显示 11-24 与 21:22/21:24 启动的多个 openarm/.venv 进程），NativeTransportTests 无法打开通道。与本次防护改动无关。",
+    "duration_s": 193.07
+  },
+  "violations": [],
+  "notes": [
+    "未启动 8092、未连接实机、未读写 CAN、未使能/运动/写模式；未终止现场已有进程。",
+    "逆方向返回的路径点包含从当前位置直接回起始位的大跨度第一步，按 P01 由 _validate 计算所需速度/加速度，不拒绝。",
+    "hand 弹琴指位是固定姿态写入，不改变机械臂任务或使能状态。"
+  ]
+}

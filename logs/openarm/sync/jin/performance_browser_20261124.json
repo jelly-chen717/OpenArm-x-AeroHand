@@ -1,0 +1,114 @@
+{
+  "mode": "virtual",
+  "origin": [
+    "B3",
+    "B4"
+  ],
+  "results": {
+    "jin": {
+      "notes": 441,
+      "pause_count": 14,
+      "arm_and_hands_same_request": true,
+      "prepare_s": 5.25,
+      "first_finger_frame": {
+        "time_us": 5250000,
+        "sent_s": 5.255655200002366,
+        "changes": {
+          "left": [
+            [
+              3,
+              true
+            ]
+          ]
+        }
+      },
+      "virtual_fingering": false
+    },
+    "jin-chorus": {
+      "notes": 74,
+      "pause_count": 0,
+      "arm_and_hands_same_request": true,
+      "prepare_s": 5.25,
+      "first_finger_frame": {
+        "time_us": 5250000,
+        "sent_s": 5.256413600000087,
+        "changes": {
+          "right": [
+            [
+              4,
+              true
+            ]
+          ]
+        }
+      },
+      "virtual_fingering": false
+    },
+    "jin-chords": {
+      "notes": 1300,
+      "pause_count": 4,
+      "arm_and_hands_same_request": true,
+      "prepare_s": 5.25,
+      "first_finger_frame": {
+        "time_us": 5250000,
+        "sent_s": 5.259965699995519,
+        "changes": {
+          "left": [
+            [
+              3,
+              true
+            ],
+            [
+              4,
+              true
+            ]
+          ],
+          "right": [
+            [
+              3,
+              true
+            ],
+            [
+              5,
+              true
+            ]
+          ]
+        }
+      },
+      "virtual_fingering": false
+    },
+    "jin-full": {
+      "notes": 1469,
+      "pause_count": 5,
+      "arm_and_hands_same_request": true,
+      "prepare_s": 5.25,
+      "first_finger_frame": {
+        "time_us": 5250000,
+        "sent_s": 5.265312199997425,
+        "changes": {
+          "left": [
+            [
+              4,
+              true
+            ],
+            [
+              6,
+              true
+            ]
+          ],
+          "right": [
+            [
+              3,
+              true
+            ],
+            [
+              5,
+              true
+            ]
+          ]
+        }
+      },
+      "virtual_fingering": true
+    }
+  },
+  "page_errors": []
+}

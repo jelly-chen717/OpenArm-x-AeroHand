@@ -20,6 +20,7 @@ class FixtureHand(AeroTransport):
 
 def test_manual_control_port_ownership_and_reconnect(tmp_path):
     hands = ConsoleHands(True, Mock(), tmp_path, FixtureHand)
+    hands.defaults["left"]["real"]["3"]["press"] = ""
     right_press = hands.defaults["right"]["real"]["3"]["press"]
     connect = dict(side="left", action="connect", port="COM9", demo=False)
     try:
@@ -52,6 +53,39 @@ def test_manual_control_port_ownership_and_reconnect(tmp_path):
     finally:
         hands.close()
     assert not any(row["connected"] for row in hands.snapshot().values())
+
+
+def test_piano_pose_sends_one_frame_to_the_selected_hand(tmp_path):
+    hands = ConsoleHands(True, Mock(), tmp_path, FixtureHand)
+    try:
+        connect = dict(action="connect", demo=False)
+        left = hands.action(dict(connect, side="left", port="COM9"))
+        right = hands.action(dict(connect, side="right", port="COM8"))
+        left_bus = hands.links["left"].bus
+        right_bus = hands.links["right"].bus
+        assert left["piano_pose_available"] and right["piano_pose_available"]
+        assert left_bus.packets == right_bus.packets == []
+
+        row = hands.action(dict(side="left", session=left["session"], action="piano_pose"))
+        assert left_bus.packets == [(65535, 63805, 28823, 11649, 10193, 12741, 7281)]
+        assert row["feedback"]["q"] == pytest.approx([100, 53.02, 35.73, 16, 14, 17.5, 10], abs=.01)
+        assert row["calibration"] == left["calibration"]
+        assert right_bus.packets == []
+
+        with pytest.raises(ValueError, match="已变更"):
+            hands.action(dict(side="right", session=left["session"], action="piano_pose"))
+        row = hands.action(dict(side="right", session=right["session"], action="piano_pose"))
+        assert right_bus.packets == [(65535, 63805, 28823, 7896, 3718, 5058, 7281)]
+        assert len(left_bus.packets) == 1
+        assert row["feedback"]["q"] == pytest.approx([100, 53.02, 35.73, 10.845, 5.107, 6.947, 10], abs=.01)
+        assert row["calibration"] == right["calibration"]
+        assert list(tmp_path.iterdir()) == []
+
+        hands.action(dict(side="left", session=left["session"], action="move", channel=3, degrees=20))
+        preset, index_move = left_bus.packets
+        assert index_move[:3] == preset[:3] and index_move[4:] == preset[4:]
+    finally:
+        hands.close()
 
 
 @pytest.mark.parametrize("finish", ["complete", "stop", "disconnect", "heartbeat"])

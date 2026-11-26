@@ -1,4 +1,4 @@
-"""Compile the score and CSV wrist targets for the console's arm-only playback."""
+"""Parse piano scores and compile offline wrist trajectories."""
 import csv
 from dataclasses import dataclass
 from hashlib import sha256
@@ -6,6 +6,7 @@ from itertools import groupby
 import json
 import math
 from pathlib import Path
+import re
 
 import numpy as np
 
@@ -22,17 +23,17 @@ CHORUS_SCORE = PIANO / "music_data/槿（实琴分手·副歌纯旋律）.txt"
 AIR_SCORES = {"jin": MELODY_SCORE, "jin-chords": CHORD_SCORE, "jin-chorus": CHORUS_SCORE}
 CSV_ANCHORS = {"left": 19, "right": 24}
 RANGES = {"left": range(1, 24), "right": range(24, 37)}
-# Left index is four white-key pitches from the little finger. The two inner
-# fingers use provisional spacing until the installed hand is measured.
-FINGERS = {"left": {0: "pinky", 1: "ring", 2: "middle", 4: "index"},
+# The TXT score index denotes the lowest key covered by the four fingers.
+FINGERS = {"left": {0: "pinky", 1: "ring", 2: "middle", 3: "index"},
            "right": {0: "index", 1: "middle", 2: "ring", 3: "pinky"}}
-# Key 22 is played from the key-18 wrist with the left index. That keeps the
-# left wrist out of the narrow space next to the right key-24 wrist.
-LEFT_WRIST_KEYS = frozenset({18, 19})
+# Melody air-play keeps its two index positions (score keys 22 and 23).
+LEFT_WRIST_KEYS = frozenset({19, 20})
 POSE_FIELDS = ("x_m", "y_m", "z_m", "qw", "qx", "qy", "qz")
 JOINT_FIELDS = tuple(f"q{i}" for i in range(1, 8))
 PREPARE_S = 4.
 PREVIEW_US = 16_000_000
+MIDI_START = re.compile(r"^[ \t]*#[ \t]*midi_start_seconds[ \t]*=[ \t]*(\d{1,5})(?:\.(\d{1,6}))?[ \t]*\r?$",
+                        re.MULTILINE)
 
 
 @dataclass(frozen=True)
@@ -50,11 +51,11 @@ def load_notes(path):
 def parse_notes(raw):
     text = raw.decode("utf-8-sig")
     score = parse_score(text, finger_count=4)
-    first = round(PREPARE_S * 1e6)
+    header = MIDI_START.search(text)
+    first = (int(header[1]) * 1_000_000 + int((header[2] or "").ljust(6, "0"))
+             if header else round(PREPARE_S * 1e6))
     start_keys = {action["side"]: action["index"] for action in score.actions
                   if action["kind"] == "move" and action["time_us"] + action["duration_us"] <= first}
-    if start_keys.keys() != RANGES.keys():
-        raise ValueError("琴谱需要在起拍前给出左右臂的起始手位。")
     by_onset, active, section = {}, {}, {}
     label = ""
     for line, source in enumerate(text.splitlines(), 1):
@@ -76,9 +77,8 @@ def parse_notes(raw):
                 by_onset.setdefault(note["on_us"], []).append(note)
     notes = [note for _, simultaneous in sorted(by_onset.items())
              for note in sorted(simultaneous, key=lambda note: note["key"])]
-    if not notes or notes[0]["on_us"] < 0 or any(
-            n["key"] not in RANGES[n["side"]] or n["off_us"] <= n["on_us"] for n in notes):
-        raise ValueError("琴谱起拍、时值或键号超出当前空弹谱范围。")
+    if not notes or notes[0]["on_us"] < 0 or any(n["off_us"] <= n["on_us"] for n in notes):
+        raise ValueError("琴谱起拍或按键时值无效。")
     return notes, score.duration_us - first, sha256(raw).hexdigest(), start_keys
 
 
@@ -229,8 +229,8 @@ def compile_air(arms, *, scope, speed, score_id="jin", points_path=POINTS, calib
         raise ValueError("请选择已接入的空弹琴谱。")
     is_chord = score_id == "jin-chords"
     notes, score_us, score_sha, start_keys = load_notes(AIR_SCORES[score_id])
-    # Keep the left index on the score's key with the wider physical finger spacing.
-    start_keys["left"] += 3 - max(FINGERS["left"])
+    if start_keys.keys() != RANGES.keys():
+        raise ValueError("空弹谱需要在起拍前给出左右臂的起始手位。")
     if is_chord:
         # Reassign the opening notes to the current spacing.
         for side, anchor in start_keys.items():
@@ -270,7 +270,7 @@ def compile_air(arms, *, scope, speed, score_id="jin", points_path=POINTS, calib
     return dict(score_id=score_id, scope=scope, speed=speed, duration_s=duration,
                 prepare_s=PREPARE_S, score_us=score_us,
                 source=dict(sources, score_sha256=score_sha),
-                anchors={"left": {"pinky": start_keys["left"], "index": start_keys["left"] + 4},
+                anchors={"left": {"pinky": start_keys["left"], "index": start_keys["left"] + max(FINGERS["left"])},
                          "right": {"index": start_keys["right"]}},
                 hand_positions=stages, finger_events=finger_events, waypoints=waypoints,
                 wrist_targets={f"{side}:{key}": vars(wrist) for (side, key), wrist in wrists.items()},

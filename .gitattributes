@@ -1,1 +1,6 @@
 /piano_standalone.html filter=lfs diff=lfs merge=lfs -text
+
+# Keep checked-out calibration files byte-identical to the verification records.
+/docs/archive/piano-calibration/**/*.csv text eol=crlf
+/docs/archive/piano-calibration/**/*.json text eol=lf
+/openarm/skills/paino_skill/双臂钢琴原位_白键点位.csv text eol=crlf

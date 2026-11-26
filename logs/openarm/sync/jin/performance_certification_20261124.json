@@ -1,0 +1,240 @@
+{
+  "jin": {
+    "score": "槿（实琴分手·主旋律）.txt",
+    "score_sha256": "a88c83fc357c3450ac05df4766c2e1260b49a6087fc323e9b574518521e6cb2c",
+    "points_sha256": "dc709ff72a2b9743d5c6a1f65848efcaf012d9ce25a84b89be0a3a9898cbd5cf",
+    "note_count": 441,
+    "speed": 1.0,
+    "start_keys": {
+      "left": "B3",
+      "right": "B4"
+    },
+    "first_wrist_targets": {
+      "left": {
+        "note": "A3",
+        "physical_key": 13,
+        "joints_deg": [
+          9.775915716576788,
+          6.231958513820722,
+          13.36277248373606,
+          86.63297196066117,
+          -3.8988043131584473,
+          3.0042582795432855,
+          7.708846049184348
+        ]
+      },
+      "right": {
+        "note": "C4",
+        "physical_key": 15,
+        "joints_deg": [
+          11.5,
+          5.9,
+          -19.8,
+          84.4,
+          -5.6,
+          -20.2,
+          4.2
+        ]
+      }
+    },
+    "wait_s": 2.0,
+    "first_note_s": 5.25,
+    "pause_times_us": [
+      250000,
+      2000000,
+      4000000,
+      19500000,
+      104250000,
+      111250000,
+      130250000,
+      132250000,
+      136000000,
+      138000000,
+      140250000,
+      142000000,
+      146000000,
+      160000000
+    ],
+    "spare_s_each": 1,
+    "moves_over_budget": 0,
+    "console_geometry": "real-piano table projection",
+    "controller_tick_s": 0.04,
+    "controller_press_and_release_match": true,
+    "mujoco_contacts": {
+      "presses": 441,
+      "releases": 441,
+      "duration_us": 248000000,
+      "keys_released_at_end": true
+    }
+  },
+  "jin-chorus": {
+    "score": "槿（实琴分手·副歌纯旋律）.txt",
+    "score_sha256": "b9105e1811cbd18283e1d19fb3be0ce3dbe6c5e023149cf16b468de7d14136d2",
+    "points_sha256": "dc709ff72a2b9743d5c6a1f65848efcaf012d9ce25a84b89be0a3a9898cbd5cf",
+    "note_count": 74,
+    "speed": 1.0,
+    "start_keys": {
+      "left": "B3",
+      "right": "B4"
+    },
+    "first_wrist_targets": {
+      "left": {
+        "note": "B3",
+        "physical_key": 14,
+        "joints_deg": [
+          10.5,
+          9.3,
+          15.9,
+          84.3,
+          -1.3,
+          0.2,
+          8.7
+        ]
+      },
+      "right": {
+        "note": "B4",
+        "physical_key": 21,
+        "joints_deg": [
+          8.063975758663636,
+          -13.005771302424188,
+          -3.3745966858700776,
+          89.31941513482141,
+          11.788868941401573,
+          -3.1578656054388756,
+          5.645983351433811
+        ]
+      }
+    },
+    "wait_s": 2.0,
+    "first_note_s": 2.25,
+    "pause_times_us": [],
+    "spare_s_each": 1,
+    "moves_over_budget": 0,
+    "console_geometry": "real-piano table projection",
+    "controller_tick_s": 0.04,
+    "controller_press_and_release_match": true,
+    "mujoco_contacts": {
+      "presses": 74,
+      "releases": 74,
+      "duration_us": 34000000,
+      "keys_released_at_end": true
+    }
+  },
+  "jin-chords": {
+    "score": "槿（实琴分手·纯和弦）.txt",
+    "score_sha256": "7d3ac6945e5ea7439b9ace200ede40f040b1fcaeb2da5da6d281fde78f8253d2",
+    "points_sha256": "dc709ff72a2b9743d5c6a1f65848efcaf012d9ce25a84b89be0a3a9898cbd5cf",
+    "note_count": 1300,
+    "speed": 1.0,
+    "start_keys": {
+      "left": "B3",
+      "right": "B4"
+    },
+    "first_wrist_targets": {
+      "left": {
+        "note": "A3",
+        "physical_key": 13,
+        "joints_deg": [
+          9.775915716576788,
+          6.231958513820722,
+          13.36277248373606,
+          86.63297196066117,
+          -3.8988043131584473,
+          3.0042582795432855,
+          7.708846049184348
+        ]
+      },
+      "right": {
+        "note": "C4",
+        "physical_key": 15,
+        "joints_deg": [
+          11.5,
+          5.9,
+          -19.8,
+          84.4,
+          -5.6,
+          -20.2,
+          4.2
+        ]
+      }
+    },
+    "wait_s": 2.0,
+    "first_note_s": 5.25,
+    "pause_times_us": [
+      236000000,
+      252000000,
+      268000000,
+      284000000
+    ],
+    "spare_s_each": 1,
+    "moves_over_budget": 0,
+    "console_geometry": "real-piano table projection",
+    "controller_tick_s": 0.04,
+    "controller_press_and_release_match": true,
+    "mujoco_contacts": {
+      "presses": 1300,
+      "releases": 1300,
+      "duration_us": 317250000,
+      "keys_released_at_end": true
+    }
+  },
+  "jin-full": {
+    "score": "槿（60 BPM 完整钢琴版）.txt",
+    "score_sha256": "da16b0c39af9a8a3fda2d02910920c7dff78af0a616cf1f150a230e541fffc5c",
+    "points_sha256": "dc709ff72a2b9743d5c6a1f65848efcaf012d9ce25a84b89be0a3a9898cbd5cf",
+    "note_count": 1469,
+    "speed": 1.0,
+    "start_keys": {
+      "left": "B3",
+      "right": "B4"
+    },
+    "first_wrist_targets": {
+      "left": {
+        "note": "B3",
+        "physical_key": 14,
+        "joints_deg": [
+          10.5,
+          9.3,
+          15.9,
+          84.3,
+          -1.3,
+          0.2,
+          8.7
+        ]
+      },
+      "right": {
+        "note": "C4",
+        "physical_key": 15,
+        "joints_deg": [
+          11.5,
+          5.9,
+          -19.8,
+          84.4,
+          -5.6,
+          -20.2,
+          4.2
+        ]
+      }
+    },
+    "wait_s": 2.0,
+    "first_note_s": 5.25,
+    "pause_times_us": [
+      191250000,
+      268000000,
+      276000000,
+      284000000,
+      292000000
+    ],
+    "spare_s_each": 1,
+    "moves_over_budget": 0,
+    "console_geometry": "virtual adjacent left fingers",
+    "controller_tick_s": 0.04,
+    "controller_press_and_release_match": true,
+    "mujoco_contacts": {
+      "presses": 1469,
+      "releases": 1469,
+      "duration_us": 318250000,
+      "keys_released_at_end": true
+    }
+  }
+}

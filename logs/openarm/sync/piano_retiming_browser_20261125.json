@@ -1,0 +1,19 @@
+{
+  "mode": "virtual",
+  "score_speed": {
+    "jin": 0.8,
+    "jin-chords": 1,
+    "little-apple": 0.8
+  },
+  "little_apple": {
+    "presses": 259,
+    "releases": 259,
+    "arrivals": 38,
+    "feedback_wait_s": 3.0909347999986494,
+    "wrist_gate_before_press": true,
+    "log": "logs\\openarm\\sync\\piano_retiming_browser\\virtual-c0cf0420f8a44763b9a1526345a1f745.jsonl"
+  },
+  "connected_hands_retained_after_exit": true,
+  "stop_confirmed": true,
+  "page_errors": []
+}
